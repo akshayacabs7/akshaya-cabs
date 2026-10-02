@@ -13,16 +13,26 @@ import { primaryWhatsAppUrl } from "@/lib/whatsapp";
 
 // ── Nav Links ─────────────────────────────────────────────────
 
+// ── Nav Links — blueprint order: Home, Services, Tour Packages, Fleet, Pickup & Drop, About, Contact
+// Reviews and Blog accessible via footer; too many items for desktop primary nav
+
 const NAV_LINKS = [
-  { href: "/",               label: "Home" },
-  { href: "/about",          label: "About" },
-  { href: "/services",       label: "Services" },
-  { href: "/tour-packages",  label: "Tour Packages" },
-  { href: "/fleet",          label: "Fleet" },
-  { href: "/reviews",        label: "Reviews" },
-  { href: "/blog",           label: "Blog" },
-  { href: "/contact",        label: "Contact" },
+  { href: "/",              label: "Home" },
+  { href: "/services",      label: "Services" },
+  { href: "/tour-packages", label: "Tour Packages" },
+  { href: "/fleet",         label: "Fleet" },
+  { href: "/pickup-drop",   label: "Pickup & Drop" },
+  { href: "/about",         label: "About" },
+  { href: "/contact",       label: "Contact" },
 ] as const;
+
+// Extra links shown in mobile drawer only (not cluttering desktop nav)
+const DRAWER_EXTRA_LINKS = [
+  { href: "/reviews",           label: "Reviews" },
+  { href: "/blog",              label: "Blog" },
+  { href: "/request-a-quote",   label: "Request a Quote" },
+] as const;
+
 
 // ── Types ─────────────────────────────────────────────────────
 
@@ -148,6 +158,13 @@ export default function Header() {
           {/* ── Desktop CTAs ── */}
           <div className="svtt-header__actions">
             <a
+              href="/request-a-quote"
+              className="btn btn-ghost svtt-header__quote-btn"
+              aria-label="Request a cab or tour quote"
+            >
+              Get a Quote
+            </a>
+            <a
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
@@ -242,6 +259,23 @@ export default function Header() {
               </li>
             ))}
           </ul>
+          {/* Extra drawer links: Reviews, Blog, Request a Quote */}
+          <div className="svtt-drawer__extra" aria-label="More pages">
+            <p className="svtt-drawer__extra-label">More</p>
+            <ul role="list" className="svtt-drawer__nav svtt-drawer__nav--extra">
+              {DRAWER_EXTRA_LINKS.map((link) => (
+                <li key={link.href}>
+                  <NavLinkItem
+                    href={link.href}
+                    label={link.label}
+                    pathname={pathname}
+                    onClick={() => setMenuOpen(false)}
+                    className="svtt-drawer__nav-link svtt-drawer__nav-link--extra"
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
         </nav>
 
         {/* Drawer CTAs */}

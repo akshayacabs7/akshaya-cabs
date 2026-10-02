@@ -549,6 +549,44 @@ img {
   min-height: 38px !important;
 }
 
+.svtt-header__quote-btn {
+  font-size: 0.8125rem !important;
+  padding: 0.5rem 1rem !important;
+  min-height: 38px !important;
+  /* Override ghost defaults for light header bg */
+  background-color: transparent !important;
+  color: var(--svtt-primary) !important;
+  border-color: var(--svtt-primary) !important;
+  backdrop-filter: none !important;
+}
+.svtt-header__quote-btn:hover {
+  background-color: var(--svtt-primary) !important;
+  color: #ffffff !important;
+}
+
+/* ── Drawer extras ──────────────────────────────────────────── */
+
+.svtt-drawer__extra {
+  border-top: 1px solid var(--svtt-border);
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.svtt-drawer__extra-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--svtt-text-subtle);
+  padding: 0.25rem 1.25rem 0.125rem;
+  margin: 0;
+}
+
+.svtt-drawer__nav--extra .svtt-drawer__nav-link--extra {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
 /* ── Hamburger Button ───────────────────────────────────────── */
 
 .svtt-hamburger {
