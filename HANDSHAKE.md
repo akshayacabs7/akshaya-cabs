@@ -14,11 +14,11 @@
 
 ```
 PHASE         : DEVELOPMENT — IN PROGRESS
-CURRENT TASK  : Task 04 — Shared UI Components
-LAST COMPLETED: Task 03 — Centralized Business Data & WhatsApp Library ✅
+CURRENT TASK  : Task 05 — Global Footer & Floating Contact Elements
+LAST COMPLETED: Task 04 — Global Header & Navigation ✅
 LAST UPDATED  : 2026-10-02
 ASSETS        : 51/51 COMPLETE ✅ — All images verified and approved
-COMMIT        : 389c176 — feat: Task 03 - Centralized business data & WhatsApp library
+COMMIT        : 803e377 — feat: Task 04 - Global header & navigation
 ```
 
 ---
@@ -261,16 +261,27 @@ d:\Projects_OnlyAI\svtt_hemant\
 ---
 
 ### Task 04 — Global Header & Navigation
-| Status | ⬜ NOT STARTED |
+| Status | ✅ COMPLETE |
 |---|---|
-| Completed date | — |
-| Notes | Depends on Tasks 02 + 03 |
+| Completed date | 2026-10-02 |
+| Commit | `803e377` |
+| Notes | 0 TS errors \| Build: PASSES |
 
-**What this task does:**
-- Desktop sticky nav: Logo, 7 nav links, WhatsApp CTA, Call CTA
-- Mobile hamburger drawer (animated, keyboard accessible)
-- Active page state, Escape to close, focus trap
-- prefers-reduced-motion support
+**What was done:**
+- ✅ `src/components/layout/Header.tsx` — full header component
+- ✅ Desktop sticky nav: Logo + 8 links + WhatsApp + Call CTAs
+- ✅ Nav: Home, About, Services, Tour Packages, Fleet, Reviews, Blog, Contact
+- ✅ Active route via `usePathname()` (aria-current=page)
+- ✅ Animated hamburger (3-bar → X on open)
+- ✅ Mobile drawer: slide-in, min(360px, 90vw)
+- ✅ Escape key closes drawer, focus returns to hamburger
+- ✅ Focus trap (Tab + Shift+Tab inside drawer)
+- ✅ Body scroll lock when drawer open
+- ✅ Overlay backdrop with blur (click to dismiss)
+- ✅ Fully accessible: role=dialog, aria-modal, aria-expanded, aria-current
+- ✅ `prefers-reduced-motion`: all transitions disabled
+- ✅ All data from BUSINESS (no hard-coded phones)
+- ✅ layout.tsx: Header + `<main id=main-content>` wrapper
 
 ---
 
@@ -486,7 +497,7 @@ If you are an AI reading this in a new session:
 | 2026-10-02 | Session 3 | Task 01 COMPLETE. Next.js 16.3.8 scaffolded. First commit: 32c6724. |
 | 2026-10-02 | Session 3 | Task 02 COMPLETE. Design system: Tailwind v4 @theme, Playfair+Inter. Commit: 761ccd1. |
 | 2026-10-02 | Session 3 | Task 03 COMPLETE. Types, data layer (7 vehicles, 10 packages, 9 services, 8 blog stubs), WhatsApp lib, SEO lib. Commit: 389c176. |
-| 2026-10-02 | Session 3 | PRICE_FLAG RESOLVED: SVTT0007 Innova corrected from Rs.1,000 → Rs.10,000 (owner confirmed). Commit: e40425a. |
+| 2026-10-02 | Session 3 | Task 04 COMPLETE. Header: sticky nav, 8 links, WhatsApp+Call CTAs, animated hamburger, mobile drawer, focus trap, Escape key, reduced-motion. Commit: 803e377. |
 
 ---
 
