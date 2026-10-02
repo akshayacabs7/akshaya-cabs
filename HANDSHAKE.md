@@ -14,11 +14,11 @@
 
 ```
 PHASE         : DEVELOPMENT — IN PROGRESS
-CURRENT TASK  : Task 05 — Global Footer & Floating Contact Elements
-LAST COMPLETED: Task 04 — Global Header & Navigation ✅
+CURRENT TASK  : Task 06 — Homepage: Hero Section
+LAST COMPLETED: Task 05 — Global Footer & Floating Contact Elements ✅
 LAST UPDATED  : 2026-10-02
 ASSETS        : 51/51 COMPLETE ✅ — All images verified and approved
-COMMIT        : 803e377 — feat: Task 04 - Global header & navigation
+COMMIT        : 2ce2718 — feat: Task 05 - Footer & floating contact elements
 ```
 
 ---
@@ -286,17 +286,24 @@ d:\Projects_OnlyAI\svtt_hemant\
 ---
 
 ### Task 05 — Global Footer & Floating Contact Elements
-| Status | ⬜ NOT STARTED |
+| Status | ✅ COMPLETE |
 |---|---|
-| Completed date | — |
-| Notes | Depends on Tasks 02 + 03 |
+| Completed date | 2026-10-02 |
+| Commit | `2ce2718` |
+| Notes | 0 warnings \| 0 TS errors \| Build: PASSES |
 
-**What this task does:**
-- Full footer (Company, Travel, Contact, Social, Legal columns)
-- WhatsApp floating button (fixed, safe-area aware)
-- Mobile-only sticky bottom bar: Call | WhatsApp | Get Quote
-- Social links component
-- Root layout.tsx assembled
+**What was done:**
+- ✅ `src/components/layout/Footer.tsx` — 5-column responsive footer
+- ✅ Brand col: logo, tagline, social icons (IG/FB/X/WA), Google ★★★★★ badge
+- ✅ Tour Packages col (6 links) + Services col (7 links) + Quick Links (7 links)
+- ✅ Contact col: 2 phones, WhatsApp, email, address (Maps link), 24/7 badge
+- ✅ Legal bar: copyright, toll/parking note, Privacy + T&C links
+- ✅ Deep maroon gradient bg + gold accent top border
+- ✅ `src/components/layout/FloatingContact.tsx` ('use client')
+- ✅ Floating WhatsApp FAB: scale+fade in after 2s, pulse ring, tooltip
+- ✅ Mobile sticky bottom bar: Call \| WhatsApp \| Get Quote (56px, safe-area)
+- ✅ All animations disabled under prefers-reduced-motion
+- ✅ layout.tsx: Footer + FloatingContact added to root body
 
 ---
 
@@ -497,7 +504,8 @@ If you are an AI reading this in a new session:
 | 2026-10-02 | Session 3 | Task 01 COMPLETE. Next.js 16.3.8 scaffolded. First commit: 32c6724. |
 | 2026-10-02 | Session 3 | Task 02 COMPLETE. Design system: Tailwind v4 @theme, Playfair+Inter. Commit: 761ccd1. |
 | 2026-10-02 | Session 3 | Task 03 COMPLETE. Types, data layer (7 vehicles, 10 packages, 9 services, 8 blog stubs), WhatsApp lib, SEO lib. Commit: 389c176. |
-| 2026-10-02 | Session 3 | Task 04 COMPLETE. Header: sticky nav, 8 links, WhatsApp+Call CTAs, animated hamburger, mobile drawer, focus trap, Escape key, reduced-motion. Commit: 803e377. |
+| 2026-10-02 | Session 3 | Task 04 COMPLETE. Header: sticky nav, 8 links, WhatsApp+Call CTAs, animated hamburger, mobile drawer, focus trap. Commit: 803e377. |
+| 2026-10-02 | Session 3 | Task 05 COMPLETE. Footer: 5-col grid, social, contact, legal. WhatsApp FAB + pulse ring. Mobile bottom bar (Call/WA/Quote). Commit: 2ce2718. |
 
 ---
 
