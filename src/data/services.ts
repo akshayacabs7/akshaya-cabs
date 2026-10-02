@@ -13,7 +13,7 @@ export const SERVICES: Service[] = [
     description:
       "Reliable and affordable cab services for all your local travel needs in Tirupati. Whether it is a temple visit, city sightseeing, hospital transfer, or a local errand, our well-maintained AC cabs and professional drivers are at your service.",
     icon: "MapPin",
-    image: "/images/vehicles/innova-crysta.webp",
+    image: "/images/services/local-cab-services.webp",
     features: [
       "All major Tirupati landmarks covered",
       "Temple sightseeing routes",
@@ -32,7 +32,7 @@ export const SERVICES: Service[] = [
     description:
       "Dedicated Tirupati to Tirumala taxi service by experienced local drivers who know the ghat roads perfectly. We ensure a safe, comfortable, and timely journey for your Tirumala darshan, available at any hour of the day.",
     icon: "Mountain",
-    image: "/images/destinations/tirumala-venkateswara.webp",
+    image: "/images/services/tirumala-taxi-services.webp",
     features: [
       "Tirupati to Tirumala and back",
       "Experienced ghat road drivers",
@@ -51,7 +51,7 @@ export const SERVICES: Service[] = [
     description:
       "Curated pilgrimage tour packages covering the most sacred temples in and around Tirupati and across South India. From local Tirupati temple darshans to multi-day South India pilgrimage tours — we have a package for every devotee.",
     icon: "Landmark",
-    image: "/images/packages/svtt0003-tirumala-kanipakam-padmavathi.webp",
+    image: "/images/services/temple-tour-packages.webp",
     features: [
       "10 curated pilgrimage packages",
       "Local, nearby, and outstation options",
@@ -70,7 +70,7 @@ export const SERVICES: Service[] = [
     description:
       "Intercity travel from Tirupati to Chennai, Bangalore, Hyderabad, Vijayawada, and all major cities across Andhra Pradesh, Tamil Nadu, Karnataka, Telangana, and Kerala. Comfortable AC vehicles with experienced long-distance drivers.",
     icon: "Navigation",
-    image: "/images/vehicles/innova.webp",
+    image: "/images/services/outstation-cab-services.webp",
     features: [
       "All major cities from Tirupati",
       "One-way and round-trip options",
@@ -89,7 +89,7 @@ export const SERVICES: Service[] = [
     description:
       "Punctual and professional airport transfer service for Tirupati Airport. We track your flight, ensure on-time pickup, and handle your luggage with care. Available for early morning, late night, and all scheduled flights.",
     icon: "Plane",
-    image: "/images/about/tirupati-airport-transfer.webp",
+    image: "/images/services/airport-pickup-drop.webp",
     features: [
       "Tirupati Airport transfers",
       "Flight tracking & on-time pickup",
@@ -108,7 +108,7 @@ export const SERVICES: Service[] = [
     description:
       "Hassle-free cab service to and from Tirupati Railway Station. Whether you are arriving for a Tirumala pilgrimage or departing after your visit, our drivers will be waiting for you at the station with a clean, comfortable vehicle.",
     icon: "Train",
-    image: "/images/vehicles/dzire.webp",
+    image: "/images/services/railway-station-transfers.webp",
     features: [
       "Tirupati Railway Station pickup & drop",
       "Train tracking for on-time arrival",
@@ -127,7 +127,7 @@ export const SERVICES: Service[] = [
     description:
       "Spacious and comfortable Tempo Traveller rental for group travel in and around Tirupati. Available in 12+1 and 17+1 seating configurations, our Tempo Travellers are ideal for pilgrimage groups, family gatherings, corporate outings, and school trips.",
     icon: "Bus",
-    image: "/images/vehicles/tempo-traveller-12.webp",
+    image: "/images/services/tempo-traveller-rental.webp",
     features: [
       "12+1 and 17+1 seating options",
       "Fully AC with push-back seats",
@@ -146,7 +146,7 @@ export const SERVICES: Service[] = [
     description:
       "Have a unique travel requirement? We offer fully customized tour itineraries for individuals, families, and groups. Tell us your destinations, duration, and budget, and we will plan the perfect trip for you across South India.",
     icon: "Route",
-    image: "/images/packages/svtt0007-kanipakam-golden-temple-arunachalam.webp",
+    image: "/images/services/customized-tours.webp",
     features: [
       "Tailor-made itineraries",
       "Any destinations across South India",
@@ -165,7 +165,7 @@ export const SERVICES: Service[] = [
     description:
       "Multi-state spiritual journeys covering the most sacred pilgrimage sites across Andhra Pradesh, Tamil Nadu, Karnataka, Kerala, and Telangana. Our South India pilgrimage tours are designed for devoted pilgrims seeking a complete spiritual experience.",
     icon: "Compass",
-    image: "/images/destinations/arunachalam-temple.webp",
+    image: "/images/services/south-india-pilgrimage-tours.webp",
     features: [
       "Multi-state pilgrimage routes",
       "Rameshwaram, Madurai, Kanchipuram & more",
