@@ -1,9 +1,12 @@
 // Homepage — Sri Vinayaka Tours & Travels
 // Sri Vinayaka Tours & Travels — svtttirupati.com
-// Task 06: Hero section live. Remaining sections added in Tasks 07-10.
 
 import type { Metadata } from "next";
-import HeroSection from "@/components/sections/HeroSection";
+import HeroSection            from "@/components/sections/HeroSection";
+import WhyChooseSection       from "@/components/sections/WhyChooseSection";
+import FeaturedPackagesSection from "@/components/sections/FeaturedPackagesSection";
+import ServicesSection        from "@/components/sections/ServicesSection";
+import AboutSnippetSection    from "@/components/sections/AboutSnippetSection";
 
 export const metadata: Metadata = {
   title: "Sri Vinayaka Tours & Travels | Tirupati Cab Service & Temple Tours",
@@ -23,7 +26,10 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      {/* Tasks 07-10 sections will be added here */}
+      <WhyChooseSection />
+      <FeaturedPackagesSection />
+      <ServicesSection />
+      <AboutSnippetSection />
     </>
   );
 }
