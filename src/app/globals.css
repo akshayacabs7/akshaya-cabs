@@ -6180,3 +6180,293 @@ img {
     opacity: 1;
   }
 }
+
+/* ============================================================
+   LEGAL PAGES — Task 19 (Privacy Policy, Terms & Conditions)
+   ============================================================ */
+
+.svtt-legal-page {
+  padding: 4rem 0 5rem;
+  background: var(--svtt-bg);
+}
+
+.svtt-legal-page__content {
+  max-width: 780px;
+}
+
+.svtt-legal-page__header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--svtt-border);
+}
+
+.svtt-legal-page__header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: var(--svtt-text);
+  margin: 0 0 0.625rem 0;
+}
+
+.svtt-legal-page__meta {
+  font-size: 0.875rem;
+  color: var(--svtt-text-subtle);
+  margin: 0;
+}
+
+.svtt-legal-page__content section {
+  margin-bottom: 2rem;
+}
+
+.svtt-legal-page__content h2 {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--svtt-text);
+  margin: 0 0 0.75rem 0;
+  padding-bottom: 0.375rem;
+  border-bottom: 1px solid var(--svtt-border);
+}
+
+.svtt-legal-page__content p {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--svtt-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.svtt-legal-page__content ul {
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.svtt-legal-page__content li {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--svtt-text-muted);
+  margin-bottom: 0.375rem;
+}
+
+.svtt-legal-page__content a {
+  color: var(--svtt-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.svtt-legal-page__content address {
+  font-style: normal;
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: var(--svtt-text-muted);
+  background: var(--svtt-bg-alt);
+  border: 1px solid var(--svtt-border);
+  border-radius: var(--svtt-radius-card);
+  padding: 1.25rem 1.5rem;
+  margin-top: 0.75rem;
+}
+
+.svtt-legal-page__footer-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid var(--svtt-border);
+}
+
+.svtt-legal-page__footer-links a {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--svtt-primary);
+  text-decoration: none;
+}
+
+.svtt-legal-page__footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   BLOG PAGE — Task 19
+   ============================================================ */
+
+.svtt-blog-page__hero {
+  background: linear-gradient(135deg, var(--svtt-primary) 0%, #3d0e12 100%);
+}
+
+.svtt-blog__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .svtt-blog__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .svtt-blog__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.svtt-blog__card {
+  display: flex;
+  flex-direction: column;
+  background: var(--svtt-bg-card);
+  border: 1px solid var(--svtt-border);
+  border-radius: var(--svtt-radius-card);
+  padding: 1.5rem;
+  box-shadow: var(--svtt-shadow-card);
+  transition: box-shadow var(--svtt-transition-base), transform var(--svtt-transition-base);
+}
+
+.svtt-blog__card:hover {
+  box-shadow: var(--svtt-shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+.svtt-blog__card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.svtt-blog__category {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--svtt-primary);
+  background: rgba(141,28,34,0.08);
+  padding: 0.2rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.svtt-blog__read-time {
+  font-size: 0.75rem;
+  color: var(--svtt-text-subtle);
+}
+
+.svtt-blog__card-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0 0 0.625rem 0;
+}
+
+.svtt-blog__card-link {
+  color: var(--svtt-text);
+  text-decoration: none;
+  transition: color var(--svtt-transition-fast);
+}
+
+.svtt-blog__card-link:hover {
+  color: var(--svtt-primary);
+}
+
+.svtt-blog__card-summary {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--svtt-text-muted);
+  margin: 0;
+  flex: 1;
+}
+
+.svtt-blog__card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--svtt-border);
+}
+
+.svtt-blog__date {
+  font-size: 0.75rem;
+  color: var(--svtt-text-subtle);
+}
+
+.svtt-blog__read-more {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--svtt-primary);
+  text-decoration: none;
+  transition: gap var(--svtt-transition-fast);
+}
+
+.svtt-blog__read-more:hover {
+  text-decoration: underline;
+}
+
+.svtt-blog-cta {
+  background: var(--svtt-bg-alt);
+}
+
+/* ============================================================
+   UTILITIES — Task 19
+   ============================================================ */
+
+/* Screen-reader only text */
+.svtt-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ── Shared page hero (inner pages with maroon/dark header) ── */
+
+.svtt-page-hero {
+  padding: 4rem 0 3.5rem;
+  background: linear-gradient(135deg, var(--svtt-primary) 0%, #2e0a0d 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.svtt-page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 50% 120%, rgba(245,158,11,0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.svtt-page-hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.svtt-page-hero__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--svtt-accent);
+  margin-bottom: 0.625rem;
+}
+
+.svtt-page-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0 0 1rem 0;
+}
+
+.svtt-page-hero__subtitle {
+  font-size: 1.0625rem;
+  color: rgba(255,255,255,0.75);
+  max-width: 560px;
+  line-height: 1.65;
+  margin: 0;
+}
