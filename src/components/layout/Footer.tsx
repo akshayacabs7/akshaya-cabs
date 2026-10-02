@@ -133,6 +133,7 @@ export default function Footer() {
               width={160}
               height={52}
               className="svtt-footer__logo"
+              unoptimized
             />
           </Link>
           <p className="svtt-footer__tagline">{BUSINESS.tagline}</p>

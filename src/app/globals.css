@@ -866,20 +866,23 @@ img {
 .svtt-footer {
   background: linear-gradient(160deg, #1a0d0e 0%, #2d1215 40%, #1a0d0e 100%);
   color: rgba(255,255,255,0.85);
-  padding-top: 4rem;
+  padding-top: 0;
   padding-bottom: 0;
   position: relative;
   overflow: hidden;
 }
 
 
-/* subtle gold accent line at top */
-.svtt-footer::before {
+/* subtle gold accent line at top of main grid — after pre-footer strip */
+.svtt-footer__grid {
+  position: relative;
+}
+.svtt-footer__grid::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--svtt-accent), var(--svtt-gold-400, #fbbf24), var(--svtt-accent), transparent);
+  height: 0;
+  background: none;
 }
 
 /* ── Grid ─────────────────────────────────────────────────── */
@@ -888,6 +891,7 @@ img {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2.5rem;
+  padding-top: 3.5rem;
   padding-bottom: 3rem;
 }
 
@@ -929,8 +933,7 @@ img {
   width: auto;
   display: block;
   object-fit: contain;
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .svtt-footer__tagline {
