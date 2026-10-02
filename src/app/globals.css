@@ -816,6 +816,53 @@ img {
    FOOTER — Task 05
    ============================================================ */
 
+/* ── Pre-footer CTA strip ────────────────────────────────────── */
+
+.svtt-footer__prefooter {
+  background: var(--svtt-primary);
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.svtt-footer__prefooter-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .svtt-footer__prefooter-inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.svtt-footer__prefooter-label {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.svtt-footer__prefooter-sub {
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.7);
+  margin: 0.2rem 0 0 0;
+}
+
+.svtt-footer__prefooter-btns {
+  display: flex;
+  gap: 0.625rem;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+/* ── Footer body ─────────────────────────────────────────────── */
+
 .svtt-footer {
   background: linear-gradient(160deg, #1a0d0e 0%, #2d1215 40%, #1a0d0e 100%);
   color: rgba(255,255,255,0.85);
@@ -824,6 +871,7 @@ img {
   position: relative;
   overflow: hidden;
 }
+
 
 /* subtle gold accent line at top */
 .svtt-footer::before {
