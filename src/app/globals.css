@@ -2953,3 +2953,374 @@ img {
   }
   .svtt-pkgd-hero { transition: none; }
 }
+
+/* ============================================================
+   SERVICES PAGE — Task 09
+   /services
+   ============================================================ */
+
+/* ── Page hero ───────────────────────────────────────────────── */
+
+.svtt-svcpage-hero {
+  background: linear-gradient(135deg, #1e2126 0%, #2c3038 100%);
+  padding: 5rem 0 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.svtt-svcpage-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 80% 110%, rgba(141,28,34,0.25) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 70% at 5% -10%, rgba(245,158,11,0.07) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.svtt-svcpage-hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.svtt-svcpage-hero__label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--svtt-accent);
+  margin-bottom: 0.75rem;
+}
+
+.svtt-svcpage-hero__h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0 0 1rem 0;
+}
+
+.svtt-svcpage-hero__desc {
+  font-size: 1.0625rem;
+  color: rgba(255,255,255,0.72);
+  max-width: 640px;
+  line-height: 1.65;
+  margin: 0 0 2rem 0;
+}
+
+.svtt-svcpage-hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.svtt-svcpage-hero__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.svtt-svcpage-hero__stat-val {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--svtt-accent);
+  line-height: 1.1;
+}
+
+.svtt-svcpage-hero__stat-label {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+/* ── Service Cards Grid ──────────────────────────────────────── */
+
+.svtt-svc-list {
+  padding-block: 4rem 2rem;
+  background: var(--svtt-bg);
+}
+
+.svtt-svc-list__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Individual service card — alternating layout */
+.svtt-svc-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+  background: var(--svtt-bg);
+  border: 1px solid var(--svtt-border);
+  border-radius: var(--svtt-radius-card);
+  overflow: hidden;
+  box-shadow: var(--svtt-shadow-card);
+  transition: box-shadow var(--svtt-transition-base);
+}
+
+.svtt-svc-card:hover {
+  box-shadow: var(--svtt-shadow-card-hover);
+}
+
+@media (min-width: 768px) {
+  .svtt-svc-card {
+    grid-template-columns: 380px 1fr;
+  }
+  /* Even cards: flip image to right */
+  .svtt-svc-card:nth-child(even) {
+    grid-template-columns: 1fr 380px;
+  }
+  .svtt-svc-card:nth-child(even) .svtt-svc-card__img-wrap {
+    order: 2;
+  }
+  .svtt-svc-card:nth-child(even) .svtt-svc-card__body {
+    order: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .svtt-svc-card {
+    grid-template-columns: 420px 1fr;
+  }
+  .svtt-svc-card:nth-child(even) {
+    grid-template-columns: 1fr 420px;
+  }
+}
+
+/* Image column */
+.svtt-svc-card__img-wrap {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+  background: var(--svtt-bg-dark);
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .svtt-svc-card__img-wrap {
+    height: 100%;
+    min-height: 300px;
+  }
+}
+
+.svtt-svc-card__img {
+  object-fit: cover;
+  transition: transform 600ms ease;
+}
+
+.svtt-svc-card:hover .svtt-svc-card__img {
+  transform: scale(1.04);
+}
+
+.svtt-svc-card__img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(0,0,0,0.45) 100%
+  );
+  pointer-events: none;
+}
+
+/* Icon badge over image */
+.svtt-svc-card__icon-badge {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* Body column */
+.svtt-svc-card__body {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .svtt-svc-card__body {
+    padding: 2rem;
+  }
+}
+
+.svtt-svc-card__number {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--svtt-accent);
+}
+
+.svtt-svc-card__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  color: var(--svtt-text);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.svtt-svc-card__desc {
+  font-size: 0.9375rem;
+  line-height: 1.72;
+  color: var(--svtt-text-muted);
+  margin: 0;
+}
+
+/* Features list */
+.svtt-svc-card__features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.svtt-svc-card__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--svtt-text-muted);
+  line-height: 1.4;
+}
+
+.svtt-svc-card__feature-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--svtt-accent);
+  flex-shrink: 0;
+  margin-top: 0.38rem;
+}
+
+/* Vehicle chips */
+.svtt-svc-card__vehicles-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--svtt-text-subtle);
+  margin-bottom: 0.35rem;
+}
+
+.svtt-svc-card__vehicles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.svtt-svc-card__vehicle-chip {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--svtt-text-muted);
+  background: var(--svtt-bg-alt);
+  border: 1px solid var(--svtt-border);
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+/* CTA row */
+.svtt-svc-card__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--svtt-border);
+  margin-top: 0.5rem;
+}
+
+/* ── Services bottom CTA strip ───────────────────────────────── */
+
+.svtt-svcpage-cta {
+  background: linear-gradient(135deg, var(--svtt-primary) 0%, #5a0f14 100%);
+  padding: 3.5rem 0;
+  text-align: center;
+}
+
+.svtt-svcpage-cta__heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 3vw, 1.875rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.75rem 0;
+}
+
+.svtt-svcpage-cta__sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.72);
+  max-width: 500px;
+  margin: 0 auto 1.75rem;
+  line-height: 1.6;
+}
+
+.svtt-svcpage-cta__btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Trust badges strip (dark band) ─────────────────────────── */
+
+.svtt-svcpage-trust {
+  background: var(--svtt-bg-dark);
+  padding: 2rem 0;
+}
+
+.svtt-svcpage-trust__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 2.5rem;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.svtt-svcpage-trust__item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.svtt-svcpage-trust__icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+/* ── Reduced motion ─────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .svtt-svc-card:hover .svtt-svc-card__img {
+    transform: none;
+  }
+}
