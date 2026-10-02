@@ -3324,3 +3324,485 @@ img {
     transform: none;
   }
 }
+
+/* ============================================================
+   FLEET PAGE — Task 10
+   /fleet
+   ============================================================ */
+
+/* ── Page hero ───────────────────────────────────────────────── */
+
+.svtt-fleet-hero {
+  background: linear-gradient(135deg, #1e2126 0%, #2c3038 100%);
+  padding: 5rem 0 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.svtt-fleet-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 65% 55% at 90% 110%, rgba(245,158,11,0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 60% at 0% -10%, rgba(141,28,34,0.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.svtt-fleet-hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.svtt-fleet-hero__label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--svtt-accent);
+  margin-bottom: 0.75rem;
+}
+
+.svtt-fleet-hero__h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0 0 1rem 0;
+}
+
+.svtt-fleet-hero__desc {
+  font-size: 1.0625rem;
+  color: rgba(255,255,255,0.72);
+  max-width: 600px;
+  line-height: 1.65;
+  margin: 0 0 2rem 0;
+}
+
+.svtt-fleet-hero__note {
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.42);
+  font-style: italic;
+}
+
+/* ── Category filter tabs ────────────────────────────────────── */
+
+.svtt-fleet-filters {
+  background: var(--svtt-bg);
+  border-bottom: 1px solid var(--svtt-border);
+  position: sticky;
+  top: 64px;
+  z-index: 10;
+}
+
+.svtt-fleet-filters__inner {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-block: 0.75rem;
+}
+
+.svtt-fleet-filters__inner::-webkit-scrollbar { display: none; }
+
+.svtt-fleet-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1.125rem;
+  border-radius: var(--svtt-radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--svtt-text-muted);
+  background: transparent;
+  border: 1.5px solid var(--svtt-border);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--svtt-transition-base);
+  min-height: 40px;
+}
+
+.svtt-fleet-filter-btn:hover {
+  border-color: var(--svtt-primary);
+  color: var(--svtt-primary);
+  background: rgba(141,28,34,0.04);
+}
+
+.svtt-fleet-filter-btn.is-active {
+  background: var(--svtt-primary);
+  border-color: var(--svtt-primary);
+  color: #ffffff;
+}
+
+/* ── Vehicle gallery grid ────────────────────────────────────── */
+
+.svtt-fleet-section {
+  padding-block: 3rem 2rem;
+  background: var(--svtt-bg-alt);
+}
+
+.svtt-fleet-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .svtt-fleet-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .svtt-fleet-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ── Vehicle card ────────────────────────────────────────────── */
+
+.svtt-veh-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--svtt-bg);
+  border-radius: var(--svtt-radius-card);
+  border: 1px solid var(--svtt-border);
+  box-shadow: var(--svtt-shadow-card);
+  overflow: hidden;
+  transition: box-shadow var(--svtt-transition-base), transform var(--svtt-transition-base);
+}
+
+.svtt-veh-card:hover {
+  box-shadow: var(--svtt-shadow-card-hover);
+  transform: translateY(-4px);
+}
+
+/* Image */
+.svtt-veh-card__img-wrap {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: var(--svtt-bg-dark);
+  flex-shrink: 0;
+}
+
+.svtt-veh-card__img {
+  object-fit: cover;
+  transition: transform 600ms ease;
+}
+
+.svtt-veh-card:hover .svtt-veh-card__img {
+  transform: scale(1.05);
+}
+
+/* Overlay badges on image */
+.svtt-veh-card__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  pointer-events: none;
+}
+
+.svtt-veh-card__label-badge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  white-space: nowrap;
+  background: rgba(141,28,34,0.85);
+  color: #fff;
+}
+
+.svtt-veh-card__label-badge--sedan  { background: rgba(30,33,38,0.85); }
+.svtt-veh-card__label-badge--suv    { background: rgba(141,28,34,0.85); }
+.svtt-veh-card__label-badge--van    { background: rgba(180,83,9,0.85); }
+.svtt-veh-card__label-badge--tempo  { background: rgba(37,99,235,0.85); }
+
+.svtt-veh-card__ac-badge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  background: rgba(21,128,61,0.85);
+  color: #fff;
+  padding: 0.25rem 0.6rem;
+  border-radius: 9999px;
+  backdrop-filter: blur(4px);
+}
+
+/* Capacity chip on bottom of image */
+.svtt-veh-card__capacity-wrap {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+}
+
+.svtt-veh-card__capacity {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 0.3rem 0.7rem;
+  border-radius: 9999px;
+  backdrop-filter: blur(4px);
+  white-space: nowrap;
+}
+
+/* Card body */
+.svtt-veh-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  padding: 1.25rem;
+  flex: 1;
+}
+
+.svtt-veh-card__name {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--svtt-text);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.svtt-veh-card__variants {
+  font-size: 0.8125rem;
+  color: var(--svtt-text-subtle);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.svtt-veh-card__best-for {
+  font-size: 0.875rem;
+  color: var(--svtt-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Features */
+.svtt-veh-card__features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.svtt-veh-card__feat-chip {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--svtt-text-muted);
+  background: var(--svtt-bg-alt);
+  border: 1px solid var(--svtt-border);
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+}
+
+/* Pricing */
+.svtt-veh-card__pricing {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: var(--svtt-bg-alt);
+  border-radius: 0.5rem;
+  border: 1px solid var(--svtt-border);
+}
+
+.svtt-veh-card__price-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.svtt-veh-card__price-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--svtt-text-subtle);
+}
+
+.svtt-veh-card__price-val {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--svtt-primary);
+  line-height: 1.1;
+}
+
+.svtt-veh-card__price-sub {
+  font-size: 0.6rem;
+  color: var(--svtt-text-subtle);
+}
+
+.svtt-veh-card__km-limit {
+  font-size: 0.75rem;
+  color: var(--svtt-text-subtle);
+  text-align: center;
+  grid-column: 1 / -1;
+  padding-top: 0.35rem;
+  border-top: 1px solid var(--svtt-border);
+}
+
+/* CTA */
+.svtt-veh-card__cta {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--svtt-border);
+}
+
+.svtt-veh-card__cta .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ── Vehicle comparison table ────────────────────────────────── */
+
+.svtt-fleet-compare {
+  padding: 3rem 0 5rem;
+  background: var(--svtt-bg);
+}
+
+.svtt-fleet-compare__wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--svtt-radius-card);
+  border: 1px solid var(--svtt-border);
+  box-shadow: var(--svtt-shadow-card);
+}
+
+.svtt-fleet-compare__note {
+  font-size: 0.8125rem;
+  color: var(--svtt-text-subtle);
+  font-style: italic;
+  margin: 0 0 1rem 0;
+  text-align: center;
+}
+
+.svtt-fleet-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.svtt-fleet-table thead {
+  background: var(--svtt-primary);
+  color: #ffffff;
+}
+
+.svtt-fleet-table th {
+  text-align: left;
+  padding: 0.875rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.svtt-fleet-table th:first-child {
+  min-width: 170px;
+}
+
+.svtt-fleet-table tbody tr {
+  border-top: 1px solid var(--svtt-border);
+  transition: background var(--svtt-transition-fast);
+}
+
+.svtt-fleet-table tbody tr:first-child { border-top: none; }
+.svtt-fleet-table tbody tr:hover { background: rgba(141,28,34,0.025); }
+
+.svtt-fleet-table td {
+  padding: 0.875rem 1rem;
+  color: var(--svtt-text);
+  vertical-align: middle;
+}
+
+.svtt-fleet-table__veh-name {
+  font-weight: 700;
+  color: var(--svtt-text);
+  display: block;
+}
+
+.svtt-fleet-table__veh-label {
+  font-size: 0.75rem;
+  color: var(--svtt-text-subtle);
+  display: block;
+  margin-top: 0.15rem;
+}
+
+.svtt-fleet-table__price {
+  font-weight: 800;
+  color: var(--svtt-primary);
+  font-size: 0.9375rem;
+}
+
+.svtt-fleet-table__badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: 9999px;
+  white-space: nowrap;
+}
+
+.svtt-fleet-table__badge--ac {
+  background: rgba(21,128,61,0.1);
+  color: #15803d;
+  border: 1px solid rgba(21,128,61,0.25);
+}
+
+.svtt-fleet-table__cta {
+  display: flex;
+}
+
+/* ── Bottom CTA strip ────────────────────────────────────────── */
+
+.svtt-fleet-cta {
+  background: linear-gradient(135deg, var(--svtt-primary) 0%, #5a0f14 100%);
+  padding: 3.5rem 0;
+  text-align: center;
+}
+
+.svtt-fleet-cta__heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 3vw, 1.875rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.75rem 0;
+}
+
+.svtt-fleet-cta__sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.72);
+  max-width: 500px;
+  margin: 0 auto 1.75rem;
+  line-height: 1.6;
+}
+
+.svtt-fleet-cta__btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Reduced motion ─────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .svtt-veh-card:hover,
+  .svtt-veh-card:hover .svtt-veh-card__img {
+    transform: none;
+    transition: none;
+  }
+}
