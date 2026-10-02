@@ -3186,11 +3186,11 @@ img {
   position: relative;
   height: 300px;
   overflow: hidden;
-  background: linear-gradient(135deg, #1a0d0e 0%, #2d1215 50%, #111 100%);
+  background-color: #111;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   align-self: stretch;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 @media (min-width: 768px) {
@@ -3201,15 +3201,12 @@ img {
   }
 }
 
-.svtt-svc-card__img {
-  object-fit: contain !important;
-  object-position: center center !important;
-  padding: 0.75rem;
-  transition: transform 600ms ease;
+.svtt-svc-card__img-wrap {
+  transition: background-size 600ms ease;
 }
 
-.svtt-svc-card:hover .svtt-svc-card__img {
-  transform: scale(1.04);
+.svtt-svc-card:hover .svtt-svc-card__img-wrap {
+  background-size: 108%;
 }
 
 .svtt-svc-card__img-overlay {

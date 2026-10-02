@@ -3,7 +3,7 @@
 // Task 09: Visually rich service directory — all 9 services with alternating image layout
 
 import type { Metadata } from "next";
-import Image from "next/image";
+
 import Link from "next/link";
 import { SERVICES } from "@/data/services";
 import { VEHICLES } from "@/data/vehicles";
@@ -129,18 +129,13 @@ export default function ServicesPage() {
                   className="svtt-svc-card"
                   aria-label={svc.title}
                 >
-                  {/* Image column */}
-                  <div className="svtt-svc-card__img-wrap">
-                    {svc.image && (
-                      <Image
-                        src={svc.image}
-                        alt={`${svc.title} — Sri Vinayaka Tours & Travels`}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 420px"
-                        className="svtt-svc-card__img"
-                        loading={idx < 2 ? "eager" : "lazy"}
-                      />
-                    )}
+                  {/* Image column — CSS background-image for reliable cover fill */}
+                  <div
+                    className="svtt-svc-card__img-wrap"
+                    style={svc.image ? { backgroundImage: `url('${svc.image}')` } : {}}
+                    role="img"
+                    aria-label={`${svc.title} — Sri Vinayaka Tours & Travels`}
+                  >
                     <div className="svtt-svc-card__img-overlay" aria-hidden="true" />
                     <div className="svtt-svc-card__icon-badge" aria-hidden="true">
                       {emoji}
