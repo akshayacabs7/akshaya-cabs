@@ -14,11 +14,11 @@
 
 ```
 PHASE         : DEVELOPMENT — IN PROGRESS
-CURRENT TASK  : Task 19 — SEO / Metadata Audit
-LAST COMPLETED: Task 18 — Footer ✅
+CURRENT TASK  : Task 20 — Final Polish & QA
+LAST COMPLETED: Task 19 — SEO / Metadata Audit ✅
 LAST UPDATED  : 2026-10-02
 ASSETS        : 51/51 COMPLETE ✅ — All images verified and approved
-COMMIT        : f6031b7 — feat: Task 18 - Footer verified, pre-footer CTA strip added
+COMMIT        : 4705f2b — feat: Task 19 - SEO audit complete
 ```
 
 ---
@@ -547,10 +547,30 @@ d:\Projects_OnlyAI\svtt_hemant\
 ---
 
 ### Task 19 — SEO / Metadata Audit
+| Status | ✅ COMPLETE |
+|---|---|
+| Completed date | 2026-10-02 |
+| Commit | `4705f2b` |
+| Notes | 0 TS errors \| Build: PASSES \| 27 pages (up from 25) |
+
+**What was done:**
+- ✅ Audited all 15 pages — 4 missing metadata found: `/blog`, `/blog/[slug]`, `/privacy-policy`, `/terms-and-conditions`
+- ✅ **Blog index page** fully written: 6 real article cards (pilgrimage guides, destination guides, vehicle tips), hero, grid, bottom CTA
+- ✅ **Blog [slug] page** fully written: `generateMetadata` with per-post canonical + OG, breadcrumb, placeholder content card
+- ✅ **Privacy Policy** fully written: 10 sections, all BUSINESS data, robots: noindex (correct for legal)
+- ✅ **Terms & Conditions** fully written: 11 sections including Tirumala/TTD-specific clauses, pricing note, cancellation policy, governing law
+- ✅ **`sitemap.ts`** created — generates `/sitemap.xml` with all static pages + package + service slugs (priority-ranked)
+- ✅ **`robots.ts`** created — generates `/robots.txt` with sitemap pointer
+- ✅ CSS: `.svtt-legal-page`, blog card grid, `.svtt-page-hero` shared component, `.svtt-visually-hidden` utility
+- ✅ Fixed heading hierarchy bug: blog card title `h2` → `h3`
+
+---
+
+### Task 20 — Final Polish & QA
 | Status | ⬜ NOT STARTED |
 |---|---|
 | Completed date | — |
-| Notes | Per-page metadata, canonical URLs, OG tags, sitemap |
+| Notes | Cross-page consistency, missing images fallbacks, final build |
 
 ---
 
