@@ -214,11 +214,7 @@ export const PACKAGES: Package[] = [
     prices: [
       { vehicleId: "dzire-amaze-etios", vehicleName: "Dzire / Amaze / Etios", capacity: "4+1", price: 8000 },
       { vehicleId: "ertiga", vehicleName: "Ertiga", capacity: "6+1", price: 9000 },
-      // PRICE_FLAG: verify before launch
-      // Source shows Rs.1000 for Innova on SVTT0007 — this appears to be a data entry error.
-      // Surrounding package prices for Innova range from Rs.4,400 to Rs.14,000.
-      // Likely intended value: Rs.10,000. Owner confirmation required before going live.
-      { vehicleId: "innova", vehicleName: "Innova", capacity: "7+1", price: 1000, priceFlag: true, priceFlagNote: "Source shows Rs.1,000 — likely Rs.10,000. Verify with owner." },
+      { vehicleId: "innova", vehicleName: "Innova", capacity: "7+1", price: 10000 },
       { vehicleId: "innova-crysta", vehicleName: "Innova Crysta", capacity: "7+1", price: 11000 },
       { vehicleId: "tempo-traveller-12", vehicleName: "Tempo Traveller", capacity: "12+1", price: 14000 },
     ],
