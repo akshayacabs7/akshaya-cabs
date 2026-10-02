@@ -4608,3 +4608,341 @@ img {
     transition: none;
   }
 }
+
+/* ============================================================
+   ABOUT PAGE — Task 13
+   /about
+   ============================================================ */
+
+/* ── Page hero ───────────────────────────────────────────────── */
+
+.svtt-about-hero {
+  background: linear-gradient(135deg, #1e2126 0%, #2c3038 100%);
+  padding: 5rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.svtt-about-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 80% 110%, rgba(141,28,34,0.22) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 55% at 0% -5%, rgba(245,158,11,0.07) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.svtt-about-hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.svtt-about-hero__label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--svtt-accent);
+  margin-bottom: 0.75rem;
+}
+
+.svtt-about-hero__h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0 0 1rem 0;
+}
+
+.svtt-about-hero__desc {
+  font-size: 1.0625rem;
+  color: rgba(255,255,255,0.72);
+  max-width: 600px;
+  line-height: 1.65;
+  margin: 0 0 2rem 0;
+}
+
+.svtt-about-hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+}
+
+/* ── Story Section: text + owner ─────────────────────────────── */
+
+.svtt-about-story {
+  padding-block: 5rem;
+  background: var(--svtt-bg);
+}
+
+.svtt-about-story__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .svtt-about-story__grid {
+    grid-template-columns: 1fr 380px;
+    gap: 4rem;
+  }
+}
+
+/* Text column */
+.svtt-about-story__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.svtt-about-story__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--svtt-primary);
+}
+
+.svtt-about-story__h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.625rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  color: var(--svtt-text);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.svtt-about-story__body {
+  font-size: 1rem;
+  line-height: 1.78;
+  color: var(--svtt-text-muted);
+  margin: 0;
+}
+
+.svtt-about-story__body + .svtt-about-story__body {
+  margin-top: -0.5rem;
+}
+
+/* Quote pull */
+.svtt-about-story__quote {
+  border-left: 3px solid var(--svtt-primary);
+  padding-left: 1.25rem;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-style: italic;
+  color: var(--svtt-text);
+  line-height: 1.55;
+  margin: 0.5rem 0;
+}
+
+/* Owner card column */
+.svtt-about-owner {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-radius: var(--svtt-radius-card);
+  border: 1px solid var(--svtt-border);
+  box-shadow: var(--svtt-shadow-card);
+  overflow: hidden;
+  background: var(--svtt-bg);
+}
+
+.svtt-about-owner__img-wrap {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+  background: var(--svtt-bg-alt);
+}
+
+@media (min-width: 900px) {
+  .svtt-about-owner__img-wrap {
+    height: 340px;
+  }
+}
+
+.svtt-about-owner__img {
+  object-fit: cover;
+  object-position: top center;
+}
+
+.svtt-about-owner__body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.svtt-about-owner__name {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--svtt-text);
+  margin: 0;
+}
+
+.svtt-about-owner__role {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--svtt-primary);
+  letter-spacing: 0.04em;
+}
+
+.svtt-about-owner__bio {
+  font-size: 0.875rem;
+  color: var(--svtt-text-muted);
+  line-height: 1.6;
+  margin: 0.5rem 0 0 0;
+}
+
+.svtt-about-owner__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 4rem;
+  background: linear-gradient(135deg, #1e2126 0%, #2c3038 100%);
+  color: rgba(255,255,255,0.15);
+}
+
+/* ── Values / Pillars ────────────────────────────────────────── */
+
+.svtt-about-values {
+  padding-block: 4rem;
+  background: var(--svtt-bg-alt);
+}
+
+.svtt-about-values__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .svtt-about-values__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .svtt-about-values__grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.svtt-about-value-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  padding: 1.5rem;
+  background: var(--svtt-bg);
+  border: 1px solid var(--svtt-border);
+  border-radius: var(--svtt-radius-card);
+  box-shadow: var(--svtt-shadow-card);
+  transition: box-shadow var(--svtt-transition-base), transform var(--svtt-transition-base);
+}
+
+.svtt-about-value-card:hover {
+  box-shadow: var(--svtt-shadow-card-hover);
+  transform: translateY(-3px);
+}
+
+.svtt-about-value-card__icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.svtt-about-value-card__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--svtt-text);
+  margin: 0;
+}
+
+.svtt-about-value-card__desc {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--svtt-text-muted);
+  margin: 0;
+}
+
+/* ── Coverage strip ──────────────────────────────────────────── */
+
+.svtt-about-coverage {
+  padding-block: 3.5rem;
+  background: var(--svtt-bg);
+  border-top: 1px solid var(--svtt-border);
+}
+
+.svtt-about-coverage__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.svtt-about-coverage__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--svtt-text-muted);
+  background: var(--svtt-bg-alt);
+  border: 1px solid var(--svtt-border);
+  padding: 0.45rem 0.9rem;
+  border-radius: 9999px;
+}
+
+.svtt-about-coverage__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--svtt-primary);
+  flex-shrink: 0;
+}
+
+/* ── Bottom CTA strip ────────────────────────────────────────── */
+
+.svtt-about-cta {
+  background: linear-gradient(135deg, var(--svtt-primary) 0%, #5a0f14 100%);
+  padding: 3.5rem 0;
+  text-align: center;
+}
+
+.svtt-about-cta__heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 3vw, 1.875rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.75rem 0;
+}
+
+.svtt-about-cta__sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.72);
+  max-width: 500px;
+  margin: 0 auto 1.75rem;
+  line-height: 1.6;
+}
+
+.svtt-about-cta__btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Reduced motion ─────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .svtt-about-value-card:hover {
+    transform: none;
+    transition: none;
+  }
+}
