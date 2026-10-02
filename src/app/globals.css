@@ -774,3 +774,483 @@ img {
     transition: none;
   }
 }
+/* ============================================================
+   FOOTER — Task 05
+   ============================================================ */
+
+.svtt-footer {
+  background: linear-gradient(160deg, #1a0d0e 0%, #2d1215 40%, #1a0d0e 100%);
+  color: rgba(255,255,255,0.85);
+  padding-top: 4rem;
+  padding-bottom: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle gold accent line at top */
+.svtt-footer::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--svtt-accent), var(--svtt-gold-400, #fbbf24), var(--svtt-accent), transparent);
+}
+
+/* ── Grid ─────────────────────────────────────────────────── */
+
+.svtt-footer__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 640px) {
+  .svtt-footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .svtt-footer__grid {
+    grid-template-columns: 2fr 1.2fr 1.2fr 1fr 1.6fr;
+    gap: 2rem;
+  }
+}
+
+/* ── Brand column ─────────────────────────────────────────── */
+
+.svtt-footer__col--brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .svtt-footer__col--brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .svtt-footer__col--brand {
+    grid-column: auto;
+  }
+}
+
+.svtt-footer__logo {
+  height: 50px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.svtt-footer__tagline {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.6);
+  margin: 0;
+  max-width: 280px;
+}
+
+/* Social */
+.svtt-footer__social {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.svtt-footer__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: background-color var(--svtt-transition-fast), color var(--svtt-transition-fast), border-color var(--svtt-transition-fast);
+  text-decoration: none;
+}
+
+.svtt-footer__social-link:hover {
+  background: rgba(245,158,11,0.2);
+  color: var(--svtt-accent);
+  border-color: rgba(245,158,11,0.4);
+}
+
+.svtt-footer__social-link--wa:hover {
+  background: rgba(37,211,102,0.2);
+  color: #25d366;
+  border-color: rgba(37,211,102,0.4);
+}
+
+/* Rating badge */
+.svtt-footer__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.svtt-footer__stars {
+  color: var(--svtt-accent);
+  font-size: 0.875rem;
+  letter-spacing: 1px;
+}
+
+.svtt-footer__rating-text {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ── Column headings ──────────────────────────────────────── */
+
+.svtt-footer__heading {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--svtt-accent);
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(245,158,11,0.25);
+}
+
+/* ── Links ────────────────────────────────────────────────── */
+
+.svtt-footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.svtt-footer__link {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  transition: color var(--svtt-transition-fast), padding-left var(--svtt-transition-fast);
+  display: inline-block;
+  line-height: 1.4;
+}
+
+.svtt-footer__link:hover {
+  color: var(--svtt-accent);
+  padding-left: 4px;
+}
+
+/* ── Contact column ───────────────────────────────────────── */
+
+.svtt-footer__address {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.svtt-footer__contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.65);
+}
+
+.svtt-footer__contact-item svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--svtt-accent);
+  opacity: 0.8;
+}
+
+.svtt-footer__contact-link {
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  transition: color var(--svtt-transition-fast);
+  line-height: 1.5;
+}
+
+.svtt-footer__contact-link:hover {
+  color: var(--svtt-accent);
+}
+
+.svtt-footer__contact-link--wa:hover {
+  color: #25d366;
+}
+
+.svtt-footer__availability {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.5);
+  margin-top: 0.25rem;
+}
+
+.svtt-footer__avail-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.6; transform: scale(1.3); }
+}
+
+/* ── Divider ──────────────────────────────────────────────── */
+
+.svtt-footer__divider {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 0 var(--svtt-container-px, 1.25rem);
+}
+
+/* ── Legal bar ────────────────────────────────────────────── */
+
+.svtt-footer__legal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 1.25rem;
+  padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .svtt-footer__legal {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.svtt-footer__copyright {
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.4);
+  margin: 0;
+}
+
+.svtt-footer__pricing-note {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.3);
+  margin: 0;
+  font-style: italic;
+}
+
+.svtt-footer__legal-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.svtt-footer__legal-link {
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color var(--svtt-transition-fast);
+}
+
+.svtt-footer__legal-link:hover {
+  color: var(--svtt-accent);
+}
+
+/* ============================================================
+   FLOATING WHATSAPP FAB — Task 05
+   ============================================================ */
+
+.svtt-wa-fab {
+  position: fixed;
+  bottom: calc(5rem + env(safe-area-inset-bottom));
+  right: 1.25rem;
+  z-index: 90;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.45), 0 2px 8px rgba(0,0,0,0.15);
+  opacity: 0;
+  transform: scale(0.7) translateY(12px);
+  transition: opacity 350ms ease, transform 350ms ease, box-shadow var(--svtt-transition-fast);
+  outline-offset: 3px;
+}
+
+.svtt-wa-fab--visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.svtt-wa-fab:hover {
+  box-shadow: 0 6px 28px rgba(37,211,102,0.6), 0 4px 12px rgba(0,0,0,0.2);
+  transform: scale(1.08) translateY(-2px);
+}
+
+.svtt-wa-fab:active {
+  transform: scale(0.96);
+}
+
+/* Pulse ring */
+.svtt-wa-fab::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(37,211,102,0.5);
+  animation: wa-pulse 2.5s ease-out infinite;
+}
+
+@keyframes wa-pulse {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  70%  { transform: scale(1.4); opacity: 0; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* Tooltip */
+.svtt-wa-fab__tooltip {
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: #1e2126;
+  color: #fff;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--svtt-transition-fast);
+}
+
+.svtt-wa-fab__tooltip::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-left-color: #1e2126;
+}
+
+.svtt-wa-fab:hover .svtt-wa-fab__tooltip {
+  opacity: 1;
+}
+
+/* On desktop: FAB sits above normal content (no bottom bar) */
+@media (min-width: 1024px) {
+  .svtt-wa-fab {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+/* ============================================================
+   MOBILE BOTTOM BAR — Task 05
+   ============================================================ */
+
+.svtt-bottom-bar {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 85;
+  background: #ffffff;
+  border-top: 1px solid var(--svtt-border);
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+  padding-bottom: env(safe-area-inset-bottom);
+  /* Mobile only */
+}
+
+@media (min-width: 1024px) {
+  .svtt-bottom-bar {
+    display: none;
+  }
+}
+
+.svtt-bottom-bar__btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0.6rem 0.25rem;
+  min-height: 56px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color var(--svtt-transition-fast), color var(--svtt-transition-fast);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+}
+
+.svtt-bottom-bar__btn--call {
+  color: var(--svtt-primary);
+  border-right: 1px solid var(--svtt-border);
+}
+
+.svtt-bottom-bar__btn--call:hover,
+.svtt-bottom-bar__btn--call:active {
+  background: rgba(141,28,34,0.05);
+}
+
+.svtt-bottom-bar__btn--wa {
+  color: #128c7e;
+  border-right: 1px solid var(--svtt-border);
+}
+
+.svtt-bottom-bar__btn--wa:hover,
+.svtt-bottom-bar__btn--wa:active {
+  background: rgba(37,211,102,0.07);
+  color: #25d366;
+}
+
+.svtt-bottom-bar__btn--quote {
+  color: var(--svtt-charcoal-600, #434a53);
+}
+
+.svtt-bottom-bar__btn--quote:hover,
+.svtt-bottom-bar__btn--quote:active {
+  background: rgba(141,28,34,0.04);
+  color: var(--svtt-primary);
+}
+
+/* Give main content bottom padding so it doesn't hide behind bottom bar */
+@media (max-width: 1023px) {
+  #main-content {
+    padding-bottom: calc(56px + env(safe-area-inset-bottom));
+  }
+}
+
+/* ── Reduced motion ─────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .svtt-wa-fab {
+    transition: opacity 200ms ease;
+  }
+  .svtt-wa-fab::before,
+  .svtt-footer__avail-dot {
+    animation: none;
+  }
+}
