@@ -3184,22 +3184,27 @@ img {
 /* Image column */
 .svtt-svc-card__img-wrap {
   position: relative;
-  height: 260px;
+  height: 300px;
   overflow: hidden;
-  background: var(--svtt-bg-dark);
+  background: linear-gradient(135deg, #1a0d0e 0%, #2d1215 50%, #111 100%);
   align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (min-width: 768px) {
   .svtt-svc-card__img-wrap {
     height: auto;
-    min-height: 340px;
+    min-height: 360px;
     align-self: stretch;
   }
 }
 
 .svtt-svc-card__img {
-  object-fit: cover;
+  object-fit: contain !important;
+  object-position: center center !important;
+  padding: 0.75rem;
   transition: transform 600ms ease;
 }
 
