@@ -4186,3 +4186,425 @@ img {
     transition: none;
   }
 }
+
+/* ============================================================
+   REVIEWS PAGE — Task 12
+   /reviews
+   ============================================================ */
+
+/* ── Page hero ───────────────────────────────────────────────── */
+
+.svtt-rv-hero {
+  background: linear-gradient(135deg, var(--svtt-primary) 0%, #5a0f14 100%);
+  padding: 5rem 0 4rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.svtt-rv-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 120%, rgba(245,158,11,0.15) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 50% at 10% -5%, rgba(255,255,255,0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.svtt-rv-hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.svtt-rv-hero__label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--svtt-accent);
+  margin-bottom: 1rem;
+}
+
+.svtt-rv-hero__h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0 0 1.25rem 0;
+}
+
+/* Google Rating Block */
+.svtt-rv-hero__rating-block {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 1.25rem;
+  padding: 1.75rem 2.5rem;
+  margin: 0 0 1.5rem 0;
+  backdrop-filter: blur(8px);
+}
+
+.svtt-rv-hero__score {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.svtt-rv-hero__stars {
+  display: flex;
+  gap: 0.25rem;
+  color: var(--svtt-accent);
+  font-size: 1.75rem;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.svtt-rv-hero__google-label {
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.6);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.svtt-rv-hero__desc {
+  font-size: 1.0625rem;
+  color: rgba(255,255,255,0.72);
+  max-width: 560px;
+  margin-inline: auto;
+  line-height: 1.65;
+  margin-bottom: 1.75rem;
+}
+
+.svtt-rv-hero__ctas {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Testimonials Section ────────────────────────────────────── */
+
+.svtt-rv-section {
+  padding-block: 4rem 3rem;
+  background: var(--svtt-bg-alt);
+}
+
+.svtt-rv-disclaimer {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  font-size: 0.8125rem;
+  color: var(--svtt-text-subtle);
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 0.5rem;
+  padding: 0.875rem 1rem;
+  margin-bottom: 2rem;
+  max-width: 700px;
+}
+
+.svtt-rv-disclaimer__icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+/* Testimonials grid */
+.svtt-rv-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .svtt-rv-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .svtt-rv-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ── Testimonial Card ────────────────────────────────────────── */
+
+.svtt-rv-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: var(--svtt-bg);
+  border-radius: var(--svtt-radius-card);
+  border: 1px solid var(--svtt-border);
+  box-shadow: var(--svtt-shadow-card);
+  padding: 1.5rem;
+  position: relative;
+  transition: box-shadow var(--svtt-transition-base), transform var(--svtt-transition-base);
+}
+
+.svtt-rv-card:hover {
+  box-shadow: var(--svtt-shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+/* Large decorative quote mark */
+.svtt-rv-card__quote-mark {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  font-family: Georgia, serif;
+  font-size: 5rem;
+  line-height: 1;
+  color: rgba(141,28,34,0.08);
+  pointer-events: none;
+  user-select: none;
+  font-weight: 900;
+}
+
+/* Stars */
+.svtt-rv-card__stars {
+  display: flex;
+  gap: 0.15rem;
+  color: var(--svtt-accent);
+  font-size: 1rem;
+}
+
+/* Review text */
+.svtt-rv-card__text {
+  font-size: 0.9375rem;
+  line-height: 1.72;
+  color: var(--svtt-text-muted);
+  margin: 0;
+  flex: 1;
+  font-style: italic;
+}
+
+/* Service badge */
+.svtt-rv-card__service {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--svtt-primary);
+  background: rgba(141,28,34,0.07);
+  border: 1px solid rgba(141,28,34,0.14);
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+}
+
+/* Reviewer info */
+.svtt-rv-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--svtt-border);
+}
+
+.svtt-rv-card__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--svtt-primary) 0%, #6b1419 100%);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.svtt-rv-card__reviewer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.svtt-rv-card__name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--svtt-text);
+}
+
+.svtt-rv-card__location {
+  font-size: 0.75rem;
+  color: var(--svtt-text-subtle);
+}
+
+.svtt-rv-card__date {
+  font-size: 0.75rem;
+  color: var(--svtt-text-subtle);
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+/* ── Google CTA Block ────────────────────────────────────────── */
+
+.svtt-rv-google-cta {
+  margin-top: 3rem;
+  background: #ffffff;
+  border: 1.5px solid var(--svtt-border);
+  border-radius: var(--svtt-radius-card);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  box-shadow: var(--svtt-shadow-card);
+}
+
+@media (min-width: 640px) {
+  .svtt-rv-google-cta {
+    flex-direction: row;
+    text-align: left;
+    gap: 1.5rem;
+  }
+}
+
+.svtt-rv-google-cta__icon {
+  font-size: 3rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.svtt-rv-google-cta__text {
+  flex: 1;
+}
+
+.svtt-rv-google-cta__title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--svtt-text);
+  margin: 0 0 0.35rem 0;
+}
+
+.svtt-rv-google-cta__desc {
+  font-size: 0.875rem;
+  color: var(--svtt-text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.svtt-rv-google-cta__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* ── Stats strip ─────────────────────────────────────────────── */
+
+.svtt-rv-stats {
+  padding: 3rem 0;
+  background: var(--svtt-bg);
+  border-top: 1px solid var(--svtt-border);
+}
+
+.svtt-rv-stats__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .svtt-rv-stats__grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.svtt-rv-stats__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.35rem;
+  padding: 1.25rem;
+  background: var(--svtt-bg-alt);
+  border: 1px solid var(--svtt-border);
+  border-radius: var(--svtt-radius-card);
+}
+
+.svtt-rv-stats__val {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--svtt-primary);
+  line-height: 1;
+}
+
+.svtt-rv-stats__label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--svtt-text-muted);
+  text-align: center;
+  line-height: 1.35;
+}
+
+/* ── Leave a review CTA strip ────────────────────────────────── */
+
+.svtt-rv-cta {
+  background: linear-gradient(135deg, #1e2126 0%, #2c3038 100%);
+  padding: 3.5rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.svtt-rv-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 70% at 50% 110%, rgba(141,28,34,0.2) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.svtt-rv-cta__content {
+  position: relative;
+  z-index: 1;
+}
+
+.svtt-rv-cta__heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 3vw, 1.875rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.75rem 0;
+}
+
+.svtt-rv-cta__sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.65);
+  max-width: 520px;
+  margin: 0 auto 1.75rem;
+  line-height: 1.6;
+}
+
+.svtt-rv-cta__btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Reduced motion ─────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .svtt-rv-card:hover {
+    transform: none;
+    transition: none;
+  }
+}
