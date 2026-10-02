@@ -4946,3 +4946,400 @@ img {
     transition: none;
   }
 }
+
+/* ============================================================
+   CONTACT PAGE — Task 14
+   /contact
+   ============================================================ */
+
+/* ── Page hero ───────────────────────────────────────────────── */
+
+.svtt-contact-hero {
+  background: linear-gradient(135deg, var(--svtt-primary) 0%, #5a0f14 100%);
+  padding: 4.5rem 0 3.5rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.svtt-contact-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 70% at 50% 120%, rgba(245,158,11,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 5% -5%, rgba(255,255,255,0.04) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.svtt-contact-hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.svtt-contact-hero__label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--svtt-accent);
+  margin-bottom: 0.75rem;
+}
+
+.svtt-contact-hero__h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.875rem, 5vw, 2.75rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0 0 0.875rem 0;
+}
+
+.svtt-contact-hero__desc {
+  font-size: 1.0625rem;
+  color: rgba(255,255,255,0.72);
+  max-width: 540px;
+  margin-inline: auto;
+  line-height: 1.65;
+}
+
+/* ── Contact body: 2-column ─────────────────────────────────── */
+
+.svtt-contact-body {
+  padding-block: 4rem 5rem;
+  background: var(--svtt-bg-alt);
+}
+
+.svtt-contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .svtt-contact-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .svtt-contact-grid {
+    grid-template-columns: 420px 1fr;
+  }
+}
+
+/* ── Contact detail cards (left column) ─────────────────────── */
+
+.svtt-contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.svtt-contact-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--svtt-bg);
+  border: 1px solid var(--svtt-border);
+  border-radius: var(--svtt-radius-card);
+  padding: 1.25rem;
+  box-shadow: var(--svtt-shadow-card);
+  transition: box-shadow var(--svtt-transition-base);
+  text-decoration: none;
+  color: inherit;
+}
+
+.svtt-contact-card:hover {
+  box-shadow: var(--svtt-shadow-card-hover);
+}
+
+.svtt-contact-card__icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(141,28,34,0.08);
+  border: 1px solid rgba(141,28,34,0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.svtt-contact-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.svtt-contact-card__label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--svtt-text-subtle);
+}
+
+.svtt-contact-card__value {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--svtt-text);
+  line-height: 1.35;
+}
+
+.svtt-contact-card__sub {
+  font-size: 0.8125rem;
+  color: var(--svtt-text-subtle);
+}
+
+/* ── Social links ────────────────────────────────────────────── */
+
+.svtt-contact-social {
+  background: var(--svtt-bg);
+  border: 1px solid var(--svtt-border);
+  border-radius: var(--svtt-radius-card);
+  padding: 1.25rem;
+  box-shadow: var(--svtt-shadow-card);
+}
+
+.svtt-contact-social__label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--svtt-text-subtle);
+  margin-bottom: 0.875rem;
+}
+
+.svtt-contact-social__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.svtt-contact-social__link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--svtt-text-muted);
+  text-decoration: none;
+  transition: color var(--svtt-transition-fast);
+}
+
+.svtt-contact-social__link:hover {
+  color: var(--svtt-primary);
+}
+
+.svtt-contact-social__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  border: 1px solid var(--svtt-border);
+  background: var(--svtt-bg-alt);
+}
+
+.svtt-contact-social__handle {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--svtt-text-subtle);
+}
+
+/* ── Enquiry Form ────────────────────────────────────────────── */
+
+.svtt-contact-form-wrap {
+  background: var(--svtt-bg);
+  border: 1px solid var(--svtt-border);
+  border-radius: var(--svtt-radius-card);
+  padding: 2rem;
+  box-shadow: var(--svtt-shadow-card);
+}
+
+.svtt-contact-form-wrap__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--svtt-text);
+  margin: 0 0 0.375rem 0;
+}
+
+.svtt-contact-form-wrap__sub {
+  font-size: 0.875rem;
+  color: var(--svtt-text-muted);
+  margin: 0 0 1.5rem 0;
+  line-height: 1.5;
+}
+
+.svtt-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.svtt-form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 480px) {
+  .svtt-form-row--2 { grid-template-columns: 1fr 1fr; }
+}
+
+.svtt-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.svtt-form-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--svtt-text);
+}
+
+.svtt-form-label span[aria-label="required"] {
+  color: var(--svtt-primary);
+  margin-left: 2px;
+}
+
+.svtt-form-input,
+.svtt-form-select,
+.svtt-form-textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: var(--svtt-text);
+  background: var(--svtt-bg-alt);
+  border: 1.5px solid var(--svtt-border);
+  border-radius: 0.5rem;
+  padding: 0.7rem 0.9rem;
+  transition: border-color var(--svtt-transition-fast), box-shadow var(--svtt-transition-fast);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.svtt-form-input:focus,
+.svtt-form-select:focus,
+.svtt-form-textarea:focus {
+  border-color: var(--svtt-primary);
+  box-shadow: 0 0 0 3px rgba(141,28,34,0.12);
+}
+
+.svtt-form-input::placeholder,
+.svtt-form-textarea::placeholder {
+  color: var(--svtt-text-subtle);
+}
+
+.svtt-form-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.svtt-form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Form submit button */
+.svtt-form-submit {
+  margin-top: 0.5rem;
+}
+
+.svtt-form-submit .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Success message */
+.svtt-form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 2.5rem 1.5rem;
+}
+
+.svtt-form-success__icon {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.svtt-form-success__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--svtt-text);
+  margin: 0;
+}
+
+.svtt-form-success__msg {
+  font-size: 0.9375rem;
+  color: var(--svtt-text-muted);
+  line-height: 1.65;
+  max-width: 380px;
+  margin: 0;
+}
+
+/* ── Google Maps area ────────────────────────────────────────── */
+
+.svtt-contact-map {
+  padding-block: 3rem 4rem;
+  background: var(--svtt-bg);
+  border-top: 1px solid var(--svtt-border);
+}
+
+.svtt-contact-map__frame {
+  border-radius: var(--svtt-radius-card);
+  overflow: hidden;
+  border: 1px solid var(--svtt-border);
+  box-shadow: var(--svtt-shadow-card);
+  height: 380px;
+  background: var(--svtt-bg-alt);
+}
+
+.svtt-contact-map__frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.svtt-contact-map__fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  color: var(--svtt-text-muted);
+  font-size: 0.9rem;
+}
+
+.svtt-contact-map__fallback-icon {
+  font-size: 2.5rem;
+}
+
+/* ── Reduced motion ─────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .svtt-contact-card:hover {
+    box-shadow: none;
+  }
+}
