@@ -13,7 +13,7 @@ export const SERVICES: Service[] = [
     description:
       "Reliable and affordable cab services for all your local travel needs in Tirupati. Whether it is a temple visit, city sightseeing, hospital transfer, or a local errand, our well-maintained AC cabs and professional drivers are at your service.",
     icon: "MapPin",
-    image: "/images/about/tirupati-travel-service.webp",
+    image: "/images/vehicles/innova-crysta.webp",
     features: [
       "All major Tirupati landmarks covered",
       "Temple sightseeing routes",
@@ -32,7 +32,7 @@ export const SERVICES: Service[] = [
     description:
       "Dedicated Tirupati to Tirumala taxi service by experienced local drivers who know the ghat roads perfectly. We ensure a safe, comfortable, and timely journey for your Tirumala darshan, available at any hour of the day.",
     icon: "Mountain",
-    image: "/images/hero/hero-desktop.webp",
+    image: "/images/destinations/tirumala-venkateswara.webp",
     features: [
       "Tirupati to Tirumala and back",
       "Experienced ghat road drivers",
@@ -51,7 +51,7 @@ export const SERVICES: Service[] = [
     description:
       "Curated pilgrimage tour packages covering the most sacred temples in and around Tirupati and across South India. From local Tirupati temple darshans to multi-day South India pilgrimage tours — we have a package for every devotee.",
     icon: "Landmark",
-    image: "/images/packages/svtt0001-tirupati-tirumala-local.webp",
+    image: "/images/packages/svtt0003-tirumala-kanipakam-padmavathi.webp",
     features: [
       "10 curated pilgrimage packages",
       "Local, nearby, and outstation options",
@@ -70,7 +70,7 @@ export const SERVICES: Service[] = [
     description:
       "Intercity travel from Tirupati to Chennai, Bangalore, Hyderabad, Vijayawada, and all major cities across Andhra Pradesh, Tamil Nadu, Karnataka, Telangana, and Kerala. Comfortable AC vehicles with experienced long-distance drivers.",
     icon: "Navigation",
-    image: "/images/about/tirupati-scenic-road.webp",
+    image: "/images/vehicles/innova.webp",
     features: [
       "All major cities from Tirupati",
       "One-way and round-trip options",
@@ -108,7 +108,7 @@ export const SERVICES: Service[] = [
     description:
       "Hassle-free cab service to and from Tirupati Railway Station. Whether you are arriving for a Tirumala pilgrimage or departing after your visit, our drivers will be waiting for you at the station with a clean, comfortable vehicle.",
     icon: "Train",
-    image: "/images/about/tirupati-travel-service.webp",
+    image: "/images/vehicles/dzire.webp",
     features: [
       "Tirupati Railway Station pickup & drop",
       "Train tracking for on-time arrival",
@@ -146,7 +146,7 @@ export const SERVICES: Service[] = [
     description:
       "Have a unique travel requirement? We offer fully customized tour itineraries for individuals, families, and groups. Tell us your destinations, duration, and budget, and we will plan the perfect trip for you across South India.",
     icon: "Route",
-    image: "/images/destinations/tirumala-venkateswara.webp",
+    image: "/images/packages/svtt0007-kanipakam-golden-temple-arunachalam.webp",
     features: [
       "Tailor-made itineraries",
       "Any destinations across South India",
