@@ -4016,7 +4016,7 @@ img {
 .svtt-pd-services__grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.75rem;
+  gap: 2rem;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -4063,8 +4063,8 @@ img {
 .svtt-pd-card__body {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 1.5rem;
+  gap: 1.125rem;
+  padding: 1.75rem;
   flex: 1;
 }
 
@@ -4095,7 +4095,7 @@ img {
   font-size: 0.8125rem;
   font-weight: 600;
   color: var(--svtt-primary);
-  margin: -0.5rem 0 0 0;
+  margin: 0.25rem 0 0 0;
 }
 
 .svtt-pd-card__desc {
