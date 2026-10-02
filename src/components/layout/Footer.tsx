@@ -20,13 +20,13 @@ const PACKAGE_LINKS = [
 ] as const;
 
 const SERVICE_LINKS = [
-  { href: "/services/local-cab-services",         label: "Local Cab Services" },
-  { href: "/services/tirumala-taxi-services",     label: "Tirumala Taxi" },
-  { href: "/services/temple-tour-packages",       label: "Temple Tours" },
-  { href: "/services/outstation-cab-services",    label: "Outstation Cabs" },
-  { href: "/services/airport-pickup-drop",        label: "Airport Transfers" },
-  { href: "/services/tempo-traveller-rental",     label: "Tempo Traveller" },
-  { href: "/services/south-india-pilgrimage-tours", label: "South India Pilgrimage" },
+  { href: "/services#local-cab-services",           label: "Local Cab Services" },
+  { href: "/services#tirumala-taxi-services",       label: "Tirumala Taxi" },
+  { href: "/services#temple-tour-packages",         label: "Temple Tours" },
+  { href: "/services#outstation-cab-services",      label: "Outstation Cabs" },
+  { href: "/services#airport-pickup-drop",          label: "Airport Transfers" },
+  { href: "/services#tempo-traveller-rental",       label: "Tempo Traveller" },
+  { href: "/services#south-india-pilgrimage-tours", label: "South India Pilgrimage" },
 ] as const;
 
 // ── Social icon components ────────────────────────────────────

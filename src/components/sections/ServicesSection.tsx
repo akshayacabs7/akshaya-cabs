@@ -31,7 +31,7 @@ export default function ServicesSection() {
         <ul role="list" className="svtt-services__grid">
           {SERVICES.map((svc) => (
             <li key={svc.id}>
-              <Link href={`/services/${svc.slug}`} className="svtt-services__card">
+              <Link href={`/services#${svc.slug}`} className="svtt-services__card">
                 <span className="svtt-services__icon" aria-hidden="true">
                   {ICON_MAP[svc.icon] ?? "🚕"}
                 </span>
