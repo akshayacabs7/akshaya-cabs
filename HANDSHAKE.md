@@ -14,11 +14,11 @@
 
 ```
 PHASE         : DEVELOPMENT — IN PROGRESS
-CURRENT TASK  : Task 12 — Reviews & Testimonials Page
-LAST COMPLETED: Task 11 — Pickup & Drop Page ✅
+CURRENT TASK  : Task 13 — About Page
+LAST COMPLETED: Task 12 — Reviews & Testimonials Page ✅
 LAST UPDATED  : 2026-10-02
 ASSETS        : 51/51 COMPLETE ✅ — All images verified and approved
-COMMIT        : 87da4bb — feat: Task 11 - Pickup & Drop page with 6 service cards, process strip
+COMMIT        : 886715c — feat: Task 12 - Reviews page with Google 5.0 hero, 12 testimonial cards
 ```
 
 ---
@@ -415,11 +415,31 @@ d:\Projects_OnlyAI\svtt_hemant\
 
 ---
 
-### Task 12 — Reviews &amp; Testimonials Page
+### Task 12 — Reviews & Testimonials Page (/reviews)
+| Status | ✅ COMPLETE |
+|---|---|
+| Completed date | 2026-10-02 |
+| Commit | `886715c` |
+| Notes | 0 TS errors \| Build: PASSES \| /reviews = Static |
+
+**What was done:**
+- ✅ Maroon gradient hero with 5.0 ★★★★★ Google rating glassmorphism card, score, stars, "Rated on Google" label
+- ✅ Gold "View Google Reviews" CTA + WhatsApp "Book Your Trip" CTA in hero
+- ✅ 4-stat strip (5.0★, 10+ packages, 7 vehicles, 24/7)
+- ✅ 12 customer feedback cards in a 3-col grid — each with decorative quote mark, stars, service badge, italic text, initial avatar, name, location, date
+- ✅ Transparency disclaimer note (blueprint rule: customer feedback ≠ Google reviews)
+- ✅ Inline Google CTA block (View Google Reviews)
+- ✅ Dark charcoal bottom CTA strip — Leave a Google Review + Book + View Packages
+- ✅ `src/data/testimonials.ts` created with 12 clearly labelled entries
+- ✅ ~420 lines CSS added to `globals.css`
+
+---
+
+### Task 13 — About Page
 | Status | ⬜ NOT STARTED |
 |---|---|
 | Completed date | — |
-| Notes | Google 5.0 ★ reputation page |
+| Notes | Owner: Ravilla Hemanth Naidu — authentic story only |
 
 ---
 
