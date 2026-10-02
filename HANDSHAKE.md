@@ -14,11 +14,11 @@
 
 ```
 PHASE         : DEVELOPMENT — IN PROGRESS
-CURRENT TASK  : Task 11 — Pickup & Drop Page
-LAST COMPLETED: Task 10 — Fleet Page ✅
+CURRENT TASK  : Task 12 — Reviews & Testimonials Page
+LAST COMPLETED: Task 11 — Pickup & Drop Page ✅
 LAST UPDATED  : 2026-10-02
 ASSETS        : 51/51 COMPLETE ✅ — All images verified and approved
-COMMIT        : a9dc42d — feat: Task 10 - Fleet page with gallery, filter tabs, comparison table
+COMMIT        : 87da4bb — feat: Task 11 - Pickup & Drop page with 6 service cards, process strip
 ```
 
 ---
@@ -396,11 +396,30 @@ d:\Projects_OnlyAI\svtt_hemant\
 
 ---
 
-### Task 11 — Pickup &amp; Drop Page
+### Task 11 — Pickup &amp; Drop Page (/pickup-drop)
+| Status | ✅ COMPLETE |
+|---|---|
+| Completed date | 2026-10-02 |
+| Commit | `87da4bb` |
+| Notes | 0 TS errors \| Build: PASSES \| /pickup-drop = Static |
+
+**What was done:**
+- ✅ Dark charcoal hero with dual hero CTAs (WhatsApp + Call)
+- ✅ Sticky quick-jump anchor nav (6 service anchors)
+- ✅ 6 service cards: Airport, Railway Station, Tirumala, Hotel, Local, Custom — each with coloured accent bar, emoji icon, title, subtitle, description, route row (from → to), 4-step numbered booking guide, WhatsApp CTA pre-filled with service+location
+- ✅ 4-step "How Booking Works" process strip with emoji numbered circles
+- ✅ Bottom CTA strip (WhatsApp + Call + Get Quote)
+- ✅ ~380 lines CSS added to `globals.css`
+- ✅ All WhatsApp URLs via `serviceWhatsAppUrl()` with pre-filled pickup/drop fields
+- ✅ All contacts from `BUSINESS` — no hard-coded numbers
+
+---
+
+### Task 12 — Reviews &amp; Testimonials Page
 | Status | ⬜ NOT STARTED |
 |---|---|
 | Completed date | — |
-| Notes | Depends on Task 05 |
+| Notes | Google 5.0 ★ reputation page |
 
 ---
 
@@ -570,6 +589,7 @@ If you are an AI reading this in a new session:
 | 2026-10-02 | Session 4 | Task 08 COMPLETE. Tour Packages index + all 10 detail pages (SSG). PackageFilterTabs client component. 930 CSS lines. Commit: de16570. |
 | 2026-10-02 | Session 4 | Task 09 COMPLETE. Services page: 9 alternating service cards, dark hero, trust strip, CTA strip. Commit: c89f676. |
 | 2026-10-02 | Session 4 | Task 10 COMPLETE. Fleet page: 7 vehicle cards, filter tabs, comparison table (9 cols). Commit: a9dc42d. |
+| 2026-10-02 | Session 4 | Task 11 COMPLETE. Pickup & Drop: 6 service cards, anchor nav, process strip. Commit: 87da4bb. |
 
 ---
 
