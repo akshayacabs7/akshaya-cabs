@@ -1,0 +1,506 @@
+# SVTT HANDSHAKE FILE
+## Sri Vinayaka Tours & Travels — Project State Document
+
+> **PURPOSE OF THIS FILE**
+> This file is the single source of truth for the current state of the SVTT website project.
+> If you are an AI assistant reading this in a NEW session, read this entire file FIRST
+> before doing anything. It tells you exactly what has been built, what the next task is,
+> what rules never change, and where all the important files are.
+> Update this file EVERY TIME a task is completed — even if the user does not ask.
+
+---
+
+## 🟢 CURRENT STATUS
+
+```
+PHASE         : DEVELOPMENT — READY TO START
+CURRENT TASK  : Task 01 — Project Foundation & Repository Setup
+NEXT TASK     : Task 02 — Design System & Global Styles
+LAST UPDATED  : 2026-10-02
+ASSETS        : 51/51 COMPLETE ✅ — All images verified and approved
+```
+
+---
+
+## 📋 PROJECT OVERVIEW
+
+| Property | Value |
+|---|---|
+| **Business name** | Sri Vinayaka Tours & Travels |
+| **Short name** | SVTT |
+| **Owner** | Ravilla Hemanth Naidu |
+| **Primary phone** | +91 9652240674 |
+| **Primary WhatsApp** | +91 9652240674 |
+| **Secondary phone** | +91 6281537563 |
+| **Email** | svtttirupati@gmail.com |
+| **Address** | D.No.9-130/5-9, L.S Nagar, Thiruchanur, Tirupati Dist, AP, 517503 |
+| **Domain** | svtttirupati.com |
+| **Deployment** | GitHub → Vercel |
+| **Instagram** | https://www.instagram.com/svtttirupati_official |
+| **Facebook** | https://www.facebook.com/hemu.hemanth.568632 |
+| **X / Twitter** | https://x.com/SVTTT0303 |
+
+---
+
+## 🛠️ TECHNOLOGY STACK
+
+| Layer | Technology |
+|---|---|
+| Framework | Next.js (App Router, latest stable) |
+| Language | TypeScript |
+| UI | React |
+| Styling | Tailwind CSS (latest stable) |
+| Linting | ESLint + Prettier |
+| Version control | Git + GitHub |
+| Deployment | Vercel |
+| Analytics | To be added after core site is stable |
+| Database | NONE — site is primarily static |
+| CMS | NONE |
+
+---
+
+## 🚫 RULES THAT NEVER CHANGE (READ EVERY SESSION)
+
+1. **Weganor is BANNED.** Never include the vehicle "Weganor" anywhere — not in data files, components, alt text, comments, or hidden content. If you see it in any reference source, remove it.
+2. **Owner photo = real photo only.** Do not generate or use an AI face for Ravilla Hemanth Naidu. A real photograph will be uploaded to `public/images/owner/ravilla-hemanth-naidu.jpg`.
+3. **Logo = user supplied.** The user will create the SVTT logo using ChatGPT as reference, then recreate as SVG. Do not invent a logo.
+4. **Never invent business information.** All data comes from `src/data/business.ts` — never hard-code contact details in components.
+5. **Never silently correct prices.** Flag suspicious pricing with `// PRICE_FLAG: verify before launch` in data files.
+6. **Primary phone/WhatsApp = +919652240674 always.** Secondary +916281537563 is fallback only.
+7. **No copying reference websites.** Vishnu Travels, existing SVTT site, CJK Digital Solutions are references only — no copied code, CSS, layout, or wording.
+8. **Mobile-first responsive design.** Test at 320px, 360px, 375px, 390px, 414px, 430px, 768px, 820px, 1024px, 1280px, 1366px, 1440px, 1536px, 1920px, 2560px.
+9. **Data is always centralized.** All business/vehicle/package/service data lives in `src/data/`. Never duplicate values across components.
+10. **WhatsApp URLs always use `src/lib/whatsapp.ts` utility.** Never hard-code wa.me links.
+11. **No database, no backend, no CMS** unless explicitly requested by the user.
+12. **Update this HANDSHAKE.md file after every completed task** — even if the user does not ask.
+
+---
+
+## 📁 PROJECT FILE STRUCTURE (TARGET)
+
+```
+d:\Projects_OnlyAI\svtt_hemant\
+│
+├── HANDSHAKE.md                    ← THIS FILE — always keep updated
+│
+├── docs/
+│   ├── ASSET_REQUIREMENTS.md       ← Image prompts & upload specs (DONE ✅)
+│   ├── DESIGN_SYSTEM.md            ← Created in Task 02
+│   └── PRICING_FLAGS.md            ← Created in Task 11
+│
+├── public/
+│   ├── favicon.ico
+│   ├── icon.png
+│   ├── apple-icon.png
+│   └── images/
+│       ├── logo/
+│       ├── hero/
+│       ├── vehicles/
+│       ├── packages/
+│       ├── about/
+│       ├── owner/
+│       ├── blog/
+│       └── icons/
+│
+└── src/
+    ├── app/                         ← Next.js App Router pages
+    │   ├── layout.tsx
+    │   ├── page.tsx                 ← Homepage
+    │   ├── services/page.tsx
+    │   ├── tour-packages/
+    │   │   ├── page.tsx
+    │   │   └── [slug]/page.tsx
+    │   ├── fleet/page.tsx
+    │   ├── pickup-drop/page.tsx
+    │   ├── about/page.tsx
+    │   ├── reviews/page.tsx
+    │   ├── contact/page.tsx
+    │   ├── request-a-quote/page.tsx
+    │   ├── blog/
+    │   │   ├── page.tsx
+    │   │   └── [slug]/page.tsx
+    │   ├── privacy-policy/page.tsx
+    │   ├── terms-and-conditions/page.tsx
+    │   ├── not-found.tsx
+    │   ├── sitemap.ts
+    │   └── robots.ts
+    │
+    ├── components/
+    │   ├── layout/
+    │   │   ├── Header.tsx
+    │   │   ├── MobileNav.tsx
+    │   │   └── Footer.tsx
+    │   ├── home/
+    │   │   ├── Hero.tsx
+    │   │   ├── TrustStrip.tsx
+    │   │   ├── ServicesSection.tsx
+    │   │   ├── WhyChooseSVTT.tsx
+    │   │   ├── DestinationStory.tsx
+    │   │   ├── PackagesPreview.tsx
+    │   │   ├── FleetPreview.tsx
+    │   │   ├── GoogleReputation.tsx
+    │   │   ├── BookingProcess.tsx
+    │   │   ├── QuoteCTASection.tsx
+    │   │   └── FinalCTA.tsx
+    │   └── ui/
+    │       ├── WhatsAppFloatButton.tsx
+    │       ├── MobileBottomBar.tsx
+    │       ├── SocialLinks.tsx
+    │       ├── SectionHeading.tsx
+    │       ├── ServiceCard.tsx
+    │       ├── PackageCard.tsx
+    │       ├── VehicleCard.tsx
+    │       ├── BlogCard.tsx
+    │       ├── QuoteForm.tsx
+    │       ├── PricingTable.tsx
+    │       ├── Breadcrumbs.tsx
+    │       ├── CTASection.tsx
+    │       └── FAQ.tsx
+    │
+    ├── data/
+    │   ├── business.ts              ← All contact/brand data
+    │   ├── vehicles.ts              ← All vehicle data (NO Weganor)
+    │   ├── packages.ts              ← All 10 SVTT packages
+    │   ├── services.ts              ← All 9 service categories
+    │   ├── blog.ts                  ← Blog post metadata
+    │   └── social.ts                ← Social media links
+    │
+    ├── lib/
+    │   ├── whatsapp.ts              ← WhatsApp URL builder utility
+    │   └── seo.ts                   ← Page metadata builder
+    │
+    └── types/
+        └── index.ts                 ← Shared TypeScript interfaces
+```
+
+---
+
+## ✅ TASK COMPLETION LOG
+
+### Pre-Development (Before Task 01)
+| Item | Status | Date |
+|---|---|---|
+| Blueprint read (all 1,649 lines) | ✅ DONE | 2026-10-02 |
+| 20-task implementation plan created | ✅ DONE | 2026-10-02 |
+| `docs/ASSET_REQUIREMENTS.md` created | ✅ DONE | 2026-10-02 |
+| HANDSHAKE.md created | ✅ DONE | 2026-10-02 |
+| Awaiting user: images, logo, owner photo | ⏳ PENDING | — |
+
+---
+
+### Task 01 — Project Foundation & Repository Setup
+| Status | ⬜ NOT STARTED |
+|---|---|
+| Completed date | — |
+| Branch | — |
+| Vercel preview | — |
+| Notes | Waiting for user to upload images before starting |
+
+**What this task does:**
+- Initialize Next.js (App Router) + TypeScript + Tailwind CSS
+- Configure ESLint + Prettier
+- Create full `src/` directory structure
+- Create `public/images/` folder structure
+- Create `.env.example`
+- Initialize Git, create GitHub repository
+- First commit
+
+---
+
+### Task 02 — Design System & Global Tokens
+| Status | ⬜ NOT STARTED |
+|---|---|
+| Completed date | — |
+| Notes | Depends on Task 01 |
+
+**What this task does:**
+- Tailwind design tokens: svtt-maroon, svtt-gold, svtt-cream, svtt-sand, svtt-charcoal, svtt-whatsapp
+- Google Fonts: Playfair Display (headings) + Inter (body/UI)
+- Type scale, spacing, radius, shadows, containers, breakpoints
+- globals.css, design-system preview page
+- `docs/DESIGN_SYSTEM.md`
+
+---
+
+### Task 03 — Centralized Business Data & WhatsApp Library
+| Status | ⬜ NOT STARTED |
+|---|---|
+| Completed date | — |
+| Notes | Depends on Task 01 |
+
+**What this task does:**
+- `src/data/business.ts` — all brand/contact data
+- `src/data/vehicles.ts` — all vehicles (NO Weganor)
+- `src/data/packages.ts` — 10 SVTT packages (with PRICE_FLAGS)
+- `src/data/services.ts` — 9 service categories
+- `src/data/social.ts` — social links
+- `src/lib/whatsapp.ts` — WhatsApp URL builder
+- `src/lib/seo.ts` — metadata builder
+- `src/types/index.ts` — TypeScript interfaces
+
+---
+
+### Task 04 — Global Header & Navigation
+| Status | ⬜ NOT STARTED |
+|---|---|
+| Completed date | — |
+| Notes | Depends on Tasks 02 + 03 |
+
+**What this task does:**
+- Desktop sticky nav: Logo, 7 nav links, WhatsApp CTA, Call CTA
+- Mobile hamburger drawer (animated, keyboard accessible)
+- Active page state, Escape to close, focus trap
+- prefers-reduced-motion support
+
+---
+
+### Task 05 — Global Footer & Floating Contact Elements
+| Status | ⬜ NOT STARTED |
+|---|---|
+| Completed date | — |
+| Notes | Depends on Tasks 02 + 03 |
+
+**What this task does:**
+- Full footer (Company, Travel, Contact, Social, Legal columns)
+- WhatsApp floating button (fixed, safe-area aware)
+- Mobile-only sticky bottom bar: Call | WhatsApp | Get Quote
+- Social links component
+- Root layout.tsx assembled
+
+---
+
+### Task 06 — Homepage: Hero Section
+| Status | ⬜ NOT STARTED |
+|---|---|
+| Completed date | — |
+| Notes | Depends on Tasks 02–05 |
+
+**What this task does:**
+- Cinematic full-viewport hero
+- Desktop (hero-desktop.webp) + Mobile (hero-mobile.webp) responsive images
+- Headline, tagline, 3 CTAs (WhatsApp / Explore Packages / Call)
+- Entrance animation + prefers-reduced-motion
+
+---
+
+### Task 07 — Homepage: Trust Strip, Services, Why SVTT & Destination Story
+| Status | ⬜ NOT STARTED |
+|---|---|
+| Completed date | — |
+| Notes | Depends on Task 06 |
+
+---
+
+### Task 08 — Homepage: Packages Preview, Fleet Preview, Booking Process & Final CTA
+| Status | ⬜ NOT STARTED |
+|---|---|
+| Completed date | — |
+| Notes | Depends on Task 07 |
+
+---
+
+### Task 09 — Services Page
+| Status | ⬜ NOT STARTED |
+|---|---|
+| Completed date | — |
+| Notes | Depends on Tasks 05, 08 |
+
+---
+
+### Task 10 — Tour Packages Index Page & Package Architecture
+| Status | ⬜ NOT STARTED |
+|---|---|
+| Completed date | — |
+| Notes | Depends on Task 08 |
+
+---
+
+### Task 11 — All 10 SVTT Package Data (Complete & Verified)
+| Status | ⬜ NOT STARTED |
+|---|---|
+| Completed date | — |
+| Notes | Depends on Task 10. Creates docs/PRICING_FLAGS.md |
+
+---
+
+### Task 12 — Fleet Page
+| Status | ⬜ NOT STARTED |
+|---|---|
+| Completed date | — |
+| Notes | Depends on Task 08 |
+
+---
+
+### Task 13 — Pickup & Drop Page
+| Status | ⬜ NOT STARTED |
+|---|---|
+| Completed date | — |
+| Notes | Depends on Task 05 |
+
+---
+
+### Task 14 — About Page & Reviews Page
+| Status | ⬜ NOT STARTED |
+|---|---|
+| Completed date | — |
+| Notes | Depends on Task 03 |
+
+---
+
+### Task 15 — Contact Page & Request a Quote Form
+| Status | ⬜ NOT STARTED |
+|---|---|
+| Completed date | — |
+| Notes | Depends on Tasks 03, 05. Form sends to svtttirupati@gmail.com |
+
+---
+
+### Task 16 — Blog Architecture & Starter Content
+| Status | ⬜ NOT STARTED |
+|---|---|
+| Completed date | — |
+| Notes | 8 blog post stubs. No fabricated facts. |
+
+---
+
+### Task 17 — WhatsApp Conversion System Audit
+| Status | ⬜ NOT STARTED |
+|---|---|
+| Completed date | — |
+| Notes | Audit all CTAs. All must use whatsapp.ts utility. |
+
+---
+
+### Task 18 — SEO, Metadata, Sitemap & Structured Data
+| Status | ⬜ NOT STARTED |
+|---|---|
+| Completed date | — |
+| Notes | sitemap.ts, robots.ts, JSON-LD LocalBusiness, BreadcrumbList |
+
+---
+
+### Task 19 — Accessibility, Performance & Legal Pages
+| Status | ⬜ NOT STARTED |
+|---|---|
+| Completed date | — |
+| Notes | WCAG AA audit, Lighthouse optimization, 404 page, Privacy + T&C placeholders |
+
+---
+
+### Task 20 — Cross-Device QA & Production Deployment
+| Status | ⬜ NOT STARTED |
+|---|---|
+| Completed date | — |
+| Notes | Full 15-viewport QA, GitHub cleanup, Vercel production, custom domain svtttirupati.com |
+
+---
+
+## 📦 ASSETS STATUS
+
+| Category | Count | Status |
+|---|---|---|
+| Logo (SVG + all icon sizes) | 11 files | ✅ COMPLETE (2026-10-02) |
+| Owner photo (REAL PHOTO) | 1 file | ⏳ User to supply |
+| Hero desktop (1920×900) | 1 file | ⏳ User creating with ChatGPT |
+| Hero mobile (1080×1350) | 1 file | ⏳ User creating with ChatGPT |
+| Vehicle images (1600×1000 each) | 9 files | ⏳ User creating with ChatGPT |
+| Package destination images (1600×1000) | 10 files | ⏳ User creating with ChatGPT |
+| Destination card images (800×600) | 6 files | ⏳ User creating with ChatGPT |
+| About/supporting images | 4 files | ⏳ User creating with ChatGPT |
+| Blog placeholder images | 8 files | ⏳ User creating with ChatGPT |
+| **TOTAL** | **51 files** | **11 done · 40 remaining** |
+
+> See `docs/ASSET_REQUIREMENTS.md` for exact ChatGPT prompts, filenames, dimensions, and upload paths for every asset.
+
+---
+
+## 🔗 KEY REFERENCE FILES
+
+| File | Purpose |
+|---|---|
+| [`docs/ASSET_REQUIREMENTS.md`](docs/ASSET_REQUIREMENTS.md) | ChatGPT prompts + upload specs for all 44 images |
+| [`docs/DESIGN_SYSTEM.md`](docs/DESIGN_SYSTEM.md) | Design tokens (created in Task 02) |
+| [`docs/PRICING_FLAGS.md`](docs/PRICING_FLAGS.md) | Suspicious prices flagged for owner review (created in Task 11) |
+| [`src/data/business.ts`](src/data/business.ts) | All SVTT business contact data |
+| [`src/data/vehicles.ts`](src/data/vehicles.ts) | All vehicle data |
+| [`src/data/packages.ts`](src/data/packages.ts) | All 10 tour packages |
+| [`src/lib/whatsapp.ts`](src/lib/whatsapp.ts) | WhatsApp URL builder — used by ALL CTAs |
+
+---
+
+## 🌐 REFERENCE WEBSITES (USE WITH RESTRICTIONS)
+
+| Site | URL | Allowed use |
+|---|---|---|
+| Existing SVTT site | https://srivinayakatours.netlify.app/ | Factual data only (vehicles, packages, pricing, services) |
+| Vishnu Travels | https://vishnu-travels.com/ | Functional/service coverage reference only |
+| CJK Digital Solutions | https://www.cjkdigitalsolutions.com/ | UI/nav/CTA interaction patterns only |
+
+> ⛔ Do NOT copy: design, HTML, CSS, wording, layout, images, or branding from any reference site.
+
+---
+
+## 📋 HOW TO USE THIS FILE IN A NEW SESSION
+
+If you are an AI reading this in a new session:
+
+1. **Read this entire file first.**
+2. Find the section **"CURRENT STATUS"** at the top — it tells you the current task.
+3. Find the **"TASK COMPLETION LOG"** — tasks marked ✅ are done; ⬜ are pending.
+4. The task immediately after the last ✅ is what you should work on next.
+5. Before starting any task, re-read the **"RULES THAT NEVER CHANGE"** section.
+6. The user's workspace is at: `d:\Projects_OnlyAI\svtt_hemant\`
+7. The blueprint specification is at: `d:\Projects_OnlyAI\svtt_hemant\sri-vinayaka-tours-travels-website-blueprint.md`
+8. After completing any task, **update this HANDSHAKE.md** — mark the task ✅, update the CURRENT STATUS block at the top, and add completion date and any relevant notes.
+9. Never skip updating this file. Even if the user forgets to ask.
+
+---
+
+## 📝 SESSION NOTES LOG
+
+| Date | Session | Note |
+|---|---|---|
+| 2026-10-02 | Session 1 | Blueprint read. 20-task plan created. ASSET_REQUIREMENTS.md v1.0 created. HANDSHAKE.md created. |
+| 2026-10-02 | Session 1 | ASSET_REQUIREMENTS.md updated to v2.0 — now covers all 10 sections with individual ChatGPT prompts for every asset. Total: 51 assets. |
+| 2026-10-02 | Session 2 | All 51 assets uploaded, verified (images viewed), and approved. Naming issues fixed (logos folder → logo, og-imag → og-image, tempo-traveller → tempo-traveller-12, backtick prefix on tirupati-travel-service). og-image.jpg regenerated as premium version. svtt-icon-192.png, svtt-icon-512.png, favicon.ico, icon.png, apple-icon.png all generated. ASSET_REQUIREMENTS.md checklist 51/51 ✅. Ready to start Task 01. |
+
+---
+
+## 🚀 NEW SESSION STARTER PROMPT
+
+> Copy and paste the following prompt **exactly** at the start of a new AI session:
+
+---
+
+```
+You are continuing the SVTT website project for Sri Vinayaka Tours & Travels.
+
+FIRST: Read the HANDSHAKE.md file located at:
+d:\Projects_OnlyAI\svtt_hemant\HANDSHAKE.md
+
+Read it completely before doing anything else. It contains:
+- The full project overview and business details
+- The tech stack (Next.js App Router + TypeScript + Tailwind CSS)
+- The 20-task implementation roadmap
+- The current task status (Task 01 is next)
+- All iron rules that must never be broken
+- The complete asset and file structure
+
+After reading HANDSHAKE.md, also read:
+d:\Projects_OnlyAI\svtt_hemant\sri-vinayaka-tours-travels-website-blueprint.md
+
+Then confirm you understand the project and are ready to execute Task 01: Project Foundation & Repository Setup.
+
+RULES TO ALWAYS FOLLOW:
+- Execute ONE task at a time
+- Report results after each task and wait for approval before proceeding
+- Update HANDSHAKE.md after every completed task
+- Never include Weganor anywhere in the website
+- All 51 images are already uploaded and verified — do not regenerate or move them
+```
+
+---
+
+*HANDSHAKE.md — Sri Vinayaka Tours & Travels — svtttirupati.com*
+*This file must be updated after EVERY task completion, in EVERY session, without exception.*
+
