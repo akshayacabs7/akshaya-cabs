@@ -14,11 +14,11 @@
 
 ```
 PHASE         : DEVELOPMENT — IN PROGRESS
-CURRENT TASK  : Task 16 — Homepage / Landing Page
-LAST COMPLETED: Task 15 — Request-a-Quote Page ✅
+CURRENT TASK  : Task 17 — Header / Navigation
+LAST COMPLETED: Task 16 — Homepage / Landing Page ✅
 LAST UPDATED  : 2026-10-02
 ASSETS        : 51/51 COMPLETE ✅ — All images verified and approved
-COMMIT        : 3a942b2 — feat: Task 15 - Request-a-Quote page with 12-field form and trust sidebar
+COMMIT        : 901cee7 — feat: Task 16 - Homepage with all 9 sections
 ```
 
 ---
@@ -493,11 +493,31 @@ d:\Projects_OnlyAI\svtt_hemant\
 
 ---
 
-### Task 16 — Homepage / Landing Page
+### Task 16 — Homepage / Landing Page (/)
+| Status | ✅ COMPLETE |
+|---|---|
+| Completed date | 2026-10-02 |
+| Commit | `901cee7` |
+| Notes | 0 TS errors \| Build: PASSES \| / = Static \| 8 new files |
+
+**What was done:**
+- ✅ Fixed `WhyChooseSection` — changed hardcoded "4.9★" to `BUSINESS.google.rating` (5.0)
+- ✅ 5 new section components created:
+  - `FleetPreviewSection` — 4 vehicles, image, capacity badge, price/km, WhatsApp enquiry
+  - `DestinationStorySection` — 6 pilgrimage destinations (Tirumala, Kanipakam, Sri Kalahasti, Golden Temple, Arunachalam, Padmavathi) — SEO + emotional storytelling
+  - `GoogleReputationSection` — dark bg, 5.0★ score block, 3 testimonial cards (clearly not labelled as Google reviews), CTA strip
+  - `HowItWorksSection` — 4-step numbered flow with maroon circles and dashed connector lines
+  - `FinalCtaSection` — maroon strip, blueprint-exact heading, 3 CTAs (WhatsApp + Call + Quote)
+- ✅ `page.tsx` restructured to 9 sections in blueprint order: Hero → Services → Packages → Fleet → Why Choose → Destinations → Reputation → How It Works → Final CTA
+- ✅ ~550 lines CSS added to `globals.css`
+
+---
+
+### Task 17 — Header / Navigation
 | Status | ⬜ NOT STARTED |
 |---|---|
 | Completed date | — |
-| Notes | Hero, services strip, packages grid, fleet preview, reviews, CTA |
+| Notes | Desktop nav, mobile hamburger, WhatsApp CTA, sticky |
 
 ---
 
