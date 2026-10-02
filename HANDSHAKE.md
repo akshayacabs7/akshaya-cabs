@@ -14,11 +14,11 @@
 
 ```
 PHASE         : DEVELOPMENT — IN PROGRESS
-CURRENT TASK  : Task 17 — Header / Navigation
-LAST COMPLETED: Task 16 — Homepage / Landing Page ✅
+CURRENT TASK  : Task 18 — Footer
+LAST COMPLETED: Task 17 — Header / Navigation ✅
 LAST UPDATED  : 2026-10-02
 ASSETS        : 51/51 COMPLETE ✅ — All images verified and approved
-COMMIT        : 901cee7 — feat: Task 16 - Homepage with all 9 sections
+COMMIT        : b5169bf — feat: Task 17 - Header nav reordered, Pickup & Drop added, Get a Quote CTA
 ```
 
 ---
@@ -514,10 +514,28 @@ d:\Projects_OnlyAI\svtt_hemant\
 ---
 
 ### Task 17 — Header / Navigation
+| Status | ✅ COMPLETE |
+|---|---|
+| Completed date | 2026-10-02 |
+| Commit | `b5169bf` |
+| Notes | 0 TS errors \| Verified existing Task 04 header, made 3 targeted enhancements |
+
+**What was done:**
+- ✅ Verified existing header: sticky, scroll shadow, desktop nav, WhatsApp + Call CTAs, mobile hamburger with focus trap, keyboard (Escape), body scroll lock, address in drawer — all previously built in Task 04
+- ✅ Reordered NAV_LINKS to match blueprint: Home → Services → Tour Packages → Fleet → Pickup & Drop → About → Contact
+- ✅ Added missing **Pickup & Drop** link to primary nav
+- ✅ Added **"Get a Quote"** ghost button to desktop header CTA bar (3rd conversion point)
+- ✅ Moved Reviews/Blog to `DRAWER_EXTRA_LINKS` — shown in mobile drawer under "More" separator
+- ✅ Added Request a Quote to mobile drawer extras
+- ✅ CSS: quote btn overrides + drawer extras label + opacity adjustment
+
+---
+
+### Task 18 — Footer
 | Status | ⬜ NOT STARTED |
 |---|---|
 | Completed date | — |
-| Notes | Desktop nav, mobile hamburger, WhatsApp CTA, sticky |
+| Notes | Verify/enhance existing footer from Task 05 |
 
 ---
 
