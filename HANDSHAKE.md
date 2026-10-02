@@ -14,11 +14,11 @@
 
 ```
 PHASE         : DEVELOPMENT — IN PROGRESS
-CURRENT TASK  : Task 15 — Request-a-Quote Page
-LAST COMPLETED: Task 14 — Contact Page ✅
+CURRENT TASK  : Task 16 — Homepage / Landing Page
+LAST COMPLETED: Task 15 — Request-a-Quote Page ✅
 LAST UPDATED  : 2026-10-02
 ASSETS        : 51/51 COMPLETE ✅ — All images verified and approved
-COMMIT        : f20cf99 — feat: Task 14 - Contact page with form, detail cards, map, social links
+COMMIT        : 3a942b2 — feat: Task 15 - Request-a-Quote page with 12-field form and trust sidebar
 ```
 
 ---
@@ -474,11 +474,30 @@ d:\Projects_OnlyAI\svtt_hemant\
 
 ---
 
-### Task 15 — Request-a-Quote Page
+### Task 15 — Request-a-Quote Page (/request-a-quote)
+| Status | ✅ COMPLETE |
+|---|---|
+| Completed date | 2026-10-02 |
+| Commit | `3a942b2` |
+| Notes | 0 TS errors (1 caught & fixed in build) \| /request-a-quote = Static |
+
+**What was done:**
+- ✅ Dark charcoal hero with H1 and trip description
+- ✅ 2-col layout: left = 12-field quote form card; right = sticky sidebar
+- ✅ `RequestQuoteForm` client component: 6 required (name, phone, service, date, pickup, drop) + 6 optional (email, passengers, vehicle from `vehicles.ts`, travel time, package from `packages.ts`, message)
+- ✅ Two form section dividers (Required / Optional)
+- ✅ WhatsApp submission: structured message with `━━━` dividers for readability
+- ✅ Honest success state: blueprint-exact wording
+- ✅ Sidebar: 5-point "Why Request a Quote" trust list, quick contact card (WhatsApp + Call + alternate + email), Google 5.0 rating badge, Browse Packages + View Fleet quick links
+- ✅ ~210 lines CSS added to `globals.css`
+
+---
+
+### Task 16 — Homepage / Landing Page
 | Status | ⬜ NOT STARTED |
 |---|---|
 | Completed date | — |
-| Notes | Extended quote form page |
+| Notes | Hero, services strip, packages grid, fleet preview, reviews, CTA |
 
 ---
 
