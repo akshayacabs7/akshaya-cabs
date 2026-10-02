@@ -3806,3 +3806,383 @@ img {
     transition: none;
   }
 }
+
+/* ============================================================
+   PICKUP & DROP PAGE — Task 11
+   /pickup-drop
+   ============================================================ */
+
+/* ── Page hero ───────────────────────────────────────────────── */
+
+.svtt-pd-hero {
+  background: linear-gradient(135deg, #1e2126 0%, #2c3038 100%);
+  padding: 5rem 0 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.svtt-pd-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 65% 55% at 90% 115%, rgba(141,28,34,0.22) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 60% at 5% -5%,  rgba(245,158,11,0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.svtt-pd-hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.svtt-pd-hero__label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--svtt-accent);
+  margin-bottom: 0.75rem;
+}
+
+.svtt-pd-hero__h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0 0 1rem 0;
+}
+
+.svtt-pd-hero__desc {
+  font-size: 1.0625rem;
+  color: rgba(255,255,255,0.72);
+  max-width: 620px;
+  line-height: 1.65;
+  margin: 0 0 2rem 0;
+}
+
+.svtt-pd-hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.875rem;
+}
+
+/* ── Pickup location quick-jump nav ─────────────────────────── */
+
+.svtt-pd-quicknav {
+  background: var(--svtt-bg);
+  border-bottom: 1px solid var(--svtt-border);
+  position: sticky;
+  top: 64px;
+  z-index: 10;
+}
+
+.svtt-pd-quicknav__inner {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-block: 0.75rem;
+}
+
+.svtt-pd-quicknav__inner::-webkit-scrollbar { display: none; }
+
+.svtt-pd-quicknav__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.45rem 1rem;
+  border-radius: var(--svtt-radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--svtt-text-muted);
+  background: transparent;
+  border: 1.5px solid var(--svtt-border);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all var(--svtt-transition-base);
+  min-height: 38px;
+}
+
+.svtt-pd-quicknav__btn:hover {
+  border-color: var(--svtt-primary);
+  color: var(--svtt-primary);
+  background: rgba(141,28,34,0.04);
+}
+
+/* ── Service cards section ───────────────────────────────────── */
+
+.svtt-pd-services {
+  padding-block: 4rem 3rem;
+  background: var(--svtt-bg-alt);
+}
+
+.svtt-pd-services__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .svtt-pd-services__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .svtt-pd-services__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Individual service card */
+.svtt-pd-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--svtt-bg);
+  border-radius: var(--svtt-radius-card);
+  border: 1px solid var(--svtt-border);
+  box-shadow: var(--svtt-shadow-card);
+  overflow: hidden;
+  transition: box-shadow var(--svtt-transition-base), transform var(--svtt-transition-base);
+}
+
+.svtt-pd-card:hover {
+  box-shadow: var(--svtt-shadow-card-hover);
+  transform: translateY(-3px);
+}
+
+/* Coloured top accent bar */
+.svtt-pd-card__accent {
+  height: 4px;
+  background: var(--svtt-primary);
+  flex-shrink: 0;
+}
+
+.svtt-pd-card__accent--gold    { background: var(--svtt-accent); }
+.svtt-pd-card__accent--green   { background: #16a34a; }
+.svtt-pd-card__accent--blue    { background: #2563eb; }
+.svtt-pd-card__accent--orange  { background: #ea580c; }
+.svtt-pd-card__accent--purple  { background: #7c3aed; }
+
+.svtt-pd-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.svtt-pd-card__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(141,28,34,0.08);
+  border: 1px solid rgba(141,28,34,0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.svtt-pd-card__title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--svtt-text);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.svtt-pd-card__subtitle {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--svtt-primary);
+  margin: -0.5rem 0 0 0;
+}
+
+.svtt-pd-card__desc {
+  font-size: 0.9rem;
+  line-height: 1.68;
+  color: var(--svtt-text-muted);
+  margin: 0;
+}
+
+/* Route / location row */
+.svtt-pd-card__route {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--svtt-text);
+  background: var(--svtt-bg-alt);
+  border: 1px solid var(--svtt-border);
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.875rem;
+}
+
+.svtt-pd-card__route-arrow {
+  color: var(--svtt-accent);
+  flex-shrink: 0;
+  font-weight: 900;
+}
+
+/* How-to-book steps */
+.svtt-pd-card__steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.svtt-pd-card__step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  font-size: 0.8125rem;
+  color: var(--svtt-text-muted);
+  line-height: 1.45;
+}
+
+.svtt-pd-card__step-num {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--svtt-primary);
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+/* CTA footer */
+.svtt-pd-card__cta {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--svtt-border);
+}
+
+.svtt-pd-card__cta .btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ── How booking works strip ─────────────────────────────────── */
+
+.svtt-pd-process {
+  padding-block: 3.5rem;
+  background: var(--svtt-bg);
+}
+
+.svtt-pd-process__steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .svtt-pd-process__steps { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .svtt-pd-process__steps { grid-template-columns: repeat(4, 1fr); }
+}
+
+.svtt-pd-process__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.svtt-pd-process__num {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--svtt-primary) 0%, #6b1419 100%);
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(141,28,34,0.30);
+  flex-shrink: 0;
+}
+
+.svtt-pd-process__emoji {
+  font-size: 1.375rem;
+}
+
+.svtt-pd-process__step-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--svtt-text);
+  margin: 0;
+}
+
+.svtt-pd-process__step-desc {
+  font-size: 0.875rem;
+  color: var(--svtt-text-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── Bottom CTA strip ────────────────────────────────────────── */
+
+.svtt-pd-cta {
+  background: linear-gradient(135deg, var(--svtt-primary) 0%, #5a0f14 100%);
+  padding: 3.5rem 0;
+  text-align: center;
+}
+
+.svtt-pd-cta__heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 3vw, 1.875rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.75rem 0;
+}
+
+.svtt-pd-cta__sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.72);
+  max-width: 520px;
+  margin: 0 auto 1.75rem;
+  line-height: 1.6;
+}
+
+.svtt-pd-cta__btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Reduced motion ─────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .svtt-pd-card:hover {
+    transform: none;
+    transition: none;
+  }
+}
