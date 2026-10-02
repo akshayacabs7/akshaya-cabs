@@ -5343,3 +5343,209 @@ img {
     box-shadow: none;
   }
 }
+
+/* ============================================================
+   REQUEST-A-QUOTE PAGE — Task 15
+   /request-a-quote
+   ============================================================ */
+
+/* ── Page hero ───────────────────────────────────────────────── */
+
+.svtt-quote-hero {
+  background: linear-gradient(135deg, #1e2126 0%, #2c3038 100%);
+  padding: 4.5rem 0 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.svtt-quote-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 65% 55% at 85% 115%, rgba(141,28,34,0.22) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 60% at 0% -5%, rgba(245,158,11,0.07) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.svtt-quote-hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.svtt-quote-hero__label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--svtt-accent);
+  margin-bottom: 0.75rem;
+}
+
+.svtt-quote-hero__h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.875rem, 5vw, 2.875rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0 0 0.875rem 0;
+}
+
+.svtt-quote-hero__desc {
+  font-size: 1.0625rem;
+  color: rgba(255,255,255,0.72);
+  max-width: 580px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Body: form + sidebar ────────────────────────────────────── */
+
+.svtt-quote-body {
+  padding-block: 4rem 5rem;
+  background: var(--svtt-bg-alt);
+}
+
+.svtt-quote-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .svtt-quote-grid {
+    grid-template-columns: 1fr 340px;
+    gap: 3rem;
+  }
+}
+
+/* ── Quote form card ─────────────────────────────────────────── */
+
+.svtt-quote-form-card {
+  background: var(--svtt-bg);
+  border: 1px solid var(--svtt-border);
+  border-radius: var(--svtt-radius-card);
+  padding: 2rem;
+  box-shadow: var(--svtt-shadow-card);
+}
+
+.svtt-quote-form-card__title {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--svtt-text);
+  margin: 0 0 0.375rem 0;
+}
+
+.svtt-quote-form-card__sub {
+  font-size: 0.875rem;
+  color: var(--svtt-text-muted);
+  margin: 0 0 1.75rem 0;
+  line-height: 1.55;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────────── */
+
+.svtt-quote-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: sticky;
+  top: 80px;
+}
+
+.svtt-quote-sidebar__card {
+  background: var(--svtt-bg);
+  border: 1px solid var(--svtt-border);
+  border-radius: var(--svtt-radius-card);
+  padding: 1.5rem;
+  box-shadow: var(--svtt-shadow-card);
+}
+
+.svtt-quote-sidebar__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--svtt-text);
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--svtt-primary);
+  display: inline-block;
+}
+
+/* Why get a quote list */
+.svtt-quote-why-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.svtt-quote-why-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--svtt-text-muted);
+  line-height: 1.5;
+}
+
+.svtt-quote-why-icon {
+  font-size: 1.125rem;
+  flex-shrink: 0;
+  margin-top: 0.05rem;
+}
+
+/* Quick contact card */
+.svtt-quote-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid var(--svtt-border);
+  text-decoration: none;
+  color: var(--svtt-text-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: color var(--svtt-transition-fast);
+}
+
+.svtt-quote-contact-item:last-child {
+  border-bottom: none;
+}
+
+.svtt-quote-contact-item:hover {
+  color: var(--svtt-primary);
+}
+
+.svtt-quote-contact-icon {
+  font-size: 1.125rem;
+  flex-shrink: 0;
+  width: 32px;
+  text-align: center;
+}
+
+/* ── Section divider label ───────────────────────────────────── */
+
+.svtt-quote-section-label {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--svtt-primary);
+  padding: 0.75rem 0 0.5rem;
+  border-top: 1px dashed var(--svtt-border);
+  margin-top: 0.5rem;
+}
+
+/* ── Reduced motion ─────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .svtt-quote-contact-item:hover {
+    transition: none;
+  }
+}
