@@ -5549,3 +5549,548 @@ img {
     transition: none;
   }
 }
+
+/* ============================================================
+   HOMEPAGE SECTIONS — Task 16
+   Fleet Preview | Destination Story | Reputation | How It Works | Final CTA
+   ============================================================ */
+
+/* ── Fleet Preview Section ───────────────────────────────────── */
+
+.svtt-fleet-preview {
+  background: var(--svtt-bg-alt);
+}
+
+.svtt-fleet-preview__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+@media (min-width: 480px) {
+  .svtt-fleet-preview__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .svtt-fleet-preview__grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.svtt-fleet-preview__card {
+  display: flex;
+  flex-direction: column;
+  background: var(--svtt-bg);
+  border: 1px solid var(--svtt-border);
+  border-radius: var(--svtt-radius-card);
+  overflow: hidden;
+  box-shadow: var(--svtt-shadow-card);
+  transition: box-shadow var(--svtt-transition-base), transform var(--svtt-transition-base);
+}
+
+.svtt-fleet-preview__card:hover {
+  box-shadow: var(--svtt-shadow-card-hover);
+  transform: translateY(-3px);
+}
+
+.svtt-fleet-preview__img-wrap {
+  position: relative;
+  height: 180px;
+  background: var(--svtt-bg-alt);
+  overflow: hidden;
+}
+
+.svtt-fleet-preview__img {
+  object-fit: cover;
+}
+
+.svtt-fleet-preview__capacity-badge {
+  position: absolute;
+  top: 0.625rem;
+  right: 0.625rem;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(4px);
+}
+
+.svtt-fleet-preview__body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.svtt-fleet-preview__name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--svtt-text);
+  margin: 0;
+}
+
+.svtt-fleet-preview__best-for {
+  font-size: 0.8125rem;
+  color: var(--svtt-text-subtle);
+  line-height: 1.4;
+  margin: 0;
+  flex: 1;
+}
+
+.svtt-fleet-preview__price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.375rem;
+}
+
+.svtt-fleet-preview__price-label {
+  font-size: 0.75rem;
+  color: var(--svtt-text-subtle);
+}
+
+.svtt-fleet-preview__price-value {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 800;
+  color: var(--svtt-primary);
+}
+
+.svtt-fleet-preview__cta {
+  text-align: center;
+}
+
+/* ── Destination Story Section ───────────────────────────────── */
+
+.svtt-destinations {
+  background: var(--svtt-bg);
+}
+
+.svtt-destinations__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  .svtt-destinations__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .svtt-destinations__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.svtt-destinations__card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--svtt-bg-alt);
+  border: 1px solid var(--svtt-border);
+  border-radius: var(--svtt-radius-card);
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow var(--svtt-transition-base), transform var(--svtt-transition-base), border-color var(--svtt-transition-fast);
+  position: relative;
+}
+
+.svtt-destinations__card:hover {
+  box-shadow: var(--svtt-shadow-card-hover);
+  transform: translateY(-2px);
+  border-color: rgba(141,28,34,0.25);
+}
+
+.svtt-destinations__emoji {
+  font-size: 2rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.svtt-destinations__name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--svtt-text);
+  margin: 0 0 0.2rem 0;
+}
+
+.svtt-destinations__subtitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--svtt-primary);
+  letter-spacing: 0.04em;
+  margin: 0 0 0.4rem 0;
+}
+
+.svtt-destinations__desc {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--svtt-text-muted);
+  margin: 0;
+}
+
+.svtt-destinations__arrow {
+  position: absolute;
+  bottom: 1.125rem;
+  right: 1.125rem;
+  color: var(--svtt-text-subtle);
+  opacity: 0;
+  transition: opacity var(--svtt-transition-fast);
+}
+
+.svtt-destinations__card:hover .svtt-destinations__arrow {
+  opacity: 1;
+}
+
+/* ── Google Reputation Section ───────────────────────────────── */
+
+.svtt-reputation {
+  background: linear-gradient(135deg, #1e2126 0%, #2a2f38 100%);
+}
+
+.svtt-reputation .section-label,
+.svtt-reputation .section-title,
+.svtt-reputation .section-subtitle {
+  color: rgba(255,255,255,0.9);
+}
+
+.svtt-reputation .section-label {
+  color: var(--svtt-accent);
+}
+
+.svtt-reputation .section-subtitle {
+  color: rgba(255,255,255,0.65);
+}
+
+.svtt-reputation__header {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .svtt-reputation__header {
+    grid-template-columns: auto 1fr;
+    gap: 3rem;
+  }
+}
+
+.svtt-reputation__score-block {
+  display: flex;
+  justify-content: center;
+}
+
+.svtt-reputation__score {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 1.25rem;
+  padding: 1.5rem 2rem;
+  backdrop-filter: blur(8px);
+}
+
+.svtt-reputation__score-num {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.svtt-reputation__stars {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--svtt-accent);
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.svtt-reputation__google-label {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin: 0.3rem 0 0 0;
+}
+
+.svtt-reputation__note {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.4);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.svtt-reputation__cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+@media (min-width: 640px) {
+  .svtt-reputation__cards { grid-template-columns: repeat(3, 1fr); }
+}
+
+.svtt-reputation__card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--svtt-radius-card);
+  padding: 1.25rem;
+  backdrop-filter: blur(6px);
+}
+
+.svtt-reputation__card-stars {
+  color: var(--svtt-accent);
+  font-size: 0.9375rem;
+  display: flex;
+  gap: 0.1rem;
+}
+
+.svtt-reputation__card-quote {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.75);
+  margin: 0;
+  font-style: italic;
+  flex: 1;
+}
+
+.svtt-reputation__card-reviewer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.svtt-reputation__card-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(141,28,34,0.6);
+  color: #ffffff;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.svtt-reputation__card-name {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+}
+
+.svtt-reputation__card-loc {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.45);
+}
+
+/* ── How It Works Section ────────────────────────────────────── */
+
+.svtt-how-it-works {
+  background: var(--svtt-bg-alt);
+}
+
+.svtt-hiw__steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2.5rem 0;
+  counter-reset: step-counter;
+}
+
+@media (min-width: 640px) {
+  .svtt-hiw__steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .svtt-hiw__steps {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.svtt-hiw__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.875rem;
+  position: relative;
+}
+
+.svtt-hiw__connector {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .svtt-hiw__connector {
+    display: block;
+    position: absolute;
+    top: 30px;
+    left: 75%;
+    width: 50%;
+    height: 2px;
+    background: repeating-linear-gradient(
+      90deg,
+      rgba(141,28,34,0.3) 0px,
+      rgba(141,28,34,0.3) 6px,
+      transparent 6px,
+      transparent 12px
+    );
+  }
+}
+
+.svtt-hiw__circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--svtt-primary) 0%, #6b1419 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(141,28,34,0.3);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.svtt-hiw__emoji {
+  font-size: 1.375rem;
+  line-height: 1;
+}
+
+.svtt-hiw__num {
+  font-size: 0.6rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.svtt-hiw__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--svtt-text);
+  margin: 0;
+}
+
+.svtt-hiw__desc {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--svtt-text-muted);
+  margin: 0;
+}
+
+.svtt-hiw__ctas {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Final CTA Section ───────────────────────────────────────── */
+
+.svtt-final-cta {
+  background: linear-gradient(135deg, var(--svtt-primary) 0%, #5a0f14 100%);
+  padding: 5rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.svtt-final-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 80% at 50% 120%, rgba(245,158,11,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 5% -10%, rgba(255,255,255,0.05) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.svtt-final-cta__content {
+  position: relative;
+  z-index: 1;
+}
+
+.svtt-final-cta__eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--svtt-accent);
+  margin-bottom: 0.75rem;
+}
+
+.svtt-final-cta__heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.875rem, 5vw, 3rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0 0 1.25rem 0;
+}
+
+.svtt-final-cta__desc {
+  font-size: 1.0625rem;
+  color: rgba(255,255,255,0.7);
+  max-width: 520px;
+  margin: 0 auto 2rem;
+  line-height: 1.65;
+}
+
+.svtt-final-cta__btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* ── Reduced motion ─────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .svtt-fleet-preview__card:hover,
+  .svtt-destinations__card:hover {
+    transform: none;
+    transition: none;
+  }
+
+  .svtt-destinations__arrow {
+    opacity: 1;
+  }
+}
