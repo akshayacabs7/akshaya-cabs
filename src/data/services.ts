@@ -1,6 +1,12 @@
-// SVTT Service Category Data
-// Sri Vinayaka Tours & Travels — svtttirupati.com
-// 9 core service categories (from blueprint spec)
+// Akshaya Cabs — Service Category Data
+// akshayacabs.com | Tirupati, Andhra Pradesh
+// 9 core service categories — all verified against master execution plan Section 01F.
+//
+// RULES:
+// - No false real-time feature claims (GPS tracking, flight tracking, train tracking).
+// - No live vehicle availability — we confirm via WhatsApp/phone.
+// - Content descriptions must be independently written — not copied from SVTT.
+// - All 9 service categories must be preserved (feature parity requirement).
 
 import type { Service } from "@/types";
 
@@ -8,18 +14,18 @@ export const SERVICES: Service[] = [
   {
     id: "local-cab",
     slug: "local-cab-services",
-    title: "Local Cab Services",
+    title: "Tirupati Local Cab Services",
     shortTitle: "Local Cabs",
     description:
-      "Reliable and affordable cab services for all your local travel needs in Tirupati. Whether it is a temple visit, city sightseeing, hospital transfer, or a local errand, our well-maintained AC cabs and professional drivers are at your service.",
+      "Comfortable and reliable local cab services for all your travel needs within Tirupati. Whether it is a temple visit, hospital trip, city sightseeing, hotel transfer, or a local errand — our well-maintained AC cabs and professional drivers are ready to assist, any time of day.",
     icon: "MapPin",
-    image: "/images/services/local-cab-services.webp",
+    image: "/images/akshaya/services/local-cab.webp",
     features: [
       "All major Tirupati landmarks covered",
-      "Temple sightseeing routes",
-      "Flexible hourly and day packages",
-      "Professional, courteous drivers",
-      "24/7 availability",
+      "Flexible local day packages",
+      "Temple city sightseeing routes",
+      "Punctual, courteous drivers",
+      "Available 24 hours a day, 7 days a week",
     ],
     vehicles: ["dzire-amaze-etios", "ertiga", "innova", "innova-crysta"],
     cta: "Book Local Cab",
@@ -27,18 +33,18 @@ export const SERVICES: Service[] = [
   {
     id: "tirumala-taxi",
     slug: "tirumala-taxi-services",
-    title: "Tirumala Taxi Services",
+    title: "Tirupati to Tirumala Taxi",
     shortTitle: "Tirumala Taxi",
     description:
-      "Dedicated Tirupati to Tirumala taxi service by experienced local drivers who know the ghat roads perfectly. We ensure a safe, comfortable, and timely journey for your Tirumala darshan, available at any hour of the day.",
+      "Dedicated taxi service from Tirupati to Tirumala, operated by experienced local drivers who are thoroughly familiar with the ghat road. We ensure a safe, comfortable, and timely journey for your Tirumala darshan — available at any hour.",
     icon: "Mountain",
-    image: "/images/services/tirumala-taxi-services.webp",
+    image: "/images/akshaya/services/tirumala-taxi.webp",
     features: [
       "Tirupati to Tirumala and back",
-      "Experienced ghat road drivers",
-      "Round-the-clock availability",
-      "AC vehicles for all capacities",
-      "Safe & punctual service",
+      "Experienced ghat-road drivers",
+      "Available around the clock",
+      "AC vehicles for all group sizes",
+      "Safe and punctual service",
     ],
     vehicles: ["dzire-amaze-etios", "ertiga", "innova", "innova-crysta"],
     cta: "Book Tirumala Taxi",
@@ -49,15 +55,15 @@ export const SERVICES: Service[] = [
     title: "Temple Tour Packages",
     shortTitle: "Temple Tours",
     description:
-      "Curated pilgrimage tour packages covering the most sacred temples in and around Tirupati and across South India. From local Tirupati temple darshans to multi-day South India pilgrimage tours — we have a package for every devotee.",
+      "Thoughtfully planned pilgrimage tour packages covering the most sacred temples in and around Tirupati and across South India. From city-level Tirupati temple darshans to multi-day inter-state pilgrimage journeys — we have a package to suit every devotee.",
     icon: "Landmark",
-    image: "/images/services/temple-tour-packages.webp",
+    image: "/images/akshaya/packages/akc0001-tirupati-tirumala.webp", // temple tours shares package hero
     features: [
-      "10 curated pilgrimage packages",
-      "Local, nearby, and outstation options",
+      "10 planned pilgrimage packages",
+      "Local, nearby and outstation options",
       "Multi-day South India tours",
-      "Experienced local guides available",
-      "Customizable itineraries",
+      "Clear inclusions and exclusions",
+      "Enquiry-based with confirmed pricing",
     ],
     vehicles: ["dzire-amaze-etios", "ertiga", "innova", "innova-crysta", "tempo-traveller-12"],
     cta: "View All Packages",
@@ -68,15 +74,15 @@ export const SERVICES: Service[] = [
     title: "Outstation Cabs",
     shortTitle: "Outstation Cabs",
     description:
-      "Intercity travel from Tirupati to Chennai, Bangalore, Hyderabad, Vijayawada, and all major cities across Andhra Pradesh, Tamil Nadu, Karnataka, Telangana, and Kerala. Comfortable AC vehicles with experienced long-distance drivers.",
+      "Intercity cab service from Tirupati to Chennai, Bangalore, Hyderabad, Vijayawada and all major cities across Andhra Pradesh, Tamil Nadu, Karnataka, Telangana and Kerala. Comfortable AC vehicles with experienced long-distance drivers. One-way and round-trip options available.",
     icon: "Navigation",
-    image: "/images/services/outstation-cab-services.webp",
+    image: "/images/akshaya/services/outstation-cab.webp",
     features: [
-      "All major cities from Tirupati",
+      "All major South Indian cities covered",
       "One-way and round-trip options",
-      "300 km/day limit (extra km charged)",
-      "Tollways, parking by customer",
-      "Real-time driver tracking (on request)",
+      "300 km/day included in base fare",
+      "Tolls, parking paid separately by customer",
+      "Experienced highway drivers",
     ],
     vehicles: ["dzire-amaze-etios", "ertiga", "innova", "innova-crysta", "tempo-traveller-12", "tempo-traveller-17"],
     cta: "Book Outstation Cab",
@@ -84,18 +90,18 @@ export const SERVICES: Service[] = [
   {
     id: "airport-transfers",
     slug: "airport-pickup-drop",
-    title: "Airport Pickup & Drop",
+    title: "Tirupati Airport Pickup & Drop",
     shortTitle: "Airport Transfers",
     description:
-      "Punctual and professional airport transfer service for Tirupati Airport. We track your flight, ensure on-time pickup, and handle your luggage with care. Available for early morning, late night, and all scheduled flights.",
+      "Professional cab service to and from Tirupati Airport. Our drivers arrive on time for your departure and are ready to receive you on arrival — available for early morning, late night and all scheduled flights. No extra waiting charges for minor delays.",
     icon: "Plane",
-    image: "/images/services/airport-pickup-drop.webp",
+    image: "/images/akshaya/services/airport-transfer.webp",
     features: [
-      "Tirupati Airport transfers",
-      "Flight tracking & on-time pickup",
-      "All hours including late night",
-      "Luggage assistance",
-      "Professional chauffeurs",
+      "Tirupati Airport pickup and drop",
+      "Available for all flight timings",
+      "Early morning and late-night service",
+      "Luggage assistance included",
+      "Professional and courteous drivers",
     ],
     vehicles: ["dzire-amaze-etios", "ertiga", "innova", "innova-crysta"],
     cta: "Book Airport Transfer",
@@ -106,15 +112,15 @@ export const SERVICES: Service[] = [
     title: "Railway Station Transfers",
     shortTitle: "Railway Transfers",
     description:
-      "Hassle-free cab service to and from Tirupati Railway Station. Whether you are arriving for a Tirumala pilgrimage or departing after your visit, our drivers will be waiting for you at the station with a clean, comfortable vehicle.",
+      "Hassle-free cab service to and from Tirupati Railway Station. Whether you are arriving for a Tirumala pilgrimage or departing after your visit, our drivers will be ready and waiting with a clean, comfortable vehicle.",
     icon: "Train",
-    image: "/images/services/railway-station-transfers.webp",
+    image: "/images/akshaya/services/railway-station-transfer.webp",
     features: [
-      "Tirupati Railway Station pickup & drop",
-      "Train tracking for on-time arrival",
-      "24/7 availability",
-      "Luggage handling",
-      "Direct routes to hotels & temples",
+      "Tirupati Railway Station pickup and drop",
+      "Available 24 hours a day, 7 days a week",
+      "Luggage handling assistance",
+      "Direct routes to hotels and temples",
+      "Reliable and punctual drivers",
     ],
     vehicles: ["dzire-amaze-etios", "ertiga", "innova", "innova-crysta"],
     cta: "Book Station Transfer",
@@ -125,15 +131,15 @@ export const SERVICES: Service[] = [
     title: "Tempo Traveller Rentals",
     shortTitle: "Tempo Traveller",
     description:
-      "Spacious and comfortable Tempo Traveller rental for group travel in and around Tirupati. Available in 12+1 and 17+1 seating configurations, our Tempo Travellers are ideal for pilgrimage groups, family gatherings, corporate outings, and school trips.",
+      "Spacious Tempo Traveller hire for group travel in and around Tirupati. Available in 12+1 and 17+1 seating configurations — ideal for pilgrimage groups, family gatherings, corporate outings, and community trips. All vehicles are AC-equipped with push-back seats.",
     icon: "Bus",
-    image: "/images/services/tempo-traveller-rental.webp",
+    image: "/images/akshaya/services/tempo-traveller-group.webp",
     features: [
-      "12+1 and 17+1 seating options",
-      "Fully AC with push-back seats",
-      "Ample luggage space",
-      "Suitable for group pilgrimages",
-      "Experienced group travel drivers",
+      "12+1 and 17+1 seating configurations",
+      "Fully AC with push-back reclining seats",
+      "Ample luggage storage space",
+      "Suitable for group pilgrimages and events",
+      "Experienced group-travel drivers",
     ],
     vehicles: ["tempo-traveller-12", "tempo-traveller-17"],
     cta: "Book Tempo Traveller",
@@ -144,15 +150,15 @@ export const SERVICES: Service[] = [
     title: "Customized Tours",
     shortTitle: "Custom Tours",
     description:
-      "Have a unique travel requirement? We offer fully customized tour itineraries for individuals, families, and groups. Tell us your destinations, duration, and budget, and we will plan the perfect trip for you across South India.",
+      "Have a unique travel plan? We can arrange a custom itinerary for individuals, families and groups — across any destinations in South India. Share your required places, preferred dates, group size and we will plan a comfortable and well-priced trip for you.",
     icon: "Route",
-    image: "/images/services/customized-tours.webp",
+    image: "/images/akshaya/services/outstation-cab.webp", // customized tours shares outstation visual (no dedicated image)
     features: [
-      "Tailor-made itineraries",
+      "Tailor-made itineraries for any route",
       "Any destinations across South India",
-      "Flexible duration and timing",
+      "Flexible duration and travel dates",
       "Multi-day and multi-vehicle support",
-      "Competitive custom pricing",
+      "Competitive and transparent pricing",
     ],
     vehicles: ["dzire-amaze-etios", "ertiga", "innova", "innova-crysta", "tempo-traveller-12", "tempo-traveller-17"],
     cta: "Request Custom Tour",
@@ -161,24 +167,25 @@ export const SERVICES: Service[] = [
     id: "south-india-pilgrimage",
     slug: "south-india-pilgrimage-tours",
     title: "South India Pilgrimage Tours",
-    shortTitle: "South India Pilgrimage",
+    shortTitle: "Pilgrimage Tours",
     description:
-      "Multi-state spiritual journeys covering the most sacred pilgrimage sites across Andhra Pradesh, Tamil Nadu, Karnataka, Kerala, and Telangana. Our South India pilgrimage tours are designed for devoted pilgrims seeking a complete spiritual experience.",
+      "Multi-state spiritual journeys covering the most sacred pilgrimage sites across Andhra Pradesh, Tamil Nadu, Karnataka, Kerala and Telangana. Our South India pilgrimage tours are designed for devoted travellers seeking a complete and well-organised spiritual experience.",
     icon: "Compass",
-    image: "/images/services/south-india-pilgrimage-tours.webp",
+    image: "/images/akshaya/services/south-india-pilgrimage.webp",
     features: [
       "Multi-state pilgrimage routes",
-      "Rameshwaram, Madurai, Kanchipuram & more",
-      "Experienced spiritual travel drivers",
-      "Accommodation assistance (on request)",
-      "Group & individual packages",
+      "Rameshwaram, Madurai, Kanchipuram and more",
+      "Experienced long-distance drivers",
+      "Accommodation assistance available on request",
+      "Both individual and group packages",
     ],
     vehicles: ["innova", "innova-crysta", "tempo-traveller-12", "tempo-traveller-17"],
     cta: "Plan Pilgrimage Tour",
   },
 ];
 
-// Helpers
+// ── Helpers ───────────────────────────────────────────────────────
+
 export function getServiceBySlug(slug: string): Service | undefined {
   return SERVICES.find((s) => s.slug === slug);
 }

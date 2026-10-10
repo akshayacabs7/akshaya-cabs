@@ -1,7 +1,7 @@
 // WhyChooseSection — Homepage Section 1
-// Sri Vinayaka Tours & Travels — svtttirupati.com
+// Akshaya Cabs — akshayacabs.com
+// TASK-08/11 will redesign this section with original Akshaya design.
 
-import { BUSINESS } from "@/data/business";
 export default function WhyChooseSection() {
   const pillars = [
     {
@@ -61,8 +61,8 @@ export default function WhyChooseSection() {
           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
         </svg>
       ),
-      title: `${BUSINESS.google.rating}★ Google Rating`,
-      body: "Our customers rate us top on Google. Our reputation is built on every journey we complete with care, comfort, and reliability.",
+      title: "Experienced Local Drivers",
+      body: "Our drivers know Tirupati, the ghat roads, and the pilgrimage routes. Every journey is handled with care, local knowledge, and a commitment to punctuality.",
     },
   ];
 

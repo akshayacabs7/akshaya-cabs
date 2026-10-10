@@ -1,58 +1,105 @@
 "use client";
-// SVTT Global Header & Navigation
-// Sri Vinayaka Tours & Travels — svtttirupati.com
-// Task 04: Desktop sticky nav + Mobile hamburger drawer
-// Uses: BUSINESS data, primaryWhatsAppUrl(), next/link, usePathname()
+/**
+ * Akshaya Cabs – Header & Desktop Navigation
+ * src/components/layout/Header.tsx
+ *
+ * TASK 08: Original design — no SVTT classes or structure.
+ * Features:
+ *  - Sticky header with scroll shadow
+ *  - Desktop nav with active-state underline indicator
+ *  - Mobile hamburger → slide-in right drawer
+ *  - EN/TE language switcher (pill) in both header and drawer
+ *  - Skip-to-main link (accessibility)
+ *  - Keyboard trap inside drawer (Escape to close)
+ *  - Body scroll lock when drawer is open
+ *  - Both locales: labels, aria-labels, WhatsApp messages
+ */
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import {
+  useState,
+  useEffect,
+  useCallback,
+  useRef,
+  startTransition,
+} from "react";
 import Link from "next/link";
-import Image from "next/image";
+import LogoMark from "@/components/ui/LogoMark";
 import { usePathname } from "next/navigation";
 import { BUSINESS } from "@/data/business";
 import { primaryWhatsAppUrl } from "@/lib/whatsapp";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
+import type { Locale } from "@/i18n/config";
+import { stripLocale } from "@/i18n/config";
 
-// ── Nav Links ─────────────────────────────────────────────────
+// ─── Nav link definitions ────────────────────────────────────────────────────
+// path is locale-relative (e.g. /about → becomes /en/about or /te/about)
 
-// ── Nav Links — blueprint order: Home, Services, Tour Packages, Fleet, Pickup & Drop, About, Contact
-// Reviews and Blog accessible via footer; too many items for desktop primary nav
-
-const NAV_LINKS = [
-  { href: "/",              label: "Home" },
-  { href: "/services",      label: "Services" },
-  { href: "/tour-packages", label: "Tour Packages" },
-  { href: "/fleet",         label: "Fleet" },
-  { href: "/pickup-drop",   label: "Pickup & Drop" },
-  { href: "/about",         label: "About" },
-  { href: "/contact",       label: "Contact" },
+const NAV = [
+  { path: "/",              en: "Home",            te: "హోమ్" },
+  { path: "/services",      en: "Services",        te: "సేవలు" },
+  { path: "/tour-packages", en: "Tour Packages",   te: "టూర్ ప్యాకేజీలు" },
+  { path: "/fleet",         en: "Fleet",           te: "వాహనాలు" },
+  { path: "/pickup-drop",   en: "Pickup & Drop",   te: "పికప్ & డ్రాప్" },
+  { path: "/about",         en: "About",           te: "మా గురించి" },
+  { path: "/contact",       en: "Contact",         te: "సంప్రదించండి" },
 ] as const;
 
-// Extra links shown in mobile drawer only (not cluttering desktop nav)
-const DRAWER_EXTRA_LINKS = [
-  { href: "/reviews",           label: "Reviews" },
-  { href: "/blog",              label: "Blog" },
-  { href: "/request-a-quote",   label: "Request a Quote" },
+// Extra links only shown in mobile drawer
+const DRAWER_EXTRA = [
+  { path: "/why-choose-us",   en: "Why Choose Us",    te: "మమ్మల్ని ఎందుకు ఎంచుకోవాలి" },
+  { path: "/travel-guides",   en: "Travel Guides",    te: "ట్రావెల్ గైడ్స్" },
+  { path: "/request-a-quote", en: "Request a Quote",  te: "కోటేషన్ అడగండి" },
 ] as const;
 
+// ─── Icons ───────────────────────────────────────────────────────────────────
 
-// ── Types ─────────────────────────────────────────────────────
-
-interface NavLinkItemProps {
-  href: string;
-  label: string;
-  pathname: string;
-  onClick?: () => void;
-  className?: string;
+function PhoneIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.93 19.79 19.79 0 010 .28 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.72 6.72l1.28-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+    </svg>
+  );
 }
 
-// ── NavLinkItem ───────────────────────────────────────────────
+function WhatsAppIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  );
+}
 
-function NavLinkItem({ href, label, pathname, onClick, className = "" }: NavLinkItemProps) {
-  const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href);
+function CloseIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  );
+}
+
+// ─── Nav link component ───────────────────────────────────────────────────────
+
+interface NavLinkProps {
+  href: string;
+  label: string;
+  localeStripped: string;
+  className?: string;
+  onClick?: () => void;
+}
+
+function NavLink({ href, label, localeStripped, className = "", onClick }: NavLinkProps) {
+  // Strip locale from href for comparison: /en/about → /about
+  const pathPart = href.replace(/^\/(en|te)/, "") || "/";
+  const isHome = pathPart === "/";
+  const isActive = isHome
+    ? localeStripped === "/"
+    : localeStripped.startsWith(pathPart);
+
   return (
     <Link
       href={href}
       onClick={onClick}
-      className={`nav-link ${isActive ? "nav-link--active" : ""} ${className}`}
+      className={`${className}${isActive ? (className.includes("drawer") ? " akc-drawer__nav-link--active" : " akc-nav-link--active") : ""}`}
       aria-current={isActive ? "page" : undefined}
     >
       {label}
@@ -60,252 +107,297 @@ function NavLinkItem({ href, label, pathname, onClick, className = "" }: NavLink
   );
 }
 
-// ── Header Component ──────────────────────────────────────────
+// ─── Header Component ─────────────────────────────────────────────────────────
 
-export default function Header() {
+interface HeaderProps {
+  locale: Locale;
+}
+
+export default function Header({ locale }: HeaderProps) {
   const pathname = usePathname();
+  const localeStripped = stripLocale(pathname);
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
   const drawerRef = useRef<HTMLDivElement>(null);
   const menuBtnRef = useRef<HTMLButtonElement>(null);
 
-  // Scroll shadow
+  const isTe = locale === "te";
+  const prefix = `/${locale}`;
+
+  // Build locale-prefixed nav links
+  const navLinks = NAV.map((item) => ({
+    href: item.path === "/" ? prefix : `${prefix}${item.path}`,
+    label: isTe ? item.te : item.en,
+    path: item.path,
+  }));
+
+  const extraLinks = DRAWER_EXTRA.map((item) => ({
+    href: `${prefix}${item.path}`,
+    label: isTe ? item.te : item.en,
+    path: item.path,
+  }));
+
+  // Contact
+  const callHref = BUSINESS.phone.primaryTel;
+  const phoneDisplay = BUSINESS.phone.primaryDisplay;
+  const waUrl = primaryWhatsAppUrl(
+    isTe
+      ? `నమస్కారం! అక్షయ క్యాబ్స్ సేవల గురించి విచారించాలనుకుంటున్నాను.`
+      : `Hello! I'd like to enquire about Akshaya Cabs.`
+  );
+
+  // Scroll handler
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close on route change
-  useEffect(() => { setMenuOpen(false); }, [pathname]);
+  // Close drawer on route change
+  useEffect(() => {
+    startTransition(() => setMenuOpen(false));
+  }, [pathname]);
 
-  // Escape key handler
-  const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    if (e.key === "Escape" && menuOpen) {
-      setMenuOpen(false);
-      menuBtnRef.current?.focus();
+  // Body scroll lock when drawer is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
     }
-  }, [menuOpen]);
-
-  useEffect(() => {
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [handleKeyDown]);
-
-  // Lock body scroll when menu open
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
-  // Focus trap in mobile drawer
+  // Keyboard: Escape closes drawer
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLDivElement>) => {
+      if (e.key === "Escape" && menuOpen) {
+        setMenuOpen(false);
+        menuBtnRef.current?.focus();
+      }
+    },
+    [menuOpen]
+  );
+
+  // Outside click closes drawer
   useEffect(() => {
-    if (!menuOpen || !drawerRef.current) return;
-    const focusable = drawerRef.current.querySelectorAll<HTMLElement>(
-      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
-    );
-    if (!focusable.length) return;
-    focusable[0].focus();
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-    const trap = (e: KeyboardEvent) => {
-      if (e.key !== "Tab") return;
-      if (e.shiftKey) {
-        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
-      } else {
-        if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+    if (!menuOpen) return;
+    const handler = (e: MouseEvent) => {
+      if (
+        drawerRef.current &&
+        !drawerRef.current.contains(e.target as Node) &&
+        menuBtnRef.current &&
+        !menuBtnRef.current.contains(e.target as Node)
+      ) {
+        setMenuOpen(false);
       }
     };
-    document.addEventListener("keydown", trap);
-    return () => document.removeEventListener("keydown", trap);
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
   }, [menuOpen]);
-
-  const waUrl = primaryWhatsAppUrl();
-  const callHref = BUSINESS.phone.primaryTel;
-  const phoneDisplay = BUSINESS.phone.primaryDisplay;
 
   return (
     <>
+      {/* Skip-to-main link */}
+      <a href="#main-content" className="akc-skip-link">
+        {isTe ? "ముఖ్య కంటెంట్‌కు దాటవేయండి" : "Skip to main content"}
+      </a>
+
+      {/* ── Sticky Header ── */}
       <header
-        className={`svtt-header ${scrolled ? "svtt-header--scrolled" : ""}`}
+        className={`akc-header${scrolled ? " akc-header--scrolled" : ""}`}
         role="banner"
       >
-        <div className="svtt-container svtt-header__inner">
+        <div className="akc-header__inner">
 
-          {/* ── Logo ── */}
-          <Link href="/" className="svtt-header__logo" aria-label="Sri Vinayaka Tours & Travels — Home">
-            <Image
-              src="/images/logo/svtt-logo-dark.svg"
-              alt="Sri Vinayaka Tours & Travels"
-              width={160}
-              height={52}
-              priority
-              className="svtt-header__logo-img"
-            />
+          {/* Logo */}
+          <Link
+            href={prefix}
+            className="akc-header__logo-link"
+            aria-label={`${BUSINESS.name} – ${isTe ? "హోమ్" : "Home"}`}
+          >
+            <LogoMark variant="light" height={40} className="akc-header__logo" />
           </Link>
 
-          {/* ── Desktop Nav ── */}
-          <nav className="svtt-header__nav" aria-label="Main navigation">
-            <ul role="list" className="svtt-header__nav-list">
-              {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <NavLinkItem href={link.href} label={link.label} pathname={pathname} />
+          {/* Desktop nav */}
+          <nav className="akc-header__nav" aria-label={isTe ? "ప్రధాన నావిగేషన్" : "Main navigation"}>
+            <ul className="akc-header__nav-list" role="list">
+              {navLinks.map((link) => (
+                <li key={link.href} role="listitem">
+                  <NavLink
+                    href={link.href}
+                    label={link.label}
+                    localeStripped={localeStripped}
+                    className="akc-nav-link"
+                  />
                 </li>
               ))}
             </ul>
           </nav>
 
-          {/* ── Desktop CTAs ── */}
-          <div className="svtt-header__actions">
-            <a
-              href="/request-a-quote"
-              className="btn btn-ghost svtt-header__quote-btn"
-              aria-label="Request a cab or tour quote"
-            >
-              Get a Quote
-            </a>
+          {/* Right actions */}
+          <div className="akc-header__actions">
+            {/* Language switcher — tablet+ */}
+            <div className="akc-header__lang">
+              <LanguageSwitcher
+                currentLocale={locale}
+                ariaLabel={isTe ? "భాష మార్చుకోండి" : "Switch language"}
+              />
+            </div>
+
+            {/* WhatsApp — desktop */}
             <a
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-whatsapp btn-sm svtt-header__wa-btn"
-              aria-label="Chat on WhatsApp"
+              className="akc-header__wa"
+              aria-label={isTe ? "వాట్సాప్‌లో సంప్రదించండి" : "Chat on WhatsApp"}
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-              </svg>
-              WhatsApp
+              <WhatsAppIcon />
+              {isTe ? "వాట్సాప్" : "WhatsApp"}
             </a>
-            <a
-              href={callHref}
-              className="btn btn-primary btn-sm svtt-header__call-btn"
-              aria-label={`Call us at ${phoneDisplay}`}
+
+            {/* Book CTA — desktop */}
+            <Link
+              href={`${prefix}/contact`}
+              className="akc-header__book-btn"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.93 19.79 19.79 0 01.01 .28 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.72 6.72l1.28-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-              </svg>
-              Call Now
-            </a>
+              {isTe ? "క్యాబ్ బుక్ చేయండి" : "Book a Cab"}
+            </Link>
+
+            {/* Hamburger — mobile */}
+            <button
+              ref={menuBtnRef}
+              className={`akc-hamburger${menuOpen ? " akc-hamburger--open" : ""}`}
+              onClick={() => setMenuOpen((o) => !o)}
+              aria-expanded={menuOpen}
+              aria-controls="akc-mobile-drawer"
+              aria-label={
+                menuOpen
+                  ? (isTe ? "నావిగేషన్ మెనూ మూయండి" : "Close navigation menu")
+                  : (isTe ? "నావిగేషన్ మెనూ తెరవండి" : "Open navigation menu")
+              }
+            >
+              <span className="akc-hamburger__bar" aria-hidden="true" />
+              <span className="akc-hamburger__bar" aria-hidden="true" />
+              <span className="akc-hamburger__bar" aria-hidden="true" />
+            </button>
           </div>
 
-          {/* ── Hamburger ── */}
-          <button
-            ref={menuBtnRef}
-            className={`svtt-hamburger ${menuOpen ? "svtt-hamburger--open" : ""}`}
-            onClick={() => setMenuOpen((o) => !o)}
-            aria-expanded={menuOpen}
-            aria-controls="mobile-menu"
-            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-          >
-            <span className="svtt-hamburger__bar" aria-hidden="true" />
-            <span className="svtt-hamburger__bar" aria-hidden="true" />
-            <span className="svtt-hamburger__bar" aria-hidden="true" />
-          </button>
         </div>
       </header>
 
-      {/* ── Mobile Overlay ── */}
+      {/* ── Mobile overlay ── */}
       {menuOpen && (
         <div
-          className="svtt-overlay"
+          className="akc-overlay"
           onClick={() => setMenuOpen(false)}
           aria-hidden="true"
         />
       )}
 
-      {/* ── Mobile Drawer ── */}
+      {/* ── Mobile drawer ── */}
       <div
-        id="mobile-menu"
+        id="akc-mobile-drawer"
         ref={drawerRef}
-        className={`svtt-drawer ${menuOpen ? "svtt-drawer--open" : ""}`}
+        className={`akc-drawer${menuOpen ? " akc-drawer--open" : ""}`}
         role="dialog"
         aria-modal="true"
-        aria-label="Navigation menu"
+        aria-label={isTe ? "నావిగేషన్ మెనూ" : "Navigation menu"}
+        onKeyDown={handleKeyDown}
+        tabIndex={-1}
       >
         {/* Drawer header */}
-        <div className="svtt-drawer__header">
-          <Link href="/" onClick={() => setMenuOpen(false)} aria-label="Home">
-            <Image
-              src="/images/logo/svtt-logo-dark.svg"
-              alt="Sri Vinayaka Tours & Travels"
-              width={140}
-              height={46}
-              className="svtt-drawer__logo"
-            />
+        <div className="akc-drawer__header">
+          <Link
+            href={prefix}
+            onClick={() => setMenuOpen(false)}
+            aria-label={`${BUSINESS.name} – ${isTe ? "హోమ్" : "Home"}`}
+          >
+            <LogoMark variant="light" height={36} className="akc-drawer__logo" />
           </Link>
           <button
-            className="svtt-drawer__close"
+            className="akc-drawer__close"
             onClick={() => { setMenuOpen(false); menuBtnRef.current?.focus(); }}
-            aria-label="Close navigation menu"
+            aria-label={isTe ? "మెనూ మూయండి" : "Close menu"}
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
-              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-            </svg>
+            <CloseIcon />
           </button>
         </div>
 
-        {/* Drawer nav */}
-        <nav aria-label="Mobile navigation">
-          <ul role="list" className="svtt-drawer__nav">
-            {NAV_LINKS.map((link) => (
+        {/* Language switcher */}
+        <div className="akc-drawer__lang">
+          <LanguageSwitcher
+            currentLocale={locale}
+            ariaLabel={isTe ? "భాష మార్చుకోండి" : "Switch language"}
+          />
+        </div>
+
+        {/* Primary nav */}
+        <nav className="akc-drawer__nav" aria-label={isTe ? "మొబైల్ నావిగేషన్" : "Mobile navigation"}>
+          <ul role="list">
+            {navLinks.map((link) => (
               <li key={link.href}>
-                <NavLinkItem
+                <NavLink
                   href={link.href}
                   label={link.label}
-                  pathname={pathname}
+                  localeStripped={localeStripped}
+                  className="akc-drawer__nav-link"
                   onClick={() => setMenuOpen(false)}
-                  className="svtt-drawer__nav-link"
                 />
               </li>
             ))}
           </ul>
-          {/* Extra drawer links: Reviews, Blog, Request a Quote */}
-          <div className="svtt-drawer__extra" aria-label="More pages">
-            <p className="svtt-drawer__extra-label">More</p>
-            <ul role="list" className="svtt-drawer__nav svtt-drawer__nav--extra">
-              {DRAWER_EXTRA_LINKS.map((link) => (
-                <li key={link.href}>
-                  <NavLinkItem
-                    href={link.href}
-                    label={link.label}
-                    pathname={pathname}
-                    onClick={() => setMenuOpen(false)}
-                    className="svtt-drawer__nav-link svtt-drawer__nav-link--extra"
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
+
+          <div className="akc-drawer__divider" />
+          <p className="akc-drawer__section-title" aria-hidden="true">
+            {isTe ? "మరిన్ని" : "More"}
+          </p>
+
+          <ul role="list">
+            {extraLinks.map((link) => (
+              <li key={link.href}>
+                <NavLink
+                  href={link.href}
+                  label={link.label}
+                  localeStripped={localeStripped}
+                  className="akc-drawer__nav-link"
+                  onClick={() => setMenuOpen(false)}
+                />
+              </li>
+            ))}
+          </ul>
         </nav>
 
         {/* Drawer CTAs */}
-        <div className="svtt-drawer__ctas">
+        <div className="akc-drawer__ctas">
           <a
             href={waUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-whatsapp"
+            className="akc-drawer__cta-wa"
             onClick={() => setMenuOpen(false)}
-            aria-label="Chat on WhatsApp"
+            aria-label={isTe ? "వాట్సాప్‌లో సంప్రదించండి" : "Chat on WhatsApp"}
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-            </svg>
-            WhatsApp Us
+            <WhatsAppIcon size={18} />
+            {isTe ? "వాట్సాప్ చేయండి" : "WhatsApp Us"}
           </a>
-          <a href={callHref} className="btn btn-primary" onClick={() => setMenuOpen(false)}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.93 19.79 19.79 0 01.01 .28 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.72 6.72l1.28-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-            </svg>
+          <a
+            href={callHref}
+            className="akc-drawer__cta-call"
+            onClick={() => setMenuOpen(false)}
+            aria-label={`${isTe ? "కాల్ చేయండి" : "Call"} ${phoneDisplay}`}
+          >
+            <PhoneIcon />
             {phoneDisplay}
           </a>
         </div>
 
-        {/* Drawer address */}
-        <div className="svtt-drawer__address">
-          <p className="svtt-drawer__address-text">
-            📍 {BUSINESS.address.full}
-          </p>
+        {/* Address */}
+        <div className="akc-drawer__address">
+          <p>📍 {BUSINESS.address.city}, {BUSINESS.address.stateCode} — {isTe ? "24/7 అందుబాటులో" : "Available 24/7"}</p>
         </div>
       </div>
     </>

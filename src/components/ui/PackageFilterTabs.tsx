@@ -63,9 +63,8 @@ export default function PackageFilterTabs() {
         <div className="svtt-container">
           <div className="svtt-pkg-filters__inner" role="list">
             {FILTERS.map((f) => (
+              <div key={f.id} role="listitem">
               <button
-                key={f.id}
-                role="listitem"
                 className={`svtt-pkg-filter-btn${activeFilter === f.id ? " is-active" : ""}`}
                 onClick={() => setActiveFilter(f.id)}
                 aria-pressed={activeFilter === f.id}
@@ -77,6 +76,7 @@ export default function PackageFilterTabs() {
                   {countForFilter(f.id)}
                 </span>
               </button>
+              </div>
             ))}
           </div>
         </div>
@@ -147,12 +147,12 @@ export default function PackageFilterTabs() {
 
                       <p className="svtt-pkgi__desc">{pkg.description}</p>
 
-                      {pkg.kmLimit && (
-                        <span className="svtt-pkgi__km" aria-label={`KM limit: ${pkg.kmLimit}`}>
+                      {pkg.distance?.allowanceKm && (
+                        <span className="svtt-pkgi__km" aria-label={`Included km: ${pkg.distance.allowanceKm}`}>
                           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                             <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
                           </svg>
-                          {pkg.kmLimit} km limit
+                          {pkg.distance.allowanceKm} included
                         </span>
                       )}
                     </div>

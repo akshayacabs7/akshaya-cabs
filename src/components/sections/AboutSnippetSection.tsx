@@ -63,8 +63,8 @@ export default function AboutSnippetSection() {
           {/* Quick stats */}
           <div className="svtt-about-snippet__stats" role="list" aria-label="Key statistics">
             <div className="svtt-about-snippet__stat" role="listitem">
-              <strong className="svtt-about-snippet__stat-val">{BUSINESS.google.rating}★</strong>
-              <span className="svtt-about-snippet__stat-label">Google Rating</span>
+              <strong className="svtt-about-snippet__stat-val">24/7</strong>
+              <span className="svtt-about-snippet__stat-label">Available</span>
             </div>
             <div className="svtt-about-snippet__stat-divider" aria-hidden="true" />
             <div className="svtt-about-snippet__stat" role="listitem">

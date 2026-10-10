@@ -45,9 +45,8 @@ export default function FleetFilterGallery() {
         <div className="svtt-container">
           <div className="svtt-fleet-filters__inner" role="list">
             {FILTERS.map((f) => (
+              <div key={f.id} role="listitem">
               <button
-                key={f.id}
-                role="listitem"
                 className={`svtt-fleet-filter-btn${active === f.id ? " is-active" : ""}`}
                 onClick={() => setActive(f.id)}
                 aria-pressed={active === f.id}
@@ -68,6 +67,7 @@ export default function FleetFilterGallery() {
                   {count(f.id)}
                 </span>
               </button>
+              </div>
             ))}
           </div>
         </div>

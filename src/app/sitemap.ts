@@ -1,95 +1,120 @@
-// sitemap.ts — Sri Vinayaka Tours & Travels
-// Next.js App Router sitemap.xml generator
-// svtttirupati.com/sitemap.xml
+// Akshaya Cabs – sitemap.xml generator
+// akshayacabs.com | Next.js App Router
+// Task 06: Updated for /en/ / /te/ locale routing with hreflang alternates
+// RULE: Only include ACTUAL, publicly accessible canonical pages.
+// RULE: Blog stubs (contentStatus !== "published") must NOT be included.
+// RULE: Service detail /services/[slug] pages omitted until TASK-16.
 
 import type { MetadataRoute } from "next";
 import { PACKAGES } from "@/data/packages";
-import { SERVICES } from "@/data/services";
+import { getPublishedBlogPosts } from "@/data/blog";
 
-const BASE_URL = "https://svtttirupati.com";
+const BASE_URL = "https://akshayacabs.com";
+
+// Static page paths (relative, no locale prefix)
+const STATIC_PATHS: Array<{ path: string; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"]; priority: number }> = [
+  { path: "",              changeFrequency: "weekly",  priority: 1.0 },
+  { path: "/tour-packages", changeFrequency: "weekly",  priority: 0.9 },
+  { path: "/services",     changeFrequency: "monthly", priority: 0.9 },
+  { path: "/fleet",        changeFrequency: "monthly", priority: 0.8 },
+  { path: "/pickup-drop",  changeFrequency: "monthly", priority: 0.8 },
+  { path: "/request-a-quote", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/contact",      changeFrequency: "monthly", priority: 0.7 },
+  { path: "/about",        changeFrequency: "monthly", priority: 0.7 },
+  { path: "/why-choose-us", changeFrequency: "monthly", priority: 0.5 },
+  { path: "/travel-guides", changeFrequency: "weekly",  priority: 0.6 },
+  // privacy-policy and terms-and-conditions are noIndex – excluded from sitemap
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  // ── Static pages ────────────────────────────────────────────
-  const staticPages: MetadataRoute.Sitemap = [
+  // ── Static pages (both locales) ──────────────────────────────────────────
+  const staticPages: MetadataRoute.Sitemap = STATIC_PATHS.flatMap(({ path, changeFrequency, priority }) => [
     {
-      url: `${BASE_URL}/`,
+      url: `${BASE_URL}/en${path}`,
       lastModified: now,
-      changeFrequency: "weekly",
-      priority: 1.0,
+      changeFrequency,
+      priority,
+      alternates: {
+        languages: {
+          "en-IN": `${BASE_URL}/en${path}`,
+          "te-IN": `${BASE_URL}/te${path}`,
+        },
+      },
     },
     {
-      url: `${BASE_URL}/tour-packages`,
+      url: `${BASE_URL}/te${path}`,
       lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.9,
+      changeFrequency,
+      priority: priority * 0.9, // slightly lower than English canonical
+      alternates: {
+        languages: {
+          "en-IN": `${BASE_URL}/en${path}`,
+          "te-IN": `${BASE_URL}/te${path}`,
+        },
+      },
+    },
+  ]);
+
+  // ── Tour package detail pages (10 confirmed routes, both locales) ─────────
+  const packagePages: MetadataRoute.Sitemap = PACKAGES.flatMap((pkg) => [
+    {
+      url: `${BASE_URL}/en/tour-packages/${pkg.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.85,
+      alternates: {
+        languages: {
+          "en-IN": `${BASE_URL}/en/tour-packages/${pkg.slug}`,
+          "te-IN": `${BASE_URL}/te/tour-packages/${pkg.slug}`,
+        },
+      },
     },
     {
-      url: `${BASE_URL}/services`,
+      url: `${BASE_URL}/te/tour-packages/${pkg.slug}`,
       lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.9,
+      changeFrequency: "monthly" as const,
+      priority: 0.76,
+      alternates: {
+        languages: {
+          "en-IN": `${BASE_URL}/en/tour-packages/${pkg.slug}`,
+          "te-IN": `${BASE_URL}/te/tour-packages/${pkg.slug}`,
+        },
+      },
     },
+  ]);
+
+  // ── Published blog articles only (both locales) ───────────────────────────
+  const publishedPosts = getPublishedBlogPosts();
+  const blogPages: MetadataRoute.Sitemap = publishedPosts.flatMap((post) => [
     {
-      url: `${BASE_URL}/fleet`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/pickup-drop`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/request-a-quote`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/contact`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${BASE_URL}/about`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${BASE_URL}/reviews`,
-      lastModified: now,
-      changeFrequency: "monthly",
+      url: `${BASE_URL}/en/travel-guides/${post.slug}`,
+      lastModified: new Date(post.publishedAt),
+      changeFrequency: "monthly" as const,
       priority: 0.6,
+      alternates: {
+        languages: {
+          "en-IN": `${BASE_URL}/en/travel-guides/${post.slug}`,
+          "te-IN": `${BASE_URL}/te/travel-guides/${post.slug}`,
+        },
+      },
     },
     {
-      url: `${BASE_URL}/blog`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.6,
+      url: `${BASE_URL}/te/travel-guides/${post.slug}`,
+      lastModified: new Date(post.publishedAt),
+      changeFrequency: "monthly" as const,
+      priority: 0.54,
+      alternates: {
+        languages: {
+          "en-IN": `${BASE_URL}/en/travel-guides/${post.slug}`,
+          "te-IN": `${BASE_URL}/te/travel-guides/${post.slug}`,
+        },
+      },
     },
-  ];
+  ]);
 
-  // ── Tour package detail pages ────────────────────────────────
-  const packagePages: MetadataRoute.Sitemap = PACKAGES.map((pkg) => ({
-    url: `${BASE_URL}/tour-packages/${pkg.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.85,
-  }));
+  // Note: /services/[slug] (service detail pages) not included until TASK-16.
 
-  // ── Service detail pages ─────────────────────────────────────
-  const servicePages: MetadataRoute.Sitemap = SERVICES.map((svc) => ({
-    url: `${BASE_URL}/services/${svc.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.75,
-  }));
-
-  return [...staticPages, ...packagePages, ...servicePages];
+  return [...staticPages, ...packagePages, ...blogPages];
 }

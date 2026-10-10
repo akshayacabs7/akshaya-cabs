@@ -1,6 +1,5 @@
-// robots.ts — Sri Vinayaka Tours & Travels
-// Next.js App Router robots.txt generator
-// svtttirupati.com/robots.txt
+// Akshaya Cabs — robots.txt generator
+// akshayacabs.com | Next.js App Router
 
 import type { MetadataRoute } from "next";
 
@@ -11,12 +10,12 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: "/",
         disallow: [
-          "/api/",        // No public API routes
-          "/_next/",      // Next.js internals
+          "/api/",     // No public API routes
+          "/_next/",   // Next.js internals
         ],
       },
     ],
-    sitemap: "https://svtttirupati.com/sitemap.xml",
-    host: "https://svtttirupati.com",
+    sitemap: "https://akshayacabs.com/sitemap.xml",
+    host: "https://akshayacabs.com",
   };
 }

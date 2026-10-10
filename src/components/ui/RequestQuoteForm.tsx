@@ -8,9 +8,9 @@
 "use client";
 
 import { useState, FormEvent, ChangeEvent } from "react";
-import { BUSINESS } from "@/data/business";
 import { PACKAGES } from "@/data/packages";
 import { VEHICLES } from "@/data/vehicles";
+import { quoteWhatsAppUrl, openWhatsApp } from "@/lib/whatsapp";
 
 type FormState = "idle" | "submitting" | "success";
 
@@ -72,6 +72,7 @@ const TRAVEL_TIMES = [
 export default function RequestQuoteForm() {
   const [form, setForm] = useState<QuoteFormData>(INITIAL);
   const [state, setState] = useState<FormState>("idle");
+  const [fallbackUrl, setFallbackUrl] = useState<string | null>(null);
 
   function handleChange(
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -83,69 +84,53 @@ export default function RequestQuoteForm() {
     e.preventDefault();
     setState("submitting");
 
-    const lines: string[] = [
-      `Hello Sri Vinayaka Tours & Travels (SVTT) Tirupati!`,
-      ``,
-      `I am requesting a quote for cab/tour services via your website:`,
-      ``,
-      `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
-      `REQUIRED DETAILS`,
-      `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
-      `Name        : ${form.name}`,
-      `Phone       : ${form.phone}`,
-      `Service     : ${form.serviceType}`,
-      `Travel Date : ${form.travelDate}`,
-      `Pickup      : ${form.pickupLocation}`,
-      `Drop        : ${form.dropLocation}`,
-    ];
+    const waUrl = quoteWhatsAppUrl({
+      pickupLocation:  form.pickupLocation,
+      dropLocation:    form.dropLocation,
+      date:            form.travelDate,
+      passengers:      form.passengers ? parseInt(form.passengers) : undefined,
+      vehicleName:     form.vehicle || undefined,
+      packageCode:     form.tourPackage || undefined,
+      time:            form.travelTime || undefined,
+      customMessage:   form.message.trim() || undefined,
+    });
 
-    const hasOptional =
-      form.email || form.vehicle || form.passengers ||
-      form.tourPackage || form.travelTime || form.message;
-
-    if (hasOptional) {
-      lines.push(
-        ``,
-        `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
-        `OPTIONAL DETAILS`,
-        `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
-      );
-      if (form.email)       lines.push(`Email       : ${form.email}`);
-      if (form.vehicle)     lines.push(`Vehicle     : ${form.vehicle}`);
-      if (form.passengers)  lines.push(`Passengers  : ${form.passengers}`);
-      if (form.tourPackage) lines.push(`Package     : ${form.tourPackage}`);
-      if (form.travelTime)  lines.push(`Travel Time : ${form.travelTime}`);
-      if (form.message)     lines.push(``, `Notes: ${form.message}`);
-    }
-
-    lines.push(
-      ``,
-      `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`,
-      `Please share a quote and availability. Thank you!`
-    );
-
-    const waUrl = `https://wa.me/${BUSINESS.phone.primaryWhatsApp}?text=${encodeURIComponent(lines.join("\n"))}`;
-    window.open(waUrl, "_blank", "noopener,noreferrer");
-
-    setTimeout(() => {
-      setState("success");
-      setForm(INITIAL);
-    }, 600);
+    // openWhatsApp handles popup-blocked (returns false if blocked)
+    setState("success");
+    setForm(INITIAL);
+    const opened = openWhatsApp(waUrl);
+    if (!opened) setFallbackUrl(waUrl);
   }
 
   if (state === "success") {
     return (
       <div className="svtt-form-success" role="alert" aria-live="polite">
-        <span className="svtt-form-success__icon" aria-hidden="true">✅</span>
-        <h3 className="svtt-form-success__title">Thank You!</h3>
+        <span className="svtt-form-success__icon" aria-hidden="true">💬</span>
+        <h3 className="svtt-form-success__title">WhatsApp Opened!</h3>
         <p className="svtt-form-success__msg">
-          Your enquiry has been received. Sri Vinayaka Tours &amp; Travels will
-          contact you shortly via WhatsApp or phone.
+          Your quote request has been pre-filled in WhatsApp.{" "}
+          <strong>Please tap Send in WhatsApp to complete your enquiry.</strong>{" "}
+          Our team will respond with transparent pricing and availability.
         </p>
+        {fallbackUrl && (
+          <div role="alert" style={{ marginTop: "0.75rem" }}>
+            <p style={{ fontSize: "0.875rem", marginBottom: "0.5rem" }}>
+              WhatsApp didn&apos;t open? Use this link:
+            </p>
+            <a
+              href={fallbackUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-whatsapp"
+            >
+              Open in WhatsApp
+            </a>
+          </div>
+        )}
         <button
           type="button"
           className="btn btn-secondary"
-          onClick={() => setState("idle")}
+          onClick={() => { setState("idle"); setFallbackUrl(null); }}
         >
           Submit Another Request
         </button>

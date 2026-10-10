@@ -81,13 +81,13 @@ export default function HeroSection() {
           </Link>
         </div>
 
-        {/* Trust badges */}
+        {/* Trust badges — TASK-11 will redesign this hero fully */}
         <div className="svtt-hero__badges" role="list" aria-label="Trust indicators">
           <div className="svtt-hero__badge" role="listitem">
-            <span className="svtt-hero__badge-icon" aria-hidden="true">⭐</span>
+            <span className="svtt-hero__badge-icon" aria-hidden="true">📍</span>
             <div>
-              <strong className="svtt-hero__badge-value">{BUSINESS.google.rating}</strong>
-              <span className="svtt-hero__badge-label">Google Rating</span>
+              <strong className="svtt-hero__badge-value">Tirupati</strong>
+              <span className="svtt-hero__badge-label">Based & Trusted</span>
             </div>
           </div>
           <div className="svtt-hero__badge-divider" aria-hidden="true" />

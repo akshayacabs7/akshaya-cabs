@@ -1,7 +1,9 @@
-// SVTT Social Media Links
-// Sri Vinayaka Tours & Travels — svtttirupati.com
-// RULE: Only include verified/official social links supplied by the business.
-// Do NOT fabricate YouTube or other accounts.
+// Akshaya Cabs — Social Media Links
+// akshayacabs.com | Tirupati, Andhra Pradesh
+// RULE: Only include verified official Akshaya Cabs social links.
+// RULE: Do NOT include SVTT (svtttirupati_official / SVTTT0303) handles.
+// RULE: Do NOT fabricate accounts or follower counts.
+// Source: Master execution plan Section 01A (verified 2026-10-09).
 
 import type { SocialLink } from "@/types";
 
@@ -9,22 +11,22 @@ export const SOCIAL_LINKS: SocialLink[] = [
   {
     id: "instagram",
     name: "Instagram",
-    url: "https://www.instagram.com/svtttirupati_official",
-    handle: "@svtttirupati_official",
+    url: "https://www.instagram.com/akshayacabs",
+    handle: "@akshayacabs",
     icon: "instagram",
   },
   {
     id: "facebook",
     name: "Facebook",
-    url: "https://www.facebook.com/hemu.hemanth.568632",
-    handle: "hemu.hemanth.568632",
+    url: "https://www.facebook.com/share/1J1DHsBsws/",
+    handle: "Akshaya Cabs",
     icon: "facebook",
   },
   {
     id: "twitter",
     name: "X (Twitter)",
-    url: "https://x.com/SVTTT0303",
-    handle: "@SVTTT0303",
+    url: "https://x.com/akshayacab",
+    handle: "@akshayacab",
     icon: "twitter",
   },
 ];

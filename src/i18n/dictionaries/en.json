@@ -1,0 +1,430 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "tourPackages": "Tour Packages",
+    "fleet": "Fleet",
+    "pickupDrop": "Pickup & Drop",
+    "about": "About",
+    "contact": "Contact",
+    "whyChooseUs": "Why Choose Us",
+    "travelGuides": "Travel Guides",
+    "requestQuote": "Request a Quote"
+  },
+  "header": {
+    "whatsapp": "WhatsApp",
+    "callNow": "Call Now",
+    "openMenu": "Open navigation menu",
+    "closeMenu": "Close navigation menu",
+    "more": "More",
+    "logoAlt": "Akshaya Cabs – Tirupati"
+  },
+  "footer": {
+    "tagline": "Your trusted cab partner in Tirupati for temple tours, outstation travel and airport transfers.",
+    "quickLinks": "Quick Links",
+    "contactUs": "Contact Us",
+    "followUs": "Follow Us",
+    "allRightsReserved": "All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsConditions": "Terms & Conditions",
+    "tourPackages": "Tour Packages",
+    "ourServices": "Our Services",
+    "aboutUs": "About Us",
+    "ourFleet": "Our Fleet",
+    "travelGuides": "Travel Guides",
+    "pricingNote": "Prices include driver allowance. Tolls, parking and state permits charged separately. Extra km charges apply beyond the included allowance.",
+    "copyright": "© {year} Akshaya Cabs. All rights reserved."
+  },
+  "cta": {
+    "bookCab": "Book a Cab",
+    "explorePackages": "Explore Tour Packages",
+    "getQuote": "Get a Quote",
+    "whatsappUs": "WhatsApp Us",
+    "callUs": "Call Us",
+    "enquireNow": "Enquire Now",
+    "viewDetails": "View Details",
+    "viewAllPackages": "View All Packages",
+    "viewFleet": "View Full Fleet",
+    "bookNow": "Book Now",
+    "requestCallback": "Request a Callback",
+    "sendEnquiry": "Send Enquiry",
+    "submitting": "Sending…",
+    "backToHome": "Back to Home",
+    "learnMore": "Learn More"
+  },
+  "languageSwitcher": {
+    "label": "Switch language",
+    "currentLanguage": "English",
+    "switchTo": "తెలుగు"
+  },
+  "services": {
+    "sectionTitle": "Our Cab & Travel Services",
+    "sectionSubtitle": "From local temple visits to long-distance South India pilgrimages — we cover every journey.",
+    "items": {
+      "localCab": {
+        "title": "Tirupati Local Cab Services",
+        "shortTitle": "Local Cabs",
+        "description": "Comfortable and reliable local cab services for temple visits, hospital trips, city sightseeing, hotel transfers and local errands within Tirupati. Available 24/7."
+      },
+      "tiramalaTaxi": {
+        "title": "Tirupati to Tirumala Taxi",
+        "shortTitle": "Tirumala Taxi",
+        "description": "Dedicated taxi service to Tirumala by experienced local drivers familiar with the ghat road. Safe, comfortable and available at any hour for your darshan."
+      },
+      "templeTours": {
+        "title": "Temple Tour Packages",
+        "shortTitle": "Temple Tours",
+        "description": "Planned pilgrimage tour packages covering sacred temples in and around Tirupati and across South India — from city darshans to multi-day inter-state journeys."
+      },
+      "outstationCab": {
+        "title": "Outstation Cab Services",
+        "shortTitle": "Outstation Cabs",
+        "description": "Comfortable cab hire for outstation travel across Andhra Pradesh, Tamil Nadu, Telangana and Karnataka. One-way and round-trip options available."
+      },
+      "airportTransfer": {
+        "title": "Airport Pickup & Drop",
+        "shortTitle": "Airport Transfer",
+        "description": "Punctual pickup and drop at Tirupati Airport, Renigunta Airport and nearby airports. Tracked flight times — no extra wait charges for delayed arrivals."
+      },
+      "railwayTransfer": {
+        "title": "Railway Station Transfers",
+        "shortTitle": "Station Transfers",
+        "description": "Smooth transfers to and from Tirupati Railway Station and Renigunta Junction. Early morning and late night arrivals handled without any extra charges."
+      },
+      "tempoTraveller": {
+        "title": "Tempo Traveller Rental",
+        "shortTitle": "Tempo Traveller",
+        "description": "Spacious Tempo Traveller (12+1 and 17+1) for group pilgrimages, family gatherings and corporate outings. Driver included; custom routes accommodated."
+      },
+      "southIndiaTours": {
+        "title": "South India Pilgrimage Tours",
+        "shortTitle": "South India Tours",
+        "description": "Carefully planned multi-day pilgrimage tours to major South India temples — Tirupati, Kalahasti, Kanipakam, Madurai, Rameswaram, Kanchipuram and more."
+      },
+      "customTours": {
+        "title": "Custom & Corporate Tours",
+        "shortTitle": "Custom Tours",
+        "description": "Tailored travel plans for corporate outings, family events, wedding convoys and special group requirements. Contact us with your itinerary for a custom quote."
+      }
+    },
+    "features": {
+      "available247": "Available 24 hours a day, 7 days a week",
+      "driverIncluded": "Driver allowance included",
+      "acVehicles": "AC vehicles",
+      "cleanAndSafe": "Clean and well-maintained",
+      "punctual": "Punctual and professional drivers",
+      "luggageSpace": "Ample luggage space"
+    }
+  },
+  "fleet": {
+    "sectionTitle": "Our Fleet",
+    "sectionSubtitle": "Well-maintained AC cabs for every group size and budget.",
+    "categories": {
+      "sedan": "Sedan",
+      "van": "Van",
+      "suv": "SUV",
+      "premiumSuv": "Premium SUV",
+      "minivan": "Minivan",
+      "tempo12": "Tempo 12+1",
+      "tempo17": "Tempo 17+1"
+    },
+    "vehicles": {
+      "dzireAmazeEtios": {
+        "name": "Dzire / Amaze / Etios",
+        "label": "Ideal for Couples & Small Families",
+        "bestFor": "Small families, couples, solo pilgrims"
+      },
+      "ertiga": {
+        "name": "Ertiga",
+        "label": "Ideal for Families",
+        "bestFor": "Medium families, small groups, temple tours"
+      },
+      "innova": {
+        "name": "Innova",
+        "label": "Ideal for Large Families",
+        "bestFor": "Large families, temple tours, outstation trips"
+      },
+      "innovaCrysta": {
+        "name": "Innova Crysta",
+        "label": "Comfort & Space",
+        "bestFor": "Premium travel, corporate groups, long outstation trips"
+      },
+      "tavera": {
+        "name": "Tavera",
+        "label": "Reliable Group Travel",
+        "bestFor": "Group pilgrimages, family gatherings"
+      },
+      "tempo12": {
+        "name": "Tempo Traveller 12+1",
+        "label": "Group Journeys",
+        "bestFor": "Office outings, medium pilgrim groups, event travel"
+      },
+      "tempo17": {
+        "name": "Tempo Traveller 17+1",
+        "label": "Large Group Travel",
+        "bestFor": "Large group pilgrimages, wedding convoys, corporate tours"
+      }
+    },
+    "specs": {
+      "seats": "{n} passengers",
+      "seatsSingular": "1 passenger",
+      "ac": "AC",
+      "nonAc": "Non-AC",
+      "driverIncluded": "Driver included",
+      "kmLimit": "{n} km included per day",
+      "perKm": "₹{n}/km",
+      "localDay": "₹{n}/day (local)",
+      "fareFrom": "Fare from ₹{n}",
+      "contactForQuote": "Contact for Quote",
+      "extraKm": "Extra km: ₹{n}/km",
+      "extraCharges": "Tolls, parking & permits extra",
+      "driverChargesNote": "Driver allowance included in fare"
+    },
+    "filters": {
+      "allVehicles": "All Vehicles",
+      "bySeats": "By Seats",
+      "byCategory": "By Category",
+      "smallGroup": "Up to 4",
+      "mediumGroup": "5–7",
+      "largeGroup": "8+",
+      "resetFilters": "Reset Filters",
+      "noResults": "No vehicles match your filter. Try a different selection."
+    }
+  },
+  "packages": {
+    "sectionTitle": "Temple Tour Packages",
+    "sectionSubtitle": "10 handcrafted pilgrimage journeys from Tirupati — from half-day temple darshans to multi-day South India tours.",
+    "duration": {
+      "halfDay": "Half Day",
+      "fullDay": "Full Day",
+      "overnight": "Overnight",
+      "days": "{n} Days",
+      "nights": "{n} Nights",
+      "daysNights": "{d} Days / {n} Nights"
+    },
+    "labels": {
+      "startingFrom": "Starting from",
+      "fareFrom": "Fare from ₹{n}",
+      "kmAllowance": "{n} km included",
+      "perVehicle": "per vehicle",
+      "viewItinerary": "View Itinerary",
+      "getQuote": "Get a Quote",
+      "highlights": "Highlights",
+      "inclusions": "What's Included",
+      "exclusions": "Not Included",
+      "priceTable": "Vehicle-wise Prices",
+      "enquireForPackage": "Enquire for this Package",
+      "customise": "Customise this Package",
+      "distanceAdvisory": "Route distance may vary. Actual km driven determines applicable fare.",
+      "kmNote": "The {n} km allowance is the package daily limit — not the route distance.",
+      "extraKmCharge": "Extra km: ₹{n}/km (vehicle type)",
+      "contactForTavera": "Contact for Tavera / Tempo price"
+    },
+    "categories": {
+      "localSightseeing": "Local Sightseeing",
+      "templeCircuit": "Temple Circuit",
+      "pilgrimage": "Pilgrimage",
+      "multiDay": "Multi-Day Tour",
+      "southIndia": "South India Tour"
+    }
+  },
+  "form": {
+    "enquiry": {
+      "title": "Send an Enquiry",
+      "subtitle": "Fill in your travel details and we will get back to you shortly via WhatsApp or phone.",
+      "fields": {
+        "name": "Full Name",
+        "namePlaceholder": "Your name",
+        "phone": "Phone Number",
+        "phonePlaceholder": "+91 XXXXX XXXXX",
+        "email": "Email (optional)",
+        "emailPlaceholder": "your@email.com",
+        "serviceType": "Service Type",
+        "serviceTypePlaceholder": "Select a service",
+        "travelDate": "Travel Date",
+        "pickupLocation": "Pickup Location",
+        "pickupPlaceholder": "e.g. Tirupati Railway Station",
+        "dropLocation": "Drop Location",
+        "dropPlaceholder": "e.g. Tirumala Temple",
+        "passengers": "Number of Passengers",
+        "passengersPlaceholder": "e.g. 4",
+        "vehicle": "Preferred Vehicle",
+        "vehiclePlaceholder": "Select a vehicle",
+        "message": "Additional Details",
+        "messagePlaceholder": "Any special requirements, return trip details, multiple stops, etc."
+      },
+      "serviceOptions": {
+        "tirumala": "Tirumala Taxi",
+        "templeTour": "Temple Tour Package",
+        "airportPickup": "Airport Pickup / Drop",
+        "railwayTransfer": "Railway Station Transfer",
+        "localCab": "Local Cab Service",
+        "outstationCab": "Outstation Cab",
+        "tempoTraveller": "Tempo Traveller Rental",
+        "customTour": "Custom / South India Tour",
+        "other": "Other"
+      },
+      "vehicleOptions": {
+        "dzire": "Dzire / Amaze / Etios (4+1 Seater)",
+        "ertiga": "Ertiga (6+1 Seater)",
+        "innova": "Innova (7+1 Seater)",
+        "innovaCrysta": "Innova Crysta (7+1 Seater)",
+        "tavera": "Tavera (8+1 Seater)",
+        "tempo12": "Tempo Traveller 12+1",
+        "tempo17": "Tempo Traveller 17+1",
+        "noPreference": "No Preference"
+      },
+      "validation": {
+        "nameRequired": "Please enter your name.",
+        "nameMinLength": "Name must be at least 2 characters.",
+        "phonRequired": "Please enter your phone number.",
+        "phoneInvalid": "Please enter a valid 10-digit phone number.",
+        "emailInvalid": "Please enter a valid email address.",
+        "serviceRequired": "Please select a service type.",
+        "dateRequired": "Please select a travel date.",
+        "datePast": "Travel date cannot be in the past.",
+        "passengersRequired": "Please enter the number of passengers.",
+        "passengersInvalid": "Please enter a valid number of passengers (1–50)."
+      },
+      "status": {
+        "idle": "",
+        "submitting": "Sending your enquiry…",
+        "success": "Enquiry sent! We will contact you shortly on WhatsApp or phone.",
+        "error": "Something went wrong. Please try again or call us directly.",
+        "whatsappFallback": "If the form doesn't work, WhatsApp us directly:"
+      },
+      "consent": {
+        "text": "By submitting this form, you consent to Akshaya Cabs contacting you via phone or WhatsApp regarding your enquiry. We do not share your details with third parties.",
+        "required": "Please accept the terms to continue."
+      },
+      "submit": "Send Enquiry",
+      "reset": "Clear Form"
+    },
+    "quote": {
+      "title": "Request a Quote",
+      "subtitle": "Tell us your travel requirements and we will share the best available fare.",
+      "submit": "Request Quote"
+    }
+  },
+  "booking": {
+    "statuses": {
+      "pending": "Pending Confirmation",
+      "confirmed": "Confirmed",
+      "inProgress": "Trip in Progress",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "labels": {
+      "bookingId": "Booking ID",
+      "tripDate": "Trip Date",
+      "pickup": "Pickup",
+      "drop": "Drop",
+      "vehicle": "Vehicle",
+      "driver": "Driver",
+      "fare": "Fare",
+      "status": "Status",
+      "notes": "Notes"
+    }
+  },
+  "fare": {
+    "currency": "₹",
+    "currencyCode": "INR",
+    "locale": "en-IN",
+    "format": "₹{amount}",
+    "perKm": "₹{n}/km",
+    "perDay": "₹{n}/day",
+    "startingFrom": "Starting from ₹{n}",
+    "fareFrom": "Fare from ₹{n}",
+    "extraKm": "Extra km @ ₹{n}/km",
+    "tollsExtra": "Tolls extra",
+    "parkingExtra": "Parking extra",
+    "permitsExtra": "State permits extra",
+    "driverIncluded": "Driver allowance included",
+    "taxIncluded": "GST included",
+    "contactForQuote": "Contact for Quote",
+    "kmAllowance": "{n} km/day included",
+    "roundTripDiscount": "Round-trip discount available — ask us",
+    "priceNote": "All prices are indicative. Final fare confirmed on booking."
+  },
+  "travel": {
+    "glossary": {
+      "darshan": "Darshan (temple visit)",
+      "darshanaSimple": "Temple visit",
+      "tirumala": "Tirumala (Tirupati Hills)",
+      "tirupati": "Tirupati",
+      "ghatRoad": "Ghat road (hill route)",
+      "sevaTicket": "Seva / Darshan ticket",
+      "prasadam": "Prasadam (temple offering)",
+      "pilgrim": "Pilgrim",
+      "pilgrimage": "Pilgrimage",
+      "outstation": "Outstation trip",
+      "oneWay": "One-way",
+      "roundTrip": "Round trip",
+      "localPackage": "Local package (city only)",
+      "nightHalt": "Night halt / Overnight stay",
+      "pickup": "Pickup",
+      "drop": "Drop",
+      "transfer": "Transfer",
+      "airport": "Airport",
+      "railwayStation": "Railway Station"
+    },
+    "destinations": {
+      "tirupati": "Tirupati",
+      "tirumala": "Tirumala",
+      "kanipakam": "Kanipakam",
+      "srikalahasti": "Sri Kalahasti",
+      "goldenTempleVellore": "Golden Temple, Vellore",
+      "arunachalam": "Thiruvannamalai (Arunachalam)",
+      "tiruthani": "Tiruttani",
+      "kanchipuram": "Kanchipuram",
+      "madurai": "Madurai",
+      "rameswaram": "Rameswaram",
+      "padmavathiTemple": "Padmavathi Temple, Tiruchanur"
+    },
+    "dateTime": {
+      "dateFormat": "DD/MM/YYYY",
+      "timeFormat": "hh:mm a",
+      "timezone": "IST (UTC+5:30)"
+    }
+  },
+  "errors": {
+    "pageNotFound": "Page Not Found",
+    "pageNotFoundDesc": "Sorry, the page you are looking for does not exist.",
+    "backHome": "Back to Home",
+    "serverError": "Something went wrong. Please try again.",
+    "networkError": "Network error. Please check your connection and try again.",
+    "formError": "Please correct the errors above and try again.",
+    "noResults": "No results found.",
+    "imageNotFound": "Image not available"
+  },
+  "meta": {
+    "available247": "Available 24/7",
+    "callAnytime": "Call anytime",
+    "driverIncluded": "Driver included",
+    "acCab": "AC cab",
+    "tirupati": "Tirupati",
+    "tirumala": "Tirumala"
+  },
+  "a11y": {
+    "skipToContent": "Skip to main content",
+    "openMobileMenu": "Open navigation menu",
+    "closeMobileMenu": "Close navigation menu",
+    "languageSwitchTo": "Switch to {lang}",
+    "currentPage": "Current page",
+    "externalLink": "Opens in a new tab",
+    "whatsappLink": "Chat on WhatsApp (opens WhatsApp)",
+    "callLink": "Call us at {number}",
+    "imageOfVehicle": "Photo of {vehicle}",
+    "loadingSpinner": "Loading, please wait",
+    "formSubmitting": "Submitting your enquiry, please wait",
+    "formSuccess": "Your enquiry has been sent successfully",
+    "formError": "There was an error submitting the form",
+    "priceDisplay": "Fare starting from {amount}",
+    "kilometerAllowance": "{n} kilometres included per day",
+    "extraKilometerRate": "Extra kilometre rate: {amount} per kilometre",
+    "closeDialog": "Close",
+    "previousSlide": "Previous",
+    "nextSlide": "Next",
+    "mapLink": "Open location in Google Maps"
+  }
+}

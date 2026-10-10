@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!--
+  Akshaya Cabs — Netlify Static Form Definitions
+  ================================================
+  Netlify's form detection scans the BUILD OUTPUT for HTML elements with
+  data-netlify="true". This file lives in /public so it is copied verbatim
+  into the build output at /__forms.html, where Netlify can find it.
+
+  RULES:
+  1. Every form field that appears in the AJAX submission MUST appear here too.
+  2. The "name" attribute of each <form> must exactly match the "form-name"
+     value sent in the AJAX POST body.
+  3. The honeypot <input> named "bot-field" tells Netlify to ignore the
+     submission if that field is filled (bots fill all fields).
+  4. Do NOT expose API keys or tracking pixels here.
+  5. This file is NOT shown to users — it is only for Netlify's build scanner.
+
+  Forms defined here:
+    - akshaya-enquiry   : Main contact/enquiry form (ContactEnquiryForm.tsx)
+    - akshaya-quote     : Quote request form (RequestQuoteForm.tsx)
+    - akshaya-trip      : Guided trip planner (TripPlannerForm.tsx)
+-->
+<html lang="en">
+<head><meta charset="utf-8"><title>Netlify Form Definitions — Akshaya Cabs</title></head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       FORM 1: akshaya-enquiry
+       Matches: ContactEnquiryForm.tsx
+       ══════════════════════════════════════════════════════ -->
+  <form
+    name="akshaya-enquiry"
+    data-netlify="true"
+    data-netlify-honeypot="bot-field"
+    hidden
+  >
+    <!-- Honeypot — must match the hidden input in the component -->
+    <input type="text"    name="bot-field" />
+
+    <!-- Required fields -->
+    <input type="text"    name="name" />
+    <input type="tel"     name="phone" />
+    <input type="text"    name="serviceType" />
+    <input type="date"    name="travelDate" />
+    <input type="text"    name="pickupLocation" />
+    <input type="text"    name="dropLocation" />
+
+    <!-- Optional fields -->
+    <input type="email"   name="email" />
+    <input type="number"  name="passengers" />
+    <input type="text"    name="vehicle" />
+    <textarea             name="message"></textarea>
+    <input type="checkbox" name="consent" />
+
+    <!-- Internal -->
+    <input type="hidden"  name="form-name" value="akshaya-enquiry" />
+    <input type="hidden"  name="locale" />
+    <input type="hidden"  name="submittedAt" />
+  </form>
+
+  <!-- ══════════════════════════════════════════════════════
+       FORM 2: akshaya-quote
+       Matches: RequestQuoteForm.tsx
+       ══════════════════════════════════════════════════════ -->
+  <form
+    name="akshaya-quote"
+    data-netlify="true"
+    data-netlify-honeypot="bot-field"
+    hidden
+  >
+    <input type="text"    name="bot-field" />
+
+    <!-- Required -->
+    <input type="text"    name="name" />
+    <input type="tel"     name="phone" />
+    <input type="text"    name="serviceType" />
+    <input type="date"    name="travelDate" />
+    <input type="text"    name="pickupLocation" />
+    <input type="text"    name="dropLocation" />
+
+    <!-- Optional -->
+    <input type="email"   name="email" />
+    <input type="text"    name="travelTime" />
+    <input type="number"  name="passengers" />
+    <input type="text"    name="vehicle" />
+    <input type="text"    name="tourPackage" />
+    <textarea             name="message"></textarea>
+    <input type="checkbox" name="consent" />
+
+    <input type="hidden"  name="form-name" value="akshaya-quote" />
+    <input type="hidden"  name="locale" />
+    <input type="hidden"  name="submittedAt" />
+  </form>
+
+  <!-- ══════════════════════════════════════════════════════
+       FORM 3: akshaya-trip
+       Matches: TripPlannerForm.tsx (guided planner)
+       ══════════════════════════════════════════════════════ -->
+  <form
+    name="akshaya-trip"
+    data-netlify="true"
+    data-netlify-honeypot="bot-field"
+    hidden
+  >
+    <input type="text"    name="bot-field" />
+
+    <!-- Required -->
+    <input type="text"    name="name" />
+    <input type="tel"     name="phone" />
+    <input type="text"    name="tripType" />
+    <input type="date"    name="travelDate" />
+    <input type="text"    name="pickupLocation" />
+    <input type="text"    name="dropLocation" />
+    <input type="number"  name="passengers" />
+
+    <!-- Optional -->
+    <input type="date"    name="returnDate" />
+    <input type="text"    name="travelTime" />
+    <input type="text"    name="tourPackage" />
+    <input type="text"    name="vehicle" />
+    <textarea             name="notes"></textarea>
+    <input type="checkbox" name="consent" />
+
+    <input type="hidden"  name="form-name" value="akshaya-trip" />
+    <input type="hidden"  name="locale" />
+    <input type="hidden"  name="submittedAt" />
+  </form>
+
+</body>
+</html>

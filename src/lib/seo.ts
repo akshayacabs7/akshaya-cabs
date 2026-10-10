@@ -1,15 +1,17 @@
-// SVTT SEO Metadata Builder
-// Sri Vinayaka Tours & Travels — svtttirupati.com
+// Akshaya Cabs — SEO Metadata Builder
+// akshayacabs.com | Tirupati, Andhra Pradesh
 // Centralised metadata generation for all pages.
+// Twitter/X creator tag uses Akshaya handle @akshayacab.
+// RULE: No star ratings or review count claims in any metadata.
 
 import type { Metadata } from "next";
 import { BUSINESS } from "@/data/business";
 
-const SITE_URL  = BUSINESS.siteUrl;
-const SITE_NAME = BUSINESS.name;
-const OG_IMAGE  = "/images/logo/og-image.jpg";
+const SITE_URL  = BUSINESS.siteUrl;   // "https://akshayacabs.com"
+const SITE_NAME = BUSINESS.name;      // "Akshaya Cabs"
+const OG_IMAGE  = "/images/akshaya/brand/og-cover.webp"; // PENDING_USER_UPLOAD (TASK-09/10)
 
-// ── Base builder ───────────────────────────────────────────────
+// ── Base builder ───────────────────────────────────────────────────
 
 export interface PageSeoInput {
   title: string;
@@ -18,12 +20,14 @@ export interface PageSeoInput {
   ogImage?: string;
   keywords?: string[];
   noIndex?: boolean;
+  locale?: "en" | "te";   // locale prefix for canonical URL (default: "en")
 }
 
 export function buildMetadata(input: PageSeoInput): Metadata {
+  const locale = input.locale ?? "en";
   const canonical = input.slug
-    ? `${SITE_URL}${input.slug.startsWith("/") ? input.slug : `/${input.slug}`}`
-    : SITE_URL;
+    ? `${SITE_URL}/${locale}${input.slug.startsWith("/") ? input.slug : `/${input.slug}`}`
+    : `${SITE_URL}/${locale}`;
 
   const ogImage = input.ogImage ?? OG_IMAGE;
 
@@ -47,7 +51,7 @@ export function buildMetadata(input: PageSeoInput): Metadata {
           url: `${SITE_URL}${ogImage}`,
           width: 1200,
           height: 630,
-          alt: `${input.title} | Sri Vinayaka Tours & Travels`,
+          alt: `${input.title} | Akshaya Cabs Tirupati`,
         },
       ],
     },
@@ -56,61 +60,61 @@ export function buildMetadata(input: PageSeoInput): Metadata {
       title: input.title,
       description: input.description,
       images: [`${SITE_URL}${ogImage}`],
-      creator: "@SVTTT0303",
+      creator: "@akshayacab",
     },
   };
 }
 
-// ── Pre-built page metadata ────────────────────────────────────
+// ── Pre-built page metadata ────────────────────────────────────────
 
 export const PAGE_SEO = {
   home: buildMetadata({
-    title: "Sri Vinayaka Tours & Travels | Tirupati Cab Service & Temple Tours",
+    title: "Akshaya Cabs | Tirupati Cab Service & Temple Tours",
     description:
-      "Sri Vinayaka Tours & Travels — Tirupati's trusted cab service for Tirumala darshan, temple tour packages, airport transfers & South India pilgrimages. Call +91 96522 40674. Available 24/7.",
+      "Akshaya Cabs — Tirupati's trusted cab service for Tirumala darshan, temple tour packages, airport transfers and South India pilgrimages. Call +91 72888 76667. Available 24/7.",
     slug: "/",
     keywords: [
       "Tirupati cab service",
       "Tirumala taxi",
       "Tirupati temple tours",
-      "SVTT Tirupati",
-      "Sri Vinayaka Tours Travels",
+      "Akshaya Cabs Tirupati",
+      "cab service Tirupati",
     ],
   }),
 
   about: buildMetadata({
-    title: "About Us | Sri Vinayaka Tours & Travels Tirupati",
+    title: "About Akshaya Cabs | Tirupati Cab Service",
     description:
-      "Learn about Sri Vinayaka Tours & Travels — Tirupati's trusted travel service since inception. Led by Ravilla Hemanth Naidu, we provide safe, affordable, and reliable cab services for pilgrims and tourists.",
+      "Learn about Akshaya Cabs — a trusted Tirupati-based cab service for temple tours, outstation travel and airport transfers. Founded and operated by S.R. Kumar.",
     slug: "/about",
-    keywords: ["about SVTT", "Sri Vinayaka Tours Travels Tirupati", "Ravilla Hemanth Naidu"],
+    keywords: ["about Akshaya Cabs", "Tirupati cab operator", "S.R. Kumar Tirupati"],
   }),
 
   fleet: buildMetadata({
-    title: "Our Fleet | Cabs & Vehicles | Sri Vinayaka Tours & Travels Tirupati",
+    title: "Our Fleet — Cabs & Vehicles | Akshaya Cabs Tirupati",
     description:
-      "Well-maintained AC cabs from Dzire/Etios (4+1) to Tempo Travellers (17+1). Transparent pricing starting at Rs.15/km. Book now for Tirupati and South India travel.",
+      "Well-maintained AC cabs from Sedan (4+1) to Tempo Traveller (17+1). Transparent pricing starting at ₹15/km. Book for Tirupati and South India travel.",
     slug: "/fleet",
-    keywords: ["Tirupati cab rates", "Tempo Traveller Tirupati", "Innova Crysta Tirupati", "SVTT fleet"],
+    keywords: ["Tirupati cab rates", "Tempo Traveller Tirupati", "Innova Crysta Tirupati", "Akshaya Cabs fleet"],
   }),
 
   tourPackages: buildMetadata({
-    title: "Temple Tour Packages | Sri Vinayaka Tours & Travels Tirupati",
+    title: "Temple Tour Packages | Akshaya Cabs Tirupati",
     description:
-      "10 curated South India temple tour packages from Tirupati. Local sightseeing to multi-day pilgrimages — Tirumala, Kanipakam, Sri Kalahasti, Golden Temple & more. Starting from Rs.2,300.",
+      "10 curated South India temple tour packages from Tirupati. Local sightseeing to multi-day pilgrimages — Tirumala, Kanipakam, Sri Kalahasti, Golden Temple Vellore and more. Starting from ₹2,300.",
     slug: "/tour-packages",
     keywords: [
       "Tirupati temple tour packages",
       "Tirumala tour package",
       "South India pilgrimage package",
-      "SVTT packages",
+      "Akshaya Cabs tour packages",
     ],
   }),
 
   services: buildMetadata({
-    title: "Cab & Travel Services | Sri Vinayaka Tours & Travels Tirupati",
+    title: "Cab & Travel Services | Akshaya Cabs Tirupati",
     description:
-      "Local cabs, Tirumala taxi, airport transfers, outstation cabs, Tempo Travellers, and customized South India tours. All-inclusive travel services in Tirupati.",
+      "Local cabs, Tirumala taxi, airport transfers, outstation cabs, Tempo Traveller rental and customised South India tours — all-inclusive travel services in Tirupati.",
     slug: "/services",
     keywords: [
       "Tirupati cab services",
@@ -121,58 +125,58 @@ export const PAGE_SEO = {
   }),
 
   contact: buildMetadata({
-    title: "Contact Us | Sri Vinayaka Tours & Travels Tirupati",
+    title: "Contact Akshaya Cabs | Tirupati",
     description:
-      "Contact Sri Vinayaka Tours & Travels. Call or WhatsApp +91 96522 40674. We are available 24/7 for Tirupati cab bookings, temple tours, and travel enquiries.",
+      "Contact Akshaya Cabs. Call or WhatsApp +91 72888 76667. Available 24/7 for Tirupati cab bookings, temple tours, and travel enquiries.",
     slug: "/contact",
-    keywords: ["contact SVTT Tirupati", "WhatsApp SVTT", "Tirupati cab booking contact"],
+    keywords: ["contact Akshaya Cabs Tirupati", "WhatsApp Akshaya Cabs", "Tirupati cab booking contact"],
   }),
 
   requestQuote: buildMetadata({
-    title: "Request a Quote | Sri Vinayaka Tours & Travels Tirupati",
+    title: "Request a Quote | Akshaya Cabs Tirupati",
     description:
-      "Get a customised travel quote from SVTT Tirupati. Tell us your requirements and we will send you the best rate for your Tirupati or South India trip.",
+      "Get a customised travel quote from Akshaya Cabs Tirupati. Tell us your requirements — pickup, drop, date, group size — and we will share the best available fare.",
     slug: "/request-a-quote",
   }),
 
-  reviews: buildMetadata({
-    title: "Customer Reviews | Sri Vinayaka Tours & Travels Tirupati",
+  whyChooseUs: buildMetadata({
+    title: "Why Choose Akshaya Cabs | What to Expect | Tirupati",
     description:
-      "What our customers say about SVTT Tirupati. Hundreds of satisfied pilgrims and tourists trust Sri Vinayaka Tours & Travels for safe and comfortable travel.",
-    slug: "/reviews",
+      "Find out how Akshaya Cabs works — our booking process, what is included in every trip, how we handle special requests, and why Tirupati travellers choose us.",
+    slug: "/why-choose-us",
   }),
 
-  blog: buildMetadata({
-    title: "Travel Blog | Tirupati Travel Tips & Guides | SVTT",
+  travelGuides: buildMetadata({
+    title: "Tirupati Travel Guides & Tips | Akshaya Cabs",
     description:
-      "Travel guides, tips, and insights for Tirupati, Tirumala, and South India. Plan your pilgrimage with SVTT's expert travel blog.",
-    slug: "/blog",
+      "Travel guides, tips and insights for Tirupati, Tirumala and South India. Plan your pilgrimage with Akshaya Cabs' practical travel guides.",
+    slug: "/travel-guides",
     keywords: ["Tirupati travel guide", "Tirumala guide", "South India pilgrimage tips"],
   }),
 
   pickupDrop: buildMetadata({
-    title: "Pickup & Drop Services | Sri Vinayaka Tours & Travels Tirupati",
+    title: "Airport & Station Pickup & Drop | Akshaya Cabs Tirupati",
     description:
-      "Reliable pickup and drop cab services from Tirupati airport, railway station, hotels, and any location. Available 24/7 with professional drivers.",
+      "Reliable pickup and drop service from Tirupati Airport, railway station, hotels and any location. Available 24/7 with professional drivers.",
     slug: "/pickup-drop",
   }),
 
   privacyPolicy: buildMetadata({
-    title: "Privacy Policy | Sri Vinayaka Tours & Travels Tirupati",
-    description: "Privacy Policy of Sri Vinayaka Tours & Travels, svtttirupati.com.",
+    title: "Privacy Policy | Akshaya Cabs",
+    description: "Privacy Policy of Akshaya Cabs, akshayacabs.com.",
     slug: "/privacy-policy",
     noIndex: true,
   }),
 
   termsConditions: buildMetadata({
-    title: "Terms & Conditions | Sri Vinayaka Tours & Travels Tirupati",
-    description: "Terms and Conditions of Sri Vinayaka Tours & Travels, svtttirupati.com.",
+    title: "Terms & Conditions | Akshaya Cabs",
+    description: "Terms and Conditions of Akshaya Cabs, akshayacabs.com.",
     slug: "/terms-and-conditions",
     noIndex: true,
   }),
 } as const;
 
-// ── Dynamic page metadata builders ────────────────────────────
+// ── Dynamic page metadata builders ────────────────────────────────
 
 export function buildPackageMetadata(
   title: string,
@@ -181,11 +185,11 @@ export function buildPackageMetadata(
   image?: string
 ): Metadata {
   return buildMetadata({
-    title: `${title} | Tour Package | SVTT Tirupati`,
+    title: `${title} | Temple Tour Package | Akshaya Cabs Tirupati`,
     description,
     slug: `/tour-packages/${slug}`,
     ogImage: image,
-    keywords: [`${title} tour package`, "Tirupati tour", "SVTT package"],
+    keywords: [`${title} tour package`, "Tirupati tour", "Akshaya Cabs package"],
   });
 }
 
@@ -196,7 +200,7 @@ export function buildBlogMetadata(
   image?: string
 ): Metadata {
   return buildMetadata({
-    title: `${title} | SVTT Tirupati Travel Blog`,
+    title: `${title} | Akshaya Cabs Tirupati Travel Blog`,
     description: excerpt,
     slug: `/blog/${slug}`,
     ogImage: image,
