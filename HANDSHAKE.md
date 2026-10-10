@@ -27,7 +27,8 @@
 | **Last completed** | TASK-24 (PackageComparator client component; compare page; up to 3 packages; vehicle + pax picker; WA pre-filled enquiry; lint+build Exit 0, 51 static pages) |
 | **Next proposed** | TASK-26 — Final four travel articles + editorial quality check (NOT APPROVED) |
 | **User approval received for** | TASK-01 through TASK-25 |
-| **Source guard** | Original SVTT repo/site **untouched**. No remote push possible (remote removed). |
+| **GitHub repository** | `https://github.com/akshayacabs7/akshaya-cabs` (branch `main` pushed & up to date) |
+| **Source guard** | Original SVTT repo/site **untouched**. |
 
 ---
 
