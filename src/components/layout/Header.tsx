@@ -239,7 +239,7 @@ export default function Header({ locale }: HeaderProps) {
 
           {/* Right actions */}
           <div className="akc-header__actions">
-            {/* Language switcher — tablet+ */}
+            {/* Language switcher — all viewports */}
             <div className="akc-header__lang">
               <LanguageSwitcher
                 currentLocale={locale}

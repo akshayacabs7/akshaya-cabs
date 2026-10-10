@@ -52,7 +52,7 @@ export default function AkcHeroSection({ locale }: Props) {
     : `తిరుపతి నుండి క్యాబ్ సేవలు & దేవాలయ టూర్ ప్యాకేజీలు — తిరుమల దర్శనం, దక్షిణ భారత యాత్రలు, విమానాశ్రయ బదిలీలు & అవుట్‌స్టేషన్ ట్రిప్పులు. ${BUSINESS.availability}.`;
   const eyebrow = isEn
     ? "Tirupati's Trusted Cab Partner"
-    : "తిrupati నమ్మకమైన క్యాబ్ పార్ట్‌నర్";
+    : "తిరుపతి నమ్మకమైన క్యాబ్ పార్ట్‌నర్";
 
   return (
     <section

@@ -1716,16 +1716,10 @@ a:focus-visible {
   flex-shrink: 0;
 }
 
-/* Language switcher in header */
+/* Language switcher in header — visible on mobile, tablet & desktop */
 .akc-header__lang {
-  display: none;
-}
-
-@media (min-width: 768px) {
-  .akc-header__lang {
-    display: flex;
-    align-items: center;
-  }
+  display: flex;
+  align-items: center;
 }
 
 /* WhatsApp button in header — desktop only */
@@ -2064,6 +2058,12 @@ a:focus-visible {
 
 .akc-lang-switcher__btn--active:hover {
   color: #ffffff;
+}
+
+.akc-lang-switcher__btn[lang*="te"],
+.akc-lang-switcher__btn:lang(te) {
+  letter-spacing: normal;
+  font-family: var(--font-telugu);
 }
 
 /* Drawer variant — slightly larger */
@@ -2517,6 +2517,14 @@ a:focus-visible {
   text-transform: uppercase;
   color: var(--akc-gold);
   font-family: var(--font-body);
+}
+
+.akc-hero__eyebrow .lang-te,
+[lang="te"] .akc-hero__eyebrow,
+.lang-te {
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  font-family: var(--font-telugu);
 }
 
 .akc-hero__eyebrow-dot {

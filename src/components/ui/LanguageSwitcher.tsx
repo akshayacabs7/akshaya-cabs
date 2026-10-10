@@ -23,7 +23,7 @@ interface LanguageSwitcherProps {
 
 const LABELS: Record<Locale, { short: string; long: string }> = {
   en: { short: "EN", long: "English" },
-  te: { short: "TE", long: "తెలుగు" },
+  te: { short: "తెలుగు", long: "తెలుగు" },
 };
 
 export default function LanguageSwitcher({
