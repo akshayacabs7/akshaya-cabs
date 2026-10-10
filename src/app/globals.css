@@ -3198,6 +3198,7 @@ a:focus-visible {
 }
 .akc-pkg__img {
   object-fit: cover;
+  object-position: center 25%;
   transition: transform 400ms ease;
 }
 .akc-pkg__card:hover .akc-pkg__img { transform: scale(1.04); }
@@ -3334,14 +3335,26 @@ a:focus-visible {
 
 .akc-destinations__img-wrap {
   position: relative;
-  height: 190px;
+  height: 220px;
   overflow: hidden;
+}
+@media (min-width: 640px) {
+  .akc-destinations__img-wrap {
+    height: 230px;
+  }
+}
+@media (min-width: 1024px) {
+  .akc-destinations__img-wrap {
+    height: 240px;
+  }
 }
 .akc-destinations__img {
   object-fit: cover;
+  object-position: center top;
+  transform-origin: center top;
   transition: transform 400ms ease;
 }
-.akc-destinations__card:hover .akc-destinations__img { transform: scale(1.05); }
+.akc-destinations__card:hover .akc-destinations__img { transform: scale(1.04); }
 
 .akc-destinations__img-overlay {
   position: absolute;
