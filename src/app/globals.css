@@ -143,6 +143,10 @@
   --akc-primary-light:    #1D5480;
   --akc-accent:           #0FAF9D;
   --akc-accent-dark:      #0C9080;
+  --akc-teal:             #0FAF9D;
+  --akc-teal-dark:        #0C9080;
+  --akc-teal-50:          #edfaf9;
+  --akc-teal-100:         #c7f1ee;
   --akc-gold:             #F2B75C;
   --akc-gold-dark:        #EC9E2A;
 
@@ -612,6 +616,27 @@ a:focus-visible {
 .akc-btn--wa:hover {
   background-color: var(--akc-wa-dark);
   border-color: var(--akc-wa-dark);
+}
+
+/* Outline Light — for dark hero sections & banners */
+.akc-btn--outline-light {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(8px);
+}
+.akc-btn--outline-light:hover,
+.akc-btn--outline-light:focus-visible {
+  background-color: rgba(255, 255, 255, 0.22);
+  color: #FFFFFF !important;
+  border-color: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+.akc-btn--outline-light span {
+  color: #FFFFFF !important;
+}
+.akc-btn--outline-light svg {
+  stroke: #FFFFFF;
 }
 
 /* Size modifiers */
@@ -3931,10 +3956,10 @@ a:focus-visible {
 }
 
 .akc-fleet-hero__note {
-  font-size: 0.8125rem;
-  color: rgba(255,255,255,0.6);
-  max-width: 580px;
-  line-height: 1.5;
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.85);
+  max-width: 600px;
+  line-height: 1.6;
 }
 
 /* ── Filter bar ── */
@@ -4492,43 +4517,58 @@ a:focus-visible {
 .akc-pkgpage-hero__stats {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1.25rem 1.75rem;
   flex-wrap: wrap;
   margin-bottom: 1.25rem;
+  padding: 0.875rem 1.35rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--akc-radius-lg, 1rem);
+  backdrop-filter: blur(8px);
+  width: fit-content;
+  max-width: 100%;
 }
 
 .akc-pkgpage-hero__stat {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.1rem;
+  gap: 0.25rem;
 }
 .akc-pkgpage-hero__stat strong {
   font-family: var(--font-heading);
-  font-size: 1.625rem;
+  font-size: clamp(1.625rem, 3.5vw, 2.125rem);
   font-weight: 800;
-  color: var(--akc-teal);
+  color: var(--akc-gold, #F2B75C);
   line-height: 1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 .akc-pkgpage-hero__stat span {
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.6);
+  font-size: 0.8125rem;
+  color: #FFFFFF;
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.92;
 }
 
 .akc-pkgpage-hero__stat-divider {
   width: 1px;
   height: 32px;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.25);
   flex-shrink: 0;
+}
+@media (max-width: 480px) {
+  .akc-pkgpage-hero__stat-divider {
+    display: none;
+  }
 }
 
 .akc-pkgpage-hero__note {
-  font-size: 0.8125rem;
-  color: rgba(255,255,255,0.55);
-  max-width: 580px;
-  line-height: 1.5;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 620px;
+  line-height: 1.6;
 }
 
 /* ── Filter bar ── */
@@ -5518,25 +5558,37 @@ a:focus-visible {
 .akc-svcpage-hero__stats {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  align-items: center;
+  gap: 1.25rem 2rem;
+  margin-top: 1.5rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--akc-radius-lg, 1rem);
+  backdrop-filter: blur(8px);
+  width: fit-content;
+  max-width: 100%;
 }
 .akc-svcpage-hero__stat {
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
+  gap: 0.25rem;
 }
 .akc-svcpage-hero__stat-val {
   font-family: var(--font-heading);
-  font-size: 1.75rem;
+  font-size: clamp(1.625rem, 3.5vw, 2.125rem);
   font-weight: 800;
-  color: var(--akc-teal);
+  color: var(--akc-gold, #F2B75C);
   line-height: 1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 .akc-svcpage-hero__stat-label {
-  font-size: 0.75rem;
-  color: rgba(255,255,255,0.55);
+  font-size: 0.8125rem;
+  color: #FFFFFF;
   font-weight: 600;
   letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.92;
 }
 
 /* ── Trust strip ── */
@@ -7062,6 +7114,9 @@ a:focus-visible {
   gap: 0.75rem;
   flex-wrap: wrap;
   align-items: center;
+}
+.akc-contact-hero__ctas a.akc-btn {
+  color: #FFFFFF;
 }
 
 /* Availability pill */
