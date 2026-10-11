@@ -42,6 +42,7 @@ export async function generateMetadata({
       languages: {
         "en-IN": "https://akshayacabs.com/en/request-a-quote",
         "te-IN": "https://akshayacabs.com/te/request-a-quote",
+        "x-default": "https://akshayacabs.com/en/request-a-quote",
       },
     },
     openGraph: {

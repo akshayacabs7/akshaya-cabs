@@ -17,6 +17,8 @@ import { BUSINESS } from "@/data/business";
 import { SOCIAL_LINKS } from "@/data/social";
 import { primaryWhatsAppUrl, secondaryWhatsAppUrl } from "@/lib/whatsapp";
 import ContactEnquiryForm from "@/components/ui/ContactEnquiryForm";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildFaqSchema } from "@/lib/schema";
 
 // ── Metadata ────────────────────────────────────────────────────────────────
 
@@ -35,7 +37,14 @@ export async function generateMetadata({
     description: isEn
       ? `Contact Akshaya Cabs Tirupati — call +91 72888 76667, WhatsApp, or email akshayacabs7@gmail.com. Available 24/7 for Tirumala taxi, airport transfers, outstation cabs and South India tours.`
       : `అక్షయ క్యాబ్స్ తిరుపతిని సంప్రదించండి — +91 72888 76667 కు కాల్ చేయండి, WhatsApp పంపండి, లేదా akshayacabs7@gmail.com కు ఇమెయిల్ చేయండి. తిరుమల టాక్సీ, విమానాశ్రయ బదిలీ, అవుట్‌స్టేషన్ క్యాబ్ మరియు దక్షిణ భారత పర్యటనలకు 24/7 అందుబాటులో ఉంది.`,
-    alternates: { canonical: `https://akshayacabs.com/${lang}/contact` },
+    alternates: {
+      canonical: `https://akshayacabs.com/${lang}/contact`,
+      languages: {
+        "en-IN": "https://akshayacabs.com/en/contact",
+        "te-IN": "https://akshayacabs.com/te/contact",
+        "x-default": "https://akshayacabs.com/en/contact",
+      },
+    },
     openGraph: {
       title: isEn ? "Contact Akshaya Cabs Tirupati" : "అక్షయ క్యాబ్స్ తిరుపతిని సంప్రదించండి",
       description: isEn
@@ -163,8 +172,14 @@ export default async function ContactPage({
   // Google Maps Directions link — no embed tracking
   const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(BUSINESS.address.full)}`;
 
+  const faqSchemaData = CONTACT_FAQS.map((faq) => ({
+    question: isEn ? faq.q.en : faq.q.te,
+    answer: isEn ? faq.a.en : faq.a.te,
+  }));
+
   return (
     <>
+      <JsonLd data={buildFaqSchema(faqSchemaData)} />
       {/* ══════════════════════════════════════════
           HERO
           ══════════════════════════════════════════ */}

@@ -46,8 +46,9 @@ const NAV = [
 
 // Extra links only shown in mobile drawer
 const DRAWER_EXTRA = [
+  { path: "/routes",          en: "Popular Routes",   te: "ప్రసిద్ధ మార్గాలు" },
+  { path: "/blog",            en: "Travel Guides",    te: "ట్రావెల్ గైడ్స్" },
   { path: "/why-choose-us",   en: "Why Choose Us",    te: "మమ్మల్ని ఎందుకు ఎంచుకోవాలి" },
-  { path: "/travel-guides",   en: "Travel Guides",    te: "ట్రావెల్ గైడ్స్" },
   { path: "/request-a-quote", en: "Request a Quote",  te: "కోటేషన్ అడగండి" },
 ] as const;
 

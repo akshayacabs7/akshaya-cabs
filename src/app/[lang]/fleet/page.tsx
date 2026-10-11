@@ -33,8 +33,8 @@ export async function generateMetadata({
     : "Our Fleet | Akshaya Cabs — Tirupati Cab Vehicles";
 
   const description = isTe
-    ? "7 మంచి నిర్వహణలో ఉన్న AC వాహనాలు — Dzire, Ertiga, Innova, Innova Crysta, Tavera, Tempo Traveller 12+1 & 17+1. ధరలు, సీటు సంఖ్య & లక్షణాలను పోల్చండి. WhatsApp లో బుక్ చేయండి."
-    : "7 well-maintained AC vehicles — Dzire, Ertiga, Innova, Innova Crysta, Tavera, Tempo Traveller 12+1 & 17+1. Compare pricing, capacity & features. Book on WhatsApp.";
+    ? "7 మంచి నిర్వహణలో ఉన్న AC వాహనాలు — Dzire, Ertiga, Innova, Innova Crysta, Tavera, Tempo Traveller 12+1 & Force Urbania 12 Seater. ధరలు, సీటు సంఖ్య & లక్షణాలను పోల్చండి. WhatsApp లో బుక్ చేయండి."
+    : "7 well-maintained AC vehicles — Dzire, Ertiga, Innova, Innova Crysta, Tavera, Tempo Traveller 12+1 & Force Urbania 12 Seater. Compare pricing, capacity & features. Book on WhatsApp.";
 
   return {
     title,
@@ -44,6 +44,7 @@ export async function generateMetadata({
       languages: {
         "en-IN": "https://akshayacabs.com/en/fleet",
         "te-IN": "https://akshayacabs.com/te/fleet",
+        "x-default": "https://akshayacabs.com/en/fleet",
       },
     },
     openGraph: {
@@ -66,6 +67,13 @@ function paxLabel(seats: number, isTe: boolean): string {
   const p = `${seats} ${isTe ? "ప్రయాణికులు" : `passenger${seats !== 1 ? "s" : ""}`}`;
   return `${p} + ${isTe ? "డ్రైవర్" : "driver"}`;
 }
+
+const CAT_LABEL_TE: Record<string, string> = {
+  sedan: "సెడాన్",
+  suv: "SUV",
+  van: "వ్యాన్",
+  tempo: "టెంపో",
+};
 
 const WA_NUMBER = BUSINESS.phone.primaryWhatsApp;
 
@@ -106,8 +114,8 @@ export default async function FleetPage({
           </h1>
           <p className="akc-fleet-hero__desc">
             {isEn
-              ? "From compact sedans for solo pilgrims to 17-seater Tempo Travellers for large groups — all vehicles are air-conditioned, regularly serviced, and driven by experienced local professionals."
-              : "సోలో యాత్రికుల కోసం కాంపాక్ట్ సెడాన్ నుండి పెద్ద బృందాల కోసం 17-సీటర్ టెంపో ట్రావెల్లర్ వరకు — అన్ని వాహనాలు AC, క్రమం తప్పకుండా సర్వీస్ చేయబడతాయి."}
+              ? "From compact sedans for solo pilgrims to 12-seater Force Urbania and Tempo Travellers for groups — all vehicles are air-conditioned, regularly serviced, and driven by experienced local professionals."
+              : "సోలో యాత్రికుల కోసం కాంపాక్ట్ సెడాన్ నుండి బృందాల కోసం 12-సీటర్ ఫోర్స్ అర్బానియా మరియు టెంపో ట్రావెలర్ వరకు — అన్ని వాహనాలు AC, క్రమం తప్పకుండా సర్వీస్ చేయబడతాయి."}
           </p>
           <p className="akc-fleet-hero__note">
             ✓ {isEn
@@ -153,20 +161,25 @@ export default async function FleetPage({
               </thead>
               <tbody>
                 {VEHICLES.map((v) => {
-                  const msg = `Hello Akshaya Cabs Tirupati!\n\nI would like to enquire about the ${v.name} (${v.seats} passengers).\n\nPlease share availability and pricing. Thank you!`;
+                  const vehName = !isEn && v.nameTe ? v.nameTe : v.name;
+                  const vehLabel = !isEn && v.labelTe ? v.labelTe : v.label;
+                  const vehCat = !isEn ? (CAT_LABEL_TE[v.category] ?? v.category) : v.category;
+                  const msg = isEn
+                    ? `Hello Akshaya Cabs Tirupati!\n\nI would like to enquire about the ${v.name} (${v.seats} passengers).\n\nPlease share availability and pricing. Thank you!`
+                    : `నమస్కారం అక్షయ క్యాబ్స్!\n\n${vehName} (${v.seats} మంది ప్రయాణికులు) బుకింగ్ గురించి వివరాలు పంచగలరా? ధన్యవాదాలు!`;
                   const waUrl = buildWhatsAppUrl(WA_NUMBER, msg);
 
                   return (
                     <tr key={v.id}>
                       <td>
-                        <span className="akc-fleet-table__veh-name">{v.name}</span>
-                        {v.label && (
-                          <span className="akc-fleet-table__veh-label">{v.label}</span>
+                        <span className={`akc-fleet-table__veh-name${locale === "te" ? " lang-te" : ""}`}>{vehName}</span>
+                        {vehLabel && (
+                          <span className={`akc-fleet-table__veh-label${locale === "te" ? " lang-te" : ""}`}>{vehLabel}</span>
                         )}
                       </td>
                       {/* Passenger count: use v.seats (NOT capacity string) */}
                       <td>{paxLabel(v.seats, !isEn)}</td>
-                      <td className="akc-fleet-table__cat">{v.category}</td>
+                      <td className="akc-fleet-table__cat">{vehCat}</td>
                       <td>
                         {v.price.perKm
                           ? <span className="akc-fleet-table__price">{formatPrice(v.price.perKm)}/km</span>
@@ -195,7 +208,7 @@ export default async function FleetPage({
                           className="akc-btn akc-btn--wa akc-btn--sm"
                           aria-label={isEn
                             ? `Enquire about ${v.name} on WhatsApp`
-                            : `${v.name} గురించి WhatsApp లో విచారించండి`}
+                            : `${vehName} గురించి WhatsApp లో విచారించండి`}
                         >
                           {isEn ? "Enquire" : "విచారించండి"}
                         </a>

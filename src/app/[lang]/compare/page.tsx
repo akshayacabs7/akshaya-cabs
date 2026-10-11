@@ -27,7 +27,14 @@ export async function generateMetadata({
     description: isEn
       ? "Compare up to 3 Akshaya Cabs tour packages side by side — duration, temples covered, vehicle fares, km allowance and inclusions. Send a WhatsApp enquiry directly."
       : "అక్షయ క్యాబ్స్ టూర్ ప్యాకేజీలను పక్కపక్కన పోల్చండి — వ్యవధి, కవర్ చేసిన ఆలయాలు, వాహన ఫేర్‌లు, km అలవెన్స్ మరియు చేర్పులు.",
-    alternates: { canonical: `https://akshayacabs.com/${lang}/compare` },
+    alternates: {
+      canonical: `https://akshayacabs.com/${lang}/compare`,
+      languages: {
+        "en-IN": "https://akshayacabs.com/en/compare",
+        "te-IN": "https://akshayacabs.com/te/compare",
+        "x-default": "https://akshayacabs.com/en/compare",
+      },
+    },
     openGraph: {
       title: isEn ? "Compare Tour Packages | Akshaya Cabs" : "టూర్ ప్యాకేజీలు పోల్చండి | అక్షయ క్యాబ్స్",
       description: isEn

@@ -44,6 +44,7 @@ export async function generateMetadata({
       languages: {
         "en-IN": "https://akshayacabs.com/en/tour-packages",
         "te-IN": "https://akshayacabs.com/te/tour-packages",
+        "x-default": "https://akshayacabs.com/en/tour-packages",
       },
     },
     openGraph: {

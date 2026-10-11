@@ -45,6 +45,7 @@ export async function generateMetadata({
       languages: {
         "en-IN": "https://akshayacabs.com/en/pickup-drop",
         "te-IN": "https://akshayacabs.com/te/pickup-drop",
+        "x-default": "https://akshayacabs.com/en/pickup-drop",
       },
     },
     openGraph: {

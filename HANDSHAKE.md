@@ -14,7 +14,7 @@
 | Local root (EXACT) | `D:\Projects_OnlyAI\akshya-cabs` |
 | Website | `https://akshayacabs.com` |
 | Execution mode | **ONE TASK PER USER APPROVAL — NEVER AUTO-RUN NEXT TASK** |
-| Last updated | 2026-10-09 22:30 IST |
+| Last updated | 2026-10-11 14:09 IST |
 
 ---
 
@@ -22,11 +22,11 @@
 
 | Field | Value |
 |---|---|
-| **Current task** | TASK-25 — Original travel blog system + first four real articles |
-| **Current status** | IN_PROGRESS |
-| **Last completed** | TASK-24 (PackageComparator client component; compare page; up to 3 packages; vehicle + pax picker; WA pre-filled enquiry; lint+build Exit 0, 51 static pages) |
-| **Next proposed** | TASK-26 — Final four travel articles + editorial quality check (NOT APPROVED) |
-| **User approval received for** | TASK-01 through TASK-25 |
+| **Current task** | TASK-34 — Full end-to-end parity and originality regression |
+| **Current status** | DONE |
+| **Last completed** | TASK-34 (Full end-to-end parity and originality regression: 42 automated tests across 7 suites pass; signed-off parity checklist 100% PASS; zero SVTT brand leaks across all 86 static pages; zero .svtt-* CSS classes; zero fake reviews/ratings; tsc, lint, build exit code 0, 86 static pages) |
+| **Next proposed** | TASK-35 — New GitHub repository and Netlify STAGING deployment (NOT APPROVED) |
+| **User approval received for** | TASK-01 through TASK-34 |
 | **GitHub repository** | `https://github.com/akshayacabs7/akshaya-cabs` (branch `main` pushed & up to date) |
 | **Source guard** | Original SVTT repo/site **untouched**. |
 
@@ -47,6 +47,46 @@
 | LG-06 | **Google Maps Pin Verified** | TASK-21 | ⏳ PENDING | Confirm the address `D.No. 18-38-S3-314, Madura Nagar, Tirupati 517501` is correctly pinned on Google Maps via `business.address.mapsUrl`. |
 | LG-07 | **WhatsApp Numbers Live Test** | All | ⏳ PENDING | On a real mobile device, tap all WA CTAs on the live site. Confirm messages pre-fill correctly in WhatsApp for both `917288876667` and `919393900006`. |
 | LG-08 | **DNS / Netlify Domain** | Deployment | ⏳ PENDING | Point `akshayacabs.com` Namecheap DNS to Netlify. Set HTTPS and confirm canonical URL resolves. |
+| LG-09 | **Google Business Profile Claim & Verification** | TASK-31 | ⏳ PENDING | Claim/verify Akshaya Cabs at `https://business.google.com` using email `akshayacabs7@gmail.com`. Set 24/7 hours, exact NAP, services, and genuine photos. |
+| LG-10 | **Google Search Console & Sitemap** | TASK-31 | ⏳ PENDING | Add `akshayacabs.com` in GSC, complete DNS TXT verification, and submit `https://akshayacabs.com/sitemap.xml` (86 URLs). |
+| LG-11 | **NAP Cross-Channel Audit** | TASK-31 | ⏳ PENDING | Ensure exact Name, Address, and Phone match across Google, Truecaller, WhatsApp Business, and all social handles. |
+
+---
+
+## 📍 Local SEO & Owner External Verification Playbook (TASK-31)
+
+> **Mandatory Owner External Actions**: These steps must be performed by S.R. Kumar in Google accounts. Search engine algorithms require external domain ownership verification and physical business authentication.
+
+### 1. Google Business Profile (GBP) Claim & Setup Checklist
+- [ ] **Account Login**: Sign in with official business email: `akshayacabs7@gmail.com` at `https://business.google.com`.
+- [ ] **Business Name**: Enter exact name: **Akshaya Cabs** (do not add spam keywords like "Best Cabs" or "Tirupati Taxi Cheap").
+- [ ] **Primary Category**: **Taxi service** (or **Cab service**).
+- [ ] **Secondary Categories**: **Tour agency**, **Chauffeur service**, **Travel agency**.
+- [ ] **Physical Address (NAP)**: `D.No. 18-38-S3-314, Madura Nagar, Tirupati - 517501, Andhra Pradesh, India`. Ensure pin matches the confirmed map URL (`https://maps.app.goo.gl/XcmrEFDmhH2uKPvg8?g_st=aw`).
+- [ ] **Service Areas**: Add Tirupati, Tirumala, Renigunta, Chandragiri, Srikalahasti, Kanipakam, Vellore, Chennai, Bengaluru.
+- [ ] **Phone Number**: Primary `+91 72888 76667`, Secondary `+91 93939 00006`.
+- [ ] **Website URL**: `https://akshayacabs.com`.
+- [ ] **Operating Hours**: Select "Open 24 hours" (Monday through Sunday).
+- [ ] **Business Description**: Use official description highlighting temple tours, airport transfers, and transparent pricing with driver allowance included.
+- [ ] **Verification Method**: Complete video verification or postcard OTP verification as prompted by Google.
+- [ ] **Photos Upload**: Upload genuine photos of the office, vehicles in fleet, founder S.R. Kumar, and high-resolution logo.
+
+### 2. Google Search Console (GSC) Verification & Sitemap Submission
+- [ ] **Property Addition**: Go to `https://search.google.com/search-console` and add Domain property `akshayacabs.com` (recommended via Namecheap DNS TXT record) or URL prefix `https://akshayacabs.com`.
+- [ ] **DNS Verification**: Add the Google-provided TXT verification record to Namecheap Advanced DNS.
+- [ ] **Sitemap Submission**: Submit `https://akshayacabs.com/sitemap.xml`. Confirm status reports "Success" with 86 discovered URLs.
+- [ ] **URL Inspection Smoke Test**: Test live inspection on `https://akshayacabs.com/en`, `https://akshayacabs.com/te`, `https://akshayacabs.com/en/tour-packages`, and `https://akshayacabs.com/en/routes/tirupati-to-tirumala-cabs`. Verify schema items: "LocalBusiness/TaxiService", "Breadcrumbs", "FAQ".
+
+### 3. NAP (Name, Address, Phone) Cross-Channel Consistency Audit
+| Channel | Target Value | Match Status |
+|---|---|---|
+| **Website (All Pages)** | Akshaya Cabs, D.No. 18-38-S3-314, Madura Nagar, Tirupati 517501, +91 72888 76667 | ✅ Verified Codebase |
+| **JSON-LD Structured Data** | Same Name, Address, Phone, Coordinates (13.6288, 79.4192) | ✅ Verified Codebase |
+| **Google Maps Pin** | https://maps.app.goo.gl/XcmrEFDmhH2uKPvg8?g_st=aw | ⏳ Owner Verify |
+| **Facebook Page** | https://www.facebook.com/share/1J1DHsBsws/ | ⏳ Owner Verify |
+| **Instagram Bio** | https://www.instagram.com/akshayacabs | ⏳ Owner Verify |
+| **X (Twitter)** | https://x.com/akshayacab | ⏳ Owner Verify |
+| **Truecaller / WhatsApp Business** | Display Name: Akshaya Cabs | ⏳ Owner Verify |
 
 ---
 
@@ -200,16 +240,16 @@ SVTT IDs must NEVER appear on Akshaya public pages. AKC0007/AKC0008 feasibility 
 | TASK-22 | C | Original About and founder story | DONE | 2026-10-10 | Full rewrite; Akshaya Cabs identity; S.R. Kumar founder card (genuine photo confirmed at public/images/akshaya/founder/sr-kumar.jpg); bilingual EN+TE; 6 values; 13 coverage areas; factual neutral bio (no invented years/awards/quotes); lint+tsc+build Exit 0 |
 | TASK-23 | C | Ethical trust and service-expectations design (NO FAKE REVIEWS) | DONE | 2026-10-10 | Full rewrite; ZERO fake reviews/stars/ratings/testimonials/schema; 5-step booking flow; 6 what-to-expect cards; pricing transparency callout (included/excluded breakdown); 6-item bilingual FAQ; Google Maps genuine-review invite; bilingual EN+TE; akc-trust-* CSS; lint+tsc+build Exit 0 |
 | TASK-24 | C | Package comparison and custom temple itinerary enquiry | DONE | 2026-10-10 | PackageComparator "use client" component; /[lang]/compare page; up to 3 packages; vehicle + pax picker; duration/km/fare/temples table; customQuote=Get Quote; inclusions reminder; WA pre-filled enquiry summary; reset/empty/cancel states; bilingual EN+TE; lint+tsc+build Exit 0, 51 static pages |
-| TASK-25 | D | Original travel blog system + first four real articles | NOT_STARTED | — | — |
-| TASK-26 | D | Final four travel articles + editorial quality check | NOT_STARTED | — | — |
-| TASK-27 | D | Build SEO-oriented destination and cab route landing pages | NOT_STARTED | — | — |
-| TASK-28 | D | English editorial review and brand originality audit | NOT_STARTED | — | — |
-| TASK-29 | D | Full Telugu content completion and native usability QA | NOT_STARTED | — | — |
-| TASK-30 | D | Technical SEO: metadata, hreflang, canonicals, indexing | NOT_STARTED | — | — |
-| TASK-31 | D | Local SEO and factual structured data | NOT_STARTED | — | — |
-| TASK-32 | E | Legal, privacy, accessibility and security pass | NOT_STARTED | — | — |
-| TASK-33 | E | Performance, visual responsiveness and test automation | NOT_STARTED | — | — |
-| TASK-34 | E | Full end-to-end parity and originality regression | NOT_STARTED | — | — |
+| TASK-25 | D | Original travel blog system + first four real articles | DONE | 2026-10-10 | Full blog index rewrite; article renderer; 4 complete bilingual EN+TE guides; akc-blog-* CSS; Breadcrumb integration; lint+tsc+build Exit 0, 59 static pages |
+| TASK-26 | D | Final four travel articles + editorial quality check | DONE | 2026-10-11 | 4 new guides (Srikalahasti, Vellore Golden Temple, Temple Tour circuit, Airport to Tirumala); all 8 guides published in EN+TE; homepage travel guides bilingual updates; lint+tsc+build Exit 0, 67 static pages |
+| TASK-27 | D | Build SEO-oriented destination and cab route landing pages | DONE | 2026-10-11 | 8 distinct route landing pages + directory; bilingual EN+TE; exact distances & durations; fleet pricing; FAQs; sitemap & nav integration; lint+tsc+build Exit 0, 85 static pages |
+| TASK-28 | D | English editorial review and brand originality audit | DONE | 2026-10-11 | Full brand originality audit; eliminated all public SVTT references; removed 10 dead legacy sections and 4 unused SVTT components; rewritten bilingual Terms & Conditions and Privacy Policy for Akshaya Cabs; verified 24/7 enquiry vs confirmation wording; verified 10 packages, 7 vehicles, 9 services, 8 routes, 8 blogs; lint+tsc+build Exit 0, 85 static pages |
+| TASK-29 | D | Full Telugu content completion and native usability QA | DONE | 2026-10-11 | Complete Telugu coverage across all 10 packages, 9 services, 7 vehicles, comparator, fleet, services, routes, and forms; tsc+lint+build Exit 0, 85 static pages |
+| TASK-30 | D | Technical SEO: metadata, hreflang, canonicals, indexing | DONE | 2026-10-11 | Root redirect, x-default hreflang on all routes, legal noindex/disallow, compare in sitemap; tsc+lint+build Exit 0, 86 static pages |
+| TASK-31 | D | Local SEO and factual structured data | DONE | 2026-10-11 | Valid Schema.org (LocalBusiness, FAQPage, TouristTrip, BlogPosting, Service); 28 scripts validated; GBP/GSC/NAP checklists; tsc+lint+build Exit 0, 86 pages |
+| TASK-32 | E | Legal, privacy, accessibility and security pass | DONE | 2026-10-11 | Zero PII logging, form honeypots, rel=noopener noreferrer on all links, skip link, focus-visible WCAG, 100% alt text; tsc+lint+build Exit 0, 86 pages |
+| TASK-33 | E | Performance, visual responsiveness and test automation | DONE | 2026-10-11 | 6 test suites (33 tests); overflow-x safety; 86 SSG pages validated; npm test + tsc + lint + build Exit 0 |
+| TASK-34 | E | Full end-to-end parity and originality regression | DONE | 2026-10-11 | 42 tests across 7 suites pass; signed-off parity checklist (100% PASS); 0 SVTT leaks; tsc+lint+build Exit 0 |
 | TASK-35 | E | New GitHub repository and Netlify STAGING deployment | NOT_STARTED | — | — |
 | TASK-36 | E | Production launch, Google integration and final handoff | NOT_STARTED | — | — |
 
@@ -996,5 +1036,380 @@ docs/
 
 ---
 
-*AKSHAYA CABS — HANDSHAKE.md — Last updated: 2026-10-10 03:55 IST (TASK-11 DONE)*
+### TASK-25 — 2026-10-10 19:30–20:15 IST
+
+**User approval:** User approval received to continue and finish TASK-25.
+
+**Scope completed:**
+- Built content layer: `src/data/blog-content/types.ts` and `src/data/blog-content/index.ts` with structured bilingual article model (`ArticleSection`, headings, paragraphs, bullet points, callouts/notice boxes).
+- Created four full, independently authored travel guides in English and Telugu:
+  1. `tirupati-darshan-guide`: Complete Tirupati Darshan Guide — darshan categories, booking portals, dress codes, queue tips, TTD disclaimers.
+  2. `tirumala-travel-guide`: Tirumala Travel Guide — road access via ghat road, accommodation, key spots, cab travel tips.
+  3. `best-places-tirupati`: Best Places to Visit in Tirupati Beyond Tirumala — Kapilatheertham, Chandragiri, Srinivasa Mangapuram, local spots.
+  4. `tirupati-to-kanipakam`: Tirupati to Kanipakam Travel Guide — 75 km route, travel duration, temple details, cab recommendation.
+- Rewrote `src/app/[lang]/blog/page.tsx`:
+  - Completely removed legacy code and SVTT artifacts.
+  - Responsive 3-column article card grid with category badges, reading time, publication dates, excerpts.
+  - Filter by `contentStatus === "published"` so stubs are never displayed as finished SEO pages.
+  - Full Telugu localization and Breadcrumb integration.
+- Rewrote `src/app/[lang]/blog/[slug]/page.tsx`:
+  - Static site generation with `generateStaticParams()` yielding all published article slugs across `en` and `te` locales.
+  - SEO metadata generation with canonical URLs and OpenGraph tags.
+  - Full article layout with hero banner, date, reading time, rich text sections, formatted bullet points, notice boxes, callout cards.
+  - Sticky sidebar with 24/7 cab enquiry, WhatsApp pre-filled CTA, phone CTA, and related links.
+- Styling in `src/app/globals.css`:
+  - Comprehensive `.akc-blog*` and `.akc-article*` responsive CSS classes respecting color system and typography.
+- Tested and verified:
+  - `npx tsc --noEmit` — Exit code 0 (clean).
+  - `npm run lint` — Exit code 0 (clean).
+  - `npm run build` — Exit code 0 (59 static pages prerendered).
+  - HTTP checks on `/en/blog`, `/te/blog`, `/en/blog/tirupati-darshan-guide`, `/te/blog/tirupati-darshan-guide` confirmed clean HTML rendering, correct bilingual strings, and functional WhatsApp links.
+
+---
+
+### TASK-26 — 2026-10-11 09:30–10:50 IST
+
+**User approval:** User approval received ("Please go with 26 task").
+
+**Scope completed:**
+- Authored the final four travel guides in comprehensive, original English and fluent Telugu:
+  5. `tirupati-to-srikalahasti-travel-guide` (`article-tirupati-to-srikalahasti.ts`): Srikalahasteeswara Swamy Temple (~36-40 km), Vayu Lingam significance, Rahu-Ketu Sarpa Dosha Nivarana Puja procedures, highway travel times, and pairing with Padmavathi Devi or Kanipakam (Package AKC0010 & AKC0004).
+  6. `tirupati-to-golden-temple-vellore` (`article-tirupati-to-vellore.ts`): Sripuram Sri Lakshmi Narayani Golden Temple (~140 km, ~3-3.5 hours), 1.8 km star-shaped path (Sri Chakra), gold vimanam, strict zero-electronics rules, AP-TN border permits, and combination packages (AKC0007 & AKC0008).
+  7. `tirupati-temple-tour-guide` (`article-tirupati-temple-tour.ts`): Full circuit guide covering Sri Padmavathi Ammavari Temple (Tiruchanur), Sri Govindaraja Swamy, Kapilatheertham (Kapileswara Swamy), Sri Kalyana Venkateswara (Srinivasa Mangapuram), and Kodandarama Swamy, with recommended 1-day/2-day itineraries and dedicated cab packages (AKC0001, AKC0002, AKC0009).
+  8. `tirupati-airport-to-tirumala-travel-guide` (`article-tirupati-airport-tirumala.ts`): Tirupati Airport (Renigunta - TIR) transit guide (~15 km to city, ~42 km to hill), ghat road gate operating hours, TTD speed regulation rules (minimum 28 min uphill), terminal meet-and-greet benefits, flight delay tracking.
+- Registered all 8 guides in `src/data/blog-content/index.ts` via `BLOG_CONTENT_MAP`.
+- Updated `src/data/blog.ts`: All 8 blog articles marked `contentStatus: "published"` with full Telugu metadata (`titleTe`, `excerptTe`, `categoryTe`).
+- Updated `src/components/home/AkcTravelGuidesSection.tsx`: Homepage travel guide cards now render native Telugu titles, excerpts, and category tags when viewed under `/te`.
+- Verified editorial quality: Zero competitor branding, zero fake review claims, realistic highway distances/durations, TTD official authority and darshan disclaimer boxes on all articles.
+- Tested and verified:
+  - `npx tsc --noEmit` — Exit code 0 (clean).
+  - `npm run lint` — Exit code 0 (clean).
+  - `npm run build` — Exit code 0 (67 static pages prerendered; 16 static article pages across en/te).
+  - Verified rendered HTML via local server on `/en/blog`, `/te/blog`, `/te/blog/tirupati-to-srikalahasti-travel-guide`, and `/en/blog/tirupati-airport-to-tirumala-travel-guide`.
+
+---
+
+### TASK-27 — 2026-10-11 11:24–11:45 IST
+
+**User approval:** User approval received ("yes").
+
+**Scope completed:**
+- Built centralized routes data: `src/data/routes.ts` defining all 8 high-intent route landing pages:
+  1. `tirupati-to-tirumala-cabs`: Tirupati ↔ Tirumala (22 km, 45-55 mins, ghat road timing regulations, 28-min minimum speed rule, one-way from ₹1,500, round-trip from ₹2,000).
+  2. `tirupati-airport-cabs`: Tirupati Airport (Renigunta TIR) ↔ City (~15 km, from ₹800) / Tirumala (~42 km, from ₹2,000), flight tracking, terminal meet-and-greet.
+  3. `tirupati-to-chennai-cabs`: Tirupati ↔ Chennai (~140 km, 3.5-4 hrs, NH 716), Chennai Airport & Central drops, Tamil Nadu interstate permit transparency, one-way from ₹3,800.
+  4. `tirupati-to-bangalore-cabs`: Tirupati ↔ Bengaluru (~250 km, 4.5-5.5 hrs, NH 75), Kempegowda Airport & IT corridors, Karnataka permit compliance, one-way from ₹5,800.
+  5. `tirupati-to-srikalahasti-cabs`: Tirupati ↔ Srikalahasti (~38 km, 50-60 mins, NH 71), Rahu-Ketu Puja waiting included, Package AKC0010 from ₹2,500.
+  6. `tirupati-to-kanipakam-cabs`: Tirupati ↔ Kanipakam (~75 km, 1.5-2 hrs, NH 716), Swayambhu Ganesha pilgrimage, Package AKC0006 from ₹4,500.
+  7. `tirupati-to-vellore-golden-temple-cabs`: Tirupati ↔ Vellore Sripuram (~140 km, 3-3.5 hrs), 1.8 km star-walk waiting included, Package AKC0007 from ₹8,000.
+  8. `tirupati-local-sightseeing-cabs`: Tirupati Valley Circuit (~70 km, 6-8 hrs), Padmavathi Temple, Govindaraja, Kapilatheertham, Srinivasa Mangapuram, Package AKC0009 from ₹2,300.
+- Created `src/app/[lang]/routes/page.tsx`:
+  - Popular Cab Routes directory with filter badges, route cards, distance/time stats, starting fares, and pre-filled WhatsApp enquiry CTAs.
+  - Bilingual EN/TE metadata, Breadcrumbs, and responsive grid.
+- Created `src/app/[lang]/routes/[slug]/page.tsx`:
+  - Static site generation (`generateStaticParams`) supporting all 8 routes across both `en` and `te` locales (16 static route pages).
+  - Unique metadata, OpenGraph tags, canonicals, and Breadcrumbs.
+  - Route hero with distance/time/price pills, why-choose highlights, recommended fleet table, important travel/permit/toll notices, FAQ section, related package/blog links, and sticky booking sidebar.
+- Appended responsive `.akc-routes*` and `.akc-route-detail*` styles to `src/app/globals.css`.
+- Updated navigation in `src/components/layout/Header.tsx` and `Footer.tsx`: Added "Popular Routes" link; updated blog links from `/travel-guides` to `/blog`.
+- Updated `next.config.ts`: Added 301 redirects for `/travel-guides` to `/blog`.
+- Updated `src/app/sitemap.ts`: Added `/routes` directory, all 8 route landing pages in EN & TE, and canonical blog URLs.
+- Updated `src/lib/seo.ts`: Added `routes` metadata config.
+- Tested and verified:
+  - `npx tsc --noEmit` — Exit code 0 (clean).
+  - `npm run lint` — Exit code 0 (clean).
+  - `npm run build` — Exit code 0 (**85 static pages prerendered**, including all 16 static route pages).
+  - Runtime verification via local server on `/en/routes`, `/te/routes`, `/en/routes/tirupati-to-tirumala-cabs`, `/te/routes/tirupati-to-tirumala-cabs`.
+
+**Next task (NOT AUTHORIZED):** TASK-28 — English editorial review and brand originality audit
+
+---
+
+### TASK-28 — 2026-10-11 12:20 IST
+
+**User approval:** User approval received ("yes").
+
+**Scope completed:**
+- **Zero SVTT / Sri Vinayaka Remnants**:
+  - Ran a comprehensive codebase audit across all public-facing text, page components, and metadata.
+  - Removed 10 obsolete legacy section files in `src/components/sections/` (`HeroSection`, `AboutSnippetSection`, `FeaturedPackagesSection`, `FleetPreviewSection`, `GoogleReputationSection`, `HowItWorksSection`, `ServicesSection`, `WhyChooseSection`, `FinalCtaSection`, `DestinationStorySection`) that retained old SVTT texts and references to SVTT ownership.
+  - Removed 4 obsolete legacy UI components in `src/components/ui/` and `src/components/layout/` (`PackageFilterTabs.tsx`, `FleetFilterGallery.tsx`, `RequestQuoteForm.tsx`, `FloatingContact.tsx`) that had been superseded by Akshaya components (`AkcPackageGallery`, `AkcFleetGallery`, `TripPlannerForm`, `StickyBookingBar`).
+  - Confirmed via global grep that zero user-facing occurrences of "Sri Vinayaka" or "SVTT" exist anywhere in the project.
+- **Rewrote Terms & Conditions (`src/app/[lang]/terms-and-conditions/page.tsx`)**:
+  - Fully rewritten with authentic Akshaya Cabs details (S.R. Kumar, Tirupati, Andhra Pradesh).
+  - Locale-aware (`generateStaticParams` for `en` and `te`), canonical `https://akshayacabs.com/${locale}/terms-and-conditions`.
+  - Comprehensive, honest clauses covering:
+    1. Acceptance of terms for Akshaya Cabs.
+    2. Booking & confirmation process: explicit clarification that 24/7 service availability refers to enquiry availability, while bookings/vehicles are formally confirmed after route review and mutual confirmation.
+    3. Transparent pricing policy: driver allowance included in all rates; highway tolls, parking charges, and interstate permits (TN, KA) paid at actuals by passengers; 300 km/day baseline for outstation trips.
+    4. Cancellation & rescheduling policy: friendly, zero-fee cancellations prior to garage dispatch; flight/train delay adjustments.
+    5. Tirumala ghat road regulations (TTD 28-min transit speed limits) and explicit note that darshan waiting times/tokens are governed by TTD.
+    6. Vehicle standards (clean AC cabs, courteous commercial drivers) and passenger conduct (strict zero-tolerance policy on smoking, alcohol, and prohibited substances in the holy city).
+    7. Governing law: exclusive jurisdiction of courts in Tirupati, Andhra Pradesh.
+    8. Business contact card and footer navigation links.
+- **Rewrote Privacy Policy (`src/app/[lang]/privacy-policy/page.tsx`)**:
+  - Fully rewritten with authentic Akshaya Cabs details.
+  - Locale-aware (`generateStaticParams` for `en` and `te`), canonical `https://akshayacabs.com/${locale}/privacy-policy`.
+  - Comprehensive privacy disclosures:
+    1. Identity: Akshaya Cabs, founded by S.R. Kumar, based in Tirupati.
+    2. Zero financial data collection: no card/banking details stored on website; in-person driver cash/UPI payments upon trip completion.
+    3. Purpose of data: used solely to quote and dispatch cabs; zero selling, renting, or monetization of passenger contact details to third-party telemarketers or advertisers.
+    4. WhatsApp communication privacy and Netlify Forms submission security.
+    5. No intrusive tracking cookies or cross-site tracking scripts.
+    6. Customer rights to request deletion or correction of contact logs.
+- **Added CSS Styles for Legal Pages**:
+  - Appended `.akc-legal-*` CSS classes in `src/app/globals.css` with responsive container, card layout, headers, badges, section lists, and contact address styling.
+- **Audited Brand Originality & Indian English Tone Across All Key Pages**:
+  - Global Headings & CTAs: Checked hero, 9 service categories, 10 tour packages, 7 vehicle classes, 8 destination routes, 8 published travel guides, About founder bio, Contact FAQs, and Why Choose Us trust pillars.
+  - Fact-checked numbers: Confirmed all phone numbers match `+91 72888 76667` and `+91 93939 00006`, email `akshayacabs7@gmail.com`, and address `D.No. 18-38-S3-314, Madura Nagar, Tirupati 517501`.
+- **Validation**:
+  - `npx tsc --noEmit` — Exit code 0 (clean).
+  - `npm run lint` — Exit code 0 (clean).
+  - `npm run build` — Exit code 0 (**85 static pages prerendered**, including all legal pages).
+
+**Next task (NOT AUTHORIZED):** TASK-29 — Full Telugu content completion and native usability QA
+
+---
+
+### TASK-29 — 2026-10-11 13:10 IST
+
+**User approval:** User approval received ("Yes please").
+
+**Scope completed:**
+- **Full Telugu Content Completion & Native Usability QA Across the Entire Platform**:
+  1. **Data Models & Types Enriched (`src/types/index.ts`)**:
+     - Extended `Package` with `destinationsTe`, `durationTe`.
+     - Extended `PackageDistanceInfo` with `distanceNoteTe`.
+     - Confirmed `Vehicle` has `nameTe`, `labelTe`, `featuresTe`, `bestForTe`.
+     - Confirmed `Service` has `titleTe`, `shortTitleTe`, `descriptionTe`, `featuresTe`, `ctaTe`.
+  2. **All 10 Tour Packages Enriched with Fluent Regional Telugu (`src/data/packages.ts`)**:
+     - Added natural Telugu translations for titles, short titles, destinations, temple lists, comprehensive descriptions, durations (e.g. `1 రోజు`, `~7 గంటలు`), and route distance advisories for all 10 packages (`akc0001` through `akc0010`).
+  3. **All 9 Services Enriched with Authentic Telugu Content (`src/data/services.ts`)**:
+     - Added natural Telugu titles, short titles, descriptions, feature bullet lists, and CTA button labels for all 9 services (`local-cab`, `tirumala-taxi`, `temple-tours`, `outstation-cabs`, `airport-transfers`, `railway-transfers`, `tempo-traveller`, `customized-tours`, `south-india-pilgrimage`).
+  4. **All 7 Vehicles Enriched with Authentic Telugu Data (`src/data/vehicles.ts`)**:
+     - Added Telugu names, category labels, feature bullet points, and ideal use-case descriptions for all 7 vehicles (`dzire-amaze-etios`, `ertiga`, `innova`, `innova-crysta`, `tavera`, `tempo-traveller-12`, `tempo-traveller-17`).
+     - Enhanced `passengerSeatText(vehicle, locale)` helper to generate authentic Telugu passenger count text (`👥 ${v.seats} మంది ప్రయాణికులు + డ్రైవర్`).
+  5. **Component Renderers Updated for Fluent Telugu Display**:
+     - `src/components/home/AkcServicesSection.tsx`: Direct reading of `svc.shortTitleTe` and `svc.titleTe` from data without relying on mismatched dictionary keys.
+     - `src/app/[lang]/services/page.tsx`: Dynamic display of Telugu titles, descriptions, verified features, vehicle chips, and CTAs when `locale === "te"`.
+     - `src/components/home/AkcFeaturedPackagesSection.tsx`: Dynamic display of `pkgTitle`, `pkgDuration`, `pkgDestinations`, and `pkgDesc` in Telugu.
+     - `src/components/ui/AkcPackageGallery.tsx`: Complete Telugu rendering for titles, category badges, durations, destination chips, temple stops, descriptions, and distance notes.
+     - `src/app/[lang]/tour-packages/[slug]/page.tsx`: Comprehensive Telugu rendering across metadata, breadcrumbs, hero titles, overview, distance advisories, destinations, temple list, vehicle pricing table, quick info, and related packages.
+     - `src/components/home/AkcFleetPreviewSection.tsx`: Dynamic Telugu vehicle names, labels, and pre-filled WhatsApp enquiry messages.
+     - `src/components/ui/AkcFleetGallery.tsx`: Dynamic Telugu vehicle names, labels, best-for descriptions, features, and passenger counts.
+     - `src/app/[lang]/fleet/page.tsx`: Full Telugu vehicle names, labels, category badges, and bilingual WhatsApp messages in the side-by-side comparison table.
+     - `src/components/compare/PackageComparator.tsx`: Telugu package titles, durations, vehicle selector options, temples list, and bilingual inclusions/exclusions reminder.
+     - `src/app/[lang]/routes/page.tsx` & `src/app/[lang]/routes/[slug]/page.tsx`: Verified authentic Telugu for all 8 routes and updated WhatsApp pre-filled messages.
+     - `src/components/ui/TripPlannerForm.tsx` & `src/components/ui/ContactEnquiryForm.tsx`: Verified complete native Telugu validation errors, step titles, field labels, and submission flows.
+- **Verification & Validation**:
+  - `npx tsc --noEmit` — Exit code 0 (clean).
+  - `npm run lint` — Exit code 0 (clean).
+  - `npm run build` — Exit code 0 (**85 static pages prerendered cleanly in 3.9s**).
+  - Git push deferred as per user strict instructions.
+
+**Next task (APPROVED):** TASK-30 — Technical SEO: metadata, hreflang, canonicals, indexing
+
+---
+
+### TASK-30 — 2026-10-11 13:40 IST
+
+**User approval:** "yes , proceed task 30" (User approved TASK-30)
+
+**Scope completed:**
+- **Technical SEO Hardening & Route Crawl Integrity**:
+  1. **Root Route 404 Prevention**:
+     - Created `src/app/page.tsx` with server-side `redirect("/en")`.
+     - Configured permanent redirect (301) in `next.config.ts` from `/` to `/en`.
+  2. **Comprehensive `x-default` Hreflang Alignment**:
+     - Verified and added `"x-default": "https://akshayacabs.com/en/..."` across all 17 page types:
+       - `src/app/[lang]/about/page.tsx`
+       - `src/app/[lang]/contact/page.tsx`
+       - `src/app/[lang]/why-choose-us/page.tsx`
+       - `src/app/[lang]/compare/page.tsx`
+       - `src/app/[lang]/fleet/page.tsx`
+       - `src/app/[lang]/services/page.tsx`
+       - `src/app/[lang]/pickup-drop/page.tsx`
+       - `src/app/[lang]/request-a-quote/page.tsx`
+       - `src/app/[lang]/tour-packages/page.tsx`
+       - `src/app/[lang]/tour-packages/[slug]/page.tsx`
+       - `src/app/[lang]/routes/page.tsx`
+       - `src/app/[lang]/routes/[slug]/page.tsx`
+       - `src/app/[lang]/blog/page.tsx`
+       - `src/app/[lang]/blog/[slug]/page.tsx`
+       - `src/app/[lang]/privacy-policy/page.tsx`
+       - `src/app/[lang]/terms-and-conditions/page.tsx`
+  3. **Legal Pages Noindex & Robots Disallow Rules**:
+     - Set `robots: { index: false, follow: false }` on `/privacy-policy` and `/terms-and-conditions` metadata.
+     - Added explicit crawler disallow entries in `src/app/robots.ts` for `/en/privacy-policy`, `/te/privacy-policy`, `/en/terms-and-conditions`, and `/te/terms-and-conditions`.
+  4. **Sitemap Completeness & Verification (`src/app/sitemap.ts`)**:
+     - Added missing `/compare` route with `priority: 0.6`, `changeFrequency: "monthly"`.
+     - Added reciprocal `x-default` alternate link for every single static and dynamic URL entry in `sitemap.xml`.
+  5. **Verification & Build Validation**:
+     - `npx tsc --noEmit` — Exit code 0 (clean).
+     - `npm run lint` — Exit code 0 (clean).
+     - `npm run build` — Exit code 0 (**86 static pages prerendered**, 100% clean).
+
+**Next task (APPROVED):** TASK-31 — Local SEO and factual structured data
+
+---
+
+### TASK-31 — 2026-10-11 13:56 IST
+
+**User approval:** "Yes, plase start" (User approved TASK-31)
+
+**Scope completed:**
+- **Local SEO & Factual Structured Data Implementation**:
+  1. **Built Reusable Schema Generator & Component**:
+     - Created `src/lib/schema.ts` supporting valid Schema.org models:
+       - `buildLocalBusinessSchema(locale)`: `["TaxiService", "LocalBusiness"]` with telephone, email, physical address, geo-coordinates (13.6288, 79.4192), 24/7 hours, verified social URLs, service cities, and founder S.R. Kumar. Strictly zero review/star ratings or aggregateRating schema.
+       - `buildFaqSchema(faqs)`: `FAQPage` schema mapping visible questions and answers in English and Telugu.
+       - `buildArticleSchema(post, locale, url)`: `BlogPosting` schema with author, publisher, publication date, and cover image.
+       - `buildTouristTripSchema(pkg, locale, url)`: `TouristTrip` schema with itinerary stops and AggregateOffer starting pricing.
+       - `buildRouteServiceSchema(route, locale, url)`: `TaxiService` schema for intercity highway cab routes.
+     - Created `src/components/seo/JsonLd.tsx`: Server Component for safe JSON-LD injection.
+  2. **Page-Level Structured Data Integration**:
+     - `src/app/[lang]/layout.tsx`: Global `LocalBusiness` / `TaxiService` schema on all routes with persistent `@id: "https://akshayacabs.com/#organization"`.
+     - `src/app/[lang]/contact/page.tsx`: Injected `FAQPage` schema for 5 contact FAQs.
+     - `src/app/[lang]/why-choose-us/page.tsx`: Injected `FAQPage` schema for 6 service expectation FAQs.
+     - `src/app/[lang]/tour-packages/[slug]/page.tsx`: Injected `TouristTrip` schema for all 10 tour packages across both locales.
+     - `src/app/[lang]/routes/[slug]/page.tsx`: Injected `TaxiService` and `FAQPage` schemas for all 8 route landing pages.
+     - `src/app/[lang]/blog/[slug]/page.tsx`: Injected `BlogPosting` schema for all 8 travel guide articles.
+  3. **Automated Schema & Brand Validation**:
+     - Ran validation across prerendered HTML output: 28 structured data scripts parsed successfully.
+     - Confirmed: 0 SVTT/Sri Vinayaka strings, 0 review/aggregateRating schemas, 100% valid JSON-LD.
+  4. **Owner Playbooks & Launch Checklists Created**:
+     - Added Google Business Profile claim & setup checklist (LG-09).
+     - Added Google Search Console verification & sitemap submission guide (LG-10).
+     - Added NAP cross-channel consistency audit matrix (LG-11).
+  5. **Verification & Build Validation**:
+     - `npx tsc --noEmit` — Exit code 0 (clean).
+     - `npm run lint` — Exit code 0 (clean).
+     - `npm run build` — Exit code 0 (**86 static pages prerendered**, 100% clean).
+
+**Next task (APPROVED):** TASK-32 — Legal, privacy, accessibility and security pass
+
+---
+
+### TASK-32 — 2026-10-11 14:09 IST
+
+**User approval:** "Continue" (User approved TASK-32)
+
+**Scope completed:**
+- **Comprehensive Legal, Privacy, Accessibility & Security Hardening**:
+  1. **Legal & Privacy Policy Integrity**:
+     - Verified Terms & Conditions (`src/app/[lang]/terms-and-conditions/page.tsx`) and Privacy Policy (`src/app/[lang]/privacy-policy/page.tsx`) across both English and Telugu.
+     - Confirmed: 100% zero SVTT or Sri Vinayaka references.
+     - Confirmed transparent disclosures: driver allowance included in displayed fares; tolls, parking, and interstate permits at actuals; zero advance payments for local trips; friendly cancellation policy before driver dispatch; TTD darshan jurisdiction caveat; zero credit card/banking data collected; zero selling/renting of customer lead data.
+  2. **Form Security & Anti-Spam Protections**:
+     - Contact Enquiry Form (`src/components/ui/ContactEnquiryForm.tsx`): Has mandatory consent checkbox, phone format validation, minimal data collection, and hidden anti-spam `bot-field` honeypot.
+     - Guided Trip Planner Form (`src/components/ui/TripPlannerForm.tsx`): Added hidden anti-spam honeypot input (`bot-field`) and silent bot rejection logic in `handleSubmit`.
+  3. **Data Protection & PII Logging Audit**:
+     - Automated scan of all codebase files confirmed: zero `console.log` statements outputting customer phone numbers, emails, or personal names.
+  4. **External Link Security**:
+     - Automated scan confirmed 100% of `target="_blank"` anchor tags across all components and pages have `rel="noopener noreferrer"`.
+  5. **WCAG 2.1 AA Accessibility Hardening**:
+     - **Bypass Blocks (WCAG 2.4.1)**: Added accessible `<a href="#main-content" className="akc-skip-link">` in `src/app/[lang]/layout.tsx` (bilingual: "Skip to main content" / "ప్రధాన విషయానికి వెళ్లండి") enabling keyboard users to immediately bypass header navigation.
+     - **Focus Visible (WCAG 2.4.7)**: Added global high-contrast `:focus-visible` styles with brand teal outline (`#0FAF9D`) and offset in `src/app/globals.css`.
+     - **Reduced Motion (WCAG 2.3.3)**: Added `@media (prefers-reduced-motion: reduce)` in `src/app/globals.css` to respect user OS vestibular/motion settings.
+     - **Image Alt Attributes (WCAG 1.1.1)**: Automated script verified that 100% of images on the site have explicit, descriptive `alt` tags or `aria-hidden="true"`.
+  6. **Verification & Build Validation**:
+     - `npx tsc --noEmit` — Exit code 0 (clean).
+     - `npm run lint` — Exit code 0 (clean).
+     - `npm run build` — Exit code 0 (**86 static pages prerendered**, 100% clean).
+
+**Next task (APPROVED):** TASK-33 — Performance, visual responsiveness and test automation
+
+---
+
+### TASK-33 — 2026-10-11 14:35 IST
+
+**User approval:** "yes, please start" (User approved TASK-33)
+
+**Scope completed:**
+- **Performance, Visual Responsiveness & Test Automation Implementation**:
+  1. **Node Native Test Automation Framework**:
+     - Configured Node v24 built-in test runner with TypeScript support (`node --experimental-strip-types --test tests/**/*.test.mjs`) in `package.json`.
+     - Built 6 automated test suites in `tests/`:
+       - `tests/vehicles.test.mjs`: Validates all 7 vehicle categories, pricing matrix (per-km, local day, 300km limit), driver allowance inclusion flag, Telugu fields, and enforces the banned WagonR rule.
+       - `tests/packages.test.mjs`: Validates all 10 tour packages, starting price baselines (AKC0001–AKC0010), zero SVTT token leakage in public titles/descriptions/slugs, vehicle pricing matrices (including customQuote flags), temple itineraries, and Telugu translations.
+       - `tests/validation.test.mjs`: Tests Indian 10-digit mobile number validation (with +91, 0, or raw 10 digits) and date validation (rejects past travel dates, ensures return date >= departure date).
+       - `tests/whatsapp-links.test.mjs`: Tests WhatsApp URL generation for primary (`+91 72888 76667`) and secondary (`+91 93939 00006`) numbers, Telugu Unicode URL round-tripping, and audits all WhatsApp/phone links in the codebase against official numbers.
+       - `tests/responsive-css.test.mjs`: Verifies `globals.css` responsive media queries, root `overflow-x: hidden` enforcement, WCAG 2.4.7 `:focus-visible` styles, WCAG 2.3.3 `@media (prefers-reduced-motion: reduce)`, skip link positioning, and design tokens.
+       - `tests/ssg-smoke.test.mjs`: Audits prerendered static build output across all 86 pages in `.next/server/app/`, confirms zero SVTT/Sri Vinayaka strings in any generated HTML file, checks canonical URLs, hreflang tags, English/Telugu skip links, primary phone number, founder S.R. Kumar, and validates `robots.txt` and `sitemap.xml`.
+  2. **Visual Responsiveness & Mobile Layout Hardening**:
+     - Enforced `overflow-x: hidden` on `html`, `body`, and `.akc-body` in `src/app/globals.css` to completely eliminate horizontal scrolling or viewport blowout on mobile devices.
+     - Confirmed container max-width constraints (`--akc-max-w: 1280px`).
+     - Confirmed responsive data table container with touch scrolling (`.akc-compare-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }`).
+  3. **Core Web Vitals Engineering & Targets**:
+     - **LCP (Largest Contentful Paint) <= 2.5s**: Hero images optimized with next/image, modern WebP format, responsive sizes/srcSets, and preload hints.
+     - **INP / FID <= 200ms**: 100% SSG static pages with minimal client JS hydration footprint.
+     - **CLS (Cumulative Layout Shift) <= 0.1**: Explicit image dimensions/aspect ratios, reserved sticky booking bar padding (`--akc-sticky-bar-h: 3.5rem`) preventing layout shifts.
+  4. **Verification & Regression Results**:
+     - `npm test` — Exit code 0 (**33 tests passing across 6 suites in 855ms**).
+     - `npx tsc --noEmit` — Exit code 0 (clean).
+     - `npm run lint` — Exit code 0 (**0 errors, 0 warnings**).
+     - `npm run build` — Exit code 0 (**86 static pages prerendered**, 100% clean).
+
+**Next task (APPROVED):** TASK-34 — Full end-to-end parity and originality regression
+
+---
+
+### TASK-34 — 2026-10-11 14:42 IST
+
+**User approval:** "yes" (User approved TASK-34)
+
+**Scope completed:**
+- **Full End-to-End Parity and Originality Regression**:
+  1. **Automated Regression Suite (`tests/parity-regression.test.mjs`)**:
+     - Added dedicated E2E parity test suite expanding automation to **42 tests across 7 test suites**.
+     - Tested all 7 fleet categories & 9 variants (WagonR strictly absent).
+     - Tested all 10 tour packages (`AKC0001`–`AKC0010`), baseline starting prices, and 20 static package pages.
+     - Tested all 9 service categories with authentic English and Telugu content.
+     - Tested all 8 destination route landing pages and 16 static route pages.
+     - Tested all 8 travel blog pilgrimage guides and 16 static blog pages.
+     - Tested zero SVTT or Sri Vinayaka brand tokens across all generated HTML pages.
+     - Tested zero `.svtt-*` CSS classes in `globals.css`.
+     - Tested static Netlify form definitions in `public/__forms.html`.
+     - Tested WCAG skip links, anti-spam form honeypots, and consent checkboxes.
+  2. **Signed-Off End-to-End Parity & Originality Checklist**:
+
+| Category | Requirement | Verified Status | Evidence |
+|---|---|:---:|---|
+| **Fleet & Vehicles** | 7 vehicle categories, 9 variants | **PASS** | Dzire/Amaze/Etios, Ertiga, Innova, Crysta, Tavera, TT 12+1, TT 17+1 in `src/data/vehicles.ts` |
+| **Banned Vehicles** | WagonR prohibited across all data & UI | **PASS** | 0 occurrences in fleet variants, package matrices, routes |
+| **Pricing Baseline** | Fares exact; driver allowance included | **PASS** | Sedans ₹15/km, Ertiga ₹19/km, Innova ₹21/km, Crysta ₹23/km; 300km limit |
+| **Tour Packages** | 10 packages (`AKC0001`–`AKC0010`) | **PASS** | All 10 baseline starting prices match approved plan; 20 SSG pages generated |
+| **Services Coverage** | 9 services bilingual | **PASS** | All 9 services fully described in EN and TE at `/en/services` and `/te/services` |
+| **Route Landing Pages** | 8 high-intent route pages | **PASS** | Exact highway distances/durations, pricing tables, FAQs; 16 SSG pages |
+| **Transfers & Drops** | 6 pickup/drop categories | **PASS** | Airport, Railway (TPTY/RU), Bus Stand, Hotel, Outstation at `/en/pickup-drop` |
+| **Guided Trip Planner** | 5-step wizard + honeypot | **PASS** | Past-date rejection, mobile validation, WA pre-fill + Netlify post at `/en/request-a-quote` |
+| **Package Comparator** | Interactive side-by-side comparison | **PASS** | Up to 3 packages, vehicle picker, distance, duration, temples at `/en/compare` |
+| **Blog & Guides** | 8 complete pilgrimage guides | **PASS** | All 8 guides published in EN and TE; 16 SSG pages generated |
+| **Brand Isolation** | Zero SVTT / Sri Vinayaka tokens | **PASS** | 0 public SVTT references in source, 0 in all 86 static HTML build files |
+| **Visual Originality** | New design system (Navy/Teal/Gold) | **PASS** | Sora + Manrope + Noto Sans Telugu; 0 `.svtt-*` CSS classes; no cloned SVTT layout |
+| **Ethical Trust** | Zero fake reviews, stars, or ratings | **PASS** | 0 testimonials, 0 rating stars, 0 review schema (`aggregateRating` absent) |
+| **Local Contacts** | Primary & secondary phone numbers | **PASS** | `+91 72888 76667` & `+91 93939 00006`, `akshayacabs7@gmail.com`, S.R. Kumar |
+| **Forms & Netlify** | Dual-channel lead capture | **PASS** | Static definitions in `public/__forms.html` (3 forms), honeypot anti-spam, consent |
+| **Technical SEO** | Sitemap, robots, canonicals, hreflang | **PASS** | 86 URLs in sitemap; root `/` redirect; `x-default` on all pages; legal `noindex` |
+| **Accessibility (WCAG)**| Skip link, focus-visible, motion | **PASS** | `.akc-skip-link` in layout, brand teal outline, `prefers-reduced-motion` |
+
+  3. **Verification & Regression Results**:
+     - `npm test` — Exit code 0 (**42 tests passing across 7 suites in 1.02s**).
+     - `npx tsc --noEmit` — Exit code 0 (clean).
+     - `npm run lint` — Exit code 0 (**0 errors, 0 warnings**).
+     - `npm run build` — Exit code 0 (**86 static pages prerendered**, 100% clean).
+
+  4. **Vehicle Fleet Update (Owner Request 2026-10-11)**:
+     - Replaced `Tempo Traveller 17+1` (`tempo-traveller-17`) across all files with `Force Urbania 12 Seater` (`force-urbania-12`).
+     - Pricing set to ₹35/km and local day ₹5,000 (300 km included, driver allowance included).
+     - Capacity: 12 passengers ("12+1").
+     - Updated `src/data/vehicles.ts`, `src/data/packages.ts`, `src/data/services.ts`, `src/components/compare/PackageComparator.tsx`, `src/components/home/AkcFleetPreviewSection.tsx`, `src/components/ui/TripPlannerForm.tsx`, `src/app/[lang]/fleet/page.tsx`, `src/app/[lang]/about/page.tsx`, `src/app/[lang]/why-choose-us/page.tsx`, `src/lib/seo.ts`, and bilingual dictionaries (`en.json`, `te.json`).
+     - Updated `docs/AKSHAYA_IMAGE_PROMPTS.md` with prompt for Force Urbania (`IMG-V07`) and added fallback images in `public/images/akshaya/vehicles/urbania-12.webp`.
+     - Full regression suite verified: 42/42 tests passing; `npm run build` completed 86/86 static pages with zero errors.
+
+**Next task (NOT AUTHORIZED):** TASK-35 — New GitHub repository and Netlify STAGING deployment
+
+---
+
+*AKSHAYA CABS — HANDSHAKE.md — Last updated: 2026-10-11 15:02 IST (FLEET_UPDATE DONE)*
 *This file is the only living project-progress record. Update after EVERY task. Never edit the master plan.*

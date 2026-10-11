@@ -15,7 +15,7 @@ const PREVIEW_IDS = [
   "dzire-amaze-etios",
   "innova-crysta",
   "tempo-traveller-12",
-  "tempo-traveller-17",
+  "force-urbania-12",
 ];
 
 // Vehicle capacity display: always show passenger count, not total-with-driver
@@ -43,15 +43,19 @@ export default function AkcFleetPreviewSection({ locale }: Props) {
           </h2>
           <p className="akc-section-subtitle">
             {isEn
-              ? "From compact sedans for couples to 17-seater Tempo Travellers for large pilgrim groups — all AC, well-maintained, and regularly serviced."
-              : "జంటలకు కాంపాక్ట్ సెడాన్ నుండి పెద్ద యాత్రికుల బృందాలకు 17-సీటర్ టెంపో ట్రావెల్లర్ వరకు — అన్నీ AC, చక్కగా నిర్వహించబడినవి."}
+              ? "From compact sedans for couples to Force Urbania 12 Seater luxury vans and Tempo Travellers for pilgrim groups — all AC, well-maintained, and regularly serviced."
+              : "జంటలకు కాంపాక్ట్ సెడాన్ నుండి యాత్రికుల బృందాలకు ఫోర్స్ అర్బానియా 12 సీటర్ మరియు టెంపో ట్రావెల్లర్ వరకు — అన్నీ AC, చక్కగా నిర్వహించబడినవి."}
           </p>
         </div>
 
         {/* ── Vehicle grid ── */}
         <ul role="list" className="akc-fleet-preview__grid">
           {vehicles.map((v) => {
-            const msg = `Hello Akshaya Cabs Tirupati!\n\nI am interested in renting the ${v.name} (${displayCapacity(v.capacity)}).\n\nPlease share availability and pricing. Thank you!`;
+            const vehName = !isEn && v.nameTe ? v.nameTe : v.name;
+            const vehLabel = !isEn && (v.labelTe ?? v.bestForTe) ? (v.labelTe ?? v.bestForTe) : (v.label ?? v.bestFor);
+            const msg = isEn
+              ? `Hello Akshaya Cabs Tirupati!\n\nI am interested in renting the ${v.name} (${displayCapacity(v.capacity)}).\n\nPlease share availability and pricing. Thank you!`
+              : `నమస్కారం అక్షయ క్యాబ్స్!\n\n${vehName} (${v.seats} మంది ప్రయాణికులు) బుకింగ్ గురించి వివరాలు పంచగలరా? ధన్యవాదాలు!`;
             const waUrl = buildWhatsAppUrl(BUSINESS.phone.primaryWhatsApp, msg);
 
             return (
@@ -60,7 +64,7 @@ export default function AkcFleetPreviewSection({ locale }: Props) {
                 <div className="akc-fleet-preview__img-wrap">
                   <Image
                     src={v.image}
-                    alt={`${v.name} — Akshaya Cabs Tirupati`}
+                    alt={`${vehName} — Akshaya Cabs Tirupati`}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="akc-fleet-preview__img"
@@ -75,8 +79,8 @@ export default function AkcFleetPreviewSection({ locale }: Props) {
 
                 {/* Body */}
                 <div className="akc-fleet-preview__body">
-                  <h3 className="akc-fleet-preview__name">{v.name}</h3>
-                  <p className="akc-fleet-preview__label">{v.label ?? v.bestFor}</p>
+                  <h3 className={`akc-fleet-preview__name${locale === "te" ? " lang-te" : ""}`}>{vehName}</h3>
+                  <p className={`akc-fleet-preview__label${locale === "te" ? " lang-te" : ""}`}>{vehLabel}</p>
 
                   <div className="akc-fleet-preview__price">
                     <span className="akc-fleet-preview__price-from">{isEn ? "From" : "నుండి"}</span>
@@ -92,7 +96,7 @@ export default function AkcFleetPreviewSection({ locale }: Props) {
                     className="akc-btn akc-btn--wa akc-btn--sm"
                     aria-label={isEn
                       ? `Enquire about ${v.name} on WhatsApp`
-                      : `${v.name} గురించి WhatsApp లో విచారించండి`}
+                      : `${vehName} గురించి WhatsApp లో విచారించండి`}
                   >
                     {isEn ? "Enquire on WhatsApp" : "WhatsApp లో విచారించండి"}
                   </a>

@@ -98,7 +98,7 @@ const I18N: Record<string, Record<Locale, string>> = {
   errReturnDate:    { en: "Return date must be on or after the travel date.", te: "తిరిగి రాక తేదీ ప్రయాణ తేదీ తర్వాత లేదా అదే రోజు ఉండాలి." },
   errPhone:         { en: "Please enter a valid Indian mobile number.", te: "దయచేసి చెల్లుబాటు అయ్యే భారతీయ మొబైల్ నంబర్ నమోదు చేయండి." },
   errName:          { en: "Please enter your name (at least 2 characters).", te: "దయచేసి మీ పేరు నమోదు చేయండి (కనీసం 2 అక్షరాలు)." },
-  largePaxNote:     { en: "For groups over 7, a Tempo Traveller (12+1 or 17+1) is recommended. Our team will suggest the best option.", te: "7 కంటే ఎక్కువ మంది గ్రూప్‌లకు, టెంపో ట్రావెలర్ (12+1 లేదా 17+1) సిఫారసు చేయబడింది. మా బృందం అత్యుత్తమ ఎంపిక సూచిస్తుంది." },
+  largePaxNote:     { en: "For groups over 7, a Tempo Traveller (12+1) or Force Urbania (12 Seater) is recommended. Our team will suggest the best option.", te: "7 కంటే ఎక్కువ మంది గ్రూప్‌లకు, టెంపో ట్రావెలర్ (12+1) లేదా ఫోర్స్ అర్బానియా (12 సీటర్) సిఫారసు చేయబడింది. మా బృందం అత్యుత్తమ ఎంపిక సూచిస్తుంది." },
   successTitle:     { en: "WhatsApp Opened!", te: "WhatsApp తెరవబడింది!" },
   successBody:      { en: "Your trip request has been pre-filled in WhatsApp. Please tap Send to complete your enquiry. Our team will respond shortly.", te: "మీ ప్రయాణ అభ్యర్థన WhatsApp లో ముందే నింపబడింది. మీ విచారణ పూర్తి చేయడానికి Send నొక్కండి. మా బృందం త్వరగా స్పందిస్తుంది." },
   sendAnother:      { en: "Start New Request", te: "కొత్త అభ్యర్థన ప్రారంభించండి" },
@@ -287,8 +287,10 @@ export default function TripPlannerForm({ locale = "en" }: Props) {
     setStep((s) => (s > 1 ? (s - 1) as Step : s));
   }
 
-  function handleSubmit(e: FormEvent) {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const botField = (e.currentTarget.elements.namedItem("bot-field") as HTMLInputElement)?.value;
+    if (botField) return; // Anti-spam: silent discard for bots
     if (!validateStep4()) return;
 
     const tripLabel = tripTypeInfo
@@ -396,6 +398,11 @@ export default function TripPlannerForm({ locale = "en" }: Props) {
         noValidate
         aria-label={locale === "te" ? "ప్రయాణ అభ్యర్థన ఫారం" : "Trip request form"}
       >
+        {/* Anti-spam honeypot */}
+        <div aria-hidden="true" style={{ display: "none" }}>
+          <label htmlFor="tp-bot">Don&apos;t fill this out</label>
+          <input id="tp-bot" name="bot-field" tabIndex={-1} autoComplete="off" />
+        </div>
 
         {/* ══ STEP 1: Trip Type ══════════════════════════════════════ */}
         {step === 1 && (

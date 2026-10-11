@@ -19,6 +19,8 @@ import { SERVICES } from "@/data/services";
 import { VEHICLES } from "@/data/vehicles";
 import { PACKAGES } from "@/data/packages";
 import { primaryWhatsAppUrl } from "@/lib/whatsapp";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildFaqSchema } from "@/lib/schema";
 
 // ── Metadata ─────────────────────────────────────────────────────────────────
 
@@ -36,7 +38,14 @@ export async function generateMetadata({
     description: isEn
       ? `Find out how Akshaya Cabs works — our booking process, what is included in every trip, how we handle special requests, and why Tirupati travellers choose us.`
       : `అక్షయ క్యాబ్స్ ఎలా పని చేస్తుందో తెలుసుకోండి — మా బుకింగ్ ప్రక్రియ, ప్రతి ట్రిప్‌లో ఏమి చేర్చబడిందో, మేము ప్రత్యేక అభ్యర్థనలను ఎలా నిర్వహిస్తామో.`,
-    alternates: { canonical: `https://akshayacabs.com/${lang}/why-choose-us` },
+    alternates: {
+      canonical: `https://akshayacabs.com/${lang}/why-choose-us`,
+      languages: {
+        "en-IN": "https://akshayacabs.com/en/why-choose-us",
+        "te-IN": "https://akshayacabs.com/te/why-choose-us",
+        "x-default": "https://akshayacabs.com/en/why-choose-us",
+      },
+    },
     openGraph: {
       title: isEn ? "Why Choose Akshaya Cabs Tirupati" : "అక్షయ క్యాబ్స్ తిరుపతి ఎందుకు ఎంచుకోవాలి",
       description: isEn
@@ -120,8 +129,8 @@ const EXPECT_ITEMS: ExpectItem[] = [
     icon: "🚗",
     title: { en: "Clean, AC Vehicles", te: "శుభ్రమైన, AC వాహనాలు" },
     body: {
-      en: `A fleet of ${VEHICLES.length} AC vehicle categories — from 4-seater sedans to 17-seater Tempo Travellers. Your vehicle will be clean and ready at the agreed pickup time.`,
-      te: `4-సీటర్ సెడాన్‌ల నుండి 17-సీటర్ టెంపో ట్రావెలర్‌ల వరకు ${VEHICLES.length} AC వాహన వర్గాల ఫ్లీట్. మీ వాహనం అంగీకరించిన పికప్ సమయంలో శుభ్రంగా మరియు సిద్ధంగా ఉంటుంది.`,
+      en: `A fleet of ${VEHICLES.length} AC vehicle categories — from 4-seater sedans to 12-seater Force Urbania and Tempo Travellers. Your vehicle will be clean and ready at the agreed pickup time.`,
+      te: `4-సీటర్ సెడాన్‌ల నుండి 12-సీటర్ ఫోర్స్ అర్బానియా మరియు టెంపో ట్రావెలర్‌ల వరకు ${VEHICLES.length} AC వాహన వర్గాల ఫ్లీట్. మీ వాహనం అంగీకరించిన పికప్ సమయంలో శుభ్రంగా మరియు సిద్ధంగా ఉంటుంది.`,
     },
   },
   {
@@ -203,8 +212,8 @@ const FAQS: FAQ[] = [
   {
     q: { en: "Can you arrange travel for large groups?", te: "మీరు పెద్ద గ్రూప్‌లకు ప్రయాణ ఏర్పాటు చేయగలరా?" },
     a: {
-      en: `Yes. We have Tempo Travellers that seat up to 17 passengers, and we can coordinate multiple vehicles for larger groups. Share your group size on WhatsApp and we will advise the best option.`,
-      te: `అవును. మాకు 17 మంది ప్రయాణికులు కూర్చోగలిగే టెంపో ట్రావెలర్‌లు ఉన్నాయి మరియు పెద్ద గ్రూప్‌లకు బహుళ వాహనాలను సమన్వయం చేయగలము. WhatsApp లో మీ గ్రూప్ పరిమాణాన్ని పంచుకోండి, మేము ఉత్తమ ఎంపికను సూచిస్తాము.`,
+      en: `Yes. We have Tempo Travellers and Force Urbania luxury vans that seat up to 12 passengers, and we can coordinate multiple vehicles for larger groups. Share your group size on WhatsApp and we will advise the best option.`,
+      te: `అవును. మాకు 12 మంది ప్రయాణికులు కూర్చోగలిగే టెంపో ట్రావెలర్‌లు మరియు ఫోర్స్ అర్బానియా వ్యాన్లు ఉన్నాయి, అలాగే పెద్ద గ్రూప్‌లకు బహుళ వాహనాలను సమన్వయం చేయగలము. WhatsApp లో మీ గ్రూప్ పరిమాణాన్ని పంచుకోండి, మేము ఉత్తమ ఎంపికను సూచిస్తాము.`,
     },
   },
   {
@@ -228,8 +237,14 @@ export default async function WhyChooseUsPage({
   const isEn = locale === "en";
   const waUrl = primaryWhatsAppUrl();
 
+  const faqSchemaData = FAQS.map((faq) => ({
+    question: isEn ? faq.q.en : faq.q.te,
+    answer: isEn ? faq.a.en : faq.a.te,
+  }));
+
   return (
     <>
+      <JsonLd data={buildFaqSchema(faqSchemaData)} />
       {/* ══════════════════════════════════════════
           HERO
           ══════════════════════════════════════════ */}

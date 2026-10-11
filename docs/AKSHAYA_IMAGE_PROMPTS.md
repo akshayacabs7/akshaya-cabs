@@ -188,14 +188,14 @@ Professional vehicle photograph of a white Force Motors Tempo Traveller (12-seat
 
 ---
 
-### IMG-V07 — Tempo Traveller 17+1
-- **File:** `tempo-17.webp`
+### IMG-V07 — Force Urbania 12 Seater
+- **File:** `urbania-12.webp`
 - **Dimensions:** 900 × 600 px (3:2)
-- **Save to:** `D:\Projects_OnlyAI\akshya-cabs\public\images\akshaya\vehicles\tempo-17.webp`
-- **Status:** Prompt Ready
+- **Save to:** `D:\Projects_OnlyAI\akshya-cabs\public\images\akshaya\vehicles\urbania-12.webp`
+- **Status:** ✅ Converted & Ready
 
 ```prompt
-Professional vehicle photograph of a white Force Motors Tempo Traveller 17-seater (larger, longer minibus, high-roof, extended length, 2019-2023 model), 3/4 side angle on a broad Indian highway with green hills ahead. The vehicle appears spacious and road-ready for large group travel. No number plates, no logos, no text visible. Wide-angle perspective emphasizes length and capacity. Warm natural daylight. 3:2 landscape ratio.
+A professional, photorealistic side-view photograph of a modern white Force Urbania luxury van (12-seater, high-roof, contemporary styling) parked on a clean scenic road in South India with temple hills softly blurred in the background. The van looks brand new, clean, and spacious with tinted windows. The vehicle is angled slightly toward the camera (3/4 angle) to showcase its modern aerodynamic design, front grille, and spacious passenger cabin. Warm natural daylight, premium travel commercial photography style. No visible license plates, no text, no watermarks, no people. 3:2 landscape orientation, ultra high resolution.
 ```
 
 ---
@@ -563,7 +563,7 @@ Atmospheric early morning photograph of the historic Sri Kalahasteeswara Temple 
 | 2 | IMG-V04 | `suv-innova-crysta.webp` | ✅ Converted & Ready | HIGH |
 | 2 | IMG-V05 | `minivan-tavera.webp` | ✅ Converted & Ready | MEDIUM |
 | 2 | IMG-V06 | `tempo-12.webp` | ✅ Converted & Ready | MEDIUM |
-| 2 | IMG-V07 | `tempo-17.webp` | ✅ Converted & Ready | MEDIUM |
+| 2 | IMG-V07 | `urbania-12.webp` | ✅ Converted & Ready | MEDIUM |
 | 3 | IMG-P01 | `akc0001-tirupati-tirumala.webp` | ✅ Converted & Ready | HIGH |
 | 3 | IMG-P02 | `akc0002-tirumala-hill.webp` | ✅ Converted & Ready | HIGH |
 | 3 | IMG-P03 | `akc0003-kanipakam-padmavathi.webp` | ✅ Converted & Ready | HIGH |
@@ -685,7 +685,7 @@ Atmospheric early morning photograph of the historic Sri Kalahasteeswara Temple 
 | `suv-innova-crysta.webp` | 900 × 600 px (3:2) | Toyota Innova Crysta Premium SUV (`IMG-V04`) | AI or Real Photo |
 | `minivan-tavera.webp` | 900 × 600 px (3:2) | Chevrolet Tavera 8-Seater (`IMG-V05`) | AI or Real Photo |
 | `tempo-12.webp` | 900 × 600 px (3:2) | Force Tempo Traveller 12+1 (`IMG-V06`) | AI or Real Photo |
-| `tempo-17.webp` | 900 × 600 px (3:2) | Force Tempo Traveller 17+1 (`IMG-V07`) | AI or Real Photo |
+| `urbania-12.webp` | 900 × 600 px (3:2) | Force Urbania 12 Seater (`IMG-V07`) | AI or Real Photo |
 
 ---
 

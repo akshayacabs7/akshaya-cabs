@@ -8,7 +8,7 @@
  * - Only AKC IDs (AKC0001–AKC0010) are ever shown — never SVTT IDs.
  * - allowanceKm ≠ route distance. "300 km" is the included allowance only.
  * - AKC0007: displays a route advisory banner (exceedsAllowance: true).
- * - customQuote rows (Tavera / Tempo 17+1) show "Ask for price" — never ₹0.
+ * - customQuote rows (Tavera / Force Urbania 12 Seater) show "Ask for price" — never ₹0.
  * - No .svtt-* class names.
  */
 
@@ -228,9 +228,19 @@ export default function AkcPackageGallery({ locale }: Props) {
           ) : (
             <ul className="akc-pkg-grid" role="list">
               {filtered.map((pkg, idx) => {
+                const pkgTitle = !isEn && pkg.titleTe ? pkg.titleTe : pkg.title;
+                const pkgDuration = !isEn && pkg.durationTe ? pkg.durationTe : pkg.duration;
+                const pkgDestinations = !isEn && pkg.destinationsTe && pkg.destinationsTe.length > 0 ? pkg.destinationsTe : pkg.destinations;
+                const pkgTemples = !isEn && pkg.templesTe && pkg.templesTe.length > 0 ? pkg.templesTe : pkg.temples;
+                const pkgDesc = !isEn && pkg.descriptionTe ? pkg.descriptionTe : pkg.description;
+                const pkgKmNote = !isEn && pkg.distance.distanceNoteTe ? pkg.distance.distanceNoteTe : pkg.distance.distanceNote;
+                const catLabel = isEn
+                  ? (CAT_LABEL_EN[pkg.category] ?? pkg.category)
+                  : (CAT_FILTERS.find((f) => f.id === pkg.category)?.labelTe ?? pkg.category);
+
                 const waMsg = isEn
                   ? `Hello Akshaya Cabs Tirupati!\n\nI am interested in the "${pkg.title}" (${pkg.code}) package.\n\nPlease share available vehicle options and pricing.\n\nThank you!`
-                  : `నమస్కారం అక్షయ క్యాబ్స్!\n\n"${pkg.title}" (${pkg.code}) ప్యాకేజీ గురించి తెలుసుకోవాలనుకుంటున్నాను.\n\nవాహన ఎంపికలు మరియు ధర వివరాలు పంచగలరా?\n\nధన్యవాదాలు!`;
+                  : `నమస్కారం అక్షయ క్యాబ్స్!\n\n"${pkgTitle}" (${pkg.code}) ప్యాకేజీ గురించి తెలుసుకోవాలనుకుంటున్నాను.\n\nవాహన ఎంపికలు మరియు ధర వివరాలు పంచగలరా?\n\nధన్యవాదాలు!`;
                 const waUrl = buildWhatsAppUrl(WA_NUMBER, waMsg);
                 const catColor = CAT_COLOR[pkg.category] ?? "var(--akc-primary)";
 
@@ -241,22 +251,24 @@ export default function AkcPackageGallery({ locale }: Props) {
                     <div className="akc-pkg-card__img-wrap">
                       <Image
                         src={pkg.image}
-                        alt={pkg.title}
+                        alt={pkgTitle}
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="akc-pkg-card__img"
                         loading={idx < 3 ? "eager" : "lazy"}
                       />
                       {/* Duration badge */}
-                      <span className="akc-pkg-card__dur-badge">
-                        🕐 {pkg.duration}
-                      </span>
+                      {pkgDuration && (
+                        <span className="akc-pkg-card__dur-badge">
+                          🕐 {pkgDuration}
+                        </span>
+                      )}
                       {/* Category badge */}
                       <span
                         className="akc-pkg-card__cat-badge"
                         style={{ background: catColor }}
                       >
-                        {CAT_LABEL_EN[pkg.category] ?? pkg.category}
+                        {catLabel}
                       </span>
                     </div>
 
@@ -266,38 +278,38 @@ export default function AkcPackageGallery({ locale }: Props) {
                       <span className="akc-pkg-card__code">{pkg.code}</span>
 
                       {/* Title */}
-                      <h2 className="akc-pkg-card__title">
+                      <h2 className={`akc-pkg-card__title${locale === "te" ? " lang-te" : ""}`}>
                         <Link
                           href={`/${locale}/tour-packages/${pkg.slug}`}
                           className="akc-pkg-card__title-link"
                         >
-                          {pkg.title}
+                          {pkgTitle}
                         </Link>
                       </h2>
 
                       {/* Destination chips */}
                       <div className="akc-pkg-card__dests" aria-label={isEn ? "Destinations covered" : "కవర్ చేసిన గమ్యాలు"}>
-                        {pkg.destinations.map((d) => (
-                          <span key={d} className="akc-pkg-card__dest-chip">📍 {d}</span>
+                        {pkgDestinations.map((d) => (
+                          <span key={d} className={`akc-pkg-card__dest-chip${locale === "te" ? " lang-te" : ""}`}>📍 {d}</span>
                         ))}
                       </div>
 
                       {/* Temple stops teaser */}
-                      <p className="akc-pkg-card__temples">
+                      <p className={`akc-pkg-card__temples${locale === "te" ? " lang-te" : ""}`}>
                         <strong>{isEn ? "Stops:" : "ఆగే ప్రదేశాలు:"}</strong>{" "}
-                        {pkg.temples.slice(0, 3).join(" · ")}
-                        {pkg.temples.length > 3 && (
-                          <> · <span className="akc-pkg-card__more">+{pkg.temples.length - 3} more</span></>
+                        {pkgTemples.slice(0, 3).join(" · ")}
+                        {pkgTemples.length > 3 && (
+                          <> · <span className="akc-pkg-card__more">{isEn ? `+${pkgTemples.length - 3} more` : `+${pkgTemples.length - 3} మరిన్ని`}</span></>
                         )}
                       </p>
 
                       {/* Description */}
-                      <p className="akc-pkg-card__desc">{pkg.description}</p>
+                      <p className={`akc-pkg-card__desc${locale === "te" ? " lang-te" : ""}`}>{pkgDesc}</p>
 
                       {/* Km allowance note */}
-                      <p className={`akc-pkg-card__km-note${pkg.distance.exceedsAllowance ? " akc-pkg-card__km-note--warn" : ""}`}>
+                      <p className={`akc-pkg-card__km-note${pkg.distance.exceedsAllowance ? " akc-pkg-card__km-note--warn" : ""}${locale === "te" ? " lang-te" : ""}`}>
                         {pkg.distance.exceedsAllowance ? "⚠" : "📍"}{" "}
-                        {pkg.distance.distanceNote}
+                        {pkgKmNote}
                       </p>
                     </div>
 
@@ -328,8 +340,8 @@ export default function AkcPackageGallery({ locale }: Props) {
                           rel="noopener noreferrer"
                           className="akc-btn akc-btn--wa akc-btn--sm"
                           aria-label={isEn
-                            ? `Enquire about ${pkg.title} on WhatsApp`
-                            : `${pkg.title} గురించి WhatsApp లో విచారించండి`}
+                            ? `Enquire about ${pkgTitle} on WhatsApp`
+                            : `${pkgTitle} గురించి WhatsApp లో విచారించండి`}
                         >
                           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>

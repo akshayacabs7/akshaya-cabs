@@ -94,7 +94,7 @@
       "tempoTraveller": {
         "title": "Tempo Traveller Rental",
         "shortTitle": "Tempo Traveller",
-        "description": "Spacious Tempo Traveller (12+1 and 17+1) for group pilgrimages, family gatherings and corporate outings. Driver included; custom routes accommodated."
+        "description": "Spacious Tempo Traveller (12+1) and Force Urbania (12 Seater) for group pilgrimages, family gatherings and corporate outings. Driver included; custom routes accommodated."
       },
       "southIndiaTours": {
         "title": "South India Pilgrimage Tours",
@@ -126,7 +126,7 @@
       "premiumSuv": "Premium SUV",
       "minivan": "Minivan",
       "tempo12": "Tempo 12+1",
-      "tempo17": "Tempo 17+1"
+      "urbania12": "Urbania 12 Seater"
     },
     "vehicles": {
       "dzireAmazeEtios": {
@@ -159,9 +159,9 @@
         "label": "Group Journeys",
         "bestFor": "Office outings, medium pilgrim groups, event travel"
       },
-      "tempo17": {
-        "name": "Tempo Traveller 17+1",
-        "label": "Large Group Travel",
+      "urbania12": {
+        "name": "Force Urbania 12 Seater",
+        "label": "Premium Group Travel",
         "bestFor": "Large group pilgrimages, wedding convoys, corporate tours"
       }
     },
@@ -271,7 +271,7 @@
         "innovaCrysta": "Innova Crysta (7+1 Seater)",
         "tavera": "Tavera (8+1 Seater)",
         "tempo12": "Tempo Traveller 12+1",
-        "tempo17": "Tempo Traveller 17+1",
+        "urbania12": "Force Urbania 12 Seater",
         "noPreference": "No Preference"
       },
       "validation": {

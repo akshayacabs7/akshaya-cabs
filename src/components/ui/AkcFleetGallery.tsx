@@ -173,8 +173,17 @@ export default function AkcFleetGallery({ locale }: Props) {
           ) : (
             <ul className="akc-fleet-grid" role="list">
               {filtered.map((v, idx) => {
-                const msg =
-                  `Hello Akshaya Cabs Tirupati!\n\nI would like to enquire about the ${v.name} (${pax(v)}).\n\nPlease share availability and pricing.\n\nThank you!`;
+                const vehName = !isEn && v.nameTe ? v.nameTe : v.name;
+                const vehLabel = !isEn && v.labelTe ? v.labelTe : v.label;
+                const vehBestFor = !isEn && v.bestForTe ? v.bestForTe : v.bestFor;
+                const vehFeatures = !isEn && v.featuresTe && v.featuresTe.length > 0 ? v.featuresTe : v.features;
+                const catLabel = isEn
+                  ? (v.category.charAt(0).toUpperCase() + v.category.slice(1))
+                  : (CAT_FILTERS.find((f) => f.id === v.category)?.labelTe ?? v.category);
+
+                const msg = isEn
+                  ? `Hello Akshaya Cabs Tirupati!\n\nI would like to enquire about the ${v.name} (${pax(v)}).\n\nPlease share availability and pricing.\n\nThank you!`
+                  : `నమస్కారం అక్షయ క్యాబ్స్!\n\n${vehName} (${v.seats} మంది ప్రయాణికులు) బుకింగ్ గురించి వివరాలు పంచగలరా? ధన్యవాదాలు!`;
                 const waUrl = buildWhatsAppUrl(WA_NUMBER, msg);
                 const badgeColor = CAT_BADGE_COLOR[v.category] ?? "#102B46";
 
@@ -184,7 +193,7 @@ export default function AkcFleetGallery({ locale }: Props) {
                     <div className="akc-veh-card__img-wrap">
                       <Image
                         src={v.image}
-                        alt={v.imageAlt ?? `${v.name} — Akshaya Cabs Tirupati`}
+                        alt={v.imageAlt ?? `${vehName} — Akshaya Cabs Tirupati`}
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="akc-veh-card__img"
@@ -196,7 +205,7 @@ export default function AkcFleetGallery({ locale }: Props) {
                         className="akc-veh-card__cat-badge"
                         style={{ background: badgeColor }}
                       >
-                        {v.category.charAt(0).toUpperCase() + v.category.slice(1)}
+                        {catLabel}
                       </span>
 
                       {/* AC badge */}
@@ -207,39 +216,39 @@ export default function AkcFleetGallery({ locale }: Props) {
                       {/* Passenger count chip */}
                       <div className="akc-veh-card__pax-wrap">
                         <span className={`akc-veh-card__pax${locale === "te" ? " lang-te" : ""}`}>
-                          👥 {pax(v)} {isEn ? "" : "(ప్రయాణికులు)"}
+                          {isEn ? `👥 ${pax(v)}` : `👥 ${v.seats} మంది ప్రయాణికులు`}
                         </span>
                       </div>
                     </div>
 
                     {/* ── Card body ── */}
                     <div className="akc-veh-card__body">
-                      <h2 className="akc-veh-card__name">{v.name}</h2>
+                      <h2 className={`akc-veh-card__name${locale === "te" ? " lang-te" : ""}`}>{vehName}</h2>
 
                       {v.variants && v.variants.length > 0 && (
                         <p className="akc-veh-card__variants">{v.variants.join(" · ")}</p>
                       )}
 
                       {/* Label pill */}
-                      {v.label && (
-                        <span className="akc-veh-card__label">{v.label}</span>
+                      {vehLabel && (
+                        <span className={`akc-veh-card__label${locale === "te" ? " lang-te" : ""}`}>{vehLabel}</span>
                       )}
 
                       {/* Best-for */}
-                      {v.bestFor && (
-                        <p className="akc-veh-card__best-for">
-                          <strong>{isEn ? "Best for:" : "అనుకూలం:"}</strong> {v.bestFor}
+                      {vehBestFor && (
+                        <p className={`akc-veh-card__best-for${locale === "te" ? " lang-te" : ""}`}>
+                          <strong>{isEn ? "Best for:" : "అనుకూలం:"}</strong> {vehBestFor}
                         </p>
                       )}
 
                       {/* Feature chips */}
-                      {v.features && v.features.length > 0 && (
+                      {vehFeatures && vehFeatures.length > 0 && (
                         <div
                           className="akc-veh-card__features"
-                          aria-label={isEn ? `Features of ${v.name}` : `${v.name} వాహన లక్షణాలు`}
+                          aria-label={isEn ? `Features of ${vehName}` : `${vehName} వాహన లక్షణాలు`}
                         >
-                          {v.features.map((feat) => (
-                            <span key={feat} className="akc-veh-card__feat">✓ {feat}</span>
+                          {vehFeatures.map((feat) => (
+                            <span key={feat} className={`akc-veh-card__feat${locale === "te" ? " lang-te" : ""}`}>✓ {feat}</span>
                           ))}
                         </div>
                       )}
@@ -247,7 +256,7 @@ export default function AkcFleetGallery({ locale }: Props) {
                       {/* Pricing block */}
                       <div
                         className="akc-veh-card__pricing"
-                        aria-label={isEn ? `Pricing for ${v.name}` : `${v.name} ధరలు`}
+                        aria-label={isEn ? `Pricing for ${vehName}` : `${vehName} ధరలు`}
                       >
                         {v.price.perKm && (
                           <div className="akc-veh-card__price-row">
@@ -270,7 +279,7 @@ export default function AkcFleetGallery({ locale }: Props) {
                             <strong className="akc-veh-card__price-val">
                               {formatPrice(v.price.localDay)}
                             </strong>
-                            <span className="akc-veh-card__price-note">8 hrs</span>
+                            <span className="akc-veh-card__price-note">{isEn ? "8 hrs" : "8 గంటలు"}</span>
                           </div>
                         )}
                         {v.price.kmLimit && (
@@ -293,12 +302,12 @@ export default function AkcFleetGallery({ locale }: Props) {
                           className="akc-btn akc-btn--wa"
                           aria-label={isEn
                             ? `Enquire about ${v.name} on WhatsApp`
-                            : `${v.name} గురించి WhatsApp లో విచారించండి`}
+                            : `${vehName} గురించి WhatsApp లో విచారించండి`}
                         >
                           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                           </svg>
-                          {isEn ? `Enquire — ${v.name}` : `విచారించండి — ${v.name}`}
+                          {isEn ? `Enquire — ${v.name}` : `విచారించండి — ${vehName}`}
                         </a>
                       </div>
                     </div>

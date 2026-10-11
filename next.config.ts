@@ -31,6 +31,29 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+
+  // 301 redirects
+  async redirects() {
+    return [
+      // Root / → /en canonical redirect (TASK-30 SEO)
+      {
+        source: "/",
+        destination: "/en",
+        permanent: true,
+      },
+      // Legacy /travel-guides → /blog redirects
+      {
+        source: "/:lang(en|te)/travel-guides",
+        destination: "/:lang/blog",
+        permanent: true,
+      },
+      {
+        source: "/:lang(en|te)/travel-guides/:slug",
+        destination: "/:lang/blog/:slug",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

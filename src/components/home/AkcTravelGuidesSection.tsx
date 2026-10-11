@@ -59,11 +59,17 @@ export default function AkcTravelGuidesSection({ locale }: Props) {
                     </div>
                     <div className="akc-guides__body">
                       <div className="akc-guides__meta">
-                        <span className="akc-guides__category">{post.category}</span>
+                        <span className="akc-guides__category">
+                          {isEn ? post.category : (post.categoryTe ?? post.category)}
+                        </span>
                         <span className="akc-guides__reading-time">{post.readingTime}</span>
                       </div>
-                      <h3 className="akc-guides__title">{post.title}</h3>
-                      <p className="akc-guides__excerpt">{post.excerpt}</p>
+                      <h3 className={`akc-guides__title${!isEn ? " lang-te" : ""}`}>
+                        {isEn ? post.title : (post.titleTe ?? post.title)}
+                      </h3>
+                      <p className={`akc-guides__excerpt${!isEn ? " lang-te" : ""}`}>
+                        {isEn ? post.excerpt : (post.excerptTe ?? post.excerpt)}
+                      </p>
                       <span className="akc-guides__read-more" aria-hidden="true">
                         {isEn ? "Read guide →" : "గైడ్ చదవండి →"}
                       </span>

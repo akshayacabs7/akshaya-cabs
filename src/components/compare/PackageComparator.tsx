@@ -31,31 +31,34 @@ function buildWhatsAppText(
   passengers: number,
   locale: Locale
 ): string {
-  const vehicleName =
-    selected[0]?.prices.find((p) => p.vehicleId === vehicleId)?.vehicleName ??
-    vehicleId;
-
   const isEn = locale === "en";
+  const vehicle = VEHICLE_OPTIONS.find((v) => v.id === vehicleId);
+  const vehicleName = !isEn && vehicle?.labelTe ? vehicle.labelTe : (vehicle?.label ?? vehicleId);
+
   const greeting = isEn
     ? `Hi Akshaya Cabs, I would like a quote for the following:\n\n`
-    : `నమస్కారం అక్షయ క్యాబ్స్, నేను కోసం కోటేషన్ కావాలి:\n\n`;
+    : `నమస్కారం అక్షయ క్యాబ్స్, నాకు కింది ప్యాకేజీలకు కోటేషన్ కావాలి:\n\n`;
 
   const pkgLines = selected
     .map((p, i) => {
       const price = p.prices.find((pr) => pr.vehicleId === vehicleId);
       const priceStr = price?.customQuote
-        ? "(custom quote needed)"
+        ? (isEn ? "(custom quote needed)" : "(ప్రత్యేక కోటేషన్ అవసరం)")
         : price?.price
         ? formatRupees(price.price)
-        : "(price TBC)";
-      return `${i + 1}. ${p.title} (${p.duration}) — ${priceStr}`;
+        : (isEn ? "(price TBC)" : "(ధర ధృవీకరించబడుతుంది)");
+      const title = !isEn && p.titleTe ? p.titleTe : p.title;
+      const duration = !isEn && p.durationTe ? p.durationTe : p.duration;
+      return `${i + 1}. ${title} (${duration}) — ${priceStr}`;
     })
     .join("\n");
 
-  const vehicleLine = `\nVehicle preferred: ${vehicleName} (${passengers} passengers)`;
+  const vehicleLine = isEn
+    ? `\nVehicle preferred: ${vehicleName} (${passengers} passengers)`
+    : `\nవాహనం: ${vehicleName} (${passengers} మంది ప్రయాణికులు)`;
   const note = isEn
     ? `\n\nPlease confirm availability and final fare.`
-    : `\n\nదయచేసి లభ్యత మరియు తుది ఫేర్ నిర్ధారించండి.`;
+    : `\n\nదయచేసి లభ్యత మరియు తుది ధర నిర్ధారించండి.`;
 
   return encodeURIComponent(greeting + pkgLines + vehicleLine + note);
 }
@@ -63,13 +66,13 @@ function buildWhatsAppText(
 // ── Vehicle option rows — shared across all packages ──────────────────────
 
 const VEHICLE_OPTIONS = [
-  { id: "dzire-amaze-etios", label: "Dzire / Amaze / Etios", capacity: "4+1", maxPax: 4 },
-  { id: "ertiga",            label: "Ertiga",                 capacity: "6+1", maxPax: 6 },
-  { id: "innova",            label: "Innova",                 capacity: "7+1", maxPax: 7 },
-  { id: "innova-crysta",     label: "Innova Crysta",          capacity: "7+1", maxPax: 7 },
-  { id: "tavera",            label: "Tavera",                 capacity: "8+1", maxPax: 8 },
-  { id: "tempo-traveller-12",label: "Tempo Traveller 12+1",  capacity: "12+1", maxPax: 12 },
-  { id: "tempo-traveller-17",label: "Tempo Traveller 17+1",  capacity: "17+1", maxPax: 17 },
+  { id: "dzire-amaze-etios", label: "Dzire / Amaze / Etios", labelTe: "డిజైర్ / అమేజ్ / ఎటియోస్", capacity: "4+1", maxPax: 4 },
+  { id: "ertiga",            label: "Ertiga",                 labelTe: "ఎర్టిగా",                 capacity: "6+1", maxPax: 6 },
+  { id: "innova",            label: "Innova",                 labelTe: "ఇన్నోవా",                 capacity: "7+1", maxPax: 7 },
+  { id: "innova-crysta",     label: "Innova Crysta",          labelTe: "ఇన్నోవా క్రిస్టా",          capacity: "7+1", maxPax: 7 },
+  { id: "tavera",            label: "Tavera",                 labelTe: "టవేరా",                 capacity: "8+1", maxPax: 8 },
+  { id: "tempo-traveller-12",label: "Tempo Traveller 12+1",  labelTe: "టెంపో ట్రావెలర్ 12+1",  capacity: "12+1", maxPax: 12 },
+  { id: "force-urbania-12",  label: "Force Urbania 12 Seater",labelTe: "ఫోర్స్ అర్బానియా 12 సీటర్",capacity: "12+1", maxPax: 12 },
 ];
 
 // ── i18n strings ────────────────────────────────────────────────────────────
@@ -170,6 +173,8 @@ export default function PackageComparator({ locale }: PackageComparatorProps) {
             {PACKAGES.map((pkg) => {
               const isSelected = selectedIds.includes(pkg.id);
               const isDisabled = !isSelected && selectedIds.length >= 3;
+              const title = locale === "te" && pkg.shortTitleTe ? pkg.shortTitleTe : pkg.shortTitle;
+              const duration = locale === "te" && pkg.durationTe ? pkg.durationTe : pkg.duration;
               return (
                 <li key={pkg.id} className="akc-compare-picker__item" role="listitem">
                   <button
@@ -188,9 +193,9 @@ export default function PackageComparator({ locale }: PackageComparatorProps) {
                     <span className="akc-compare-pkg-btn__check" aria-hidden="true">
                       {isSelected ? "✓" : "+"}
                     </span>
-                    <span className="akc-compare-pkg-btn__title">{pkg.shortTitle}</span>
-                    <span className="akc-compare-pkg-btn__meta">
-                      {pkg.duration} · {formatRupees(pkg.startingPrice)}+
+                    <span className={`akc-compare-pkg-btn__title${locale === "te" ? " lang-te" : ""}`}>{title}</span>
+                    <span className={`akc-compare-pkg-btn__meta${locale === "te" ? " lang-te" : ""}`}>
+                      {duration} · {formatRupees(pkg.startingPrice)}+
                     </span>
                   </button>
                 </li>
@@ -212,7 +217,7 @@ export default function PackageComparator({ locale }: PackageComparatorProps) {
               >
                 {VEHICLE_OPTIONS.map((v) => (
                   <option key={v.id} value={v.id}>
-                    {v.label} ({v.capacity})
+                    {locale === "te" ? v.labelTe : v.label} ({v.capacity})
                   </option>
                 ))}
               </select>
@@ -280,22 +285,25 @@ export default function PackageComparator({ locale }: PackageComparatorProps) {
                     <th scope="col" className="akc-compare-table__attr-col">
                       {/* attribute label column */}
                     </th>
-                    {selected.map((pkg) => (
-                      <th key={pkg.id} scope="col" className="akc-compare-table__pkg-col">
-                        <div className="akc-compare-table__pkg-header">
-                          <span className="akc-compare-table__pkg-code">{pkg.code}</span>
-                          <span className="akc-compare-table__pkg-title">{pkg.shortTitle}</span>
-                          <button
-                            type="button"
-                            onClick={() => togglePackage(pkg.id)}
-                            className="akc-compare-table__remove"
-                            aria-label={`Remove ${pkg.shortTitle} from comparison`}
-                          >
-                            ✕
-                          </button>
-                        </div>
-                      </th>
-                    ))}
+                    {selected.map((pkg) => {
+                      const title = locale === "te" && pkg.shortTitleTe ? pkg.shortTitleTe : pkg.shortTitle;
+                      return (
+                        <th key={pkg.id} scope="col" className="akc-compare-table__pkg-col">
+                          <div className="akc-compare-table__pkg-header">
+                            <span className="akc-compare-table__pkg-code">{pkg.code}</span>
+                            <span className={`akc-compare-table__pkg-title${locale === "te" ? " lang-te" : ""}`}>{title}</span>
+                            <button
+                              type="button"
+                              onClick={() => togglePackage(pkg.id)}
+                              className="akc-compare-table__remove"
+                              aria-label={`Remove ${title} from comparison`}
+                            >
+                              ✕
+                            </button>
+                          </div>
+                        </th>
+                      );
+                    })}
                   </tr>
                 </thead>
                 <tbody>
@@ -319,8 +327,8 @@ export default function PackageComparator({ locale }: PackageComparatorProps) {
                       {t("duration", locale)}
                     </th>
                     {selected.map((pkg) => (
-                      <td key={pkg.id} className="akc-compare-table__cell">
-                        {pkg.duration}
+                      <td key={pkg.id} className={`akc-compare-table__cell${locale === "te" ? " lang-te" : ""}`}>
+                        {locale === "te" && pkg.durationTe ? pkg.durationTe : pkg.duration}
                       </td>
                     ))}
                   </tr>
@@ -342,24 +350,27 @@ export default function PackageComparator({ locale }: PackageComparatorProps) {
                     <th scope="row" className="akc-compare-table__row-label">
                       {t("estRoute", locale)}
                     </th>
-                    {selected.map((pkg) => (
-                      <td key={pkg.id} className="akc-compare-table__cell">
-                        ~{pkg.distance.estimatedRouteKm} km
-                        {pkg.distance.exceedsAllowance && (
-                          <span className="akc-compare-table__warn" title={pkg.distance.distanceNote}>
-                            {" "}{t("distWarn", locale)}
-                          </span>
-                        )}
-                      </td>
-                    ))}
+                    {selected.map((pkg) => {
+                      const distNote = locale === "te" && pkg.distance.distanceNoteTe ? pkg.distance.distanceNoteTe : pkg.distance.distanceNote;
+                      return (
+                        <td key={pkg.id} className="akc-compare-table__cell">
+                          ~{pkg.distance.estimatedRouteKm} km
+                          {pkg.distance.exceedsAllowance && (
+                            <span className="akc-compare-table__warn" title={distNote}>
+                              {" "}{t("distWarn", locale)}
+                            </span>
+                          )}
+                        </td>
+                      );
+                    })}
                   </tr>
 
                   {/* Fare for selected vehicle */}
                   <tr className="akc-compare-table__fare-row">
                     <th scope="row" className="akc-compare-table__row-label">
                       {t("fare", locale)}
-                      <span className="akc-compare-table__vehicle-label">
-                        ({chosenVehicle.label})
+                      <span className={`akc-compare-table__vehicle-label${locale === "te" ? " lang-te" : ""}`}>
+                        ({locale === "te" ? chosenVehicle.labelTe : chosenVehicle.label})
                       </span>
                     </th>
                     {selected.map((pkg) => {
@@ -399,31 +410,38 @@ export default function PackageComparator({ locale }: PackageComparatorProps) {
                     <th scope="row" className="akc-compare-table__row-label akc-compare-table__row-label--top">
                       {t("temples", locale)}
                     </th>
-                    {selected.map((pkg) => (
-                      <td key={pkg.id} className="akc-compare-table__cell akc-compare-table__temples-cell">
-                        <ul className="akc-compare-table__temples-list" aria-label={`Temples in ${pkg.shortTitle}`}>
-                          {pkg.temples.map((temple) => (
-                            <li key={temple}>{temple}</li>
-                          ))}
-                        </ul>
-                      </td>
-                    ))}
+                    {selected.map((pkg) => {
+                      const temples = locale === "te" && pkg.templesTe && pkg.templesTe.length > 0 ? pkg.templesTe : pkg.temples;
+                      const title = locale === "te" && pkg.shortTitleTe ? pkg.shortTitleTe : pkg.shortTitle;
+                      return (
+                        <td key={pkg.id} className="akc-compare-table__cell akc-compare-table__temples-cell">
+                          <ul className="akc-compare-table__temples-list" aria-label={`Temples in ${title}`}>
+                            {temples.map((temple) => (
+                              <li key={temple} className={locale === "te" ? "lang-te" : ""}>{temple}</li>
+                            ))}
+                          </ul>
+                        </td>
+                      );
+                    })}
                   </tr>
 
                   {/* View details links */}
                   <tr>
                     <th scope="row" className="akc-compare-table__row-label" />
-                    {selected.map((pkg) => (
-                      <td key={pkg.id} className="akc-compare-table__cell">
-                        <Link
-                          href={`/${locale}/tour-packages/${pkg.slug}`}
-                          className="akc-compare-table__view-link"
-                          aria-label={`View full details for ${pkg.title}`}
-                        >
-                          {t("viewPkg", locale)}
-                        </Link>
-                      </td>
-                    ))}
+                    {selected.map((pkg) => {
+                      const title = locale === "te" && pkg.titleTe ? pkg.titleTe : pkg.title;
+                      return (
+                        <td key={pkg.id} className="akc-compare-table__cell">
+                          <Link
+                            href={`/${locale}/tour-packages/${pkg.slug}`}
+                            className="akc-compare-table__view-link"
+                            aria-label={`View full details for ${title}`}
+                          >
+                            {t("viewPkg", locale)}
+                          </Link>
+                        </td>
+                      );
+                    })}
                   </tr>
                 </tbody>
               </table>
@@ -433,18 +451,18 @@ export default function PackageComparator({ locale }: PackageComparatorProps) {
                 <div className="akc-compare-inclusions__col">
                   <strong>{t("included", locale)}</strong>
                   <ul>
-                    <li>✅ AC vehicle with driver</li>
-                    <li>✅ Fuel</li>
-                    <li>✅ Driver allowance</li>
+                    <li>{locale === "te" ? "✅ డ్రైవర్‌తో AC వాహనం" : "✅ AC vehicle with driver"}</li>
+                    <li>{locale === "te" ? "✅ ఇంధనం (Fuel)" : "✅ Fuel"}</li>
+                    <li>{locale === "te" ? "✅ డ్రైవర్ అలవెన్స్" : "✅ Driver allowance"}</li>
                   </ul>
                 </div>
                 <div className="akc-compare-inclusions__col">
                   <strong>{t("notIncluded", locale)}</strong>
                   <ul>
-                    <li>⚠ Tolls & parking</li>
-                    <li>⚠ State permits (outstation)</li>
-                    <li>🚫 Darshan tickets (TTD managed)</li>
-                    <li>🚫 Meals / accommodation</li>
+                    <li>{locale === "te" ? "⚠ టోల్ & పార్కింగ్" : "⚠ Tolls & parking"}</li>
+                    <li>{locale === "te" ? "⚠ రాష్ట్ర పర్మిట్లు (అవుట్‌స్టేషన్)" : "⚠ State permits (outstation)"}</li>
+                    <li>{locale === "te" ? "🚫 దర్శన్ టిక్కెట్లు (TTD నిర్వహణ)" : "🚫 Darshan tickets (TTD managed)"}</li>
+                    <li>{locale === "te" ? "🚫 భోజనం / వసతి" : "🚫 Meals / accommodation"}</li>
                   </ul>
                 </div>
               </div>

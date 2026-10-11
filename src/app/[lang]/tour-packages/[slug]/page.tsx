@@ -8,10 +8,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PACKAGES, getPackageBySlug } from "@/data/packages";
+import { VEHICLES } from "@/data/vehicles";
 import { packageWhatsAppUrl, primaryWhatsAppUrl } from "@/lib/whatsapp";
 import { BUSINESS } from "@/data/business";
 import type { Locale } from "@/i18n/config";
 import { LOCALES } from "@/i18n/config";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildTouristTripSchema } from "@/lib/schema";
+
+const VEHICLE_TE_NAME_MAP: Record<string, string> = Object.fromEntries(
+  VEHICLES.map((v) => [v.id, v.nameTe ?? v.name])
+);
 
 // ── Static params (pre-generate all 20 locale×slug pages at build time) ───────
 export async function generateStaticParams() {
@@ -30,8 +37,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const pkg = getPackageBySlug(slug);
   if (!pkg) return {};
 
-  const title = `${pkg.title} | Temple Tour | Akshaya Cabs Tirupati`;
-  const description = `${pkg.description.slice(0, 155)}… Starting from ₹${pkg.startingPrice.toLocaleString("en-IN")}. Driver & fuel included. Book on WhatsApp.`;
+  const isTe = locale === "te";
+  const pkgTitle = isTe && pkg.titleTe ? pkg.titleTe : pkg.title;
+  const pkgDesc = isTe && pkg.descriptionTe ? pkg.descriptionTe : pkg.description;
+
+  const title = isTe
+    ? `${pkgTitle} | ఆలయ టూర్ | అక్షయ క్యాబ్స్ తిరుపతి`
+    : `${pkg.title} | Temple Tour | Akshaya Cabs Tirupati`;
+  const description = isTe
+    ? `${pkgDesc.slice(0, 155)}… ప్రారంభ ధర ₹${pkg.startingPrice.toLocaleString("en-IN")}. డ్రైవర్ & ఇంధనం చేర్చబడింది. WhatsApp లో బుక్ చేయండి.`
+    : `${pkg.description.slice(0, 155)}… Starting from ₹${pkg.startingPrice.toLocaleString("en-IN")}. Driver & fuel included. Book on WhatsApp.`;
 
   return {
     title,
@@ -41,6 +56,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       languages: {
         "en-IN": `https://akshayacabs.com/en/tour-packages/${pkg.slug}`,
         "te-IN": `https://akshayacabs.com/te/tour-packages/${pkg.slug}`,
+        "x-default": `https://akshayacabs.com/en/tour-packages/${pkg.slug}`,
       },
     },
     openGraph: {
@@ -102,6 +118,14 @@ export default async function PackageDetailPage({ params }: Props) {
   const pkg = getPackageBySlug(slug);
   if (!pkg) notFound();
 
+  const pkgTitle = !isEn && pkg.titleTe ? pkg.titleTe : pkg.title;
+  const pkgShortTitle = !isEn && pkg.shortTitleTe ? pkg.shortTitleTe : pkg.shortTitle;
+  const pkgDesc = !isEn && pkg.descriptionTe ? pkg.descriptionTe : pkg.description;
+  const pkgDuration = !isEn && pkg.durationTe ? pkg.durationTe : pkg.duration;
+  const pkgDestinations = !isEn && pkg.destinationsTe && pkg.destinationsTe.length > 0 ? pkg.destinationsTe : pkg.destinations;
+  const pkgTemples = !isEn && pkg.templesTe && pkg.templesTe.length > 0 ? pkg.templesTe : pkg.temples;
+  const pkgDistNote = !isEn && pkg.distance?.distanceNoteTe ? pkg.distance.distanceNoteTe : pkg.distance?.distanceNote;
+
   // WhatsApp URLs
   const waBookUrl = packageWhatsAppUrl({
     packageCode:  pkg.code,
@@ -111,7 +135,7 @@ export default async function PackageDetailPage({ params }: Props) {
   const waHelpUrl = primaryWhatsAppUrl(
     isEn
       ? `Hello Akshaya Cabs Tirupati! I have a question about the "${pkg.title}" (${pkg.code}) package. Could you please help me?`
-      : `నమస్కారం అక్షయ క్యాబ్స్! "${pkg.title}" (${pkg.code}) ప్యాకేజీ గురించి నాకు ఒక ప్రశ్న ఉంది. సహాయం చేయగలరా?`
+      : `నమస్కారం అక్షయ క్యాబ్స్! "${pkgTitle}" (${pkg.code}) ప్యాకేజీ గురించి నాకు ఒక ప్రశ్న ఉంది. సహాయం చేయగలరా?`
   );
 
   // Related: same category first, then featured; max 3; no self
@@ -133,11 +157,18 @@ export default async function PackageDetailPage({ params }: Props) {
 
   return (
     <>
+      <JsonLd
+        data={buildTouristTripSchema(
+          pkg,
+          locale,
+          `https://akshayacabs.com/${locale}/tour-packages/${pkg.slug}`
+        )}
+      />
       {/* ── 1. Hero ── */}
-      <div className="akc-pkgd-hero" aria-label={`${pkg.title} — hero image`}>
+      <div className="akc-pkgd-hero" aria-label={`${pkgTitle} — hero image`}>
         <Image
           src={pkg.image}
-          alt={`${pkg.title} — Akshaya Cabs Tirupati`}
+          alt={`${pkgTitle} — Akshaya Cabs Tirupati`}
           fill
           priority
           quality={85}
@@ -153,7 +184,7 @@ export default async function PackageDetailPage({ params }: Props) {
             <span aria-hidden="true">›</span>
             <Link href={`/${locale}/tour-packages`}>{isEn ? "Tour Packages" : "టూర్ ప్యాకేజీలు"}</Link>
             <span aria-hidden="true">›</span>
-            <span aria-current="page">{pkg.shortTitle}</span>
+            <span aria-current="page" className={locale === "te" ? "lang-te" : ""}>{pkgShortTitle}</span>
           </nav>
 
           {/* Badges */}
@@ -164,9 +195,9 @@ export default async function PackageDetailPage({ params }: Props) {
                 ? (CAT_LABEL_EN[pkg.category] ?? pkg.category)
                 : (CAT_LABEL_TE[pkg.category] ?? pkg.category)}
             </span>
-            {pkg.duration && (
+            {pkgDuration && (
               <span className="akc-pkgd-hero__badge akc-pkgd-hero__badge--dur">
-                🕐 {pkg.duration}
+                🕐 {pkgDuration}
               </span>
             )}
             {pkg.distance?.exceedsAllowance && (
@@ -176,7 +207,7 @@ export default async function PackageDetailPage({ params }: Props) {
             )}
           </div>
 
-          <h1 className={`akc-pkgd-hero__h1${locale === "te" ? " lang-te" : ""}`}>{pkg.title}</h1>
+          <h1 className={`akc-pkgd-hero__h1${locale === "te" ? " lang-te" : ""}`}>{pkgTitle}</h1>
         </div>
       </div>
 
@@ -193,14 +224,14 @@ export default async function PackageDetailPage({ params }: Props) {
                 <span aria-hidden="true">📋</span>
                 {isEn ? "Package Overview" : "ప్యాకేజీ సారాంశం"}
               </h2>
-              <p className="akc-pkgd-desc">{pkg.description}</p>
+              <p className={`akc-pkgd-desc${locale === "te" ? " lang-te" : ""}`}>{pkgDesc}</p>
 
               {/* Meta pills */}
               <div className="akc-pkgd-meta" aria-label={isEn ? "Key details" : "ముఖ్య వివరాలు"}>
-                {pkg.duration && (
+                {pkgDuration && (
                   <span className="akc-pkgd-meta__item">
                     <span aria-hidden="true">🕐</span>
-                    {pkg.duration}
+                    {pkgDuration}
                   </span>
                 )}
                 {pkg.distance?.allowanceKm && (
@@ -227,7 +258,7 @@ export default async function PackageDetailPage({ params }: Props) {
               {pkg.distance?.exceedsAllowance && (
                 <div className="akc-pkgd-advisory" role="alert">
                   <strong>⚠ {isEn ? "Distance Advisory" : "దూర నోటీసు"}</strong>
-                  <p>{pkg.distance.distanceNote}</p>
+                  <p className={locale === "te" ? "lang-te" : ""}>{pkgDistNote}</p>
                   {pkg.enquiryNote && (
                     <p className="akc-pkgd-advisory__note">{pkg.enquiryNote}</p>
                   )}
@@ -235,8 +266,8 @@ export default async function PackageDetailPage({ params }: Props) {
               )}
 
               {/* Normal distance note */}
-              {!pkg.distance?.exceedsAllowance && pkg.distance?.distanceNote && (
-                <p className="akc-pkgd-dist-note">📍 {pkg.distance.distanceNote}</p>
+              {!pkg.distance?.exceedsAllowance && pkgDistNote && (
+                <p className={`akc-pkgd-dist-note${locale === "te" ? " lang-te" : ""}`}>📍 {pkgDistNote}</p>
               )}
             </article>
 
@@ -247,8 +278,8 @@ export default async function PackageDetailPage({ params }: Props) {
                 {isEn ? "Destinations Covered" : "కవర్ చేసిన గమ్యాలు"}
               </h2>
               <div className="akc-pkgd-dests" role="list">
-                {pkg.destinations.map((d) => (
-                  <span key={d} className="akc-pkgd-dest-chip" role="listitem">
+                {pkgDestinations.map((d) => (
+                  <span key={d} className={`akc-pkgd-dest-chip${locale === "te" ? " lang-te" : ""}`} role="listitem">
                     📍 {d}
                   </span>
                 ))}
@@ -267,8 +298,8 @@ export default async function PackageDetailPage({ params }: Props) {
                   : "దిగువ అన్ని ఆగే ప్రదేశాలు ఈ ప్యాకేజీలో భాగం. వరుస క్రమం దర్శన్ సమయాలు మరియు రహదారి పరిస్థితుల ఆధారంగా మారవచ్చు."}
               </p>
               <ol className="akc-pkgd-temples" aria-label={isEn ? "Temples and attractions" : "ఆలయాలు"}>
-                {pkg.temples.map((temple, i) => (
-                  <li key={temple} className="akc-pkgd-temples__item">
+                {pkgTemples.map((temple, i) => (
+                  <li key={temple} className={`akc-pkgd-temples__item${locale === "te" ? " lang-te" : ""}`}>
                     <span className="akc-pkgd-temples__num" aria-hidden="true">{i + 1}</span>
                     <span>{temple}</span>
                   </li>
@@ -291,7 +322,7 @@ export default async function PackageDetailPage({ params }: Props) {
               <div className="akc-pkgd-pricing-table-wrap">
                 <table
                   className="akc-pkgd-pricing-table"
-                  aria-label={isEn ? `Pricing for ${pkg.title}` : `${pkg.title} ధర పట్టిక`}
+                  aria-label={isEn ? `Pricing for ${pkgTitle}` : `${pkgTitle} ధర పట్టిక`}
                 >
                   <thead>
                     <tr>
@@ -303,6 +334,9 @@ export default async function PackageDetailPage({ params }: Props) {
                   </thead>
                   <tbody>
                     {pkg.prices.map((row) => {
+                      const vehDisplayName = !isEn
+                        ? (VEHICLE_TE_NAME_MAP[row.vehicleId] ?? row.vehicleName)
+                        : row.vehicleName;
                       const waVehicleUrl = packageWhatsAppUrl({
                         packageCode:     pkg.code,
                         packageTitle:    pkg.title,
@@ -313,7 +347,7 @@ export default async function PackageDetailPage({ params }: Props) {
                       return (
                         <tr key={row.vehicleId}>
                           <td>
-                            <span className="akc-pkgd-vehicle-name">{row.vehicleName}</span>
+                            <span className={`akc-pkgd-vehicle-name${locale === "te" ? " lang-te" : ""}`}>{vehDisplayName}</span>
                           </td>
                           <td>
                             <span className="akc-pkgd-vehicle-cap">
@@ -338,8 +372,8 @@ export default async function PackageDetailPage({ params }: Props) {
                               rel="noopener noreferrer"
                               className="akc-btn akc-btn--wa akc-btn--sm"
                               aria-label={isEn
-                                ? `Enquire about ${row.vehicleName} for ${pkg.title}`
-                                : `${row.vehicleName} గురించి విచారించండి`}
+                                ? `Enquire about ${row.vehicleName} for ${pkgTitle}`
+                                : `${vehDisplayName} గురించి విచారించండి`}
                             >
                               <WaIcon />
                               {isEn ? "Enquire" : "విచారించండి"}
@@ -472,10 +506,10 @@ export default async function PackageDetailPage({ params }: Props) {
                   </span>
                   <span className="akc-pkgd-qinfo__val akc-pkgd-qinfo__val--code">{pkg.code}</span>
                 </li>
-                {pkg.duration && (
+                {pkgDuration && (
                   <li className="akc-pkgd-qinfo__item">
                     <span className="akc-pkgd-qinfo__key">{isEn ? "Duration" : "వ్యవధి"}</span>
-                    <span className="akc-pkgd-qinfo__val">{pkg.duration}</span>
+                    <span className="akc-pkgd-qinfo__val">{pkgDuration}</span>
                   </li>
                 )}
                 {pkg.distance?.allowanceKm && (
@@ -566,30 +600,34 @@ export default async function PackageDetailPage({ params }: Props) {
 
             <ul className="akc-pkgd-related__grid" role="list">
               {related.map((p) => {
+                const relTitle = !isEn && p.titleTe ? p.titleTe : p.title;
+                const relDesc = !isEn && p.descriptionTe ? p.descriptionTe : p.description;
+                const relDuration = !isEn && p.durationTe ? p.durationTe : p.duration;
+
                 const relWaUrl = primaryWhatsAppUrl(
                   isEn
                     ? `Hello Akshaya Cabs Tirupati! I am interested in the "${p.title}" (${p.code}) package. Please share availability and pricing. Thank you!`
-                    : `నమస్కారం అక్షయ క్యాబ్స్! "${p.title}" (${p.code}) ప్యాకేజీ గురించి తెలుసుకోవాలనుకుంటున్నాను. ధన్యవాదాలు!`
+                    : `నమస్కారం అక్షయ క్యాబ్స్! "${relTitle}" (${p.code}) ప్యాకేజీ గురించి తెలుసుకోవాలనుకుంటున్నాను. ధన్యవాదాలు!`
                 );
                 return (
                   <li key={p.id} className="akc-pkgd-rel-card">
                     <div className="akc-pkgd-rel-card__img-wrap">
                       <Image
                         src={p.image}
-                        alt={`${p.title} — Akshaya Cabs Tirupati`}
+                        alt={`${relTitle} — Akshaya Cabs Tirupati`}
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="akc-pkgd-rel-card__img"
                         loading="lazy"
                       />
-                      {p.duration && (
-                        <span className="akc-pkgd-rel-card__dur">🕐 {p.duration}</span>
+                      {relDuration && (
+                        <span className="akc-pkgd-rel-card__dur">🕐 {relDuration}</span>
                       )}
                     </div>
                     <div className="akc-pkgd-rel-card__body">
                       <span className="akc-pkgd-rel-card__code">{p.code}</span>
-                      <h3 className="akc-pkgd-rel-card__title">{p.title}</h3>
-                      <p className="akc-pkgd-rel-card__desc">{p.description}</p>
+                      <h3 className={`akc-pkgd-rel-card__title${locale === "te" ? " lang-te" : ""}`}>{relTitle}</h3>
+                      <p className={`akc-pkgd-rel-card__desc${locale === "te" ? " lang-te" : ""}`}>{relDesc}</p>
                     </div>
                     <div className="akc-pkgd-rel-card__footer">
                       <div className="akc-pkgd-rel-card__price-block">

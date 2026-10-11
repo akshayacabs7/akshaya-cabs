@@ -46,9 +46,10 @@ const SERVICE_LINKS = [
 const QUICK_LINKS = [
   { path: "/about",           en: "About Us",         te: "మా గురించి" },
   { path: "/fleet",           en: "Our Fleet",        te: "మా వాహనాలు" },
-  { path: "/why-choose-us",   en: "Why Choose Us",    te: "మమ్మల్ని ఎందుకు ఎంచుకోవాలి" },
+  { path: "/routes",          en: "Popular Routes",   te: "ప్రసిద్ధ మార్గాలు" },
   { path: "/pickup-drop",     en: "Pickup & Drop",    te: "పికప్ & డ్రాప్" },
-  { path: "/travel-guides",   en: "Travel Guides",    te: "ట్రావెల్ గైడ్స్" },
+  { path: "/blog",            en: "Travel Guides",    te: "ట్రావెల్ గైడ్స్" },
+  { path: "/why-choose-us",   en: "Why Choose Us",    te: "మమ్మల్ని ఎందుకు ఎంచుకోవాలి" },
   { path: "/request-a-quote", en: "Request a Quote",  te: "కోటేషన్ అడగండి" },
   { path: "/contact",         en: "Contact Us",       te: "సంప్రదించండి" },
 ] as const;

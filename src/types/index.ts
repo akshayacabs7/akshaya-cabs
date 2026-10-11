@@ -68,6 +68,7 @@ export interface PackageDistanceInfo {
   estimatedRouteKm?: number;    // approx actual driving km for the full circuit
   exceedsAllowance?: boolean;   // true if estimatedRouteKm > allowance
   distanceNote?: string;        // displayed advisory e.g. "Route ~415 km; extra-km charges apply"
+  distanceNoteTe?: string;      // Telugu advisory
 }
 
 export interface Package {
@@ -79,11 +80,13 @@ export interface Package {
   shortTitle: string;
   shortTitleTe?: string;
   destinations: string[];   // key destination names
+  destinationsTe?: string[];// Telugu destination names
   temples: string[];        // temples visited — English
   templesTe?: string[];     // Telugu (TASK-07)
   description: string;      // English — independently written, not copied from SVTT
   descriptionTe?: string;   // Telugu (TASK-07)
   duration?: string;        // e.g. "1 Day", "2 Days", "~7 hours"
+  durationTe?: string;      // e.g. "1 రోజు", "2 రోజులు", "~7 గంటలు"
   distance: PackageDistanceInfo;
   category: "local" | "nearby" | "outstation" | "multi-day";
   image: string;            // /images/akshaya/packages/akc000X.webp

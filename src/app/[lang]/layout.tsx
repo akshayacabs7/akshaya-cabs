@@ -24,6 +24,8 @@ import Footer from "@/components/layout/Footer";
 import StickyBookingBar from "@/components/layout/StickyBookingBar";
 import { LOCALES, LOCALE_LANG_TAGS } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
+import JsonLd from "@/components/seo/JsonLd";
+import { buildLocalBusinessSchema } from "@/lib/schema";
 
 // ---------------------------------------------------------------------------
 // Fonts – Akshaya brand typography (Task 05)
@@ -158,6 +160,10 @@ export default async function LocaleLayout({
       className={`${sora.variable} ${manrope.variable} ${notoSansTelugu.variable}`}
     >
       <body className="akc-body">
+        <a href="#main-content" className="akc-skip-link">
+          {locale === "te" ? "ప్రధాన విషయానికి వెళ్లండి" : "Skip to main content"}
+        </a>
+        <JsonLd data={buildLocalBusinessSchema(locale)} />
         <Header locale={locale} />
         <main id="main-content" className="akc-main">
           {children}

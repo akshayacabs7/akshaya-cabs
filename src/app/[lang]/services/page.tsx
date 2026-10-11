@@ -45,6 +45,7 @@ export async function generateMetadata({
       languages: {
         "en-IN": "https://akshayacabs.com/en/services",
         "te-IN": "https://akshayacabs.com/te/services",
+        "x-default": "https://akshayacabs.com/en/services",
       },
     },
     openGraph: {
@@ -73,6 +74,9 @@ const ICON_MAP: Record<string, string> = {
 // Vehicle lookup (Weganor already excluded in data)
 const VEHICLE_NAME_MAP: Record<string, string> = Object.fromEntries(
   VEHICLES.map((v) => [v.id, v.name])
+);
+const VEHICLE_TE_NAME_MAP: Record<string, string> = Object.fromEntries(
+  VEHICLES.map((v) => [v.id, v.nameTe ?? v.name])
 );
 
 // ── Bilingual content ──────────────────────────────────────────────
@@ -236,19 +240,24 @@ export default async function ServicesPage({
                   </Link>
                 );
 
+              const svcTitle = !isEn && svc.titleTe ? svc.titleTe : svc.title;
+              const svcDesc = !isEn && svc.descriptionTe ? svc.descriptionTe : svc.description;
+              const svcFeatures = !isEn && svc.featuresTe ? svc.featuresTe : svc.features;
+              const svcCta = !isEn && svc.ctaTe ? svc.ctaTe : (svc.cta ?? (isEn ? "Book Now" : "ఇప్పుడే బుక్ చేయండి"));
+
               return (
                 <li
                   key={svc.id}
                   id={svc.slug}
                   className={`akc-svc-card${isEven ? "" : " akc-svc-card--reverse"}`}
-                  aria-label={svc.title}
+                  aria-label={svcTitle}
                 >
                   {/* Image column */}
                   <div className="akc-svc-card__img-wrap">
                     {svc.image && (
                     <Image
                       src={svc.image}
-                      alt={`${svc.title} — Akshaya Cabs Tirupati`}
+                      alt={`${svcTitle} — Akshaya Cabs Tirupati`}
                       fill
                       sizes="(max-width: 768px) 100vw, 45vw"
                       className="akc-svc-card__img"
@@ -270,19 +279,19 @@ export default async function ServicesPage({
                     </span>
 
                     <h2 className={`akc-svc-card__title${locale === "te" ? " lang-te" : ""}`}>
-                      {svc.title}
+                      {svcTitle}
                     </h2>
                     <p className={`akc-svc-card__desc${locale === "te" ? " lang-te" : ""}`}>
-                      {svc.description}
+                      {svcDesc}
                     </p>
 
                     {/* Features */}
-                    {svc.features && svc.features.length > 0 && (
-                      <ul className="akc-svc-card__features" aria-label={`Features of ${svc.title}`}>
-                        {svc.features.map((feat) => (
+                    {svcFeatures && svcFeatures.length > 0 && (
+                      <ul className="akc-svc-card__features" aria-label={`Features of ${svcTitle}`}>
+                        {svcFeatures.map((feat) => (
                           <li key={feat} className="akc-svc-card__feature">
                             <span className="akc-svc-card__feature-dot" aria-hidden="true" />
-                            {feat}
+                            <span className={locale === "te" ? "lang-te" : ""}>{feat}</span>
                           </li>
                         ))}
                       </ul>
@@ -297,11 +306,11 @@ export default async function ServicesPage({
                         <div
                           className="akc-svc-card__vehicles"
                           role="list"
-                          aria-label={`Vehicles for ${svc.title}`}
+                          aria-label={`Vehicles for ${svcTitle}`}
                         >
                           {svc.vehicles.map((vid) => (
                             <span key={vid} className="akc-svc-card__vehicle-chip" role="listitem">
-                              🚗 {VEHICLE_NAME_MAP[vid] ?? vid}
+                              🚗 {!isEn ? (VEHICLE_TE_NAME_MAP[vid] ?? vid) : (VEHICLE_NAME_MAP[vid] ?? vid)}
                             </span>
                           ))}
                         </div>
@@ -315,10 +324,10 @@ export default async function ServicesPage({
                         target="_blank"
                         rel="noopener noreferrer"
                         className="akc-btn akc-btn--wa"
-                        aria-label={`${isEn ? "Book" : "బుక్ చేయండి"} ${svc.title} on WhatsApp`}
+                        aria-label={`${isEn ? "Book" : "బుక్ చేయండి"} ${svcTitle} on WhatsApp`}
                       >
                         {WA_SVG()}
-                        {svc.cta ?? (isEn ? "Book Now" : "ఇప్పుడే బుక్ చేయండి")}
+                        {svcCta}
                       </a>
                       {secondCta}
                     </div>

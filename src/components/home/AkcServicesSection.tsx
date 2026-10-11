@@ -58,19 +58,6 @@ const ICON_MAP: Record<string, React.ReactNode> = {
   ),
 };
 
-// Telugu service labels
-const TE_LABELS: Record<string, string> = {
-  "local-cab":         "స్థానిక క్యాబ్స్",
-  "tirumala-taxi":     "తిరుమల టాక్సీ",
-  "temple-tours":      "దేవాలయ టూర్స్",
-  "outstation-cab":    "అవుట్‌స్టేషన్ క్యాబ్",
-  "airport-transfer":  "విమానాశ్రయ బదిలీ",
-  "railway-transfer":  "రైల్వే స్టేషన్ బదిలీ",
-  "tempo-traveller":   "టెంపో ట్రావెల్లర్",
-  "south-india-tours": "దక్షిణ భారత పర్యటన",
-  "custom-tours":      "కస్టమ్ టూర్స్",
-};
-
 interface Props { locale: Locale; }
 
 export default function AkcServicesSection({ locale }: Props) {
@@ -100,13 +87,13 @@ export default function AkcServicesSection({ locale }: Props) {
               <Link
                 href={`/${locale}/services#${svc.slug}`}
                 className="akc-services__card"
-                aria-label={isEn ? svc.title : (TE_LABELS[svc.id] ?? svc.shortTitle)}
+                aria-label={isEn ? svc.title : (svc.titleTe ?? svc.title)}
               >
                 <span className="akc-services__icon-wrap" aria-hidden="true">
                   {ICON_MAP[svc.icon] ?? ICON_MAP.Star}
                 </span>
                 <span className={`akc-services__name${locale === "te" ? " lang-te" : ""}`}>
-                  {isEn ? svc.shortTitle : (TE_LABELS[svc.id] ?? svc.shortTitle)}
+                  {isEn ? svc.shortTitle : (svc.shortTitleTe ?? svc.shortTitle)}
                 </span>
                 <span className="akc-services__arrow" aria-hidden="true">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

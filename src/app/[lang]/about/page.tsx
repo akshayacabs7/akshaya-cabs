@@ -35,7 +35,14 @@ export async function generateMetadata({
     description: isEn
       ? `Akshaya Cabs is a Tirupati-based cab and tour service founded by S.R. Kumar. We specialise in Tirumala taxi, temple tours, airport transfers, outstation cabs and South India pilgrimages. Available 24/7.`
       : `అక్షయ క్యాబ్స్ S.R. కుమార్ స్థాపించిన తిరుపతి కేంద్రంగా ఉన్న క్యాబ్ మరియు టూర్ సేవ. తిరుమల టాక్సీ, ఆలయ పర్యటనలు, విమానాశ్రయ బదిలీలు, అవుట్‌స్టేషన్ క్యాబ్‌లు మరియు దక్షిణ భారత యాత్రలలో నిపుణులు. 24/7 అందుబాటులో ఉంది.`,
-    alternates: { canonical: `https://akshayacabs.com/${lang}/about` },
+    alternates: {
+      canonical: `https://akshayacabs.com/${lang}/about`,
+      languages: {
+        "en-IN": "https://akshayacabs.com/en/about",
+        "te-IN": "https://akshayacabs.com/te/about",
+        "x-default": "https://akshayacabs.com/en/about",
+      },
+    },
     openGraph: {
       title: isEn ? "About Akshaya Cabs Tirupati" : "అక్షయ క్యాబ్స్ తిరుపతి గురించి",
       description: isEn
@@ -117,8 +124,8 @@ const VALUES: Value[] = [
       te: "AC ఫ్లీట్",
     },
     desc: {
-      en: "From compact sedans to 17-seater Tempo Travellers — all fully air-conditioned and maintained for long-distance comfort.",
-      te: "కాంపాక్ట్ సెడాన్‌ల నుండి 17-సీటర్ టెంపో ట్రావెలర్‌ల వరకు — అన్నీ పూర్తిగా ఎయిర్-కండిషన్డ్ మరియు దీర్ఘ-దూర సౌకర్యం కోసం నిర్వహించబడతాయి.",
+      en: "From compact sedans to 12-seater Force Urbania and Tempo Travellers — all fully air-conditioned and maintained for long-distance comfort.",
+      te: "కాంపాక్ట్ సెడాన్‌ల నుండి 12-సీటర్ ఫోర్స్ అర్బానియా మరియు టెంపో ట్రావెలర్‌ల వరకు — అన్నీ పూర్తిగా ఎయిర్-కండిషన్డ్ మరియు దీర్ఘ-దూర సౌకర్యం కోసం నిర్వహించబడతాయి.",
     },
   },
 ];
@@ -279,7 +286,7 @@ export default async function AboutPage({
                   <>
                     We offer <strong>{SERVICES.length} cab &amp; tour services</strong> with a
                     fleet of <strong>{VEHICLES.length} fully air-conditioned vehicles</strong> —
-                    from compact sedans to 17-seater Tempo Travellers — catering to solo
+                    from compact sedans to 12-seater Force Urbania and Tempo Travellers — catering to solo
                     pilgrims, families, and large groups alike. We are available{" "}
                     <strong>{BUSINESS.availability}</strong>, including early morning Tirumala
                     departures and late-night airport pickups.
@@ -287,7 +294,7 @@ export default async function AboutPage({
                 ) : (
                   <>
                     మేము <strong>{SERVICES.length} క్యాబ్ &amp; టూర్ సేవలు</strong> అందిస్తాము{" "}
-                    మరియు కాంపాక్ట్ సెడాన్‌ల నుండి 17-సీటర్ టెంపో ట్రావెలర్‌ల వరకు{" "}
+                    మరియు కాంపాక్ట్ సెడాన్‌ల నుండి 12-సీటర్ ఫోర్స్ అర్బానియా మరియు టెంపో ట్రావెలర్‌ల వరకు{" "}
                     <strong>{VEHICLES.length} పూర్తిగా ఎయిర్-కండిషన్డ్ వాహనాల</strong> ఫ్లీట్
                     కలిగి ఉన్నాము — ఒంటరి యాత్రికులు, కుటుంబాలు మరియు పెద్ద గ్రూప్‌లందరికీ
                     సేవలు అందిస్తాము. తిరుమల తెల్లవారుజామున బయలుదేరడం మరియు అర్ధరాత్రి

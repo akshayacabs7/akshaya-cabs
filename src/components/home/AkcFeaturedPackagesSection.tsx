@@ -44,6 +44,11 @@ export default function AkcFeaturedPackagesSection({ locale }: Props) {
         {/* ── Package cards ── */}
         <ul role="list" className="akc-pkg__grid">
           {featured.map((pkg) => {
+            const pkgTitle = !isEn && pkg.titleTe ? pkg.titleTe : pkg.title;
+            const pkgDuration = !isEn && pkg.durationTe ? pkg.durationTe : pkg.duration;
+            const pkgDestinations = !isEn && pkg.destinationsTe && pkg.destinationsTe.length > 0 ? pkg.destinationsTe : pkg.destinations;
+            const pkgDesc = !isEn && pkg.descriptionTe ? pkg.descriptionTe : pkg.description;
+
             const waUrl = packageWhatsAppUrl({
               packageCode: pkg.id.toUpperCase(),
               packageTitle: pkg.title,
@@ -55,32 +60,34 @@ export default function AkcFeaturedPackagesSection({ locale }: Props) {
                 <div className="akc-pkg__img-wrap">
                   <Image
                     src={pkg.image}
-                    alt={pkg.title}
+                    alt={pkgTitle}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="akc-pkg__img"
                   />
-                  <span className="akc-pkg__duration-badge">
-                    🕐 {pkg.duration}
-                  </span>
+                  {pkgDuration && (
+                    <span className="akc-pkg__duration-badge">
+                      🕐 {pkgDuration}
+                    </span>
+                  )}
                 </div>
 
                 {/* Body */}
                 <div className="akc-pkg__body">
                   {/* Destination chips */}
                   <div className="akc-pkg__chips" aria-label={isEn ? "Destinations covered" : "కవర్ చేసిన గమ్యాలు"}>
-                    {pkg.destinations.slice(0, 3).map((d) => (
-                      <span key={d} className="akc-pkg__chip">{d}</span>
+                    {pkgDestinations.slice(0, 3).map((d) => (
+                      <span key={d} className={`akc-pkg__chip${locale === "te" ? " lang-te" : ""}`}>{d}</span>
                     ))}
-                    {pkg.destinations.length > 3 && (
+                    {pkgDestinations.length > 3 && (
                       <span className="akc-pkg__chip akc-pkg__chip--more">
-                        +{pkg.destinations.length - 3}
+                        +{pkgDestinations.length - 3}
                       </span>
                     )}
                   </div>
 
-                  <h3 className="akc-pkg__title">{pkg.title}</h3>
-                  <p className="akc-pkg__desc">{pkg.description}</p>
+                  <h3 className={`akc-pkg__title${locale === "te" ? " lang-te" : ""}`}>{pkgTitle}</h3>
+                  <p className={`akc-pkg__desc${locale === "te" ? " lang-te" : ""}`}>{pkgDesc}</p>
 
                   {/* Price + CTAs */}
                   <div className="akc-pkg__footer">
@@ -95,7 +102,7 @@ export default function AkcFeaturedPackagesSection({ locale }: Props) {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="akc-btn akc-btn--wa akc-btn--sm"
-                        aria-label={isEn ? `Enquire about ${pkg.title} on WhatsApp` : `${pkg.title} గురించి WhatsApp లో విచారించండి`}
+                        aria-label={isEn ? `Enquire about ${pkgTitle} on WhatsApp` : `${pkgTitle} గురించి WhatsApp లో విచారించండి`}
                       >
                         {isEn ? "Get a Quote" : "కోటేషన్ పొందండి"}
                       </a>

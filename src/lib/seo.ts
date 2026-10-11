@@ -93,9 +93,9 @@ export const PAGE_SEO = {
   fleet: buildMetadata({
     title: "Our Fleet — Cabs & Vehicles | Akshaya Cabs Tirupati",
     description:
-      "Well-maintained AC cabs from Sedan (4+1) to Tempo Traveller (17+1). Transparent pricing starting at ₹15/km. Book for Tirupati and South India travel.",
+      "Well-maintained AC cabs from Sedan (4+1) to Force Urbania (12 Seater) and Tempo Traveller. Transparent pricing starting at ₹15/km. Book for Tirupati and South India travel.",
     slug: "/fleet",
-    keywords: ["Tirupati cab rates", "Tempo Traveller Tirupati", "Innova Crysta Tirupati", "Akshaya Cabs fleet"],
+    keywords: ["Tirupati cab rates", "Tempo Traveller Tirupati", "Force Urbania Tirupati", "Innova Crysta Tirupati", "Akshaya Cabs fleet"],
   }),
 
   tourPackages: buildMetadata({
@@ -146,11 +146,19 @@ export const PAGE_SEO = {
     slug: "/why-choose-us",
   }),
 
+  routes: buildMetadata({
+    title: "Popular Cab Routes & Taxi Rates | Akshaya Cabs Tirupati",
+    description:
+      "Popular cab routes from Tirupati: Tirumala ghat road, Tirupati Airport, Chennai, Bengaluru, Srikalahasti, Kanipakam & Vellore. Transparent fares with driver allowance included.",
+    slug: "/routes",
+    keywords: ["Tirupati to Tirumala cab", "Tirupati to Chennai taxi", "Tirupati to Bangalore cab", "Tirupati cab routes"],
+  }),
+
   travelGuides: buildMetadata({
     title: "Tirupati Travel Guides & Tips | Akshaya Cabs",
     description:
       "Travel guides, tips and insights for Tirupati, Tirumala and South India. Plan your pilgrimage with Akshaya Cabs' practical travel guides.",
-    slug: "/travel-guides",
+    slug: "/blog",
     keywords: ["Tirupati travel guide", "Tirumala guide", "South India pilgrimage tips"],
   }),
 

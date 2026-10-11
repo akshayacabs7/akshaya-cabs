@@ -94,7 +94,7 @@
       "tempoTraveller": {
         "title": "టెంపో ట్రావెల్లర్ అద్దె",
         "shortTitle": "టెంపో ట్రావెల్లర్",
-        "description": "సమూహ యాత్రలు, కుటుంబ సమావేశాలు మరియు కార్పొరేట్ అవుటింగ్‌లకు విశాలమైన Tempo Traveller (12+1 మరియు 17+1). డ్రైవర్ చేర్చబడ్డారు; కస్టమ్ రూట్లు అందుబాటులో."
+        "description": "సమూహ యాత్రలు, కుటుంబ సమావేశాలు మరియు కార్పొరేట్ అవుటింగ్‌లకు విశాలమైన Tempo Traveller (12+1) మరియు Force Urbania (12 Seater). డ్రైవర్ చేర్చబడ్డారు; కస్టమ్ రూట్లు అందుబాటులో."
       },
       "southIndiaTours": {
         "title": "దక్షిణ భారత యాత్రా పర్యటనలు",
@@ -126,7 +126,7 @@
       "premiumSuv": "ప్రీమియమ్ SUV",
       "minivan": "మినీవ్యాన్",
       "tempo12": "టెంపో 12+1",
-      "tempo17": "టెంపో 17+1"
+      "urbania12": "అర్బానియా 12 సీటర్"
     },
     "vehicles": {
       "dzireAmazeEtios": {
@@ -159,9 +159,9 @@
         "label": "సమూహ యాత్రలు",
         "bestFor": "ఆఫీస్ అవుటింగ్‌లు, మధ్య తరహా యాత్రికుల సమూహాలు, ఈవెంట్ ట్రావెల్"
       },
-      "tempo17": {
-        "name": "Tempo Traveller 17+1",
-        "label": "పెద్ద సమూహ ప్రయాణం",
+      "urbania12": {
+        "name": "Force Urbania 12 Seater",
+        "label": "ప్రీమియం గ్రూప్ ప్రయాణం",
         "bestFor": "పెద్ద సమూహ యాత్రలు, పెళ్ళి కాన్వాయ్‌లు, కార్పొరేట్ పర్యటనలు"
       }
     },
@@ -271,7 +271,7 @@
         "innovaCrysta": "Innova Crysta (7+1 సీటర్)",
         "tavera": "Tavera (8+1 సీటర్)",
         "tempo12": "Tempo Traveller 12+1",
-        "tempo17": "Tempo Traveller 17+1",
+        "urbania12": "Force Urbania 12 Seater",
         "noPreference": "ప్రాధాన్యత లేదు"
       },
       "validation": {

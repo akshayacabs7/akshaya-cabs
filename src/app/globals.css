@@ -216,9 +216,12 @@ html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
+body,
 .akc-body {
+  overflow-x: hidden;
   font-family: var(--font-body);
   font-size: 1rem;
   line-height: 1.65;
@@ -8353,3 +8356,1275 @@ a:focus-visible {
   .akc-compare-controls__select,
   .akc-compare-controls__input { transition: none; }
 }
+
+/* =========================================================
+   BLOG — INDEX PAGE (TASK-25)
+   ========================================================= */
+
+/* ── Page hero label (blog-specific override) ── */
+.akc-page-hero__label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--akc-gold);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+/* ── Blog grid ── */
+.akc-blog__grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 640px)  { .akc-blog__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .akc-blog__grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* ── Blog card ── */
+.akc-blog__card {
+  background: #fff;
+  border-radius: var(--akc-radius-lg);
+  box-shadow: var(--akc-shadow-card);
+  overflow: hidden;
+  transition: box-shadow var(--akc-transition-base), transform var(--akc-transition-spring);
+}
+.akc-blog__card:hover {
+  box-shadow: var(--akc-shadow-hover);
+  transform: translateY(-4px);
+}
+
+.akc-blog__card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ── Card image ── */
+.akc-blog__img-wrap {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+@media (min-width: 1024px) {
+  .akc-blog__img-wrap { height: 220px; }
+}
+.akc-blog__img {
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 400ms ease;
+}
+.akc-blog__card:hover .akc-blog__img { transform: scale(1.04); }
+
+.akc-blog__img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(10,24,40,0.55) 100%);
+}
+
+.akc-blog__category-chip {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: var(--akc-accent);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--akc-radius-pill);
+  z-index: 1;
+}
+
+/* ── Card body ── */
+.akc-blog__body {
+  padding: 1.125rem 1.25rem 1.375rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.akc-blog__title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--akc-primary);
+  line-height: 1.3;
+  transition: color var(--akc-transition-fast);
+}
+.akc-blog__card:hover .akc-blog__title { color: var(--akc-accent); }
+
+.akc-blog__excerpt {
+  font-size: 0.875rem;
+  color: var(--akc-text-muted);
+  line-height: 1.65;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.akc-blog__footer {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.akc-blog__date {
+  font-size: 0.78rem;
+  color: var(--akc-text-subtle);
+}
+
+.akc-blog__read-time {
+  font-size: 0.78rem;
+  color: var(--akc-text-subtle);
+}
+
+.akc-blog__read-more {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--akc-accent);
+}
+
+/* ── Empty state ── */
+.akc-blog__empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+.akc-blog__empty-text {
+  color: var(--akc-text-muted);
+  font-size: 1rem;
+}
+
+/* ── Blog CTA strip ── */
+.akc-blog-cta__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+@media (min-width: 768px) {
+  .akc-blog-cta__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.akc-blog-cta__heading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 2.5vw, 1.625rem);
+  font-weight: 800;
+  color: var(--akc-primary);
+  margin-bottom: 0.5rem;
+}
+.akc-blog-cta__sub {
+  color: var(--akc-text-muted);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+.akc-blog-cta__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   BLOG — ARTICLE PAGE (TASK-25)
+   ========================================================= */
+
+/* ── Article hero ── */
+.akc-article-hero {
+  position: relative;
+  background: var(--akc-primary);
+  padding-block: 5rem 3rem;
+  overflow: hidden;
+  min-height: 340px;
+  display: flex;
+  align-items: flex-end;
+}
+@media (min-width: 768px) {
+  .akc-article-hero { min-height: 400px; padding-block: 6rem 4rem; }
+}
+
+.akc-article-hero__img-wrap {
+  position: absolute;
+  inset: 0;
+}
+.akc-article-hero__img {
+  object-fit: cover;
+  object-position: center 30%;
+}
+.akc-article-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(10,24,40,0.65) 0%, rgba(10,24,40,0.82) 100%);
+}
+
+.akc-article-hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.akc-article-hero__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.875rem;
+}
+.akc-article-hero__category {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--akc-gold);
+}
+.akc-article-hero__read-time {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.55);
+}
+
+.akc-article-hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.625rem, 4vw, 2.75rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  max-width: 800px;
+}
+
+.akc-article-hero__date {
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.55);
+  display: block;
+}
+
+/* ── Article layout ── */
+.akc-article-layout {
+  max-width: var(--akc-max-w);
+  margin-inline: auto;
+  padding-inline: 1rem;
+  padding-block: 3rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+@media (min-width: 640px)  { .akc-article-layout { padding-inline: 1.5rem; } }
+@media (min-width: 1024px) {
+  .akc-article-layout {
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 3rem;
+    padding-inline: 2rem;
+  }
+}
+
+/* ── Article body ── */
+.akc-article {
+  max-width: 740px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.akc-article__intro {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--akc-text-muted);
+  border-left: 3px solid var(--akc-accent);
+  padding-left: 1.25rem;
+}
+
+.akc-article__notice {
+  background: rgba(242,183,92,0.08);
+  border-left: 4px solid var(--akc-gold);
+  border-radius: 0 var(--akc-radius-base) var(--akc-radius-base) 0;
+  padding: 1rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--akc-text-muted);
+  line-height: 1.7;
+}
+
+.akc-article__section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.akc-article__section-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  font-weight: 700;
+  color: var(--akc-primary);
+  line-height: 1.25;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--akc-border);
+}
+
+.akc-article__para {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--akc-text-muted);
+}
+.akc-article__para + .akc-article__para {
+  margin-top: 0.375rem;
+}
+
+/* ── Inline CTA box ── */
+.akc-article__cta-box {
+  background: var(--akc-bg-alt);
+  border: 1px solid var(--akc-border);
+  border-radius: var(--akc-radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.akc-article__cta-text {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--akc-text-muted);
+}
+.akc-article__cta-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* ── Back link ── */
+.akc-article__back {
+  padding-top: 1rem;
+  border-top: 1px solid var(--akc-border);
+}
+.akc-article__back-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--akc-accent);
+  text-decoration: none;
+}
+.akc-article__back-link:hover { text-decoration: underline; }
+
+/* ── Sidebar ── */
+.akc-article-sidebar {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .akc-article-sidebar { display: block; }
+}
+
+.akc-article-sidebar__card {
+  position: sticky;
+  top: calc(var(--akc-header-h-lg) + 1.5rem);
+  background: var(--akc-bg-alt);
+  border: 1px solid var(--akc-border);
+  border-radius: var(--akc-radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.akc-article-sidebar__label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--akc-accent);
+}
+.akc-article-sidebar__heading {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--akc-primary);
+  line-height: 1.3;
+}
+.akc-article-sidebar__body {
+  font-size: 0.875rem;
+  color: var(--akc-text-muted);
+  line-height: 1.6;
+}
+
+/* Full-width button modifier */
+.akc-btn--full { width: 100%; justify-content: center; }
+
+/* WhatsApp button variant */
+.akc-btn--whatsapp {
+  background: #25D366;
+  color: #fff;
+  border: none;
+}
+.akc-btn--whatsapp:hover { background: #1db954; }
+
+/* Outline variant (if not already defined) */
+.akc-btn--outline {
+  background: transparent;
+  color: var(--akc-primary);
+  border: 2px solid var(--akc-primary);
+}
+.akc-btn--outline:hover {
+  background: var(--akc-primary);
+  color: #fff;
+}
+
+/* ==========================================================================
+   Akshaya Cabs — Popular Cab Routes Directory & Landing Styles (TASK-27)
+   ========================================================================== */
+
+.akc-routes-page,
+.akc-route-detail-page {
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.akc-routes-breadcrumb-wrap {
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+/* ── Hero for Routes Directory ── */
+.akc-routes-hero {
+  background: linear-gradient(135deg, #102B46 0%, #173d63 100%);
+  color: #fff;
+  padding: 3.5rem 0 3rem;
+  text-align: center;
+}
+
+.akc-routes-hero__eyebrow {
+  display: inline-block;
+  background: rgba(15, 175, 157, 0.2);
+  color: var(--akc-teal);
+  border: 1px solid rgba(15, 175, 157, 0.4);
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.akc-routes-hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.akc-routes-hero__subtitle {
+  max-width: 760px;
+  margin: 0 auto 2rem;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.akc-routes-hero__trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.akc-routes-trust-badge {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ── Routes Grid ── */
+.akc-routes-list-section {
+  padding: 3rem 0;
+}
+
+.akc-routes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 1.75rem;
+}
+
+.akc-route-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.akc-route-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.akc-route-card__img-wrap {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background: #cbd5e1;
+}
+
+.akc-route-card__img {
+  object-fit: cover;
+}
+
+.akc-route-card__type-pill {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: rgba(16, 43, 70, 0.85);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  padding: 0.25rem 0.65rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  z-index: 2;
+}
+
+.akc-route-card__body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.akc-route-card__stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8125rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.akc-route-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 0.5rem;
+  color: var(--akc-primary);
+}
+
+.akc-route-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.akc-route-card__title a:hover {
+  color: var(--akc-teal);
+}
+
+.akc-route-card__highway {
+  font-size: 0.8125rem;
+  color: #475569;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.akc-route-card__desc {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: #64748b;
+  margin-bottom: 1.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+.akc-route-card__price-box {
+  background: #f1f5f9;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.akc-route-card__price-label {
+  font-size: 0.8125rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.akc-route-card__price-val {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.akc-route-card__actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+}
+
+.akc-route-card__btn-view {
+  font-size: 0.875rem;
+  padding: 0.55rem 0.75rem;
+  text-align: center;
+  justify-content: center;
+}
+
+.akc-route-card__btn-wa {
+  font-size: 0.875rem;
+  padding: 0.55rem 0.9rem;
+}
+
+/* ── Route Directory CTA Strip ── */
+.akc-routes-cta-strip {
+  background: linear-gradient(135deg, #102B46 0%, #0d2238 100%);
+  color: #fff;
+  padding: 3rem 0;
+  border-top: 4px solid var(--akc-teal);
+}
+
+.akc-routes-cta-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.akc-routes-cta-title {
+  font-family: var(--font-heading);
+  font-size: 1.625rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.akc-routes-cta-desc {
+  max-width: 600px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.akc-routes-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.akc-btn--ghost-white {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 0.65rem 1.25rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.akc-btn--ghost-white:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+
+/* ── Route Detail Page Styles ── */
+.akc-route-detail-hero {
+  background: linear-gradient(135deg, #102B46 0%, #173d63 100%);
+  color: #fff;
+  padding: 3rem 0;
+}
+
+.akc-route-detail-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .akc-route-detail-hero__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.akc-route-detail-hero__badge {
+  display: inline-block;
+  background: rgba(15, 175, 157, 0.2);
+  color: var(--akc-teal);
+  border: 1px solid rgba(15, 175, 157, 0.4);
+  padding: 0.3rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.akc-route-detail-hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.akc-route-detail-hero__overview {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+}
+
+.akc-route-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.akc-route-metric {
+  display: flex;
+  flex-direction: column;
+}
+
+.akc-route-metric__label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.akc-route-metric__val {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.akc-route-metric__val--price {
+  color: var(--akc-accent);
+}
+
+.akc-route-detail-hero__price-note {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 1.5rem;
+}
+
+.akc-route-detail-hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.akc-route-detail-hero__image-wrap {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.akc-route-detail-hero__img {
+  object-fit: cover;
+}
+
+.akc-route-detail-hero__img-tag {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background: rgba(16, 43, 70, 0.9);
+  color: #fff;
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  z-index: 2;
+}
+
+/* ── Route Detail Body & Sidebar ── */
+.akc-route-detail-body {
+  padding: 3rem 0;
+}
+
+.akc-route-detail-body__grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .akc-route-detail-body__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.akc-route-card-box {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.akc-route-card-box--notice {
+  background: #fffbeb;
+  border-color: #fde68a;
+}
+
+.akc-route-box-title {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--akc-primary);
+  margin-bottom: 1rem;
+}
+
+.akc-route-box-sub {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+}
+
+.akc-route-highlights-list,
+.akc-route-notes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.akc-route-highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: #334155;
+}
+
+.akc-route-highlight-check {
+  color: var(--akc-teal);
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+
+.akc-route-note-item {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: #78350f;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.akc-route-note-item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #b45309;
+  font-weight: 800;
+}
+
+/* ── Route Fleet Grid ── */
+.akc-route-fleet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.akc-route-fleet-card {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 1.25rem;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.akc-route-fleet-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.akc-route-fleet-card__name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--akc-primary);
+  margin: 0;
+}
+
+.akc-route-fleet-card__pax {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.akc-route-fleet-card__rate {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.akc-route-fleet-card__cta {
+  font-size: 0.8125rem;
+  color: var(--akc-teal);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.15s;
+}
+
+.akc-route-fleet-card__cta:hover {
+  color: #0d8b7d;
+  text-decoration: underline;
+}
+
+/* ── FAQ Items ── */
+.akc-route-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.akc-route-faq-item {
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 1rem;
+}
+
+.akc-route-faq-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.akc-route-faq-q {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--akc-primary);
+  margin-bottom: 0.35rem;
+}
+
+.akc-route-faq-a {
+  font-size: 0.875rem;
+  color: #475569;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── Sidebar Cards ── */
+.akc-route-sidebar-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.75rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+}
+
+.akc-route-sidebar-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--akc-primary);
+  margin-bottom: 0.5rem;
+}
+
+.akc-route-sidebar-desc {
+  font-size: 0.875rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.akc-route-sidebar-phones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.akc-route-sidebar-trust {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 1rem;
+  font-size: 0.8125rem;
+  color: #475569;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.akc-route-sidebar-links-card {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.akc-route-sidebar-links-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--akc-primary);
+  margin-bottom: 0.75rem;
+}
+
+.akc-route-sidebar-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.akc-route-sidebar-link {
+  font-size: 0.875rem;
+  color: #1e293b;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.15s;
+  display: block;
+}
+
+.akc-route-sidebar-link:hover {
+  color: var(--akc-teal);
+  text-decoration: underline;
+}
+
+/* =========================================================
+   TASK-28 — LEGAL PAGES (TERMS & CONDITIONS, PRIVACY POLICY)
+   Clean, accessible, branded styling without SVTT classes
+   ========================================================= */
+
+.akc-legal-page {
+  background: var(--akc-bg);
+  padding: clamp(2rem, 5vw, 4rem) 0 clamp(3rem, 6vw, 5rem);
+  min-height: 80vh;
+}
+
+.akc-legal-card {
+  max-width: 920px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid var(--akc-border);
+  border-radius: 1rem;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.akc-legal-breadcrumb {
+  margin-bottom: 1.5rem;
+}
+
+.akc-legal-header {
+  margin-bottom: 2.25rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--akc-border);
+}
+
+.akc-legal-title {
+  font-family: var(--font-sora), sans-serif;
+  font-size: clamp(1.85rem, 3.5vw, 2.6rem);
+  font-weight: 800;
+  color: var(--akc-primary);
+  line-height: 1.25;
+  margin: 0 0 0.75rem;
+}
+
+.akc-legal-meta {
+  font-size: 0.9rem;
+  color: var(--akc-text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.akc-legal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--akc-bg-alt);
+  color: var(--akc-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  border: 1px solid var(--akc-border);
+}
+
+.akc-legal-section {
+  margin-bottom: 2.25rem;
+}
+
+.akc-legal-section:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
+.akc-legal-section h2 {
+  font-family: var(--font-sora), sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--akc-primary);
+  margin: 0 0 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.akc-legal-section p {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #334155;
+  margin: 0 0 0.85rem;
+}
+
+.akc-legal-section ul {
+  padding-left: 1.35rem;
+  margin: 0 0 1rem;
+}
+
+.akc-legal-section li {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: #334155;
+  margin-bottom: 0.5rem;
+}
+
+.akc-legal-address {
+  font-style: normal;
+  background: var(--akc-bg-alt);
+  border-left: 4px solid var(--akc-accent);
+  padding: 1.25rem 1.5rem;
+  border-radius: 0 0.75rem 0.75rem 0;
+  margin: 1.25rem 0;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: #1e293b;
+}
+
+.akc-legal-address a {
+  color: var(--akc-teal);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.akc-legal-address a:hover {
+  text-decoration: underline;
+}
+
+.akc-legal-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--akc-border);
+}
+
+.akc-legal-nav-link {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--akc-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color 0.15s;
+}
+
+.akc-legal-nav-link:hover {
+  color: var(--akc-teal);
+  text-decoration: underline;
+}
+
+/* ================================================================
+   ACCESSIBILITY HARDENING (TASK-32 / WCAG 2.1 AA)
+   ================================================================ */
+
+/* WCAG 2.4.7 Focus Visible: Clear high-contrast focus rings for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--akc-teal, #0FAF9D);
+  outline-offset: 2px;
+}
+
+/* WCAG 2.4.1 Bypass Blocks: Skip to main content link */
+.akc-skip-link {
+  position: fixed;
+  top: -120px;
+  left: 1rem;
+  background: var(--akc-primary, #102B46);
+  color: #ffffff;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 0 0 0.5rem 0.5rem;
+  z-index: 99999;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  transition: top 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 2px solid var(--akc-gold, #F2B75C);
+  border-top: none;
+}
+
+.akc-skip-link:focus,
+.akc-skip-link:focus-visible {
+  top: 0;
+  outline: 3px solid var(--akc-gold, #F2B75C);
+  outline-offset: 2px;
+}
+
+/* WCAG 2.3.3 Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+
+
