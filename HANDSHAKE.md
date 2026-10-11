@@ -1407,9 +1407,14 @@ docs/
      - Updated `docs/AKSHAYA_IMAGE_PROMPTS.md` with prompt for Force Urbania (`IMG-V07`) and added fallback images in `public/images/akshaya/vehicles/urbania-12.webp`.
      - Full regression suite verified: 42/42 tests passing; `npm run build` completed 86/86 static pages with zero errors.
 
-**Next task (NOT AUTHORIZED):** TASK-35 — New GitHub repository and Netlify STAGING deployment
+  5. **TASK-35 — GitHub Repository Push & Netlify Auto-Deploy (2026-10-11 15:21 IST)**:
+     - All local commits, new route pages, travel guides, package comparator, responsive CSS fixes, test suite, and the Force Urbania 12 Seater update staged and committed: `3ee4ca5`.
+     - Successfully pushed to remote `origin/main` at `https://github.com/akshayacabs7/akshaya-cabs.git`.
+     - Netlify automated CI/CD triggered for live production/staging build.
+
+**Next task (APPROVED):** TASK-36 — Live deployment audit & forms verification
 
 ---
 
-*AKSHAYA CABS — HANDSHAKE.md — Last updated: 2026-10-11 15:02 IST (FLEET_UPDATE DONE)*
+*AKSHAYA CABS — HANDSHAKE.md — Last updated: 2026-10-11 15:21 IST (TASK-35 DONE)*
 *This file is the only living project-progress record. Update after EVERY task. Never edit the master plan.*
