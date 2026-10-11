@@ -107,6 +107,7 @@ const T = {
     en: [
       { icon: "🕐", text: "24/7 Availability" },
       { icon: "🚗", text: "7 Vehicle Options" },
+      { icon: "📶", text: "Wi‑Fi Available in Cabs" },
       { icon: "🛕", text: "10 Temple Tour Packages" },
       { icon: "📞", text: "Instant WhatsApp Response" },
       { icon: "✅", text: "Experienced Local Drivers" },
@@ -115,6 +116,7 @@ const T = {
     te: [
       { icon: "🕐", text: "24/7 అందుబాటు" },
       { icon: "🚗", text: "7 వాహన ఎంపికలు" },
+      { icon: "📶", text: "క్యాబ్‌లలో Wi‑Fi సౌకర్యం" },
       { icon: "🛕", text: "10 ఆలయ టూర్ ప్యాకేజీలు" },
       { icon: "📞", text: "WhatsApp తక్షణ స్పందన" },
       { icon: "✅", text: "అనుభవజ్ఞులైన స్థానిక డ్రైవర్లు" },

@@ -75,6 +75,12 @@ export default function AkcFleetPreviewSection({ locale }: Props) {
                   >
                     {v.capacity.replace("+1", "")} {isEn ? "seater" : "సీటర్"}
                   </span>
+                  <span
+                    className="akc-fleet-preview__wifi-badge"
+                    aria-label={isEn ? "Wi‑Fi Available" : "Wi‑Fi సౌకర్యం అందుబాటులో ఉంది"}
+                  >
+                    📶 {isEn ? "Wi‑Fi Available" : "Wi‑Fi సౌకర్యం అందుబాటులో ఉంది"}
+                  </span>
                 </div>
 
                 {/* Body */}

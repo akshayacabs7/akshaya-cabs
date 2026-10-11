@@ -3481,6 +3481,23 @@ a:focus-visible {
   border-radius: var(--akc-radius-pill);
 }
 
+.akc-fleet-preview__wifi-badge {
+  position: absolute;
+  top: 0.625rem;
+  right: 0.625rem;
+  background: rgba(16, 43, 70, 0.88);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--akc-radius-pill);
+  border: 1px solid rgba(15, 175, 157, 0.35);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.01em;
+  z-index: 2;
+}
+
 .akc-fleet-preview__body {
   padding: 1rem;
   display: flex;
@@ -4146,17 +4163,44 @@ a:focus-visible {
   border-radius: var(--akc-radius-pill);
 }
 
-.akc-veh-card__ac-badge {
+.akc-veh-card__top-right-badges {
   position: absolute;
   top: 0.75rem;
   right: 0.75rem;
-  background: rgba(15,175,157,0.9);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  z-index: 2;
+  max-width: calc(100% - 1.5rem);
+}
+
+.akc-veh-card__ac-badge {
+  background: rgba(15, 175, 157, 0.92);
   color: #fff;
   font-size: 0.7rem;
   font-weight: 700;
   padding: 0.2rem 0.5rem;
   border-radius: var(--akc-radius-pill);
   backdrop-filter: blur(4px);
+  display: inline-flex;
+  align-items: center;
+}
+
+.akc-veh-card__wifi-badge {
+  background: rgba(16, 43, 70, 0.9);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--akc-radius-pill);
+  border: 1px solid rgba(15, 175, 157, 0.35);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
 }
 
 .akc-veh-card__pax-wrap {
@@ -4388,6 +4432,18 @@ a:focus-visible {
   border-radius: var(--akc-radius-pill);
   padding: 0.15rem 0.5rem;
   white-space: nowrap;
+}
+
+.akc-fleet-table__wifi {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--akc-accent);
+  background: rgba(15,175,157,0.09);
+  border: 1px solid rgba(15,175,157,0.22);
+  border-radius: var(--akc-radius-pill);
+  padding: 0.15rem 0.5rem;
+  white-space: nowrap;
+  display: inline-block;
 }
 
 .akc-fleet-compare__exclusions {
@@ -5249,6 +5305,17 @@ a:focus-visible {
   color: var(--akc-text-muted);
   font-style: italic;
 }
+.akc-pkgd-vehicle-wifi {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--akc-accent);
+  background: rgba(15, 175, 157, 0.09);
+  border: 1px solid rgba(15, 175, 157, 0.22);
+  border-radius: var(--akc-radius-pill);
+  padding: 0.15rem 0.5rem;
+  white-space: nowrap;
+  display: inline-block;
+}
 .akc-pkgd-pricing__extra-note {
   margin-top: 0.875rem;
   font-size: 0.8rem;
@@ -6020,6 +6087,12 @@ a:focus-visible {
   border: 1px solid rgba(15,175,157,0.2);
   color: var(--akc-accent);
   border-radius: var(--akc-radius-pill);
+}
+.akc-pd-card__trip-chip--wifi {
+  background: rgba(16, 43, 70, 0.08);
+  color: var(--akc-primary);
+  border-color: rgba(15, 175, 157, 0.35);
+  font-weight: 700;
 }
 
 .akc-pd-card__desc {
@@ -9346,10 +9419,28 @@ a:focus-visible {
   margin: 0;
 }
 
+.akc-route-fleet-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
 .akc-route-fleet-card__pax {
   font-size: 0.75rem;
   font-weight: 600;
   color: #64748b;
+}
+
+.akc-route-fleet-card__wifi {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--akc-accent);
+  background: rgba(15, 175, 157, 0.08);
+  border: 1px solid rgba(15, 175, 157, 0.25);
+  border-radius: var(--akc-radius-pill);
+  padding: 0.1rem 0.45rem;
+  white-space: nowrap;
 }
 
 .akc-route-fleet-card__rate {

@@ -37,6 +37,7 @@ export interface Vehicle {
   image: string;            // /images/vehicles/... (existing licensed fallback)
   imageAlt?: string;        // descriptive alt text
   acStatus: boolean;
+  wifiStatus?: boolean;     // Wi-Fi availability in vehicle
   price: VehiclePrice;
   features?: string[];      // AC, luggage, etc. — English
   featuresTe?: string[];    // Telugu features (TASK-07)

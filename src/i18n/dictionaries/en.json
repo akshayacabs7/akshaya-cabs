@@ -169,6 +169,7 @@
       "seats": "{n} passengers",
       "seatsSingular": "1 passenger",
       "ac": "AC",
+      "wifi": "Wi‑Fi Available",
       "nonAc": "Non-AC",
       "driverIncluded": "Driver included",
       "kmLimit": "{n} km included per day",

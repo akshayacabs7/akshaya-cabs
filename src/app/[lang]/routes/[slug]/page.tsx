@@ -234,8 +234,8 @@ export default async function RouteDetailPage({
               </h2>
               <p className="akc-route-box-sub">
                 {isEn
-                  ? "All displayed vehicle fares include professional driver allowances. Tolls, state permits, and parking are payable at actuals."
-                  : "అన్ని వాహన ఛార్జీలలో ప్రొఫెషనల్ డ్రైవర్ భత్యం చేర్చబడింది. టోల్ గేట్లు, రాష్ట్ర పర్మిట్లు మరియు పార్కింగ్ అసలు ఖర్చు ప్రకారం ఉంటాయి."}
+                  ? "All displayed vehicle fares include professional driver allowances and clean AC vehicles with Wi‑Fi. Tolls, state permits, and parking are payable at actuals."
+                  : "అన్ని వాహన ఛార్జీలలో ప్రొఫెషనల్ డ్రైవర్ భత్యం మరియు Wi‑Fi సౌకర్యంతో కూడిన శుభ్రమైన AC వాహనాలు చేర్చబడ్డాయి. టోల్ గేట్లు, రాష్ట్ర పర్మిట్లు మరియు పార్కింగ్ అసలు ఖర్చు ప్రకారం ఉంటాయి."}
               </p>
 
               <div className="akc-route-fleet-grid">
@@ -245,9 +245,14 @@ export default async function RouteDetailPage({
                       <h3 className="akc-route-fleet-card__name">
                         {isEn ? fleet.name : fleet.nameTe}
                       </h3>
-                      <span className="akc-route-fleet-card__pax">
-                        👥 {isEn ? fleet.capacity : fleet.capacityTe}
-                      </span>
+                      <div className="akc-route-fleet-card__meta">
+                        <span className="akc-route-fleet-card__pax">
+                          👥 {isEn ? fleet.capacity : fleet.capacityTe}
+                        </span>
+                        <span className="akc-route-fleet-card__wifi">
+                          📶 {isEn ? "Wi‑Fi" : "వై-ఫై"}
+                        </span>
+                      </div>
                     </div>
                     <p className="akc-route-fleet-card__rate">
                       {isEn ? fleet.rateDescription : fleet.rateDescriptionTe}

@@ -285,7 +285,7 @@ export default async function AboutPage({
                 {isEn ? (
                   <>
                     We offer <strong>{SERVICES.length} cab &amp; tour services</strong> with a
-                    fleet of <strong>{VEHICLES.length} fully air-conditioned vehicles</strong> —
+                    fleet of <strong>{VEHICLES.length} fully air-conditioned &amp; Wi‑Fi equipped vehicles</strong> —
                     from compact sedans to 12-seater Force Urbania and Tempo Travellers — catering to solo
                     pilgrims, families, and large groups alike. We are available{" "}
                     <strong>{BUSINESS.availability}</strong>, including early morning Tirumala
@@ -295,7 +295,7 @@ export default async function AboutPage({
                   <>
                     మేము <strong>{SERVICES.length} క్యాబ్ &amp; టూర్ సేవలు</strong> అందిస్తాము{" "}
                     మరియు కాంపాక్ట్ సెడాన్‌ల నుండి 12-సీటర్ ఫోర్స్ అర్బానియా మరియు టెంపో ట్రావెలర్‌ల వరకు{" "}
-                    <strong>{VEHICLES.length} పూర్తిగా ఎయిర్-కండిషన్డ్ వాహనాల</strong> ఫ్లీట్
+                    <strong>{VEHICLES.length} పూర్తిగా ఎయిర్-కండిషన్డ్ &amp; Wi‑Fi వాహనాల</strong> ఫ్లీట్
                     కలిగి ఉన్నాము — ఒంటరి యాత్రికులు, కుటుంబాలు మరియు పెద్ద గ్రూప్‌లందరికీ
                     సేవలు అందిస్తాము. తిరుమల తెల్లవారుజామున బయలుదేరడం మరియు అర్ధరాత్రి
                     విమానాశ్రయ పికప్‌లతో సహా{" "}
@@ -309,6 +309,7 @@ export default async function AboutPage({
                 {[
                   { en: `${SERVICES.length} Services`, te: `${SERVICES.length} సేవలు` },
                   { en: `${VEHICLES.length} AC Vehicles`, te: `${VEHICLES.length} AC వాహనాలు` },
+                  { en: "📶 Wi‑Fi Available", te: "📶 Wi‑Fi సౌకర్యం" },
                   { en: `${BUSINESS.availability} Available`, te: `${BUSINESS.availability} అందుబాటులో` },
                   { en: "Tirumala Experts", te: "తిరుమల నిపుణులు" },
                   { en: "Local Drivers", te: "స్థానిక డ్రైవర్లు" },

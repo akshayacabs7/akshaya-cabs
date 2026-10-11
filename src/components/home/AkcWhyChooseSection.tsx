@@ -70,8 +70,8 @@ const PILLARS: Pillar[] = [
     icon: <CarIcon />,
     titleEn: "Well-Maintained Fleet",
     titleTe: "చక్కగా నిర్వహించిన వాహనాలు",
-    bodyEn: "7 vehicle classes from economy Dzire to spacious Tempo Traveller — all regularly serviced, air-conditioned, and thoroughly cleaned before every trip.",
-    bodyTe: "ఎకానమీ Dzire నుండి విశాలమైన Tempo Traveller వరకు 7 వాహన తరగతులు — అన్నీ క్రమం తప్పకుండా సర్వీస్ చేయబడతాయి.",
+    bodyEn: "7 vehicle classes from economy Dzire to spacious Tempo Traveller — all regularly serviced, air-conditioned, Wi‑Fi equipped, and thoroughly cleaned before every trip.",
+    bodyTe: "ఎకానమీ Dzire నుండి విశాలమైన Tempo Traveller వరకు 7 వాహన తరగతులు — అన్నీ క్రమం తప్పకుండా సర్వీస్ చేయబడతాయి, AC, Wi‑Fi సౌకర్యంతో ఉంటాయి.",
   },
   {
     id: "pricing",

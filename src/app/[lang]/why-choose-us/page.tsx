@@ -112,8 +112,8 @@ const BOOKING_STEPS: BookingStep[] = [
     icon: "🙏",
     title: { en: "Enjoy Your Journey", te: "మీ ప్రయాణాన్ని ఆనందించండి" },
     desc: {
-      en: "Travel comfortably in a clean, AC vehicle. If you have questions during the trip, our team is reachable on WhatsApp.",
-      te: "శుభ్రమైన, AC వాహనంలో సౌకర్యంగా ప్రయాణించండి. ట్రిప్ సమయంలో మీకు ప్రశ్నలు ఉంటే, మా బృందం WhatsApp లో అందుబాటులో ఉంటుంది.",
+      en: "Travel comfortably in a clean, AC vehicle with Wi‑Fi. If you have questions during the trip, our team is reachable on WhatsApp.",
+      te: "శుభ్రమైన, AC మరియు Wi‑Fi వాహనంలో సౌకర్యంగా ప్రయాణించండి. ట్రిప్ సమయంలో మీకు ప్రశ్నలు ఉంటే, మా బృందం WhatsApp లో అందుబాటులో ఉంటుంది.",
     },
   },
 ];
@@ -127,10 +127,10 @@ interface ExpectItem {
 const EXPECT_ITEMS: ExpectItem[] = [
   {
     icon: "🚗",
-    title: { en: "Clean, AC Vehicles", te: "శుభ్రమైన, AC వాహనాలు" },
+    title: { en: "Clean, AC Vehicles with Wi‑Fi", te: "శుభ్రమైన, AC & Wi‑Fi వాహనాలు" },
     body: {
-      en: `A fleet of ${VEHICLES.length} AC vehicle categories — from 4-seater sedans to 12-seater Force Urbania and Tempo Travellers. Your vehicle will be clean and ready at the agreed pickup time.`,
-      te: `4-సీటర్ సెడాన్‌ల నుండి 12-సీటర్ ఫోర్స్ అర్బానియా మరియు టెంపో ట్రావెలర్‌ల వరకు ${VEHICLES.length} AC వాహన వర్గాల ఫ్లీట్. మీ వాహనం అంగీకరించిన పికప్ సమయంలో శుభ్రంగా మరియు సిద్ధంగా ఉంటుంది.`,
+      en: `A fleet of ${VEHICLES.length} AC & Wi‑Fi equipped vehicle categories — from 4-seater sedans to 12-seater Force Urbania and Tempo Travellers. Your vehicle will be clean and ready at the agreed pickup time.`,
+      te: `4-సీటర్ సెడాన్‌ల నుండి 12-సీటర్ ఫోర్స్ అర్బానియా మరియు టెంపో ట్రావెలర్‌ల వరకు ${VEHICLES.length} AC & Wi‑Fi సౌకర్యం గల వాహన వర్గాల ఫ్లీట్. మీ వాహనం అంగీకరించిన పికప్ సమయంలో శుభ్రంగా మరియు సిద్ధంగా ఉంటుంది.`,
     },
   },
   {

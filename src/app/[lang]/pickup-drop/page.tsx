@@ -471,8 +471,8 @@ export default async function PickupDropPage({
             </h2>
             <p className="akc-section-subtitle">
               {isEn
-                ? "From Tirupati Airport to the Tirumala ghat road — we handle every kind of transfer with professional drivers, clean vehicles and on-time service."
-                : "తిరుపతి విమానాశ్రయం నుండి తిరుమల ఘాట్ రోడ్డు వరకు — మేము వృత్తిపర డ్రైవర్లు, శుభ్రమైన వాహనాలు మరియు సమయానికి సేవతో ప్రతి బదిలీని నిర్వహిస్తాం."}
+                ? "From Tirupati Airport to the Tirumala ghat road — we handle every kind of transfer with professional drivers, clean AC vehicles with Wi‑Fi and on-time service."
+                : "తిరుపతి విమానాశ్రయం నుండి తిరుమల ఘాట్ రోడ్డు వరకు — మేము వృత్తిపర డ్రైవర్లు, Wi‑Fi సౌకర్యం గల శుభ్రమైన AC వాహనాలు మరియు సమయానికి సేవతో ప్రతి బదిలీని నిర్వహిస్తాం."}
             </p>
           </div>
 
@@ -509,11 +509,14 @@ export default async function PickupDropPage({
                       </p>
                     </div>
 
-                    {/* Trip types (one-way / roundtrip) */}
+                    {/* Trip types (one-way / roundtrip) + Wi-Fi */}
                     <div className="akc-pd-card__trip-types" aria-label={isEn ? "Trip options" : "ట్రిప్ ఎంపికలు"}>
                       {tripTypes.map((t) => (
                         <span key={t} className="akc-pd-card__trip-chip">{t}</span>
                       ))}
+                      <span className="akc-pd-card__trip-chip akc-pd-card__trip-chip--wifi">
+                        📶 {isEn ? "Wi‑Fi Available" : "Wi‑Fi సౌకర్యం"}
+                      </span>
                     </div>
 
                     {/* Description */}

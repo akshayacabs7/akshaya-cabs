@@ -156,6 +156,7 @@ export default async function FleetPage({
                   <th scope="col">{isEn ? "Local / Day (8 hrs)" : "స్థానిక / రోజు (8 గంటలు)"}</th>
                   <th scope="col">{isEn ? "KM Allowance/Day" : "కి.మీ. అలవెన్స్/రోజు"}</th>
                   <th scope="col">AC</th>
+                  <th scope="col">{isEn ? "Wi‑Fi" : "వై-ఫై"}</th>
                   <th scope="col">{isEn ? "Enquire" : "విచారించండి"}</th>
                 </tr>
               </thead>
@@ -199,6 +200,11 @@ export default async function FleetPage({
                         {v.acStatus
                           ? <span className="akc-fleet-table__ac">✓ AC</span>
                           : isEn ? "Non-AC" : "Non-AC"}
+                      </td>
+                      <td>
+                        {(v.wifiStatus ?? true)
+                          ? <span className="akc-fleet-table__wifi">📶 {isEn ? "Wi‑Fi" : "వై-ఫై"}</span>
+                          : isEn ? "—" : "—"}
                       </td>
                       <td>
                         <a

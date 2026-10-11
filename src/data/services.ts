@@ -30,6 +30,7 @@ export const SERVICES: Service[] = [
       "Flexible local day packages",
       "Temple city sightseeing routes",
       "Punctual, courteous drivers",
+      "AC & Wi‑Fi enabled vehicles",
       "Available 24 hours a day, 7 days a week",
     ],
     featuresTe: [
@@ -37,6 +38,7 @@ export const SERVICES: Service[] = [
       "ఫ్లెక్సిబుల్ స్థానిక దినసరి ప్యాకేజీలు",
       "ఆలయ నగర వీక్షణ మార్గాలు",
       "సమయపాలన పాటించే, మర్యాదపూర్వక డ్రైవర్లు",
+      "AC మరియు Wi‑Fi సౌకర్యం గల వాహనాలు",
       "రోజుకు 24 గంటలు, వారానికి 7 రోజులు అందుబాటులో",
     ],
     vehicles: ["dzire-amaze-etios", "ertiga", "innova", "innova-crysta"],
@@ -60,14 +62,14 @@ export const SERVICES: Service[] = [
       "Tirupati to Tirumala and back",
       "Experienced ghat-road drivers",
       "Available around the clock",
-      "AC vehicles for all group sizes",
+      "AC & Wi‑Fi vehicles for all group sizes",
       "Safe and punctual service",
     ],
     featuresTe: [
       "తిరుపతి నుండి తిరుమల మరియు తిరుగు ప్రయాణం",
       "అనుభవజ్ఞులైన ఘాట్ రోడ్ డ్రైవర్లు",
       "24 గంటలూ నిరంతర సేవ అందుబాటులో",
-      "అన్ని బృంద పరిమాణాలకు AC వాహనాలు",
+      "అన్ని బృంద పరిమాణాలకు AC & Wi‑Fi వాహనాలు",
       "సురక్షితమైన, సమయపాలన గల ప్రయాణం",
     ],
     vehicles: ["dzire-amaze-etios", "ertiga", "innova", "innova-crysta"],
@@ -90,6 +92,7 @@ export const SERVICES: Service[] = [
     features: [
       "10 planned pilgrimage packages",
       "Local, nearby and outstation options",
+      "Comfortable AC & Wi‑Fi vehicles",
       "Multi-day South India tours",
       "Clear inclusions and exclusions",
       "Enquiry-based with confirmed pricing",
@@ -97,6 +100,7 @@ export const SERVICES: Service[] = [
     featuresTe: [
       "10 క్యూరేటెడ్ ఆధ్యాత్మిక ప్యాకేజీలు",
       "స్థానిక, సమీప మరియు అవుట్‌స్టేషన్ ఎంపికలు",
+      "సౌకర్యవంతమైన AC & Wi‑Fi వాహనాలు",
       "బహు-రోజుల దక్షిణ భారత తీర్థయాత్రలు",
       "స్పష్టమైన చేర్పులు మరియు మినహాయింపులు",
       "నిర్ధారిత పారదర్శక ధరలు",
@@ -121,6 +125,7 @@ export const SERVICES: Service[] = [
     features: [
       "All major South Indian cities covered",
       "One-way and round-trip options",
+      "AC & Wi‑Fi comfort on long journeys",
       "300 km/day included in base fare",
       "Tolls, parking paid separately by customer",
       "Experienced highway drivers",
@@ -128,6 +133,7 @@ export const SERVICES: Service[] = [
     featuresTe: [
       "దక్షిణ భారతదేశంలోని అన్ని ప్రధాన నగరాలకు సేవ",
       "వన్-వే మరియు రౌండ్-ట్రిప్ ఆప్షన్లు",
+      "సుదీర్ఘ ప్రయాణాల్లో AC & Wi‑Fi సౌకర్యం",
       "ప్రాథమిక రేటులో రోజుకు 300 కి.మీ చేర్చబడింది",
       "టోల్స్ మరియు పార్కింగ్ కస్టమర్ చెల్లిస్తారు",
       "అనుభవజ్ఞులైన హైవే డ్రైవర్లు",
@@ -152,6 +158,7 @@ export const SERVICES: Service[] = [
     features: [
       "Tirupati Airport pickup and drop",
       "Available for all flight timings",
+      "Clean AC cabs with Wi‑Fi onboard",
       "Early morning and late-night service",
       "Luggage assistance included",
       "Professional and courteous drivers",
@@ -159,6 +166,7 @@ export const SERVICES: Service[] = [
     featuresTe: [
       "తిరుపతి విమానాశ్రయం పికప్ మరియు డ్రాప్",
       "అన్ని షెడ్యూల్డ్ విమాన సమయాలకు లభ్యం",
+      "Wi‑Fi తో కూడిన శుభ్రమైన AC క్యాబ్‌లు",
       "తెల్లవారుజాము & అర్ధరాత్రి సర్వీసులు",
       "లగేజీ నిర్వహణలో సహాయం",
       "మర్యాదపూర్వక డ్రైవర్లు",
@@ -183,6 +191,7 @@ export const SERVICES: Service[] = [
     features: [
       "Tirupati Railway Station pickup and drop",
       "Available 24 hours a day, 7 days a week",
+      "Clean AC cabs with Wi‑Fi onboard",
       "Luggage handling assistance",
       "Direct routes to hotels and temples",
       "Reliable and punctual drivers",
@@ -190,6 +199,7 @@ export const SERVICES: Service[] = [
     featuresTe: [
       "తిరుపతి & రేణిగుంట రైల్వే స్టేషన్ పికప్/డ్రాప్",
       "రోజుకు 24 గంటలు అందుబాటులో",
+      "Wi‑Fi తో కూడిన శుభ్రమైన AC క్యాబ్‌లు",
       "లగేజీ సహాయం",
       "హోటళ్లు మరియు ఆలయాలకు నేరుగా రవాణా",
       "విశ్వసనీయ మరియు సమయపాలన గల సేవ",
@@ -213,14 +223,14 @@ export const SERVICES: Service[] = [
     image: "/images/akshaya/services/tempo-traveller-group.webp",
     features: [
       "Tempo Traveller 12+1 and Force Urbania 12 Seater",
-      "Fully AC with push-back reclining seats",
+      "Fully AC with push-back reclining seats & Wi‑Fi",
       "Ample luggage storage space",
       "Suitable for group pilgrimages and events",
       "Experienced group-travel drivers",
     ],
     featuresTe: [
       "టెంపో ట్రావెలర్ 12+1 మరియు ఫోర్స్ అర్బానియా 12 సీటర్",
-      "పుష్-బ్యాక్ రెక్లైనింగ్ సీట్లతో పూర్తి AC",
+      "పుష్-బ్యాక్ రెక్లైనింగ్ సీట్లు & Wi‑Fi తో పూర్తి AC",
       "విశాలమైన లగేజీ నిల్వ స్థలం",
       "పెద్ద బృంద యాత్రలకు ఎంతో అనువైనది",
       "గ్రూప్ ప్రయాణాల్లో అనుభవం గల డ్రైవర్లు",
@@ -244,6 +254,7 @@ export const SERVICES: Service[] = [
     image: "/images/akshaya/services/outstation-cab.webp",
     features: [
       "Tailor-made itineraries for any route",
+      "AC & Wi‑Fi enabled vehicles for all routes",
       "Any destinations across South India",
       "Flexible duration and travel dates",
       "Multi-day and multi-vehicle support",
@@ -251,6 +262,7 @@ export const SERVICES: Service[] = [
     ],
     featuresTe: [
       "ఏ మార్గానికైనా అనుకూల ప్రయాణ ప్రణాళిక",
+      "అన్ని మార్గాలకు AC & Wi‑Fi వాహనాలు",
       "దక్షిణ భారతదేశంలోని ఏ గమ్యస్థానానికైనా",
       "సౌకర్యవంతమైన ప్రయాణ వ్యవధి మరియు తేదీలు",
       "బహు-రోజుల మరియు బహుళ-వాహనాల సదుపాయం",
@@ -275,6 +287,7 @@ export const SERVICES: Service[] = [
     image: "/images/akshaya/services/south-india-pilgrimage.webp",
     features: [
       "Multi-state pilgrimage routes",
+      "Comfortable AC & Wi‑Fi equipped fleet",
       "Rameshwaram, Madurai, Kanchipuram and more",
       "Experienced long-distance drivers",
       "Accommodation assistance available on request",
@@ -282,6 +295,7 @@ export const SERVICES: Service[] = [
     ],
     featuresTe: [
       "బహుళ-రాష్ట్రాల తీర్థయాత్రా మార్గాలు",
+      "సౌకర్యవంతమైన AC & Wi‑Fi అమర్చిన వాహనాలు",
       "రామేశ్వరం, మదురై, కాంచీపురం మరియు మరిన్ని",
       "సుదూర హైవే ప్రయాణాల్లో నిపుణ డ్రైవర్లు",
       "అభ్యర్థనపై బస ఏర్పాట్లకు మార్గదర్శకత్వం",

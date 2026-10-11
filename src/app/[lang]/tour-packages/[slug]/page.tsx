@@ -315,8 +315,8 @@ export default async function PackageDetailPage({ params }: Props) {
               </h2>
               <p className="akc-pkgd-pricing__note">
                 {isEn
-                  ? "All prices include driver & fuel. Toll, parking & state permits are extra (paid by customer). Driver allowance is included — it is not a surcharge."
-                  : "అన్ని ధరలు డ్రైవర్ & ఇంధనాన్ని చేర్చుతాయి. టోల్, పార్కింగ్ & రాష్ట్ర పర్మిట్లు అదనం (కస్టమర్ చెల్లిస్తారు). డ్రైవర్ అలవెన్స్ చేర్చబడింది."}
+                  ? "All vehicles equipped with AC & Wi‑Fi. All prices include driver & fuel. Toll, parking & state permits are extra (paid by customer)."
+                  : "అన్ని వాహనాలు AC & Wi‑Fi సౌకర్యంతో ఉంటాయి. అన్ని ధరలు డ్రైవర్ & ఇంధనాన్ని చేర్చుతాయి. టోల్, పార్కింగ్ & రాష్ట్ర పర్మిట్లు అదనం (కస్టమర్ చెల్లిస్తారు)."}
               </p>
 
               <div className="akc-pkgd-pricing-table-wrap">
@@ -329,6 +329,7 @@ export default async function PackageDetailPage({ params }: Props) {
                       <th scope="col">{isEn ? "Vehicle" : "వాహనం"}</th>
                       <th scope="col">{isEn ? "Passengers" : "ప్రయాణికులు"}</th>
                       <th scope="col">{isEn ? "Package Price" : "ప్యాకేజీ ధర"}</th>
+                      <th scope="col">{isEn ? "Wi‑Fi" : "వై-ఫై"}</th>
                       <th scope="col">{isEn ? "Enquire" : "విచారించండి"}</th>
                     </tr>
                   </thead>
@@ -364,6 +365,9 @@ export default async function PackageDetailPage({ params }: Props) {
                                 {formatPrice(row.price, isEn)}
                               </span>
                             )}
+                          </td>
+                          <td>
+                            <span className="akc-pkgd-vehicle-wifi">📶 {isEn ? "Available" : "అందుబాటులో ఉంది"}</span>
                           </td>
                           <td>
                             <a

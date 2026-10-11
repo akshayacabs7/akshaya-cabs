@@ -19,6 +19,7 @@ import type { Package } from "@/types";
 
 const STD_INCLUSIONS = [
   "AC vehicle with experienced driver",
+  "Wi‑Fi Available onboard",
   "Fuel charges",
   "Driver allowance",
 ];

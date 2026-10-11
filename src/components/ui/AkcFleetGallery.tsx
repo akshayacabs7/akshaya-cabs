@@ -208,10 +208,20 @@ export default function AkcFleetGallery({ locale }: Props) {
                         {catLabel}
                       </span>
 
-                      {/* AC badge */}
-                      {v.acStatus && (
-                        <span className="akc-veh-card__ac-badge">✓ AC</span>
-                      )}
+                      {/* AC & Wi-Fi badges */}
+                      <div className="akc-veh-card__top-right-badges">
+                        {v.acStatus && (
+                          <span className="akc-veh-card__ac-badge">✓ AC</span>
+                        )}
+                        {(v.wifiStatus ?? true) && (
+                          <span
+                            className="akc-veh-card__wifi-badge"
+                            aria-label={isEn ? "Wi‑Fi Available" : "Wi‑Fi సౌకర్యం అందుబాటులో ఉంది"}
+                          >
+                            📶 {isEn ? "Wi‑Fi Available" : "Wi‑Fi సౌకర్యం అందుబాటులో ఉంది"}
+                          </span>
+                        )}
+                      </div>
 
                       {/* Passenger count chip */}
                       <div className="akc-veh-card__pax-wrap">
