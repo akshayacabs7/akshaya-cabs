@@ -9,8 +9,8 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
     // Remote image domains (add as needed when using external CDNs)
     remotePatterns: [],
-    // Device sizes for responsive images — covers all SVTT target viewports
-    deviceSizes: [320, 360, 375, 390, 414, 430, 768, 820, 1024, 1280, 1366, 1440, 1536, 1920, 2560],
+    // Device sizes for responsive images — covers all standard & custom target viewports
+    deviceSizes: [320, 360, 375, 390, 414, 430, 640, 750, 768, 820, 828, 1024, 1080, 1200, 1280, 1366, 1440, 1536, 1920, 2560],
   },
 
   // Security headers

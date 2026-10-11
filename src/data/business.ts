@@ -53,6 +53,7 @@ export const BUSINESS = {
     full: "D.No. 18-38-S3-314, Madura Nagar, Tirupati, Andhra Pradesh 517501",
     // Google Maps link — verified from master plan
     mapsUrl: "https://maps.app.goo.gl/XcmrEFDmhH2uKPvg8?g_st=aw",
+    directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=Akshaya+Cabs,+Madura+Nagar,+Tirupati",
   },
 
   // ── Domain & deployment ──────────────────────────────────────

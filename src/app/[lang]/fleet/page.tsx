@@ -68,10 +68,19 @@ function paxLabel(seats: number, isTe: boolean): string {
   return `${p} + ${isTe ? "డ్రైవర్" : "driver"}`;
 }
 
+const CAT_LABEL_EN: Record<string, string> = {
+  sedan: "Sedan",
+  suv: "SUV",
+  van: "Van",
+  maxicab: "MaxiCAB",
+  tempo: "Tempo",
+};
+
 const CAT_LABEL_TE: Record<string, string> = {
   sedan: "సెడాన్",
   suv: "SUV",
   van: "వ్యాన్",
+  maxicab: "MaxiCAB",
   tempo: "టెంపో",
 };
 
@@ -164,7 +173,9 @@ export default async function FleetPage({
                 {VEHICLES.map((v) => {
                   const vehName = !isEn && v.nameTe ? v.nameTe : v.name;
                   const vehLabel = !isEn && v.labelTe ? v.labelTe : v.label;
-                  const vehCat = !isEn ? (CAT_LABEL_TE[v.category] ?? v.category) : v.category;
+                  const vehCat = !isEn
+                    ? (CAT_LABEL_TE[v.category] ?? v.category)
+                    : (CAT_LABEL_EN[v.category] ?? v.category);
                   const msg = isEn
                     ? `Hello Akshaya Cabs Tirupati!\n\nI would like to enquire about the ${v.name} (${v.seats} passengers).\n\nPlease share availability and pricing. Thank you!`
                     : `నమస్కారం అక్షయ క్యాబ్స్!\n\n${vehName} (${v.seats} మంది ప్రయాణికులు) బుకింగ్ గురించి వివరాలు పంచగలరా? ధన్యవాదాలు!`;

@@ -46,7 +46,7 @@ export const VEHICLES: Vehicle[] = [
     variants: ["Maruti Ertiga"],
     capacity: "6+1",
     seats: 6,   // 6 passengers
-    category: "van",
+    category: "suv",
     label: "Ideal for Families",
     labelTe: "కుటుంబాలకు ఆదర్శం",
     image: "/images/akshaya/vehicles/van-ertiga.webp",
@@ -74,7 +74,7 @@ export const VEHICLES: Vehicle[] = [
     category: "suv",
     label: "Ideal for Large Families",
     labelTe: "పెద్ద కుటుంబాలకు ప్రత్యేకం",
-    image: "/images/akshaya/vehicles/suv-innova.webp",
+    image: "/images/akshaya/vehicles/suv-innova(1).webp",
     imageAlt: "Toyota Innova — 7-seater AC SUV available for Tirupati cab hire",
     acStatus: true,
     wifiStatus: true,
@@ -121,11 +121,11 @@ export const VEHICLES: Vehicle[] = [
     variants: ["Chevrolet Tavera"],
     capacity: "8+1",
     seats: 8,   // 8 passengers
-    category: "van",
+    category: "maxicab",
     label: "Ideal for Large Groups",
     labelTe: "గ్రూప్ ప్రయాణాలకు అనుకూలం",
     image: "/images/akshaya/vehicles/minivan-tavera.webp",
-    imageAlt: "Chevrolet Tavera — 8-seater AC van available for group travel in Tirupati",
+    imageAlt: "Chevrolet Tavera — 8-seater AC MaxiCAB available for group travel in Tirupati",
     acStatus: true,
     wifiStatus: true,
     price: {

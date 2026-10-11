@@ -24,11 +24,11 @@ type SeatFilter = "any" | "1-4" | "5-7" | "8-12" | "13+";
 // ── Filter config ─────────────────────────────────────────────────
 
 const CAT_FILTERS: { id: Cat; labelEn: string; labelTe: string; emoji: string }[] = [
-  { id: "all",    labelEn: "All Vehicles",     labelTe: "అన్ని వాహనాలు",    emoji: "🚗" },
-  { id: "sedan",  labelEn: "Sedans",           labelTe: "సెడాన్",           emoji: "🚙" },
-  { id: "suv",    labelEn: "SUVs",             labelTe: "SUV",              emoji: "🚐" },
-  { id: "van",    labelEn: "Vans",             labelTe: "వ్యాన్",            emoji: "🚌" },
-  { id: "tempo",  labelEn: "Tempo Travellers", labelTe: "టెంపో ట్రావెల్లర్", emoji: "🚍" },
+  { id: "all",     labelEn: "All Vehicles",     labelTe: "అన్ని వాహనాలు",    emoji: "🚗" },
+  { id: "sedan",   labelEn: "Sedans",           labelTe: "సెడాన్",           emoji: "🚙" },
+  { id: "suv",     labelEn: "SUVs",             labelTe: "SUV",              emoji: "🚐" },
+  { id: "maxicab", labelEn: "MaxiCAB",          labelTe: "MaxiCAB",          emoji: "🚖" },
+  { id: "tempo",   labelEn: "Tempo Travellers", labelTe: "టెంపో ట్రావెల్లర్", emoji: "🚍" },
 ];
 
 const SEAT_FILTERS: { id: SeatFilter; labelEn: string; labelTe: string }[] = [
@@ -60,10 +60,11 @@ function formatPrice(n: number): string {
 }
 
 const CAT_BADGE_COLOR: Record<Vehicle["category"], string> = {
-  sedan: "#0FAF9D",
-  suv:   "#102B46",
-  van:   "#2563EB",
-  tempo: "#7C3AED",
+  sedan:   "#0FAF9D",
+  suv:     "#102B46",
+  van:     "#2563EB",
+  maxicab: "#2563EB",
+  tempo:   "#7C3AED",
 };
 
 const WA_NUMBER = BUSINESS.phone.primaryWhatsApp;
@@ -178,8 +179,20 @@ export default function AkcFleetGallery({ locale }: Props) {
                 const vehBestFor = !isEn && v.bestForTe ? v.bestForTe : v.bestFor;
                 const vehFeatures = !isEn && v.featuresTe && v.featuresTe.length > 0 ? v.featuresTe : v.features;
                 const catLabel = isEn
-                  ? (v.category.charAt(0).toUpperCase() + v.category.slice(1))
-                  : (CAT_FILTERS.find((f) => f.id === v.category)?.labelTe ?? v.category);
+                  ? (v.category === "suv"
+                      ? "SUV"
+                      : v.category === "maxicab"
+                      ? "MaxiCAB"
+                      : v.category === "sedan"
+                      ? "SEDAN"
+                      : v.category === "tempo"
+                      ? "TEMPO"
+                      : v.category.toUpperCase())
+                  : (v.category === "suv"
+                      ? "SUV"
+                      : v.category === "maxicab"
+                      ? "MaxiCAB"
+                      : (CAT_FILTERS.find((f) => f.id === v.category)?.labelTe ?? v.category));
 
                 const msg = isEn
                   ? `Hello Akshaya Cabs Tirupati!\n\nI would like to enquire about the ${v.name} (${pax(v)}).\n\nPlease share availability and pricing.\n\nThank you!`

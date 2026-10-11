@@ -31,7 +31,7 @@ export interface Vehicle {
   variants?: string[];      // e.g. ["Suzuki Dzire", "Honda Amaze", "Toyota Etios"]
   capacity: string;         // e.g. "4+1" (passengers + driver)
   seats: number;            // passenger seats ONLY (excluding driver)
-  category: "sedan" | "suv" | "van" | "tempo";
+  category: "sedan" | "suv" | "van" | "tempo" | "maxicab";
   label?: string;           // e.g. "Family", "Couple" — English
   labelTe?: string;         // Telugu label (TASK-07)
   image: string;            // /images/vehicles/... (existing licensed fallback)

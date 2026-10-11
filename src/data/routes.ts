@@ -95,6 +95,7 @@ export const CAB_ROUTES: CabRoute[] = [
       "Direct drop at CRO, guest houses, mutts, or cottage areas in Tirumala",
       "Luggage loading & unloading assistance for families and senior pilgrims",
       "All hill road vehicle permits and taxes arranged seamlessly",
+      "Need Tirumala darshan guidance? Ask our team about available official options",
     ],
     keyFeaturesTe: [
       "అతివేగాన్ని నివారించడానికి TTD 28-నిమిషాల కనీస ప్రయాణ నియమాన్ని ఖచ్చితంగా పాటించడం",
@@ -102,6 +103,7 @@ export const CAB_ROUTES: CabRoute[] = [
       "తిరుమలలోని CRO, గెస్ట్ హౌస్‌లు, మఠాలు లేదా కాటేజీల వద్ద నేరుగా డ్రాప్",
       "కుటుంబాలు మరియు వృద్ధ యాత్రికుల లగేజీ నిర్వహణలో సహాయం",
       "కొండ రోడ్డు పర్మిట్లు మరియు నిబంధనల పూర్తి నిర్వహణ",
+      "తిరుమల దర్శనం గురించి సహాయం కావాలా? అందుబాటులో ఉన్న అధికారిక విధానాల గురించి మా టీమ్ను సంప్రదించండి",
     ],
     fleetOptions: [
       { vehicleId: "sedan", name: "Dzire / Amaze / Etios", nameTe: "డిజైర్ / అమేజ్ / ఎటియోస్", capacity: "4 Passengers", capacityTe: "4 గురు ప్రయాణికులు", rateDescription: "From ₹1,500 (one-way drop) / ₹2,000 (round-trip base)", rateDescriptionTe: "₹1,500 నుండి (వన్-వే డ్రాప్) / ₹2,000 (రౌండ్-ట్రిప్ బేస్)" },

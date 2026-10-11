@@ -16,6 +16,7 @@
 import type { Metadata } from "next";
 import AkcHeroSection            from "@/components/home/AkcHeroSection";
 import AkcServicesSection        from "@/components/home/AkcServicesSection";
+import AkcDarshanAssistanceSection from "@/components/home/AkcDarshanAssistanceSection";
 import AkcFeaturedPackagesSection from "@/components/home/AkcFeaturedPackagesSection";
 import AkcDestinationsSection    from "@/components/home/AkcDestinationsSection";
 import AkcFleetPreviewSection    from "@/components/home/AkcFleetPreviewSection";
@@ -89,6 +90,9 @@ export default async function HomePage({
 
       {/* S2: All 9 service categories */}
       <AkcServicesSection locale={locale} />
+
+      {/* S2.5: Tirumala Darshan Assistance promotional feature */}
+      <AkcDarshanAssistanceSection locale={locale} />
 
       {/* S3: 3 featured tour packages */}
       <AkcFeaturedPackagesSection locale={locale} />

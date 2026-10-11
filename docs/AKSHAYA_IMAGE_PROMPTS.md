@@ -140,14 +140,14 @@ Professional automotive photograph of a white Maruti Suzuki Ertiga MPV (6-seater
 
 ---
 
-### IMG-V03 — SUV (Toyota Innova)
+### IMG-V03 — SUV (Classic Toyota Innova)
 - **File:** `suv-innova.webp`
 - **Dimensions:** 900 × 600 px (3:2)
 - **Save to:** `D:\Projects_OnlyAI\akshya-cabs\public\images\akshaya\vehicles\suv-innova.webp`
 - **Status:** Prompt Ready
 
 ```prompt
-Premium automotive photograph of a white Toyota Innova (7-seater SUV, 2020-2024 generation), 3/4 front angle, parked on a scenic ghat road with rolling green hills in the background, Andhra Pradesh geography. The vehicle is clean, polished, and spacious-looking. No number plates, no logos, no text visible. Warm morning light. Editorial travel-automotive photography quality. 3:2 landscape ratio.
+Authentic automotive travel photograph of a clean white classic Toyota Innova (1st generation facelift, 2012–2015 model, iconic Indian pilgrimage 7-seater MPV/SUV). Distinctive curved aerodynamic shape, teardrop-shaped headlights, classic three-slat horizontal chrome front grille, and round fog lamps on the lower bumper (distinct from the modern sharp Crysta). Shot in a three-quarter front angle, parked neatly on a paved scenic ghat road in Andhra Pradesh with lush green hills and soft morning sunrise light in the background. Pristine and well-maintained exterior. No number plates, no brand logos, no text or lettering anywhere on the car. Professional commercial travel photography, realistic natural lighting, crisp focus, 3:2 landscape aspect ratio.
 ```
 
 ---
@@ -760,6 +760,28 @@ Atmospheric early morning photograph of the historic Sri Kalahasteeswara Temple 
 | `blog-golden-temple.webp` | 1200 × 630 px (1.91:1) | Sripuram Golden Temple (Vellore) Guide (`IMG-B05`) | AI Generated |
 | `blog-kanipakam.webp` | 1200 × 630 px (1.91:1) | Kanipakam Vinayaka Temple Guide (`IMG-B06`) | AI Generated |
 | `blog-srikalahasti.webp` | 1200 × 630 px (1.91:1) | Sri Kalahasti Temple Guide (`IMG-B07`) | AI Generated |
+
+---
+
+### Folder 11: Tirumala Darshan Assistance Promotional Feature
+📁 **`D:\Projects_OnlyAI\akshya-cabs\public\images\akshaya\darshan\`**
+
+| Filename | Format / Size | Description | Source |
+|---|---|---|---|
+| `tirumala-darshan-assistance.webp` | 1200 × 800 px (3:2) | Tirumala Temple Golden Hour Editorial (`IMG-D01`) | AI Generated |
+
+---
+
+### IMG-D01 — Tirumala Darshan Assistance Feature Image
+- **File:** `tirumala-darshan-assistance.webp`
+- **Dimensions:** 1200 × 800 px (3:2 landscape ratio)
+- **Save to:** `D:\Projects_OnlyAI\akshya-cabs\public\images\akshaya\darshan\tirumala-darshan-assistance.webp`
+- **Public URL:** `/images/akshaya/darshan/tirumala-darshan-assistance.webp`
+- **Status:** Prompt Ready
+
+```prompt
+Premium South Indian pilgrimage travel photography: majestic landscape view of the Tirumala Sri Venkateswara Swamy temple atop the Seshachalam hills in Andhra Pradesh, India during early morning golden hour. The sacred Ananda Nilayam vimana tower and towering Dravidian gopuram with intricate golden carvings are bathed in warm, ethereal morning sunlight. Peaceful, spiritual atmosphere with soft morning mist rolling across the verdant hills in the background. Editorial travel documentary quality, crisp details, balanced 3:2 landscape composition, subject centered with natural breathing room for responsive cropping. Completely photorealistic. No people, no vehicles, no text, no captions, no watermarks, no logos, no political flags or symbols.
+```
 
 ---
 

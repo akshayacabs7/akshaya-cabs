@@ -64,6 +64,7 @@ export const SERVICES: Service[] = [
       "Available around the clock",
       "AC & Wi‑Fi vehicles for all group sizes",
       "Safe and punctual service",
+      "Need Tirumala darshan guidance? Ask our team about available official options",
     ],
     featuresTe: [
       "తిరుపతి నుండి తిరుమల మరియు తిరుగు ప్రయాణం",
@@ -71,6 +72,7 @@ export const SERVICES: Service[] = [
       "24 గంటలూ నిరంతర సేవ అందుబాటులో",
       "అన్ని బృంద పరిమాణాలకు AC & Wi‑Fi వాహనాలు",
       "సురక్షితమైన, సమయపాలన గల ప్రయాణం",
+      "తిరుమల దర్శనం గురించి సహాయం కావాలా? అందుబాటులో ఉన్న అధికారిక విధానాల గురించి మా టీమ్ను సంప్రదించండి",
     ],
     vehicles: ["dzire-amaze-etios", "ertiga", "innova", "innova-crysta"],
     cta: "Book Tirumala Taxi",

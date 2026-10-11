@@ -177,8 +177,8 @@ export default async function ContactPage({
   const primaryWaUrl   = primaryWhatsAppUrl();
   const secondaryWaUrl = secondaryWhatsAppUrl();
 
-  // Google Maps Directions link — no embed tracking
-  const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(BUSINESS.address.full)}`;
+  // Google Maps Directions link — uses verified business listing destination
+  const directionsUrl = BUSINESS.address.directionsUrl;
 
   const faqSchemaData = CONTACT_FAQS.map((faq) => ({
     question: isEn ? faq.q.en : faq.q.te,
@@ -380,6 +380,34 @@ export default async function ContactPage({
                     </address>
                     <span className={`akc-contact-card__hint${isEn ? "" : " lang-te"}`}>
                       {isEn ? "View on Google Maps ↗" : "Google Maps లో చూడండి ↗"}
+                    </span>
+                  </div>
+                </a>
+
+                {/* Tirumala Darshan Assistance */}
+                <a
+                  href={primaryWhatsAppUrl(
+                    isEn
+                      ? "Hello Akshaya Cabs, I would like to enquire about Tirumala darshan assistance and cab services. Please share the available options and details."
+                      : "నమస్కారం అక్షయ క్యాబ్స్, నాకు తిరుమల దర్శన సహాయం మరియు క్యాబ్ సర్వీసుల గురించి వివరాలు కావాలి. దయచేసి అందుబాటులో ఉన్న అవకాశాలను తెలియజేయండి."
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="akc-contact-card"
+                  aria-label={isEn ? "Enquire about Tirumala Darshan Assistance" : "తిరుమల దర్శన సహాయం గురించి సంప్రదించండి"}
+                >
+                  <span className="akc-contact-card__icon">🕉️</span>
+                  <div className="akc-contact-card__body">
+                    <span className="akc-contact-card__label">
+                      {isEn ? "Darshan Assistance" : "దర్శన సహాయం"}
+                    </span>
+                    <span className="akc-contact-card__value akc-contact-card__value--sm">
+                      {isEn ? "Guidance & Cabs" : "మార్గదర్శనం & క్యాబ్‌లు"}
+                    </span>
+                    <span className={`akc-contact-card__hint${isEn ? "" : " lang-te"}`}>
+                      {isEn
+                        ? "Need Tirumala darshan guidance? Ask our team about available official options"
+                        : "తిరుమల దర్శనం గురించి సహాయం కావాలా? అందుబాటులో ఉన్న అధికారిక విధానాల గురించి మా టీమ్ను సంప్రదించండి"}
                     </span>
                   </div>
                 </a>

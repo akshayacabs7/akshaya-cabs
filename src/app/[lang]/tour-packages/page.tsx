@@ -117,8 +117,8 @@ export default async function TourPackagesPage({
 
           <p className="akc-pkgpage-hero__note">
             ✓ {isEn
-              ? "All prices include driver & fuel · Toll, parking & state permits are extra (paid by customer)"
-              : "అన్ని ధరలు డ్రైవర్ & ఇంధనాన్ని చేర్చుతాయి · టోల్, పార్కింగ్ & రాష్ట్ర పర్మిట్లు అదనం (కస్టమర్ చెల్లిస్తారు)"}
+              ? "All prices include driver & fuel · Need Tirumala darshan guidance? Ask our team about available official options."
+              : "అన్ని ధరలు డ్రైవర్ & ఇంధనాన్ని చేర్చుతాయి · తిరుమల దర్శనం గురించి సహాయం కావాలా? అందుబాటులో ఉన్న అధికారిక విధానాల గురించి మా టీమ్ను సంప్రదించండి."}
           </p>
         </div>
       </header>
